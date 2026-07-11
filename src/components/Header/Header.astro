@@ -1,7 +1,9 @@
 ---
+import './style.scss';
+
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
-const isActive = (href) => {
+const isActive = (href: string) => {
   if (href === '/portfolio') return currentPath.startsWith('/portfolio');
   return currentPath === href;
 };

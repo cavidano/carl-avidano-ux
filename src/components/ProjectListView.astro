@@ -20,7 +20,7 @@ interface Props {
 const { projects = [] } = Astro.props as Props;
 ---
 <div class="grid gap-3 margin-y-5">
-  {projects.map((project) => (
+  {projects.map((project: ProjectListItem) => (
     <section
       class="theme-primary container"
       aria-labelledby={`project-${project.slug}`}

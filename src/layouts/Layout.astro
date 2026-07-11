@@ -1,5 +1,5 @@
 ---
-import Footer from '../components/site/Footer.astro';
+import Footer from '../components/Footer.astro';
 import '@natura11y/icons/dist/natura11y-icons.css';
 import '../styles/global.scss';
 
@@ -36,6 +36,9 @@ const {
     <Footer />
     <script is:inline>
       (() => {
+        /**
+         * @param {string} theme
+         */
         const setTheme = (theme) => {
           document.documentElement.className = theme === 'light' ? 'theme-canvas' : 'theme-dark';
           localStorage.setItem('preferred-theme', theme);

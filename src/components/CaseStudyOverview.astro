@@ -1,13 +1,29 @@
 ---
-import Button from '../site/Button.astro';
-import KeyResults from './KeyResults/index.astro';
+import Button from './Button.astro';
+import KeyResults from './KeyResults/KeyResults.astro';
 import KeyResultsCard from './KeyResults/KeyResultsCard.astro';
 
 const ACTIVITIES_HEADING = 'Activities at a glance';
 
+interface KeyResult {
+  stat: string;
+  description: string;
+}
+
+interface CaseStudy {
+  activitiesAtAGlance?: string[];
+  projectUrl?: string | null;
+  projectButtonLabel?: string;
+  keyResults?: KeyResult[];
+}
+
+interface Props {
+  caseStudy?: CaseStudy;
+}
+
 const {
   caseStudy = {}
-} = Astro.props;
+} = Astro.props as Props;
 
 const {
   activitiesAtAGlance = [],
@@ -44,7 +60,7 @@ const hasKeyResults = keyResultItems.length > 0;
                 <>
                   <h2 class="h5">{ACTIVITIES_HEADING}</h2>
                   <ul class="bulleted margin-bottom-0">
-                    {activityItems.map((activity) => (
+                    {activityItems.map((activity: string) => (
                       <li>{activity}</li>
                     ))}
                   </ul>
@@ -71,7 +87,7 @@ const hasKeyResults = keyResultItems.length > 0;
 
     {hasKeyResults && (
       <KeyResults>
-        {keyResultItems.map(({ stat, description }) => (
+        {keyResultItems.map(({ stat, description }: KeyResult) => (
           <KeyResultsCard stat={stat} description={description} />
         ))}
       </KeyResults>

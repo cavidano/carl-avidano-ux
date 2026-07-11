@@ -1,9 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/site/Header.astro';
+import Header from '../components/Header/Header.astro';
 import { getResume } from '../lib/resume.js';
 
-const resume = getResume();
+interface ResumeJob {
+  company: string;
+  title: string;
+  dates: string;
+  description: string | string[];
+}
+
+interface ResumeData {
+  pageTitle: string;
+  summary: string;
+  experience: ResumeJob[];
+  skills: string[];
+  tools: string[];
+  earlyExperience: {
+    title: string;
+    description: string;
+  };
+  education: {
+    school: string;
+    credential: string;
+  };
+  pdf: {
+    label: string;
+    href: string;
+  };
+  meta: {
+    title: string;
+    description: string;
+  };
+}
+
+const resume = getResume() as ResumeData;
 const {
   pageTitle,
   summary,
@@ -31,7 +62,7 @@ const {
             <h2 class="h3 margin-bottom-4">Relevant Experience</h2>
 
             <div class="grid gap-5">
-              {experience.map((job, index) => (
+              {experience.map((job: ResumeJob, index: number) => (
                 <section aria-labelledby={`job-title-${index}`}>
                   <div class="margin-bottom-2">
                     <h3 class="h4" id={`job-title-${index}`}>{job.title}</h3>
@@ -43,7 +74,7 @@ const {
 
                   {Array.isArray(job.description) ? (
                     <ul class="bulleted">
-                      {job.description.map((item) => (
+                      {job.description.map((item: string) => (
                         <li><p>{item}</p></li>
                       ))}
                     </ul>
@@ -66,14 +97,14 @@ const {
             <section>
               <h2 class="h6 margin-bottom-1">Skills</h2>
               <ul class="list-unstyled">
-                {skills.map((skill) => <li>{skill}</li>)}
+                {skills.map((skill: string) => <li>{skill}</li>)}
               </ul>
             </section>
 
             <section>
               <h2 class="h6 margin-bottom-1">Tools</h2>
               <ul class="list-unstyled">
-                {tools.map((tool) => <li>{tool}</li>)}
+                {tools.map((tool: string) => <li>{tool}</li>)}
               </ul>
             </section>
 

@@ -1,26 +1,43 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/site/Header.astro';
+import Header from '../../components/Header/Header.astro';
 import { getAllProjects, getProjectBySlug } from '../../lib/projects.js';
-import CaseStudyOverview from '../../components/ui/CaseStudyOverview.astro';
-import Divider from '../../components/ui/Divider.astro';
-import FigureSideBySide from '../../components/ui/FigureSideBySide.astro';
-import FigureSingle from '../../components/ui/FigureSingle.astro';
-import IntroBlock from '../../components/ui/IntroBlock.astro';
-import LinkOpenNew from '../../components/ui/LinkOpenNew.astro';
-import ProjectLinkButton from '../../components/ui/ProjectLinkButton.astro';
-import TextBlock from '../../components/ui/TextBlock.astro';
-import ThemeWrapper from '../../components/ui/ThemeWrapper.astro';
+import CaseStudyOverview from '../../components/CaseStudyOverview.astro';
+import Divider from '../../components/Divider.astro';
+import FigureSideBySide from '../../components/FigureSideBySide.astro';
+import FigureSingle from '../../components/FigureSingle.astro';
+import IntroBlock from '../../components/IntroBlock.astro';
+import LinkOpenNew from '../../components/LinkOpenNew.astro';
+import ProjectLinkButton from '../../components/ProjectLinkButton.astro';
+import TextBlock from '../../components/TextBlock.astro';
+import ThemeWrapper from '../../components/ThemeWrapper.astro';
+
+interface ProjectFrontmatter {
+  title: string;
+  description: string;
+  tagline?: string;
+  primaryColor: string;
+  primaryTextColor: string;
+  secondaryColor: string;
+  secondaryTextColor: string;
+}
+
+interface Project {
+  slug: string;
+  marqueeImageUrl: string;
+  Content: any;
+  frontmatter: ProjectFrontmatter;
+}
 
 export function getStaticPaths() {
-  return getAllProjects().map((project) => ({
+  return (getAllProjects() as Project[]).map((project: Project) => ({
     params: {
       slug: project.slug
     }
   }));
 }
 
-const project = getProjectBySlug(Astro.params.slug);
+const project = getProjectBySlug(Astro.params.slug) as Project | undefined;
 
 if (!project) {
   return Astro.redirect('/404');
