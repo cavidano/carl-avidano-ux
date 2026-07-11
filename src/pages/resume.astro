@@ -35,6 +35,7 @@ interface ResumeData {
 }
 
 const resume = getResume() as ResumeData;
+
 const {
   pageTitle,
   summary,
@@ -47,22 +48,31 @@ const {
   meta
 } = resume;
 ---
+
 <Layout title={meta.title} description={meta.description}>
+  
   <Header />
 
   <main class="container wide" id="skip-header-target">
+    
     <div class="grid grid--divider margin-y-5 gap-6">
+      
       <section>
         <h1 class="banner-headline">{pageTitle}</h1>
       </section>
 
       <div class="grid grid--column-3--xl gap-5">
+        
         <div class="grid__colspan-2--xl order-2--xl">
+          
           <div class="medium">
+            
             <h2 class="h3 margin-bottom-4">Relevant Experience</h2>
 
             <div class="grid gap-5">
+              
               {experience.map((job: ResumeJob, index: number) => (
+                
                 <section aria-labelledby={`job-title-${index}`}>
                   <div class="margin-bottom-2">
                     <h3 class="h4" id={`job-title-${index}`}>{job.title}</h3>
@@ -83,12 +93,17 @@ const {
                   )}
                 </section>
               ))}
+            
             </div>
+          
           </div>
+        
         </div>
 
         <aside class="grid__colspan-1--xl order-1--xl">
+          
           <div class="grid gap-4 font-size-md" style="max-width: var(--article-sidebar-width);">
+            
             <section>
               <h2 class="h6 margin-bottom-1">Summary</h2>
               <p>{summary}</p>
@@ -120,8 +135,11 @@ const {
               </p>
               <p class="font-size-md">{education.credential}</p>
             </section>
+          
           </div>
+        
         </aside>
+      
       </div>
 
       <section>
@@ -133,6 +151,9 @@ const {
           </a>
         </div>
       </section>
+    
     </div>
+  
   </main>
+
 </Layout>

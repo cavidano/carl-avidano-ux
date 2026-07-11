@@ -16,18 +16,20 @@ export function resolveImage(imagePath) {
 
 export function getAllProjects() {
   return Object.entries(projectModules)
-    .map(([path, module]) => {
+    .flatMap(([path, module]) => {
       const slug = path.match(/\/portfolio\/([^/]+)\.mdx$/)?.[1];
 
-      return {
+      if (!slug) return [];
+
+      return [{
         id: path,
         slug,
         Content: module.default,
         frontmatter: module.frontmatter,
         marqueeImage: resolveImage(module.frontmatter?.marqueeImage)
-      };
+      }];
     })
-    .filter((project) => project.slug && project.frontmatter?.published !== false)
+    .filter((project) => project.frontmatter?.published !== false)
     .sort((a, b) => (a.frontmatter.sortOrder ?? 999) - (b.frontmatter.sortOrder ?? 999));
 }
 
