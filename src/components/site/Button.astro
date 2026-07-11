@@ -1,0 +1,19 @@
+---
+const {
+  href = '#',
+  title = 'Button',
+  outline = false,
+  utilities = '',
+  iconStartHandle = null,
+  iconEndHandle = null,
+  target = null,
+  rel = null
+} = Astro.props;
+
+const classes = ['button', outline && 'button--outline', utilities].filter(Boolean).join(' ');
+---
+<a class={classes} href={href} target={target} rel={rel}>
+  {iconStartHandle && <span class={`icon icon-${iconStartHandle}`} aria-hidden="true"></span>}
+  <span class="text">{title}</span>
+  {iconEndHandle && <span class={`icon icon-${iconEndHandle}`} aria-hidden="true"></span>}
+</a>

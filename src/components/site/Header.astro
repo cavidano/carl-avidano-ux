@@ -1,0 +1,43 @@
+---
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const isActive = (href) => {
+  if (href === '/portfolio') return currentPath.startsWith('/portfolio');
+  return currentPath === href;
+};
+---
+<div class="container wide">
+  <header class="header">
+    <a class="header__logo" href="/" aria-label="Carl Avidano home">
+      <span class="h5">
+        <strong>Carl Avidano</strong>
+      </span>
+    </a>
+
+    <ul class="header__title">
+      <li>User Experience</li>
+      <li>Accessibility</li>
+      <li>Design Systems</li>
+    </ul>
+
+    <nav class="header__nav" aria-label="Primary navigation">
+      <ul class="nav nav--horizontal">
+        <li>
+          <a href="/portfolio" class:list={{ 'is-active': isActive('/portfolio') }}>
+            <span class="nav__text">Portfolio</span>
+          </a>
+        </li>
+        <li>
+          <a href="/resume" class:list={{ 'is-active': isActive('/resume') }}>
+            <span class="nav__text">Resume</span>
+          </a>
+        </li>
+        <li>
+          <a href="/about" class:list={{ 'is-active': isActive('/about') }}>
+            <span class="nav__text">About</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>

@@ -1,0 +1,79 @@
+//////////////////////////////////////////////
+// Key Results Grid
+//////////////////////////////////////////////
+
+.key-results-grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  row-gap: var(--spacer-3);
+}
+
+//////////////////////////////////////////////
+// Key Results Card
+//////////////////////////////////////////////
+
+.key-results-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  gap: var(--spacer-3);
+
+  &__stat {
+    container-type: inline-size;
+
+    width: 104px;
+    aspect-ratio: 1 / 1;
+    
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border: calc(var(--border-width) * 3) var(--border-style) var(--primary, var(--subtle-fill-2));
+    border-radius: 100%;
+
+    padding: var(--spacer-2);
+  }
+
+  &__stat-text {
+    font-size: 30cqi;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+  }
+
+  &__description {
+    font-size: var(--font-size-md);
+  }
+}
+
+@media (min-width: 768px) {
+
+  .key-results-grid {
+    justify-content: center;
+    row-gap: var(--spacer-4);
+  }
+
+  .key-results-card {
+    flex-direction: column;
+    
+    width: 33.33%;
+
+    &__stat {
+      width: 200px;
+    }
+
+    &__stat-text {
+      font-size: 20cqi;
+    }
+
+    &__description {
+      text-align: center;
+      padding-inline: var(--container-padding-x);
+    }
+  }
+}

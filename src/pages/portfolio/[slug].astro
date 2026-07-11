@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/site/Header.astro';
+import { getAllProjects, getProjectBySlug } from '../../lib/projects.js';
+import { getProjectMdxComponents } from '../../lib/mdx-components.js';
+
+export function getStaticPaths() {
+  return getAllProjects().map((project) => ({
+    params: {
+      slug: project.slug
+    }
+  }));
+}
+
+const project = getProjectBySlug(Astro.params.slug);
+
+if (!project) {
+  return Astro.redirect('/404');
+}
+
+const { Content, frontmatter } = project;
+const caseStudy = frontmatter.caseStudy || {};
+const mdxComponents = getProjectMdxComponents(caseStudy);
+const title = `${frontmatter.title} • Carl Avidano • UX Manager`;
+const description = frontmatter.description;
+const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-text: ${frontmatter.primaryTextColor}; --secondary: ${frontmatter.secondaryColor}; --secondary-text: ${frontmatter.secondaryTextColor};`;
+---
+<Layout title={title} description={description}>
+  <div class="theme-primary overflow-hidden" style={projectThemeStyles}>
+    <div>
+      <Header />
+
+      <header class="marquee">
+        <div class="container wide">
+          <div class="grid grid--column-7--xl align-items-end--xl gap-5--xl margin-top-5">
+            <div class="grid__colspan-3--xl">
+              <div class="margin-y-5">
+                <h1 class="banner-headline">{frontmatter.title}</h1>
+                <p>{frontmatter.tagline || frontmatter.description}</p>
+              </div>
+            </div>
+
+            <div class="grid__colspan-4--xl">
+              <img class="project-image" src={project.marqueeImageUrl} alt="" />
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main id="skip-header-target" style={projectThemeStyles}>
+    <article class="margin-y-5">
+      <Content components={mdxComponents} />
+    </article>
+  </main>
+</Layout>

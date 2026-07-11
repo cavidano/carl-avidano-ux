@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/site/Header.astro';
+import Button from '../components/site/Button.astro';
+import ProjectListView from '../components/site/ProjectListView.astro';
+import { getFeaturedProjects } from '../lib/projects.js';
+
+const projects = getFeaturedProjects();
+const title = 'Carl Avidano • UX Manager';
+const description = 'Carl Avidano is a UX manager specializing in digital accessibility and design systems across government, nonprofit, education, healthcare, and civic tech.';
+---
+<Layout title={title} description={description}>
+  <Header />
+
+  <main id="skip-header-target">
+    <section class="margin-y-5">
+      <header class="container wide">
+        <div class="width-80--xxl">
+          <h1 class="banner-headline">
+            I'm a UX leader specializing in digital accessibility and design systems
+          </h1>
+        </div>
+      </header>
+
+      <div class="container--md wide--md">
+        <ProjectListView projects={projects} />
+      </div>
+
+      <div class="container wide margin-y-5">
+        <Button href="/portfolio" utilities="theme-primary" title="Explore My Work" />
+      </div>
+    </section>
+
+    <div class="container wide margin-y-5">
+      <hr />
+    </div>
+
+    <section class="container wide margin-y-5">
+      <header class="width-80">
+        <h2 class="screen-reader-only">About Me</h2>
+      </header>
+
+      <ul class="grid grid--column-2--lg gap-5 margin-y-5">
+        <li>
+          <h3 class="h2">Who I am</h3>
+          <p>
+            I'm a UX manager, researcher, and inclusive design advocate with more than two decades of experience across government, nonprofits, education, healthcare, and civic technology.
+          </p>
+        </li>
+
+        <li>
+          <h3 class="h2">What I do</h3>
+          <p>
+            I help organizations understand user needs, align stakeholders, and lead the design of accessible digital products through research, design systems, and front-end expertise.
+          </p>
+        </li>
+      </ul>
+
+      <div>
+        <Button href="/about" utilities="theme-primary" title="About Me" />
+      </div>
+    </section>
+  </main>
+</Layout>

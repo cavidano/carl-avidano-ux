@@ -1,0 +1,57 @@
+---
+import Footer from '../components/site/Footer.astro';
+import '../styles/global.scss';
+
+const {
+  title = 'Carl Avidano • UX Manager',
+  description = 'Carl Avidano is a UX manager specializing in digital accessibility and design systems.'
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="theme-dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem('preferred-theme') || 'dark';
+          document.documentElement.className = savedTheme === 'light' ? 'theme-canvas' : 'theme-dark';
+        } catch {
+          document.documentElement.className = 'theme-dark';
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="skip-links">
+      <a href="#skip-header-target">Jump to main content</a>
+    </div>
+    <slot />
+    <Footer />
+    <script is:inline>
+      (() => {
+        const setTheme = (theme) => {
+          document.documentElement.className = theme === 'light' ? 'theme-canvas' : 'theme-dark';
+          localStorage.setItem('preferred-theme', theme);
+        };
+
+        document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+          const nextTheme = document.documentElement.classList.contains('theme-canvas') ? 'dark' : 'light';
+          setTheme(nextTheme);
+        });
+
+        document.querySelector('[data-back-to-top]')?.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

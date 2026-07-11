@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/site/Header.astro';
+import ProjectListView from '../../components/site/ProjectListView.astro';
+import { getMainProjects } from '../../lib/projects.js';
+
+const projects = getMainProjects();
+const title = 'Portfolio • Carl Avidano • UX Manager';
+const description = 'Explore UX strategy, accessibility, design systems, research, and front-end work for Phoenix.gov, NYC OTI, UNICEF, Visionlearning, and nonprofits.';
+---
+<Layout title={title} description={description}>
+  <Header />
+
+  <main id="skip-header-target">
+    <section class="container wide">
+      <header class="margin-y-5">
+        <h1 class="banner-headline margin-bottom-3">Explore my work</h1>
+        <div class="narrow">
+          <p>
+            I've led and collaborated on high-impact digital projects for city, state, and federal government agencies and global nonprofits.
+          </p>
+        </div>
+      </header>
+
+      <ProjectListView projects={projects} />
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/site/Header.astro';
+import AboutContent, { frontmatter } from '../content/pages/about.mdx';
+import AboutHeading from '../components/ui/AboutHeading.jsx';
+import portraitUrl from '../images/carl-avidano-16x9.jpg?url';
+
+const { title, description, portraitAlt, profile, cta } = frontmatter;
+const mdxComponents = {
+  h1: AboutHeading
+};
+---
+<Layout title={title} description={description}>
+  <Header />
+
+  <main class="container wide" id="skip-header-target">
+    <div class="margin-y-5 position-relative">
+      <img class="project-image" src={portraitUrl} alt={portraitAlt} />
+    </div>
+
+    <article class="border-top padding-y-4">
+      <div class="grid grid--column-4--lg gap-3">
+        <div class="grid__colspan-3 grid__colspan-2--xl order-2--xl">
+          <AboutContent components={mdxComponents} />
+
+          <a class="button theme-primary font-size-md" href={cta.href} target="_blank" rel="noreferrer">
+            <span class="text">{cta.label}</span>
+            <span class="icon icon-open-new font-size-sm" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="grid__colspan-2--xl order-1--xl">
+          <div class="grid grid--column-2--xl gap-3">
+            <div>
+              <p class="h6">{profile.name}</p>
+              <p>{profile.pronouns}</p>
+            </div>
+
+            <div class="font-size-md">
+              <p class="margin-bottom-2">
+                <strong class="display-block">{profile.location}</strong>
+                <span class="display-block">
+                  <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                </span>
+                <span class="display-block">{profile.phone}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>

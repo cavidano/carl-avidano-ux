@@ -1,0 +1,32 @@
+{
+  "name": "carl-avidano-ux-astro",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Rebuild the Carl Avidano UX portfolio as a clean Astro site powered by Natura11y, preserving the current content and design while removing Gatsby.",
+  "author": "Carl Avidano",
+  "type": "module",
+  "keywords": [
+    "astro",
+    "natura11y",
+    "portfolio"
+  ],
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "latest",
+    "@astrojs/react": "latest",
+    "@astrojs/sitemap": "latest",
+    "astro": "latest",
+    "classnames": "^2.5.1",
+    "natura11y": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "sass": "latest",
+    "yaml": "latest"
+  },
+  "devDependencies": {}
+}
