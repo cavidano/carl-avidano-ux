@@ -12,6 +12,7 @@ const {
 
 const classes = ['button', outline && 'button--outline', utilities].filter(Boolean).join(' ');
 ---
+
 <a class={classes} href={href} target={target} rel={rel}>
   {iconStartHandle && <span class={`icon icon-${iconStartHandle}`} aria-hidden="true"></span>}
   <span class="text">{title}</span>

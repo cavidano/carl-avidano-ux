@@ -1,41 +1,90 @@
+/*
+
+In this file:
+
+// A. Imports
+// B. Variables
+// C. Responsive Variables
+// D. Base Styles
+// E. Utilities
+// F. Media
+// G. Marquee
+// H. Backdrop Links
+// I. Example Tabs
+
+*/
+
+//////////////////////////////////////////////
+// A. Imports
+//////////////////////////////////////////////
+
+@use '@natura11y/core/src/scss/breakpoint';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
 :root {
   --dark: #1a1a1a;
   --canvas: #f9f9f9;
+
   --primary: var(--link-color);
   --primary-text: var(--background-color);
+
   --canvas-border: currentColor;
   --dark-border: currentColor;
   --primary-border: currentColor;
+
   --body-font-family: 'Inclusive Sans', sans-serif;
+
   --font-weight-normal: 400;
+
   --base-font-size: 1.125rem;
   --type-scale: 1.175;
-  --banner-headline-font-weight: var(--font-weight-bold);
-  --header-line-height: 1.25;
-  --nav-gap: 1.5em;
-  --button-border-radius: 0;
+
   --body-line-height: 1.62;
+  --header-line-height: 1.25;
+
+  --banner-headline-font-weight: var(--font-weight-bold);
+
   --paragraph-margin-bottom: 1.5em;
-  --grid-divider-gap: var(--border-width);
-  --html-scroll-behavior: auto;
+
   --narrow-width: 50rem;
   --medium-width: calc(var(--narrow-width) * 1.5);
   --wide-width: calc(var(--narrow-width) * 2.25);
+
+  --nav-gap: 1.5em;
+
+  --button-border-radius: 0;
+
+  --grid-divider-gap: var(--border-width);
+
+  --html-scroll-behavior: auto;
+
   --backdrop-outline-gap-color: var(--background-color);
   --backdrop-shadow-outline-color: var(--link-color);
   --backdrop-shadow-outline-size: 4px;
 }
 
-@media screen and (max-width: 768px) {
+//////////////////////////////////////////////
+// C. Responsive Variables
+//////////////////////////////////////////////
+
+@include breakpoint.breakpoint-down(md) {
   :root {
     --type-scale: 1.125;
   }
 }
 
+//////////////////////////////////////////////
+// D. Base Styles
+//////////////////////////////////////////////
+
 button[disabled] {
   --opacity: 0.375;
-  opacity: var(--opacity);
+
   cursor: not-allowed;
+  opacity: var(--opacity);
 
   &:hover {
     opacity: var(--opacity);
@@ -47,24 +96,90 @@ button[disabled] {
   }
 }
 
+:is(img, picture) {
+  height: auto;
+}
+
+//////////////////////////////////////////////
+// E. Utilities
+//////////////////////////////////////////////
+
 hr.divider {
   margin-block: var(--spacer-5);
   max-width: calc(var(--narrow-width) - calc(var(--container-padding-x) * 2));
 }
 
+.icon--rotate {
+  animation: rotate360 1.75s linear infinite;
+}
+
+.list-unstyled {
+  list-style: none;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+}
+
+.bulleted {
+  --paragraph-margin-bottom: 0.5em;
+
+  margin-inline-start: 0;
+  padding-inline-start: 1.5em;
+
+  li:has(p):not(:last-child) {
+    margin-bottom: var(--paragraph-margin-bottom);
+  }
+
+  &.bulleted--columns {
+    column-count: 1;
+    column-gap: var(--spacer-3);
+
+    @include breakpoint.breakpoint-up(md) {
+      column-count: 2;
+    }
+
+    li {
+      break-inside: avoid;
+    }
+  }
+
+  &.bulleted--columns-3 {
+    @include breakpoint.breakpoint-up(lg) {
+      column-count: 3;
+    }
+  }
+}
+
+//////////////////////////////////////////////
+// F. Media
+//////////////////////////////////////////////
+
+figure img,
+.project-image {
+  max-width: 100%;
+  width: 100%;
+}
+
+//////////////////////////////////////////////
+// G. Marquee
+//////////////////////////////////////////////
+
 .marquee {
+  container-name: marquee;
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   position: relative;
-  container-type: inline-size;
-  container-name: marquee;
 }
 
+//////////////////////////////////////////////
+// H. Backdrop Links
+//////////////////////////////////////////////
+
 a.backdrop {
-  display: block;
-  overflow: hidden;
-  outline: var(--backdrop-shadow-outline-size) solid transparent;
   box-shadow: 0 0 0 0 var(--backdrop-shadow-outline-color);
+  display: block;
+  outline: var(--backdrop-shadow-outline-size) solid transparent;
+  overflow: hidden;
   transition:
     box-shadow 0.25s ease-in-out,
     transform 0.25s ease-in-out,
@@ -76,8 +191,8 @@ a.backdrop {
 
   &:focus-visible,
   &:hover {
-    outline: var(--backdrop-shadow-outline-size) solid var(--backdrop-outline-gap-color);
     box-shadow: 0 0 0 10px var(--backdrop-shadow-outline-color);
+    outline: var(--backdrop-shadow-outline-size) solid var(--backdrop-outline-gap-color);
     transform: scale(1.025);
 
     img {
@@ -87,48 +202,14 @@ a.backdrop {
   }
 }
 
-.icon--rotate {
-  animation: rotate360 1.75s linear infinite;
-}
-
-.list-unstyled {
-  list-style: none;
-  padding-inline-start: 0;
-  margin-inline-start: 0;
-}
-
-.bulleted {
-  --paragraph-margin-bottom: 0.5em;
-  padding-inline-start: 1.5em;
-  margin-inline-start: 0;
-
-  li:has(p):not(:last-child) {
-    margin-bottom: var(--paragraph-margin-bottom);
-  }
-
-  &.bulleted--columns {
-    column-count: 1;
-    column-gap: var(--spacer-3);
-
-    @media screen and (min-width: 768px) {
-      column-count: 2;
-    }
-
-    li {
-      break-inside: avoid;
-    }
-  }
-
-  &.bulleted--columns-3 {
-    @media screen and (min-width: 1024px) {
-      column-count: 3;
-    }
-  }
-}
+//////////////////////////////////////////////
+// I. Example Tabs
+//////////////////////////////////////////////
 
 .example-tabs {
   --tab-nav-pill-active-text-color: var(--background-color);
   --tab-nav-pill-active-background-color: var(--link-color);
+
   font-size: var(--font-size-md);
 
   [class*='__button'] {
@@ -138,14 +219,4 @@ a.backdrop {
       text-decoration: underline;
     }
   }
-}
-
-figure img,
-.project-image {
-  max-width: 100%;
-  width: 100%;
-}
-
-:is(img, picture){
-  height: auto;
 }

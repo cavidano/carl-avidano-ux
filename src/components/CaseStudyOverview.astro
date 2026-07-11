@@ -40,7 +40,9 @@ const hasActivities = activityItems.length > 0;
 const hasProjectLink = Boolean(projectUrl);
 const hasKeyResults = keyResultItems.length > 0;
 ---
+
 {(hasOverview || hasActivities || hasProjectLink || hasKeyResults) && (
+  
   <div class="container wide">
     {(hasOverview || hasActivities || hasProjectLink) && (
       <div
