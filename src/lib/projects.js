@@ -1,4 +1,4 @@
-const projectModules = import.meta.glob('/src/content/portfolio/*/index.mdx', { eager: true });
+const projectModules = import.meta.glob('/src/content/portfolio/*.mdx', { eager: true });
 const imageModules = import.meta.glob('/src/images/**/*.{avif,gif,jpeg,jpg,png,svg,webp}', {
   eager: true,
   import: 'default',
@@ -18,7 +18,7 @@ export function resolveImageUrl(imagePath) {
 export function getAllProjects() {
   return Object.entries(projectModules)
     .map(([path, module]) => {
-      const slug = path.match(/\/portfolio\/([^/]+)\/index\.mdx$/)?.[1];
+      const slug = path.match(/\/portfolio\/([^/]+)\.mdx$/)?.[1];
 
       return {
         id: path,
