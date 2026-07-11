@@ -20,10 +20,9 @@ caseStudy:
     - Open-source maintenance and releases
 ---
 
-import FigureSideBySide from '../../../components/ui/FigureSideBySide';
 import natura11yEcosystemLogos from '../../../images/natura11y/natura11y-ecosystem-logos.svg?url';
 
-<CaseStudyOverview>
+<CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
 ## Why I built Natura11y
 
@@ -73,13 +72,13 @@ The Figma UI Kit provides a collection of components and layouts that perfectly 
 
 <FigureSideBySide>
 
-<FigureSingle caption="Lo-fi Figma UI Kit">
+<FigureSingle caption="Lo-fi Figma UI Kit" isContained={false} margin='margin-y-0'>
 
 ![Natura11y lo-fi Figma UI Kit](<../../../images/natura11y/Natura11y Figma Lo-fi Kit.png>)
 
 </FigureSingle>
 
-<FigureSingle caption="Hi-fi Figma UI Kit">
+<FigureSingle caption="Hi-fi Figma UI Kit" isContained={false} margin='margin-y-0'>
 
 ![Natura11y hi-fi Figma UI Kit](<../../../images/natura11y/Natura11y Figma Hi-fi Kit.png>)
 

@@ -1,0 +1,22 @@
+---
+import Button from '../site/Button.astro';
+
+const {
+  title = 'View project',
+  linkUrl = '#1',
+  iconEndHandle = 'open-new',
+  target = '_blank',
+  rel = 'noreferrer',
+  utilities = 'button--outline text-color-link font-size-sm'
+} = Astro.props;
+---
+<div class="container wide margin-y-4">
+  <Button
+    href={linkUrl}
+    title={title}
+    iconEndHandle={iconEndHandle}
+    target={target}
+    rel={rel}
+    utilities={utilities}
+  />
+</div>

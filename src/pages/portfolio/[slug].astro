@@ -2,7 +2,15 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/site/Header.astro';
 import { getAllProjects, getProjectBySlug } from '../../lib/projects.js';
-import { getProjectMdxComponents } from '../../lib/mdx-components.js';
+import CaseStudyOverview from '../../components/ui/CaseStudyOverview.astro';
+import Divider from '../../components/ui/Divider.astro';
+import FigureSideBySide from '../../components/ui/FigureSideBySide.astro';
+import FigureSingle from '../../components/ui/FigureSingle.astro';
+import IntroBlock from '../../components/ui/IntroBlock.astro';
+import LinkOpenNew from '../../components/ui/LinkOpenNew.astro';
+import ProjectLinkButton from '../../components/ui/ProjectLinkButton.astro';
+import TextBlock from '../../components/ui/TextBlock.astro';
+import ThemeWrapper from '../../components/ui/ThemeWrapper.astro';
 
 export function getStaticPaths() {
   return getAllProjects().map((project) => ({
@@ -19,8 +27,17 @@ if (!project) {
 }
 
 const { Content, frontmatter } = project;
-const caseStudy = frontmatter.caseStudy || {};
-const mdxComponents = getProjectMdxComponents(caseStudy);
+const mdxComponents = {
+  CaseStudyOverview,
+  Divider,
+  FigureSideBySide,
+  FigureSingle,
+  IntroBlock,
+  LinkOpenNew,
+  ProjectLinkButton,
+  TextBlock,
+  ThemeWrapper
+};
 const title = `${frontmatter.title} • Carl Avidano • UX Manager`;
 const description = frontmatter.description;
 const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-text: ${frontmatter.primaryTextColor}; --secondary: ${frontmatter.secondaryColor}; --secondary-text: ${frontmatter.secondaryTextColor};`;

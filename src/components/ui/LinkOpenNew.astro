@@ -1,0 +1,13 @@
+---
+const {
+  LinkText = 'Link',
+  LinkUrl = '#1',
+  utilities = null
+} = Astro.props;
+
+const classes = ['open-new', utilities].filter(Boolean).join(' ');
+---
+<a class={classes} href={LinkUrl} target="_blank" rel="noreferrer">
+  {LinkText}
+  <span class="icon icon-open-new font-size-sm" aria-hidden="true"></span>
+</a>

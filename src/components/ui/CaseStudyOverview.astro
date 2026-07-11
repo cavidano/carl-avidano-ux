@@ -1,0 +1,82 @@
+---
+import Button from '../site/Button.astro';
+import KeyResults from './KeyResults/index.astro';
+import KeyResultsCard from './KeyResults/KeyResultsCard.astro';
+
+const ACTIVITIES_HEADING = 'Activities at a glance';
+
+const {
+  caseStudy = {}
+} = Astro.props;
+
+const {
+  activitiesAtAGlance = [],
+  projectUrl = null,
+  projectButtonLabel = 'View project',
+  keyResults = []
+} = caseStudy || {};
+
+const activityItems = Array.isArray(activitiesAtAGlance) ? activitiesAtAGlance.filter(Boolean) : [];
+const keyResultItems = Array.isArray(keyResults) ? keyResults.filter(Boolean) : [];
+
+const hasOverview = Astro.slots.has('default');
+const hasActivities = activityItems.length > 0;
+const hasProjectLink = Boolean(projectUrl);
+const hasKeyResults = keyResultItems.length > 0;
+---
+{(hasOverview || hasActivities || hasProjectLink || hasKeyResults) && (
+  <div class="container wide">
+    {(hasOverview || hasActivities || hasProjectLink) && (
+      <div
+        class="grid-sidebar--right gap-5 margin-y-5"
+        style="--grid-sidebar-width: min(35rem, 100%);"
+      >
+        {hasOverview && (
+          <div class="grid-sidebar__major narrow">
+            <slot />
+          </div>
+        )}
+
+        {(hasActivities || hasProjectLink) && (
+          <div class="grid-sidebar__minor font-size-md">
+            <aside>
+              {hasActivities && (
+                <>
+                  <h2 class="h5">{ACTIVITIES_HEADING}</h2>
+                  <ul class="bulleted margin-bottom-0">
+                    {activityItems.map((activity) => (
+                      <li>{activity}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {hasProjectLink && (
+                <div class="margin-top-3">
+                  <Button
+                    href={projectUrl}
+                    title={projectButtonLabel}
+                    iconEndHandle="open-new"
+                    target="_blank"
+                    rel="noreferrer"
+                    utilities="font-size-sm"
+                  />
+                </div>
+              )}
+            </aside>
+          </div>
+        )}
+      </div>
+    )}
+
+    {hasKeyResults && (
+      <KeyResults>
+        {keyResultItems.map(({ stat, description }) => (
+          <KeyResultsCard stat={stat} description={description} />
+        ))}
+      </KeyResults>
+    )}
+
+    <hr class="margin-y-5" />
+  </div>
+)}

@@ -18,13 +18,10 @@
   },
   "dependencies": {
     "@astrojs/mdx": "latest",
-    "@astrojs/react": "latest",
     "@astrojs/sitemap": "latest",
+    "@natura11y/core": "5.2.1",
+    "@natura11y/icons": "2.2.1",
     "astro": "latest",
-    "classnames": "^2.5.1",
-    "natura11y": "latest",
-    "react": "latest",
-    "react-dom": "latest",
     "sass": "latest",
     "yaml": "latest"
   },

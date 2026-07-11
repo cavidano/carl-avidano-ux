@@ -1,5 +1,3 @@
-@use 'natura11y/src/scss/icon';
-
 :root {
   --dark: #1a1a1a;
   --canvas: #f9f9f9;
@@ -60,17 +58,6 @@ hr.divider {
   position: relative;
   container-type: inline-size;
   container-name: marquee;
-}
-
-a.open-new {
-  &::after {
-    @extend .icon_font;
-    --icon-size: 65%;
-    content: "\f150";
-    transform: translateY(0.1em);
-    display: inline-block;
-    margin-inline-start: 0.25em;
-  }
 }
 
 a.backdrop {

@@ -1,0 +1,16 @@
+---
+const {
+  backgroundColor = null,
+  textColor = null
+} = Astro.props;
+
+const styles = [
+  backgroundColor && `--secondary: ${backgroundColor}`,
+  textColor && `--secondary-text: ${textColor}`
+].filter(Boolean).join('; ');
+---
+<div class="theme-secondary margin-y-6 padding-y-5" style={styles || undefined}>
+  <div class="container wide">
+    <slot />
+  </div>
+</div>
