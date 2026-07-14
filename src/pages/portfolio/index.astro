@@ -12,9 +12,13 @@ const description = 'Explore UX strategy, accessibility, design systems, researc
   <Header />
 
   <main id="skip-header-target">
-    <section class="container wide">
-      <header class="margin-y-5">
-        <h1 class="banner-headline margin-bottom-3">Explore my work</h1>
+
+    <section class="margin-y-5">
+
+      <header class="container wide">
+        <h1 class="banner-headline margin-bottom-3">
+          Explore my work
+        </h1>
         <div class="narrow">
           <p>
             I've led and collaborated on high-impact digital projects for city, state, and federal government agencies and global nonprofits.
@@ -22,7 +26,12 @@ const description = 'Explore UX strategy, accessibility, design systems, researc
         </div>
       </header>
 
-      <ProjectListView projects={projects} />
+      <div class="container--md wide--md">
+        <ProjectListView projects={projects} />
+      </div>
+
     </section>
+
   </main>
+
 </Layout>
