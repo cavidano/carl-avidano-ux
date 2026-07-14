@@ -8,15 +8,24 @@ const {
   description = 'Carl Avidano is a UX manager specializing in digital accessibility and design systems.'
 } = Astro.props;
 ---
+
 <!doctype html>
+
 <html lang="en" class="theme-dark">
+  
   <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+
     <link rel="icon" href="/favicon.ico" />
+
     <title>{title}</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap" />
+    
     <script is:inline>
       (() => {
         try {
@@ -28,12 +37,17 @@ const {
       })();
     </script>
   </head>
+
   <body>
+    
     <div class="skip-links">
       <a href="#skip-header-target">Jump to main content</a>
     </div>
+    
     <slot />
+    
     <Footer />
+    
     <script is:inline>
       (() => {
         /**
@@ -57,5 +71,7 @@ const {
         });
       })();
     </script>
+
   </body>
+
 </html>
