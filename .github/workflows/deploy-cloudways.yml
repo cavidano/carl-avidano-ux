@@ -1,0 +1,131 @@
+name: Build and deploy to Cloudways
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Deploy the completed build to production
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudways-production
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Astro site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Save completed site
+        uses: actions/upload-artifact@v7
+        with:
+          name: production-site
+          path: dist/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 3
+
+  deploy:
+    name: Deploy to Cloudways
+    if: ${{ inputs.deploy }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://design.carlavidano.com
+
+    steps:
+      - name: Download completed site
+        uses: actions/download-artifact@v8
+        with:
+          name: production-site
+          path: site
+
+      - name: Check deployment configuration
+        env:
+          CLOUDWAYS_HOST: ${{ secrets.CLOUDWAYS_HOST }}
+          CLOUDWAYS_USERNAME: ${{ secrets.CLOUDWAYS_USERNAME }}
+          CLOUDWAYS_SSH_PRIVATE_KEY: ${{ secrets.CLOUDWAYS_SSH_PRIVATE_KEY }}
+          CLOUDWAYS_KNOWN_HOSTS: ${{ secrets.CLOUDWAYS_KNOWN_HOSTS }}
+          CLOUDWAYS_DEPLOY_PATH: ${{ vars.CLOUDWAYS_DEPLOY_PATH }}
+        run: |
+          set -euo pipefail
+
+          missing=0
+          for name in \
+            CLOUDWAYS_HOST \
+            CLOUDWAYS_USERNAME \
+            CLOUDWAYS_SSH_PRIVATE_KEY \
+            CLOUDWAYS_KNOWN_HOSTS \
+            CLOUDWAYS_DEPLOY_PATH
+          do
+            if [ -z "${!name}" ]; then
+              echo "::error::Missing GitHub deployment setting: ${name}"
+              missing=1
+            fi
+          done
+
+          if [ "$missing" -ne 0 ]; then
+            exit 1
+          fi
+
+      - name: Configure SSH
+        env:
+          CLOUDWAYS_SSH_PRIVATE_KEY: ${{ secrets.CLOUDWAYS_SSH_PRIVATE_KEY }}
+          CLOUDWAYS_KNOWN_HOSTS: ${{ secrets.CLOUDWAYS_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$CLOUDWAYS_SSH_PRIVATE_KEY" > ~/.ssh/cloudways
+          chmod 600 ~/.ssh/cloudways
+          printf '%s\n' "$CLOUDWAYS_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Verify Cloudways destination
+        env:
+          CLOUDWAYS_HOST: ${{ secrets.CLOUDWAYS_HOST }}
+          CLOUDWAYS_USERNAME: ${{ secrets.CLOUDWAYS_USERNAME }}
+          CLOUDWAYS_DEPLOY_PATH: ${{ vars.CLOUDWAYS_DEPLOY_PATH }}
+        run: |
+          ssh \
+            -i ~/.ssh/cloudways \
+            -p 22 \
+            "${CLOUDWAYS_USERNAME}@${CLOUDWAYS_HOST}" \
+            "test -d '${CLOUDWAYS_DEPLOY_PATH}'"
+
+      - name: Deploy completed site
+        env:
+          CLOUDWAYS_HOST: ${{ secrets.CLOUDWAYS_HOST }}
+          CLOUDWAYS_USERNAME: ${{ secrets.CLOUDWAYS_USERNAME }}
+          CLOUDWAYS_DEPLOY_PATH: ${{ vars.CLOUDWAYS_DEPLOY_PATH }}
+        run: |
+          rsync \
+            --archive \
+            --compress \
+            --itemize-changes \
+            --exclude='.DS_Store' \
+            --exclude='.well-known/' \
+            -e "ssh -i ~/.ssh/cloudways -p 22" \
+            site/ \
+            "${CLOUDWAYS_USERNAME}@${CLOUDWAYS_HOST}:${CLOUDWAYS_DEPLOY_PATH}/"
