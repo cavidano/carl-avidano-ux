@@ -6,27 +6,21 @@
 
 **Meta description:** Selected product design, accessibility, research, and design-system work relevant to the ACLU Senior Product Designer position.
 
-**Screen-reader page heading:** ACLU application — Carl Avidano
-
 ---
 
 ## Opening
 
-**Why do I want to work at the ACLU?**
+### Why I want to join the ACLU
 
-### So I can craft digital experiences that help people understand and exercise their rights.
-
-As a disabled designer and accessibility advocate, I know that rights mean less when people cannot access the information and tools they need to exercise them. I want to bring my experience designing accessible public-interest products to the ACLU.
+As a disabled designer and accessibility advocate, I welcome the opportunity to create digital experiences that help people understand and exercise their rights and advance the ACLU’s mission through equitable, inclusive design.
 
 ---
 
-## Relevant work
-
-These projects demonstrate my approach to research, systems thinking, accessible interaction design, stakeholder alignment, and delivery across complex organizations.
+## Relevant Case Studies
 
 ### Phoenix.gov
 
-Research and UX strategy for a city website serving 1.5 million residents and more than 40 departments, achieving 100% WCAG AA compliance at launch.
+Research and UX strategy for a city website serving 1.5 million residents and more than 40 departments, achieving WCAG Level AA conformance at launch.
 
 [Read the case study](/portfolio/phoenix)
 
@@ -62,13 +56,13 @@ I’m a New York–based product designer with more than two decades of experien
 
 ## Accessibility advocacy
 
-A selection of social media graphics I designed to advocate for disability rights, challenge harmful accessibility narratives, and make complex inclusive-design issues visible and memorable.
+A selection of social media graphics I recently designed to advocate for disability rights. I wanted to challenge harmful accessibility narratives and make complex inclusive-design issues visible and memorable.
 
 ---
 
-## Expertise at a glance
+## Experience at a glance
 
-I welcome the opportunity to bring my professional expertise and lived experience to the ACLU’s Technology Department, to work and learn alongside you, and to advance the ACLU's mission through equitable, inclusive design.
+Working across disciplines has taught me how to move comfortably between the needs of users, organizations, and technical teams without losing sight of the people the work is meant to serve.
 
 ### UX research and strategy
 
@@ -116,4 +110,4 @@ As UX/UI Director at Reingold, I formally manage and mentor designers while lead
 
 **Portrait:** Black and white portrait of Carl Avidano.
 
-**Accessibility advocacy graphic:** Collage of colorful accessibility advocacy graphics about disability rights, inclusion, accessibility overlays, and accessible design.
+**Accessibility advocacy graphic:** Collage of colorful social media graphics advocating for disability rights, inclusive design, opposition to accessibility overlays, and accountability for worsening web accessibility.

@@ -5,7 +5,7 @@ import Header from '../components/Header/Header.astro';
 import Button from '../components/Button.astro';
 import ProjectListView from '../components/ProjectListView.astro';
 import acluLogo from '../images/aclu/aclu-logo.svg';
-import accessibilityAdvocacy from '../images/aclu/accessibility-advocacy.png';
+import accessibilityAdvocacy from '../images/aclu/accessibility-advocacy.webp';
 import statueOfLiberty from '../images/aclu/statue-of-liberty.jpg';
 import portrait from '../images/carl-avidano-16x9.jpg';
 import { getProjectBySlug } from '../lib/projects.js';
@@ -13,7 +13,7 @@ import { getProjectBySlug } from '../lib/projects.js';
 const projectSelections = [
   {
     slug: 'phoenix',
-    description: 'Research and UX strategy for a city website serving 1.5 million residents and more than 40 departments, achieving 100% WCAG AA compliance at launch.'
+    description: 'Research and UX strategy for a city website serving 1.5 million residents and more than 40 departments, achieving WCAG Level AA conformance at launch.'
   },
   {
     slug: 'natura11y',
@@ -109,8 +109,6 @@ const strengths = [
 
   <main id="skip-header-target">
 
-    <h1 class="screen-reader-only">ACLU application — Carl Avidano</h1>
-
     <section class="margin-y-5">
 
       <div class="container wide">
@@ -122,17 +120,12 @@ const strengths = [
           ></div>
 
         <div>
-          <p class="font-weight-bold margin-bottom-2">
-            <span class="display-block font-size-xl margin-bottom-2">
-              Why do I want to work for the ACLU?
-            </span>
-            <span class="banner-headline">
-              So I can craft digital experiences that help people understand and exercise their rights.
-            </span>
-          </p>
+          <h1 class="banner-headline margin-bottom-3">
+              Why I want to join the ACLU
+          </h1>
 
-          <p class="narrow margin-y-3">
-            As a disabled designer and accessibility advocate, I'm delighted to offer my professional expertise and lived experience to the ACLU’s Technology Department. I welcome the opportunity to work and learn alongside you, and advance the ACLU's mission through equitable and inclusive design practices.
+          <p class="narrow">
+            As a disabled designer and accessibility advocate, I welcome the opportunity to create digital experiences that help people understand and exercise their rights and advance the ACLU’s mission through equitable, inclusive design.
           </p>
         </div>
 
@@ -204,14 +197,14 @@ const strengths = [
       <figure>
         <Image
           src={accessibilityAdvocacy}
-          alt="Collage of colorful accessibility advocacy graphics about disability rights, inclusion, accessibility overlays, and accessible design."
+          alt="Collage of colorful social media graphics advocating for disability rights, inclusive design, opposition to accessibility overlays, and accountability for worsening web accessibility."
           loading="lazy"
           widths={[768, 1200, 2000]}
           sizes="(min-width: 1200px) 75rem, calc(100vw - 3rem)"
         />
         <figcaption class="container medium margin-y-3">
           <p class="text-align-center font-size-md">
-            A selection of social media graphics I recently designed to advocate for disability rights. I wanted to challenge harmful accessibility narratives, and make complex inclusive-design issues visible and memorable.
+            A selection of social media graphics I recently designed to advocate for disability rights. I wanted to challenge harmful accessibility narratives and make complex inclusive-design issues visible and memorable.
           </p>
         </figcaption>
       </figure>
@@ -296,7 +289,7 @@ const strengths = [
       content: '';
       inset: 0;
       mix-blend-mode: screen;
-      opacity: 0.25;
+      opacity: 0.275;
       position: absolute;
     }
 
