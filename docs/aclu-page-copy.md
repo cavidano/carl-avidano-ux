@@ -12,7 +12,7 @@
 
 ### Why I want to join the ACLU
 
-As a disabled designer and accessibility advocate, I welcome the opportunity to create digital experiences that help people understand and exercise their rights and advance the ACLU’s mission through equitable, inclusive design.
+As a disabled designer and accessibility advocate, I welcome the opportunity to help people understand and exercise their rights and advance the ACLU’s mission through equitable and inclusive digital experiences.
 
 ---
 
