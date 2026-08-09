@@ -6,6 +6,7 @@ import Button from '../components/Button.astro';
 import ProjectListView from '../components/ProjectListView.astro';
 import acluLogo from '../images/aclu/aclu-logo.svg';
 import accessibilityAdvocacy from '../images/aclu/accessibility-advocacy.png';
+import statueOfLiberty from '../images/aclu/statue-of-liberty.jpg';
 import portrait from '../images/carl-avidano-16x9.jpg';
 import { getProjectBySlug } from '../lib/projects.js';
 
@@ -46,6 +47,60 @@ const projects = projectSelections.flatMap(({ slug, description }) => {
 const title = 'Selected Product Design Work for the ACLU • Carl Avidano';
 const description = 'Selected product design, accessibility, research, and design-system work relevant to the ACLU Senior Product Designer position.';
 const portraitAlt = 'Black and white portrait of Carl Avidano';
+const strengths = [
+  {
+    id: 'ux-research',
+    title: 'UX research and strategy',
+    summary: 'Research is central to my work across government, healthcare, education, nonprofits, and commercial products. For Phoenix.gov, Maximus, the National Football League, LADRC, and others, I have used interviews, usability testing, journey mapping, and information architecture to turn complex needs into clear product direction.',
+    links: [
+      { href: '/portfolio/phoenix', title: 'Phoenix.gov' },
+      { href: '/portfolio/ladrc', title: 'LADRC' }
+    ]
+  },
+  {
+    id: 'product-design',
+    title: 'Product design and systems',
+    summary: 'I design digital products and systems from discovery through delivery. Work for NYC OTI, Phoenix.gov, UNICEF, and Natura11y has included public websites, internal tools, complex forms, content platforms, reusable components, and documentation.',
+    links: [
+      { href: '/portfolio/visionlearning', title: 'Visionlearning' },
+      { href: '/portfolio/natura11y', title: 'Natura11y' },
+      { href: '/portfolio/cheetah-conservation-fund', title: 'Cheetah Conservation Fund' }
+    ]
+  },
+  {
+    id: 'accessibility',
+    title: 'Accessibility and inclusive design',
+    summary: 'As a disabled designer and accessibility advocate, I build inclusion into research, design, systems, implementation, and testing. That approach has guided my work across government, nonprofit, education, and consulting projects.',
+    links: [
+      { href: '/portfolio/natura11y', title: 'Natura11y' },
+      { href: '/portfolio/phoenix', title: 'Phoenix.gov' }
+    ]
+  },
+  {
+    id: 'engineering',
+    title: 'Front-end engineering',
+    summary: 'More than two decades of front-end experience help me bridge design and implementation. I work comfortably with semantic HTML, CSS, JavaScript, React, and Astro, and collaborate closely with engineers to protect accessibility and design intent.',
+    links: [
+      { href: '/portfolio/nyc-oti', title: 'NYC OTI' },
+      { href: '/portfolio/natura11y', title: 'Natura11y' },
+      { href: '/portfolio/unicef', title: 'UNICEF' }
+    ]
+  },
+  {
+    id: 'digital-illustration',
+    title: 'Digital illustration and visual storytelling',
+    summary: 'My background in graphic design and illustration helps me turn complex ideas into clear, memorable stories. My work includes scientific illustration, icon systems, research presentations, and disability-rights advocacy graphics.',
+    links: [
+      { href: '/portfolio/visionlearning', title: 'Visionlearning' }
+    ]
+  },
+  {
+    id: 'management-mentorship',
+    title: 'Management and mentorship',
+    summary: 'As UX/UI Director at Reingold, I formally manage and mentor designers while leading projects and remaining hands-on in research and design. As the owner of Avidano Digital, I have also led multidisciplinary client work from strategy through delivery.',
+    links: []
+  },
+];
 ---
 
 <Layout title={title} description={description} noindex={true}>
@@ -54,31 +109,31 @@ const portraitAlt = 'Black and white portrait of Carl Avidano';
 
   <main id="skip-header-target">
 
+    <h1 class="screen-reader-only">ACLU application — Carl Avidano</h1>
+
     <section class="margin-y-5">
 
       <div class="container wide">
       
-        <h1 class="aclu-intro__headline banner-headline">
-          <span>I want to work for the</span>
-          <span class="screen-reader-only">ACLU</span>
-        </h1>
-          <img
-            class="margin-y-3 width-100 "
+          <div
+            class="aclu-logo-mask margin-bottom-4 width-100"
             aria-hidden="true"
-            src={acluLogo.src}
-            alt="ACLU"
-          />
+            style={`--aclu-logo: url('${acluLogo.src}'); --aclu-logo-image: url('${statueOfLiberty.src}')`}
+          ></div>
 
-        <div class="medium">
-          
-          <h2 class="banner-headline text-shadow">
-            So I can help defend the rights of all people nationwide
-          </h2>
-          
-          <p class="narrow">
-            I'm a New York-based designer whose work has focused on helping people find, understand, and act on complex information across government, legal aid, education, and global nonprofit systems.
+        <div>
+          <p class="font-weight-bold margin-bottom-2">
+            <span class="display-block font-size-xl margin-bottom-2">
+              Why do I want to work for the ACLU?
+            </span>
+            <span class="banner-headline">
+              So I can craft digital experiences that help people understand and exercise their rights.
+            </span>
           </p>
-        
+
+          <p class="narrow margin-y-3">
+            As a disabled designer and accessibility advocate, I'm delighted to offer my professional expertise and lived experience to the ACLU’s Technology Department. I welcome the opportunity to work and learn alongside you, and advance the ACLU's mission through equitable and inclusive design practices.
+          </p>
         </div>
 
       </div>
@@ -89,13 +144,11 @@ const portraitAlt = 'Black and white portrait of Carl Avidano';
       <hr />
     </div>
 
-    <section id="selected-work" aria-labelledby="selected-work-heading">
+    <section id="selected-work">
+
       <header class="container wide margin-y-5">
-        <div class="medium--xxl">
-          <h2 id="selected-work-heading">Relevant work</h2>
-          <p>
-            These projects show how I approach research, systems thinking, accessible interaction design, stakeholder alignment, and delivery across complex organizations.
-          </p>
+        <div class="narrow--xxl">
+          <h2>Relevant Case Studies</h2>
         </div>
       </header>
 
@@ -106,16 +159,16 @@ const portraitAlt = 'Black and white portrait of Carl Avidano';
       <div class="container wide margin-y-5">
         <Button href="/portfolio" utilities="theme-primary" title="View my full portfolio" />
       </div>
+
     </section>
 
     <div class="container wide margin-y-5">
       <hr />
     </div>
 
-    
     <section class="container wide margin-y-5">
     
-      <header class="width-80">
+      <header>
         <h2 class="screen-reader-only">About Me</h2>
       </header>
 
@@ -130,11 +183,11 @@ const portraitAlt = 'Black and white portrait of Carl Avidano';
       />
         </div>
         <div>
-          <h3 class="h2">Who am I?</h3>
+          <h3 class="h2">More about me</h3>
           <p>
-            I'm a UX leader, researcher, and inclusive design advocate with a successful track record of delivering digital products for government, nonprofits, education, healthcare, and civic technology.
+            I’m a New York–based product designer with more than two decades of experience helping organizations make complex information and services easier to understand and use.
           </p>
-        <Button href="/about" utilities="theme-primary" title="About Me" />
+        <Button href="/about" utilities="theme-primary" title="Read my bio" />
         </div>
 
       </div>
@@ -145,8 +198,8 @@ const portraitAlt = 'Black and white portrait of Carl Avidano';
       <hr />
     </div>
 
-    <section class="container wide margin-y-5" aria-labelledby="accessibility-advocacy-heading">
-      <h2 id="accessibility-advocacy-heading" class="screen-reader-only">Accessibility advocacy</h2>
+    <section id="accessibility-advocacy" class="container wide margin-y-5">
+      <h2 class="screen-reader-only">Accessibility advocacy</h2>
 
       <figure>
         <Image
@@ -158,27 +211,98 @@ const portraitAlt = 'Black and white portrait of Carl Avidano';
         />
         <figcaption class="container medium margin-y-3">
           <p class="text-align-center font-size-md">
-            A selection of social media graphics I designed to advocate for disability rights, challenge harmful accessibility narratives, and make complex inclusive-design issues visible and memorable.
+            A selection of social media graphics I recently designed to advocate for disability rights. I wanted to challenge harmful accessibility narratives, and make complex inclusive-design issues visible and memorable.
           </p>
         </figcaption>
       </figure>
 
     </section>
 
-    <section class="container wide margin-y-6 padding-y-4 border-top" aria-labelledby="contact-heading">
-      <div class="grid grid--column-2--lg gap-4 align-items-center--lg">
+    <div class="container wide margin-y-5">
+      <hr />
+    </div>
+
+    <section class="container wide margin-y-5">
+      <div class="grid grid--column-2--lg gap-5 align-items-start--lg">
         <div>
-          <h2 id="contact-heading">Thank you for considering my work</h2>
+          <h2>Experience at a glance</h2>
           <p>
-            I would welcome the opportunity to help the ACLU create accessible, trustworthy digital experiences that move people from understanding to meaningful action.
+            Working across disciplines has taught me how to move comfortably between the needs of users, organizations, and technical teams without losing sight of the people the work is meant to serve.
           </p>
         </div>
 
-        <div class="display-flex flex-wrap gap-2 justify-content-end--lg">
-          <Button href="/portfolio" outline={true} title="View full portfolio" />
-          <Button href="mailto:cavidano@gmail.com" utilities="theme-primary" title="Contact me" />
+        <div class="accordion">
+          {strengths.map((strength) => {
+            const buttonId = `aclu-strength-${strength.id}-button`;
+            const panelId = `aclu-strength-${strength.id}-panel`;
+
+            return (
+              <>
+                <h3 data-accordion="heading">
+                  <button
+                    class="accordion__button h4"
+                    id={buttonId}
+                    data-accordion="button"
+                    aria-controls={panelId}
+                    aria-expanded="false"
+                  >
+                    <span class="text">{strength.title}</span>
+                  </button>
+                </h3>
+
+                <div
+                  class="accordion__panel"
+                  id={panelId}
+                  data-accordion="panel"
+                  aria-labelledby={buttonId}
+                  role="region"
+                >
+                  <div class="accordion__panel__content">
+                    <p>{strength.summary}</p>
+
+                    {strength.links.length > 0 && (
+                      <ul class="nav gap-2">
+                        {strength.links.map((link) => (
+                          <li>
+                            <a class="link" href={link.href}>
+                              <span class="text">{link.title}</span>
+                              <span class="icon icon-arrow-right" aria-hidden="true"></span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </>
+            );
+          })}
         </div>
       </div>
     </section>
   </main>
+
+  <style>
+    .aclu-logo-mask {
+      aspect-ratio: 1583.27 / 560.802;
+      background-color: #d9192b;
+      mask: var(--aclu-logo) center / 100% 100% no-repeat;
+      position: relative;
+      -webkit-mask: var(--aclu-logo) center / 100% 100% no-repeat;
+    }
+
+    .aclu-logo-mask::after {
+      background: var(--aclu-logo-image) center / cover no-repeat;
+      content: '';
+      inset: 0;
+      mix-blend-mode: screen;
+      opacity: 0.25;
+      position: absolute;
+    }
+
+  </style>
+
+  <script>
+    import '@natura11y/core';
+  </script>
 </Layout>
