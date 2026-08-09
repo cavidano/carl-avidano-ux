@@ -16,9 +16,11 @@ interface ProjectListItem {
 
 interface Props {
   projects?: ProjectListItem[];
+  headingLevel?: 2 | 3;
 }
 
-const { projects = [] } = Astro.props as Props;
+const { projects = [], headingLevel = 2 } = Astro.props as Props;
+const Heading = headingLevel === 3 ? 'h3' : 'h2';
 ---
 <div class="grid gap-3 margin-y-5">
   {projects.map((project: ProjectListItem, index: number) => (
@@ -39,7 +41,7 @@ const { projects = [] } = Astro.props as Props;
         </div>
 
         <div class="container--xl grid__colspan-3--xl margin-y-4">
-          <h2 id={`project-${project.slug}`}>{project.frontmatter.title}</h2>
+          <Heading id={`project-${project.slug}`}>{project.frontmatter.title}</Heading>
           <p>{project.frontmatter.description}</p>
 
           <Button

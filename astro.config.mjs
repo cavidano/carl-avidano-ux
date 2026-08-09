@@ -3,10 +3,12 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://design.carlavidano.com',
+  site: 'https://carlavidano.com',
   trailingSlash: 'never',
   integrations: [
     mdx(),
-    sitemap()
+    sitemap({
+      filter: (page) => !page.endsWith('/aclu')
+    })
   ]
 });

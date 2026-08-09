@@ -1,0 +1,185 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header/Header.astro';
+import Button from '../components/Button.astro';
+import ProjectListView from '../components/ProjectListView.astro';
+import acluLogo from '../images/aclu/aclu-logo.svg';
+import accessibilityAdvocacy from '../images/aclu/accessibility-advocacy.png';
+import portrait from '../images/carl-avidano-16x9.jpg';
+import { getProjectBySlug } from '../lib/projects.js';
+
+const projectSelections = [
+  {
+    slug: 'phoenix',
+    description: 'Research and UX strategy for a city website serving 1.5 million residents and more than 40 departments, achieving 100% WCAG AA compliance at launch.'
+  },
+  {
+    slug: 'natura11y',
+    description: 'An accessibility-first design ecosystem connecting Figma libraries, shared design tokens, semantic components, documentation, and production code.'
+  },
+  {
+    slug: 'nyc-oti',
+    description: 'End-to-end product design and front-end implementation for public services, emergency communications, complex forms, and internal government tools.'
+  },
+  {
+    slug: 'ladrc',
+    description: 'User interviews, usability testing, tree testing, and accessible wireframes for people seeking legal resources during high-stress disaster recovery.'
+  }
+];
+
+const projects = projectSelections.flatMap(({ slug, description }) => {
+  const project = getProjectBySlug(slug);
+
+  if (!project) return [];
+
+  return [{
+    ...project,
+    frontmatter: {
+      ...project.frontmatter,
+      description,
+      buttonLabel: 'Read the case study'
+    }
+  }];
+});
+
+const title = 'Selected Product Design Work for the ACLU • Carl Avidano';
+const description = 'Selected product design, accessibility, research, and design-system work relevant to the ACLU Senior Product Designer position.';
+const portraitAlt = 'Black and white portrait of Carl Avidano';
+---
+
+<Layout title={title} description={description} noindex={true}>
+
+  <Header />
+
+  <main id="skip-header-target">
+
+    <section class="margin-y-5">
+
+      <div class="container wide">
+      
+        <h1 class="aclu-intro__headline banner-headline">
+          <span>I want to work for the</span>
+          <span class="screen-reader-only">ACLU</span>
+        </h1>
+          <img
+            class="margin-y-3 aria-hidden"
+            src={acluLogo.src}
+            width={acluLogo.width}
+            height={acluLogo.height}
+            alt="ACLU"
+          />
+
+        <div class="medium">
+          
+          <h2 class="banner-headline text-shadow">
+            So I can help defend the rights of all people nationwide
+          </h2>
+          
+          <p class="narrow">
+            I'm a New York-based designer whose work has focused on helping people find, understand, and act on complex information across government, legal aid, education, and global nonprofit systems.
+          </p>
+        
+        </div>
+
+      </div>
+    
+    </section>
+
+    <div class="container wide margin-y-5">
+      <hr />
+    </div>
+
+    <section id="selected-work" aria-labelledby="selected-work-heading">
+      <header class="container wide margin-y-5">
+        <div class="medium--xxl">
+          <h2 id="selected-work-heading">Relevant work</h2>
+          <p>
+            These projects show how I approach research, systems thinking, accessible interaction design, stakeholder alignment, and delivery across complex organizations.
+          </p>
+        </div>
+      </header>
+
+      <div class="container--md wide--md">
+        <ProjectListView projects={projects} headingLevel={3} />
+      </div>
+
+      <div class="container wide margin-y-5">
+        <Button href="/portfolio" utilities="theme-primary" title="View my full portfolio" />
+      </div>
+    </section>
+
+    <div class="container wide margin-y-5">
+      <hr />
+    </div>
+
+    
+    <section class="container wide margin-y-5">
+    
+      <header class="width-80">
+        <h2 class="screen-reader-only">About Me</h2>
+      </header>
+
+      <div class="grid grid--column-2--lg gap-5 align-items-center margin-y-5">
+        <div>
+          <Image
+        class="project-image"
+        src={portrait}
+        alt={portraitAlt}
+        loading="eager"
+        fetchpriority="high"
+      />
+        </div>
+        <div>
+          <h3 class="h2">Who am I?</h3>
+          <p>
+            I'm a UX leader, researcher, and inclusive design advocate with a successful track record of delivering digital products for government, nonprofits, education, healthcare, and civic technology.
+          </p>
+        <Button href="/about" utilities="theme-primary" title="About Me" />
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="container wide margin-y-5">
+      <hr />
+    </div>
+
+    <section class="container wide margin-y-5" aria-labelledby="accessibility-advocacy-heading">
+      <h2 id="accessibility-advocacy-heading" class="screen-reader-only">Accessibility advocacy</h2>
+
+      <figure>
+        <Image
+          src={accessibilityAdvocacy}
+          alt="Collage of colorful accessibility advocacy graphics about disability rights, inclusion, accessibility overlays, and accessible design."
+          loading="lazy"
+          widths={[768, 1200, 2000]}
+          sizes="(min-width: 1200px) 75rem, calc(100vw - 3rem)"
+        />
+        <figcaption class="container medium margin-y-3">
+          <p class="text-align-center font-size-md">
+            A selection of social media graphics I designed to advocate for disability rights, challenge harmful accessibility narratives, and make complex inclusive-design issues visible and memorable.
+          </p>
+        </figcaption>
+      </figure>
+
+    </section>
+
+    <section class="container wide margin-y-6 padding-y-4 border-top" aria-labelledby="contact-heading">
+      <div class="grid grid--column-2--lg gap-4 align-items-center--lg">
+        <div>
+          <h2 id="contact-heading">Thank you for considering my work</h2>
+          <p>
+            I would welcome the opportunity to help the ACLU create accessible, trustworthy digital experiences that move people from understanding to meaningful action.
+          </p>
+        </div>
+
+        <div class="display-flex flex-wrap gap-2 justify-content-end--lg">
+          <Button href="/portfolio" outline={true} title="View full portfolio" />
+          <Button href="mailto:cavidano@gmail.com" utilities="theme-primary" title="Contact me" />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
