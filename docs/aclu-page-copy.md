@@ -85,7 +85,7 @@ Through my independent practice, Avidano Digital, and roles at Reingold and NYC 
 
 ### Digital illustration and visual storytelling
 
-My background in graphic design and illustration helps me turn complex ideas into clear, memorable stories. My work includes scientific illustration, icon systems, research presentations, and disability-rights advocacy graphics.
+For Visionlearning, I created scientific illustrations to explain complex STEM concepts. For DevSmart Group, I designed UNICEF Afghanistan programme briefs that combined editorial design, data visualization, and photography to communicate humanitarian impact.
 
 - [Visionlearning](/portfolio/visionlearning)
 - [DevSmart Group](https://avidanodigital.com/work/devsmart-group)
