@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header/Header.astro';
 import Button from '../components/Button.astro';
+import LinkOpenNew from '../components/LinkOpenNew.astro';
 import ProjectListView from '../components/ProjectListView.astro';
 import acluLogo from '../images/aclu/aclu-logo.svg';
 import accessibilityAdvocacy from '../images/aclu/accessibility-advocacy.webp';
@@ -51,7 +52,7 @@ const strengths = [
   {
     id: 'ux-research',
     title: 'UX research and strategy',
-    summary: 'Research is central to my work across government, healthcare, education, nonprofits, and commercial products. For Phoenix.gov, Maximus, the National Football League, LADRC, and others, I have used interviews, usability testing, journey mapping, and information architecture to turn complex needs into clear product direction.',
+    summary: 'As UX Director at Reingold, I have led qualitative and quantitative UX research for organizations like Phoenix.gov, Maximus, the National Football League, and Legal Aid Disaster Resource Center. Research methods I’ve used include guided interviews, remote and in-person usability testing, user stories, journey mapping, information architecture (tree testing), and low-fidelity prototyping.',
     links: [
       { href: '/portfolio/phoenix', title: 'Phoenix.gov' },
       { href: '/portfolio/ladrc', title: 'LADRC' }
@@ -60,29 +61,12 @@ const strengths = [
   {
     id: 'product-design',
     title: 'Product design and systems',
-    summary: 'I design digital products and systems from discovery through delivery. Work for NYC OTI, Phoenix.gov, UNICEF, and Natura11y has included public websites, internal tools, complex forms, content platforms, reusable components, and documentation.',
+    summary: 'Through my independent practice, Avidano Digital, and roles at Reingold and NYC OTI, I have designed and built digital products and design systems from discovery through delivery.',
     links: [
+      { href: '/portfolio/natura11y', title: 'Natura11y' },
       { href: '/portfolio/visionlearning', title: 'Visionlearning' },
-      { href: '/portfolio/natura11y', title: 'Natura11y' },
-      { href: '/portfolio/cheetah-conservation-fund', title: 'Cheetah Conservation Fund' }
-    ]
-  },
-  {
-    id: 'accessibility',
-    title: 'Accessibility and inclusive design',
-    summary: 'As a disabled designer and accessibility advocate, I build inclusion into research, design, systems, implementation, and testing. That approach has guided my work across government, nonprofit, education, and consulting projects.',
-    links: [
-      { href: '/portfolio/natura11y', title: 'Natura11y' },
-      { href: '/portfolio/phoenix', title: 'Phoenix.gov' }
-    ]
-  },
-  {
-    id: 'engineering',
-    title: 'Front-end engineering',
-    summary: 'More than two decades of front-end experience help me bridge design and implementation. I work comfortably with semantic HTML, CSS, JavaScript, React, and Astro, and collaborate closely with engineers to protect accessibility and design intent.',
-    links: [
       { href: '/portfolio/nyc-oti', title: 'NYC OTI' },
-      { href: '/portfolio/natura11y', title: 'Natura11y' },
+      { href: '/portfolio/cheetah-conservation-fund', title: 'Cheetah Conservation Fund' },
       { href: '/portfolio/unicef', title: 'UNICEF' }
     ]
   },
@@ -91,13 +75,14 @@ const strengths = [
     title: 'Digital illustration and visual storytelling',
     summary: 'My background in graphic design and illustration helps me turn complex ideas into clear, memorable stories. My work includes scientific illustration, icon systems, research presentations, and disability-rights advocacy graphics.',
     links: [
-      { href: '/portfolio/visionlearning', title: 'Visionlearning' }
+      { href: '/portfolio/visionlearning', title: 'Visionlearning' },
+      { href: 'https://avidanodigital.com/work/devsmart-group', title: 'DevSmart Group', external: true }
     ]
   },
   {
     id: 'management-mentorship',
     title: 'Management and mentorship',
-    summary: 'As UX/UI Director at Reingold, I formally manage and mentor designers while leading projects and remaining hands-on in research and design. As the owner of Avidano Digital, I have also led multidisciplinary client work from strategy through delivery.',
+    summary: 'Across leadership roles at Reingold and NYC OTI, and through Avidano Digital, I have managed and mentored designers at different stages of their careers.',
     links: []
   },
 ];
@@ -125,7 +110,7 @@ const strengths = [
           </h1>
 
           <p class="narrow">
-            As a disabled designer and accessibility advocate, I welcome the opportunity to help people understand and exercise their rights and advance the ACLU’s mission through equitable and inclusive digital experiences.
+            My journey as a disabled designer and accessibility advocate fuels my desire to create meaningful accessible digital experiences. Joining the ACLU’s Technical Department as a Senior Product Designer combines my passion for civil liberties with my commitment to digital inclusion.
           </p>
         </div>
 
@@ -141,7 +126,10 @@ const strengths = [
 
       <header class="container wide margin-y-5">
         <div class="narrow--xxl">
-          <h2>Relevant Case Studies</h2>
+          <h2>Relevant work</h2>
+          <p>
+            These projects demonstrate my approach to research, design systems, and digital product delivery across complex organizations.
+          </p>
         </div>
       </header>
 
@@ -178,7 +166,7 @@ const strengths = [
         <div>
           <h3 class="h2">More about me</h3>
           <p>
-            I’m a New York–based product designer with more than two decades of experience helping organizations make complex information and services easier to understand and use.
+            I’m a New York–based product designer and design systems engineer. I’ve delivered transformative digital products for government, global nonprofits, education, and civic technology.
           </p>
         <Button href="/about" utilities="theme-primary" title="Read my bio" />
         </div>
@@ -257,10 +245,18 @@ const strengths = [
                       <ul class="nav gap-2">
                         {strength.links.map((link) => (
                           <li>
-                            <a class="link" href={link.href}>
-                              <span class="text">{link.title}</span>
-                              <span class="icon icon-arrow-right" aria-hidden="true"></span>
-                            </a>
+                            {link.external ? (
+                              <LinkOpenNew
+                                LinkText={link.title}
+                                LinkUrl={link.href}
+                                utilities="link"
+                              />
+                            ) : (
+                              <a class="link" href={link.href}>
+                                <span class="text">{link.title}</span>
+                                <span class="icon icon-arrow-right" aria-hidden="true"></span>
+                              </a>
+                            )}
                           </li>
                         ))}
                       </ul>

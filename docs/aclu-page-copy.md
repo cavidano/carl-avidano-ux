@@ -12,11 +12,13 @@
 
 ### Why I want to join the ACLU
 
-As a disabled designer and accessibility advocate, I welcome the opportunity to help people understand and exercise their rights and advance the ACLU’s mission through equitable and inclusive digital experiences.
+My journey as a disabled designer and accessibility advocate fuels my desire to create meaningful accessible digital experiences. Joining the ACLU’s Technical Department as a Senior Product Designer combines my passion for civil liberties with my commitment to digital inclusion.
 
 ---
 
-## Relevant Case Studies
+## Relevant work
+
+These projects demonstrate my approach to research, design systems, and digital product delivery across complex organizations.
 
 ### Phoenix.gov
 
@@ -48,7 +50,7 @@ User interviews, usability testing, tree testing, and accessible wireframes for 
 
 ## More about me
 
-I’m a New York–based product designer with more than two decades of experience helping organizations make complex information and services easier to understand and use.
+I’m a New York–based product designer and design systems engineer. I’ve delivered transformative digital products for government, global nonprofits, education, and civic technology.
 
 [Read my bio](/about)
 
@@ -66,32 +68,19 @@ Working across disciplines has taught me how to move comfortably between the nee
 
 ### UX research and strategy
 
-Research is central to my work across government, healthcare, education, nonprofits, and commercial products. For Phoenix.gov, Maximus, the National Football League, LADRC, and others, I have used interviews, usability testing, journey mapping, and information architecture to turn complex needs into clear product direction.
+As UX Director at Reingold, I have led qualitative and quantitative UX research for organizations like Phoenix.gov, Maximus, the National Football League, and Legal Aid Disaster Resource Center. Research methods I’ve used include guided interviews, remote and in-person usability testing, user stories, journey mapping, information architecture (tree testing), and low-fidelity prototyping.
 
 - [Phoenix.gov](/portfolio/phoenix)
 - [LADRC](/portfolio/ladrc)
 
 ### Product design and systems
 
-I design digital products and systems from discovery through delivery. Work for NYC OTI, Phoenix.gov, UNICEF, and Natura11y has included public websites, internal tools, complex forms, content platforms, reusable components, and documentation.
+Through my independent practice, Avidano Digital, and roles at Reingold and NYC OTI, I have designed and built digital products and design systems from discovery through delivery.
 
+- [Natura11y](/portfolio/natura11y)
 - [Visionlearning](/portfolio/visionlearning)
-- [Natura11y](/portfolio/natura11y)
-- [Cheetah Conservation Fund](/portfolio/cheetah-conservation-fund)
-
-### Accessibility and inclusive design
-
-As a disabled designer and accessibility advocate, I build inclusion into research, design, systems, implementation, and testing. That approach has guided my work across government, nonprofit, education, and consulting projects.
-
-- [Natura11y](/portfolio/natura11y)
-- [Phoenix.gov](/portfolio/phoenix)
-
-### Front-end engineering
-
-More than two decades of front-end experience help me bridge design and implementation. I work comfortably with semantic HTML, CSS, JavaScript, React, and Astro, and collaborate closely with engineers to protect accessibility and design intent.
-
 - [NYC OTI](/portfolio/nyc-oti)
-- [Natura11y](/portfolio/natura11y)
+- [Cheetah Conservation Fund](/portfolio/cheetah-conservation-fund)
 - [UNICEF](/portfolio/unicef)
 
 ### Digital illustration and visual storytelling
@@ -99,10 +88,11 @@ More than two decades of front-end experience help me bridge design and implemen
 My background in graphic design and illustration helps me turn complex ideas into clear, memorable stories. My work includes scientific illustration, icon systems, research presentations, and disability-rights advocacy graphics.
 
 - [Visionlearning](/portfolio/visionlearning)
+- [DevSmart Group](https://avidanodigital.com/work/devsmart-group)
 
 ### Management and mentorship
 
-As UX/UI Director at Reingold, I formally manage and mentor designers while leading projects and remaining hands-on in research and design. As the owner of Avidano Digital, I have also led multidisciplinary client work from strategy through delivery.
+Across leadership roles at Reingold and NYC OTI, and through Avidano Digital, I have managed and mentored designers at different stages of their careers.
 
 ---
 
