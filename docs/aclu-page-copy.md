@@ -12,7 +12,7 @@
 
 ### Why I want to join the ACLU
 
-My journey as a disabled designer and accessibility advocate fuels my desire to create meaningful accessible digital experiences. Joining the ACLU’s Technical Department as a Senior Product Designer combines my passion for civil liberties with my commitment to digital inclusion.
+My journey as a disabled designer and accessibility advocate fuels my desire to create meaningful accessible digital experiences. Joining the ACLU’s Technology Department as a Senior Product Designer combines my passion for civil liberties with my commitment to digital inclusion.
 
 ---
 
@@ -68,7 +68,7 @@ Working across disciplines has taught me how to move comfortably between the nee
 
 ### UX research and strategy
 
-As UX Director at Reingold, I have led qualitative and quantitative UX research for organizations like Phoenix.gov, Maximus, the National Football League, and Legal Aid Disaster Resource Center. Research methods I’ve used include guided interviews, remote and in-person usability testing, user stories, journey mapping, information architecture (tree testing), and low-fidelity prototyping.
+As UX Director at Reingold, I have led qualitative and quantitative UX research for organizations like Phoenix.gov, Maximus, the NFL, and Legal Aid Disaster Resource Center. Research methods I’ve used include guided interviews, remote and in-person usability testing, user stories, journey mapping, information architecture (tree testing), and low-fidelity prototyping.
 
 - [Phoenix.gov](/portfolio/phoenix)
 - [LADRC](/portfolio/ladrc)
