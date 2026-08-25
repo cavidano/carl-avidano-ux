@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header/Header.astro';
 import { getAllProjects, getProjectBySlug } from '../../lib/projects.js';
 import CaseStudyOverview from '../../components/CaseStudyOverview.astro';
+import ClientPerspective from '../../components/ClientPerspective/ClientPerspective.astro';
 import Divider from '../../components/Divider.astro';
 import FigureSideBySide from '../../components/FigureSideBySide.astro';
 import FigureSingle from '../../components/FigureSingle.astro';
@@ -47,6 +48,7 @@ if (!project) {
 const { Content, frontmatter } = project;
 const mdxComponents = {
   CaseStudyOverview,
+  ClientPerspective,
   Divider,
   FigureSideBySide,
   FigureSingle,

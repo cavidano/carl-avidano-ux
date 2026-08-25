@@ -23,6 +23,18 @@ caseStudy:
       description: Increase in sales after launch
     - stat: '1,000+'
       description: New product photos created across the entire catalog
+  clientPerspective:
+    quote:
+      - >-
+        What can we say about Avidano Digital? They do outstanding work, just look at our website. We have seen a tenfold increase in online sales since the inception of our new site. They have put together a program where we can tell our story of fair trade and elephant conservation while selling products that help finance our mission.
+      - >-
+        Additionally, their customer service has been top-notch. Avidano Digital works with you like partners because that is exactly what they become — an integral part of your team. I highly recommend their enthusiasm and work ethic.
+    quoteHighlight: 'Avidano Digital works with you like partners because that is exactly what they become — an integral part of your team.'
+    name: 'Dr. Karl Wald'
+    role: 'CEO'
+    organization: 'Mr. Ellie Pooh LLC'
+    engagement: 'Client engagement through Avidano Digital'
+    sourceUrl: 'https://avidanodigital.com/about/testimonials'
 ---
 
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
@@ -110,6 +122,8 @@ Product photography was a separate major effort within the project. Over time, m
     
 </FigureSingle>
 </ThemeWrapper>
+
+<ClientPerspective clientPerspective={frontmatter.caseStudy.clientPerspective} />
 
 <TextBlock>
 
