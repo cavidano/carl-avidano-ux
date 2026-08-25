@@ -4,6 +4,7 @@ import KeyResults from './KeyResults/KeyResults.astro';
 import KeyResultsCard from './KeyResults/KeyResultsCard.astro';
 
 const ACTIVITIES_HEADING = 'Activities at a glance';
+const ROLE_AND_CONTRIBUTIONS_HEADING = 'Role and contributions';
 
 interface KeyResult {
   stat: string;
@@ -12,6 +13,7 @@ interface KeyResult {
 
 interface CaseStudy {
   activitiesAtAGlance?: string[];
+  roleAndContributions?: string[];
   projectUrl?: string | null;
   projectButtonLabel?: string;
   keyResults?: KeyResult[];
@@ -27,12 +29,19 @@ const {
 
 const {
   activitiesAtAGlance = [],
+  roleAndContributions = [],
   projectUrl = null,
   projectButtonLabel = 'View project',
   keyResults = []
 } = caseStudy || {};
 
-const activityItems = Array.isArray(activitiesAtAGlance) ? activitiesAtAGlance.filter(Boolean) : [];
+const roleAndContributionItems = Array.isArray(roleAndContributions) ? roleAndContributions.filter(Boolean) : [];
+const activityItems = roleAndContributionItems.length > 0
+  ? roleAndContributionItems
+  : Array.isArray(activitiesAtAGlance) ? activitiesAtAGlance.filter(Boolean) : [];
+const activitiesHeading = roleAndContributionItems.length > 0
+  ? ROLE_AND_CONTRIBUTIONS_HEADING
+  : ACTIVITIES_HEADING;
 const keyResultItems = Array.isArray(keyResults) ? keyResults.filter(Boolean) : [];
 
 const hasOverview = Astro.slots.has('default');
@@ -60,7 +69,7 @@ const hasKeyResults = keyResultItems.length > 0;
             <aside>
               {hasActivities && (
                 <>
-                  <h2 class="h5">{ACTIVITIES_HEADING}</h2>
+                  <h2 class="h5">{activitiesHeading}</h2>
                   <ul class="bulleted margin-bottom-0">
                     {activityItems.map((activity: string) => (
                       <li>{activity}</li>
