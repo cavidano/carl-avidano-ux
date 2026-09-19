@@ -159,4 +159,9 @@
     margin-block-end: var(--spacer-2);
     font-size: var(--font-size-sm);
   }
+
+  > ul {
+    display: grid;
+    gap: var(--spacer-3);
+  }
 }

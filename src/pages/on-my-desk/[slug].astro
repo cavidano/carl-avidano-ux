@@ -32,7 +32,7 @@ const otherPosts = getDeskPosts().filter(({ slug }) => slug !== post.slug);
         <DeskPostMeta frontmatter={frontmatter} />
         <h1>{frontmatter.title}</h1>
         <p class="desk-description">{frontmatter.description}</p>
-        <p class="desk-draft">Sample post · Draft for review</p>
+        <p class="desk-draft">{frontmatter.sample === false ? 'Draft for review' : 'Sample post · Draft for review'}</p>
       </header>
 
       <div class="desk-prose">
@@ -47,9 +47,11 @@ const otherPosts = getDeskPosts().filter(({ slug }) => slug !== post.slug);
 
     <nav class="desk-more" aria-label="More from On my desk">
       <p>Also on my desk</p>
-      {otherPosts.map(({ slug, frontmatter: other }) => (
-        <a class="h4" href={`/on-my-desk/${slug}`}>{other.title} <span aria-hidden="true">→</span></a>
-      ))}
+      <ul class="list-unstyled">
+        {otherPosts.map(({ slug, frontmatter: other }) => (
+          <li><a class="h4" href={`/on-my-desk/${slug}`}>{other.title} <span aria-hidden="true">→</span></a></li>
+        ))}
+      </ul>
     </nav>
   </main>
 </Layout>
