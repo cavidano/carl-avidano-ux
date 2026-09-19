@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import DeskPostMeta from './DeskPostMeta.astro';
-import { getDeskImageOptions } from '../lib/desk.js';
+import PostMeta from './PostMeta.astro';
+import { getDrawingBoardImageOptions } from '../../lib/drawing-board.js';
+import './post-card.scss';
 
 const { post, compact = false, headingLevel = 2, eager = false } = Astro.props;
 const { slug, frontmatter, image } = post;
@@ -11,15 +12,15 @@ const Heading = headingLevel === 3 ? 'h3' : 'h2';
 <article class="height-100">
   <a
     class:list={[
-      'desk-post-link subtle-fill-1 height-100',
+      'drawing-board-post-link subtle-fill-1 height-100',
       compact
         ? 'card'
         : 'grid grid--column-2--lg align-items-center gap-5'
     ]}
-    href={`/on-my-desk/${slug}`}
+    href={`/drawing-board/${slug}`}
   >
     <Image
-      {...getDeskImageOptions(image)}
+      {...getDrawingBoardImageOptions(image)}
       class="display-block width-100"
       alt=""
       widths={[480, 720, 960, 1200]}
@@ -27,21 +28,12 @@ const Heading = headingLevel === 3 ? 'h3' : 'h2';
       loading={eager ? 'eager' : 'lazy'}
     />
     <div class={compact ? 'padding-3' : 'narrow padding-x-3 padding-bottom-3 padding-0--lg'}>
-      <DeskPostMeta frontmatter={frontmatter} />
-      <Heading class:list={['desk-post-title text-color-link margin-bottom-2', compact ? 'h4' : 'h3']}>
+      <PostMeta frontmatter={frontmatter} />
+      <Heading class:list={['drawing-board-post-title', compact ? 'h4' : 'h3']}>
         {frontmatter.title}
       </Heading>
-      <p class:list={['margin-bottom-0', { 'font-size-md': compact }]}>{frontmatter.description}</p>
+      <p class:list={['margin-bottom-3', { 'font-size-md': compact }]}>{frontmatter.description}</p>
+      <span class="badge">{frontmatter.topic}</span>
     </div>
   </a>
 </article>
-
-<style>
-  .desk-post-link.grid {
-    row-gap: var(--spacer-3);
-  }
-
-  .desk-post-link:is(:hover, :focus-visible) .desk-post-title {
-    text-decoration: underline;
-  }
-</style>

@@ -129,3 +129,16 @@ jobs:
             -e "ssh -i ~/.ssh/cloudways -p 22" \
             site/ \
             "${CLOUDWAYS_USERNAME}@${CLOUDWAYS_HOST}:${CLOUDWAYS_DEPLOY_PATH}/"
+
+          # Remove old article pages when their status changes back to draft.
+          # Keep deletion scoped to the site's generated article directories.
+          for section in drawing-board on-my-desk; do
+            rsync \
+              --archive \
+              --compress \
+              --delete \
+              --itemize-changes \
+              -e "ssh -i ~/.ssh/cloudways -p 22" \
+              "site/${section}/" \
+              "${CLOUDWAYS_USERNAME}@${CLOUDWAYS_HOST}:${CLOUDWAYS_DEPLOY_PATH}/${section}/"
+          done

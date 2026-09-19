@@ -5,11 +5,21 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://carlavidano.com',
   trailingSlash: 'never',
+  redirects: {
+    '/on-my-desk': '/drawing-board',
+    '/on-my-desk/[slug]': '/drawing-board/[slug]',
+    '/on-my-desk/topics/[topic]': '/drawing-board/topics/[topic]'
+  },
   integrations: [
     mdx(),
     sitemap({
-      // Keep the draft The Drawing Board preview out of search until its posts are approved.
-      filter: (page) => !page.endsWith('/aclu') && !new URL(page).pathname.startsWith('/on-my-desk')
+      // Index the articles and main listing, excluding duplicate topic-filter views.
+      filter: (page) => {
+        const { pathname } = new URL(page);
+        return pathname !== '/aclu' &&
+          !pathname.startsWith('/on-my-desk') &&
+          !pathname.startsWith('/drawing-board/topics/');
+      }
     })
   ]
 });

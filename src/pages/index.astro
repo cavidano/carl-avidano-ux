@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header/Header.astro';
 import Button from '../components/Button.astro';
 import ProjectListView from '../components/ProjectListView.astro';
-import DeskPostCard from '../components/DeskPostCard.astro';
+import PostCard from '../components/DrawingBoard/PostCard.astro';
 import { getFeaturedProjects } from '../lib/projects.js';
-import { getDeskPosts } from '../lib/desk.js';
+import { getDrawingBoardPosts } from '../lib/drawing-board.js';
 
 const projects = getFeaturedProjects();
-const latestPosts = getDeskPosts().slice(0, 3);
+const latestPosts = getDrawingBoardPosts().slice(0, 3);
 const title = 'Carl Avidano • UX Manager';
 const description = 'Carl Avidano is a UX leader, researcher, and inclusive design advocate specializing in digital accessibility, design systems, and front-end development.';
 ---
@@ -73,19 +73,19 @@ const description = 'Carl Avidano is a UX leader, researcher, and inclusive desi
       <hr />
     </div>}
 
-    {latestPosts.length > 0 && <section id="on-my-desk" class="container wide margin-y-5">
+    {latestPosts.length > 0 && <section id="drawing-board" class="container wide margin-y-5">
       <header class="margin-bottom-4">
         <h2 class="margin-bottom-0">The Drawing Board</h2>
       </header>
 
       <ul class="grid grid--column-3--lg gap-4">
         {latestPosts.map((post) => (
-          <li><DeskPostCard post={post} compact headingLevel={3} /></li>
+          <li><PostCard post={post} compact headingLevel={3} /></li>
         ))}
       </ul>
 
       <div class="margin-top-4">
-        <Button href="/on-my-desk" utilities="theme-primary" title="View All Articles" />
+        <Button href="/drawing-board" utilities="theme-primary" title="View All Articles" />
       </div>
     </section>}
   

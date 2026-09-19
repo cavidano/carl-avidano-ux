@@ -1,0 +1,44 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header/Header.astro';
+import PostCard from '../../../components/DrawingBoard/PostCard.astro';
+import TopicNav from '../../../components/DrawingBoard/TopicNav.astro';
+import { getDrawingBoardPosts, getDrawingBoardTopics } from '../../../lib/drawing-board.js';
+
+export function getStaticPaths() {
+  const posts = getDrawingBoardPosts();
+  return getDrawingBoardTopics().map((topic) => ({
+    params: { topic: topic.slug },
+    props: { topic, posts: posts.filter((post) => post.frontmatter.topic === topic.name) }
+  }));
+}
+
+const { topic, posts } = Astro.props;
+---
+
+<Layout
+  title={`${topic.name} • The Drawing Board • Carl Avidano`}
+  description={`${topic.name} articles from The Drawing Board.`}
+  noindex
+>
+  <Header />
+
+  <main id="skip-header-target" class="container wide margin-y-5">
+    <header class="narrow margin-bottom-5">
+      <h1 class="banner-headline">The Drawing Board</h1>
+      <p class="font-size-md margin-bottom-0">A look at my process and the work still taking shape. I share what I’m trying and learning as AI changes how we design and build digital products.</p>
+    </header>
+
+    <TopicNav currentTopic={topic.name} />
+
+    {posts.length > 0 ? (
+      <ul class="grid gap-4">
+        {posts.map((post, index) => (
+          <li><PostCard post={post} eager={index === 0} /></li>
+        ))}
+      </ul>
+    ) : (
+      <p>No articles on this topic yet.</p>
+    )}
+  </main>
+</Layout>

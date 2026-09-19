@@ -1,25 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header/Header.astro';
-import DeskPostCard from '../../components/DeskPostCard.astro';
-import { getDeskPosts } from '../../lib/desk.js';
+import PostCard from '../../components/DrawingBoard/PostCard.astro';
+import TopicNav from '../../components/DrawingBoard/TopicNav.astro';
+import { getDrawingBoardPosts } from '../../lib/drawing-board.js';
 
-const posts = getDeskPosts();
+const posts = getDrawingBoardPosts();
 const description = 'A look at my process and the work still taking shape. I share what I’m trying and learning as AI changes how we design and build digital products.';
 ---
-<Layout title="The Drawing Board • Carl Avidano" description={description} noindex>
+<Layout title="The Drawing Board • Carl Avidano" description={description}>
+  
   <Header />
 
   <main id="skip-header-target" class="container wide margin-y-5">
+
     <header class="narrow margin-bottom-5">
       <h1 class="banner-headline">The Drawing Board</h1>
       <p class="font-size-md margin-bottom-0">{description}</p>
     </header>
 
-    <ul class="grid gap-4">
+    <TopicNav />
+
+    <ul class="grid gap-3">
       {posts.map((post, index) => (
         <li>
-          <DeskPostCard post={post} eager={index === 0} />
+          <PostCard post={post} eager={index === 0} />
         </li>
       ))}
     </ul>

@@ -1,0 +1,12 @@
+---
+import { formatDrawingBoardDate } from '../../lib/drawing-board.js';
+
+const { frontmatter, class: className } = Astro.props;
+---
+<p class:list={["font-size-sm margin-bottom-2", className]}>
+  {frontmatter.workDate ? (
+    <span>From the archive · <time datetime={frontmatter.workDate}>{formatDrawingBoardDate(frontmatter.workDate)}</time></span>
+  ) : (
+    <time datetime={frontmatter.date}>{formatDrawingBoardDate(frontmatter.date)}</time>
+  )}
+</p>

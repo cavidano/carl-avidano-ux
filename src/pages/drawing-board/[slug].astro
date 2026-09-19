@@ -1,0 +1,114 @@
+---
+import { getImage } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header/Header.astro';
+import Button from '../../components/Button.astro';
+import LinkOpenNew from '../../components/LinkOpenNew.astro';
+import { getDrawingBoardPosts, getDrawingBoardTopics, formatDrawingBoardDate, getDrawingBoardImageOptions } from '../../lib/drawing-board.js';
+
+export function getStaticPaths() {
+  return getDrawingBoardPosts().map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, frontmatter, image } = post;
+const topicLink = getDrawingBoardTopics().find(({ name }) => name === frontmatter.topic);
+if (!topicLink) {
+  throw new Error(`Unsupported Drawing Board topic: ${frontmatter.topic}`);
+}
+const featureImageOptions = getDrawingBoardImageOptions(image);
+const featureImage = await getImage({ ...featureImageOptions, format: 'jpg' });
+const usefulLinks = [
+  { label: frontmatter.projectLinkLabel ?? `${frontmatter.projectName} case study`, url: frontmatter.projectUrl },
+  ...(frontmatter.usefulLinks ?? [])
+];
+---
+<Layout
+  title={`${frontmatter.title} • The Drawing Board • Carl Avidano`}
+  socialTitle={frontmatter.title}
+  description={frontmatter.description}
+  image={featureImage.src}
+  imageAlt={frontmatter.imageAlt}
+  imageWidth={featureImageOptions.width}
+  imageHeight={featureImageOptions.height}
+  imageType="image/jpeg"
+  article={{ date: frontmatter.date, topic: frontmatter.topic }}
+>
+  <Header />
+
+  <main id="skip-header-target">
+
+    <article class="margin-y-6">
+      
+      <header class="container medium text-align-center margin-bottom-5">
+
+        <p class="font-size-sm margin-bottom-2">
+          {frontmatter.workDate ? (
+            <span>From the archive · <time datetime={frontmatter.workDate}>{formatDrawingBoardDate(frontmatter.workDate)}</time></span>
+          ) : (
+            <time datetime={frontmatter.date}>{formatDrawingBoardDate(frontmatter.date)}</time>
+          )}
+        </p>
+
+        <h1 class="banner-headline margin-bottom-4">{frontmatter.title}</h1>
+        
+        <a class="badge" href={topicLink.href}>{frontmatter.topic}</a>
+      
+      </header>
+
+      <div class="container narrow">
+
+        {frontmatter.brief && <section class="subtle-fill-1 border-left padding-3 margin-bottom-5">
+          <h2 class="font-size-md margin-bottom-2">TLDR</h2>
+          <p class="margin-bottom-0">{frontmatter.brief}</p>
+        </section>}
+        
+        <Content />
+      
+      </div>
+
+      <section class="container narrow margin-top-5">
+
+        <div class="subtle-fill-1 padding-3">
+          
+          <h2 class="h5 margin-bottom-2">
+            Useful links
+          </h2>
+          
+          <ul class="nav gap-2">
+            {usefulLinks.map(({ label, url }) => (
+              <li>
+                {/^https?:\/\//.test(url) ? (
+                  <LinkOpenNew LinkUrl={url} LinkText={label} utilities="link" />
+                ) : (
+                  <a class="link" href={url}>{label}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        
+        </div>
+      
+      </section>
+
+      <footer class="container narrow margin-top-4">
+        
+        <div class="border-top padding-top-3">
+          <Button
+            href="/drawing-board"
+            title="Back to The Drawing Board"
+            iconStartHandle="arrow-left"
+            utilities="font-size-sm padding-x-2 padding-y-1"
+          />
+        </div>
+      
+      </footer>
+    
+    </article>
+  
+  </main>
+
+</Layout>

@@ -1,0 +1,9 @@
+.drawing-board-post-link {
+  &.grid {
+    row-gap: var(--spacer-3);
+  }
+
+  &:is(:hover, :focus-visible) .drawing-board-post-title {
+    text-decoration: underline;
+  }
+}

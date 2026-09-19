@@ -1,0 +1,20 @@
+---
+import { getDrawingBoardTopics } from '../../lib/drawing-board.js';
+
+const { currentTopic } = Astro.props;
+const links = [{ name: 'All articles', href: '/drawing-board' }, ...getDrawingBoardTopics()];
+---
+
+<nav aria-label="Article topics" class="margin-bottom-5">
+  <ul class="list-unstyled flex-row gap-2 font-size-sm margin-bottom-0">
+    {links.map(({ name, href }) => (
+      <li>
+        <a
+          class:list={['badge', { 'theme-primary': currentTopic ? name === currentTopic : href === '/drawing-board' }]}
+          href={href}
+          aria-current={(currentTopic ? name === currentTopic : href === '/drawing-board') ? 'page' : undefined}
+        >{name}</a>
+      </li>
+    ))}
+  </ul>
+</nav>
