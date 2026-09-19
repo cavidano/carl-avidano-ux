@@ -1,0 +1,14 @@
+---
+import { formatDeskDate } from '../lib/desk.js';
+
+const { frontmatter } = Astro.props;
+---
+<p class="desk-meta">
+  <span>{frontmatter.topic}</span>
+  <span aria-hidden="true">·</span>
+  {frontmatter.workDate ? (
+    <span>From the archive · <time datetime={frontmatter.workDate}>{formatDeskDate(frontmatter.workDate)}</time></span>
+  ) : (
+    <time datetime={frontmatter.date}>{formatDeskDate(frontmatter.date)}</time>
+  )}
+</p>

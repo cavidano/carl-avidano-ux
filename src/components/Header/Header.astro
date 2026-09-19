@@ -4,8 +4,7 @@ import './style.scss';
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 const isActive = (href: string) => {
-  if (href === '/portfolio') return currentPath.startsWith('/portfolio');
-  return currentPath === href;
+  return currentPath === href || currentPath.startsWith(`${href}/`);
 };
 ---
 
@@ -30,6 +29,11 @@ const isActive = (href: string) => {
         <li>
           <a href="/portfolio" class:list={{ 'is-active': isActive('/portfolio') }}>
             <span class="nav__text">Portfolio</span>
+          </a>
+        </li>
+        <li>
+          <a href="/on-my-desk" class:list={{ 'is-active': isActive('/on-my-desk') }} aria-current={isActive('/on-my-desk') ? (currentPath === '/on-my-desk' ? 'page' : 'true') : undefined}>
+            <span class="nav__text">On my desk</span>
           </a>
         </li>
         <li>

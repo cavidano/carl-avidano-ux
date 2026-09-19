@@ -23,6 +23,8 @@
   &__nav ul {
       font-size: var(--font-size-md);
       justify-content: center;
+      flex-wrap: wrap;
+      row-gap: var(--spacer-1);
   }
 
   &__nav a.is-active {
@@ -30,7 +32,17 @@
       text-decoration: underline;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 575px) {
+    &__nav {
+      --nav-gap: 1em;
+    }
+
+    &__nav ul {
+      font-size: var(--font-size-sm);
+    }
+  }
+
+  @media (max-width: 991px) {
   
     &__nav {
         border-top: var(--border-width) var(--border-style) var(--border-color);
@@ -39,7 +51,7 @@
   
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
 
     --header-padding: var(--spacer-3);
 

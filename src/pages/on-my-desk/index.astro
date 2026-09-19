@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header/Header.astro';
+import DeskPostMeta from '../../components/DeskPostMeta.astro';
+import { getDeskPosts } from '../../lib/desk.js';
+import '../../styles/desk.scss';
+
+const posts = getDeskPosts();
+const description = 'Work in progress, experiments, and notes from past projects.';
+---
+<Layout title="On my desk • Carl Avidano" description={description} noindex>
+  <Header />
+
+  <main id="skip-header-target" class="container wide margin-y-5">
+    <header class="desk-intro">
+      <h1 class="banner-headline">On my desk</h1>
+      <p class="desk-description">{description}</p>
+    </header>
+
+    <ul class="desk-list list-unstyled">
+      {posts.map(({ slug, frontmatter, image }, index) => (
+        <li>
+          <article class="desk-entry">
+            <Image
+              class="desk-entry__image"
+              src={image}
+              alt=""
+              widths={[480, 720, 960]}
+              sizes="(min-width: 992px) 32vw, 90vw"
+              loading={index === 0 ? 'eager' : 'lazy'}
+            />
+            <div class="desk-entry__copy">
+              <DeskPostMeta frontmatter={frontmatter} />
+              <h2 class="h3">
+                <a class="desk-entry__link" href={`/on-my-desk/${slug}`}>{frontmatter.title}</a>
+              </h2>
+              <p>{frontmatter.description}</p>
+              <span class="desk-entry__read" aria-hidden="true">Read the note <span class="icon icon-arrow-right"></span></span>
+            </div>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Layout>

@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header/Header.astro';
+import DeskPostMeta from '../../components/DeskPostMeta.astro';
+import { getDeskPosts, formatDeskDate } from '../../lib/desk.js';
+import '../../styles/desk.scss';
+
+export function getStaticPaths() {
+  return getDeskPosts().map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, frontmatter, image } = post;
+const otherPosts = getDeskPosts().filter(({ slug }) => slug !== post.slug);
+---
+<Layout
+  title={`${frontmatter.title} • On my desk • Carl Avidano`}
+  description={frontmatter.description}
+  image={image}
+  imageAlt={frontmatter.imageAlt}
+  noindex
+>
+  <Header />
+
+  <main id="skip-header-target" class="container wide margin-y-5">
+    <article class="desk-post">
+      <header class="desk-post__header">
+        <a class="desk-back" href="/on-my-desk"><span aria-hidden="true">← </span>On my desk</a>
+        <DeskPostMeta frontmatter={frontmatter} />
+        <h1>{frontmatter.title}</h1>
+        <p class="desk-description">{frontmatter.description}</p>
+        <p class="desk-draft">Sample post · Draft for review</p>
+      </header>
+
+      <div class="desk-prose">
+        <Content />
+      </div>
+
+      <footer class="desk-post__footer">
+        <p>Posted <time datetime={frontmatter.date}>{formatDeskDate(frontmatter.date)}</time></p>
+        <a href={frontmatter.projectUrl}>Explore the {frontmatter.projectName} case study <span aria-hidden="true">→</span></a>
+      </footer>
+    </article>
+
+    <nav class="desk-more" aria-label="More from On my desk">
+      <p>Also on my desk</p>
+      {otherPosts.map(({ slug, frontmatter: other }) => (
+        <a class="h4" href={`/on-my-desk/${slug}`}>{other.title} <span aria-hidden="true">→</span></a>
+      ))}
+    </nav>
+  </main>
+</Layout>
