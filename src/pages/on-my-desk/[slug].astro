@@ -31,8 +31,6 @@ const otherPosts = getDeskPosts().filter(({ slug }) => slug !== post.slug);
         <a class="desk-back" href="/on-my-desk"><span aria-hidden="true">← </span>On my desk</a>
         <DeskPostMeta frontmatter={frontmatter} />
         <h1>{frontmatter.title}</h1>
-        <p class="desk-description">{frontmatter.description}</p>
-        <p class="desk-draft">{frontmatter.sample === false ? 'Draft for review' : 'Sample post · Draft for review'}</p>
       </header>
 
       <div class="desk-prose">

@@ -3,7 +3,6 @@ title: 'Bringing Natura11y into a Monorepo'
 description: 'How I connected Core, React, Icons, documentation, and Storybook to make Natura11y easier to maintain as a shared design system.'
 date: '2026-07-10'
 topic: 'Design systems'
-sample: false
 image: '../../images/natura11y/design-system-architecture.jpg'
 imageAlt: 'Diagram connecting Natura11y’s Core, React, and Icons packages with its documentation and Storybook apps.'
 projectName: 'Natura11y'
@@ -13,7 +12,7 @@ projectUrl: '/portfolio/natura11y'
 import LightboxImage from '../../components/LightboxImage.astro';
 import architecture from '../../images/natura11y/design-system-architecture.jpg';
 
-In early July, I brought Natura11y’s Core, React, and Icons packages into one repository. I also built a new documentation site in Astro and connected the HTML and React examples through Storybook. Most of this work happened between July 2 and July 10, with the [monorepo migration landing on July 3](https://github.com/Natura11y/root/commit/d438ef9210809f98cf1a0707b5db0fb7f5531db7).
+I brought Natura11y’s Core, React, and Icons packages into one repository. I also built a new documentation site in Astro and connected the HTML and React examples through Storybook.
 
 Natura11y had grown across separate projects. Keeping its styles, component behavior, and examples aligned meant coordinating changes across those projects. I wanted one place to maintain the shared code and see how a change affected the different parts of the system.
 
@@ -38,12 +37,10 @@ One practical change was removing the copied framework Sass from the React devel
 
 I moved Storybook into a shared application so I could work with HTML and React examples in the same environment. That gives me a place to compare how a component looks and behaves in each implementation.
 
-The July work included corrections to tab semantics, dropdown accessibility attributes, and color contrast. For example, I updated the HTML and React tab examples so the tab-list role sits on the navigation list. Reviewing both implementations together makes those relationships easier to inspect.
+I corrected tab semantics, dropdown accessibility attributes, and color contrast across the examples. For example, I updated the HTML and React tabs so the tab-list role sits on the navigation list. Reviewing both implementations together makes those relationships easier to inspect.
 
 ## Bringing documentation into the workflow
 
 The Astro documentation site joined the same repository. I built out component guidance, live examples, and pages covering typography, spacing, and themes. Storybook supports component development and review; the documentation explains how to use the system.
-
-By July 10, I had also [prepared the React beta and updated Core release](https://github.com/Natura11y/root/commit/1497476a0b994b9b12f1fd6f8ba5ededf18a6ca7), with package metadata and publishing guidance for the new structure.
 
 The ongoing responsibility is keeping those pieces aligned. Having the source, examples, and documentation together gives me a practical way to review that work whenever a component changes.
