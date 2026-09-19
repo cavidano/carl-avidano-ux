@@ -14,7 +14,7 @@ const Heading = headingLevel === 3 ? 'h3' : 'h2';
       'desk-post-link subtle-fill-1 height-100',
       compact
         ? 'card'
-        : 'grid grid--column-2--lg align-items-center gap-4 padding-3 padding-4--lg'
+        : 'grid grid--column-2--lg align-items-center gap-5'
     ]}
     href={`/on-my-desk/${slug}`}
   >
@@ -26,7 +26,7 @@ const Heading = headingLevel === 3 ? 'h3' : 'h2';
       sizes={compact ? '(min-width: 992px) 30vw, 90vw' : '(min-width: 992px) 43vw, 85vw'}
       loading={eager ? 'eager' : 'lazy'}
     />
-    <div class={compact ? 'padding-3' : 'narrow'}>
+    <div class={compact ? 'padding-3' : 'narrow padding-x-3 padding-bottom-3 padding-0--lg'}>
       <DeskPostMeta frontmatter={frontmatter} />
       <Heading class:list={['desk-post-title text-color-link margin-bottom-2', compact ? 'h4' : 'h3']}>
         {frontmatter.title}
@@ -37,6 +37,10 @@ const Heading = headingLevel === 3 ? 'h3' : 'h2';
 </article>
 
 <style>
+  .desk-post-link.grid {
+    row-gap: var(--spacer-3);
+  }
+
   .desk-post-link:is(:hover, :focus-visible) .desk-post-title {
     text-decoration: underline;
   }

@@ -1,11 +1,11 @@
 ---
-title: 'Moving the Natura11y design system into a monorepo'
-description: 'How I connected Core, React, Icons, documentation, and Storybook to make Natura11y easier to maintain as a shared design system.'
+title: 'Moving the Natura11y design system into an AI-ready monorepo'
+description: 'How I brought Natura11y’s code and documentation together and added component guidance to support AI-assisted development.'
 brief: >-
-  I brought Natura11y’s code, documentation, and component development into one workspace.
-  The work included moving documentation from Gatsby to Astro, sharing styles across vanilla
-  and React components, and setting up Storybook as a workbench. My goal was easier maintenance
-  and better support for AI-assisted development.
+  I brought Natura11y’s code, documentation, and component examples into one workspace,
+  then continued adding context in Figma and the repository. The aim was to give AI tools
+  clear guidance on how to use the system, including the accessibility details that a
+  visual design alone cannot explain.
 date: '2026-07-10'
 topic: 'Design Systems'
 image: '../../images/natura11y/monorepo-feature.png'
@@ -23,9 +23,9 @@ import LightboxImage from '../../components/LightboxImage.astro';
 import LinkOpenNew from '../../components/LinkOpenNew.astro';
 import architecture from '../../images/natura11y/design-system-architecture.jpg';
 
-Natura11y has grown and evolved a lot over the years. An update to the way I maintained it was long overdue, and I knew it was time to bring everything together into one workspace.
+Natura11y had grown across separate repositories for its core framework, React components, icons, and documentation. An update to the way I maintained it was long overdue. As I brought more <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/ai-and-design-systems/" LinkText="AI-assisted development" /> into my work, I wanted the tools to understand how those parts fit together.
 
-I had originally set up separate repositories for the core vanilla framework, React components, icons, and documentation. As the system grew, keeping related changes consistent took more effort. I wanted a better way to work across those parts.
+That meant making the code easier to find and documenting the decisions behind the components.
 
 <figure className="margin-y-4">
   <LightboxImage
@@ -38,34 +38,24 @@ I had originally set up separate repositories for the core vanilla framework, Re
   </figcaption>
 </figure>
 
-## A single centralized repository
+## Bringing the pieces together
 
 I brought Natura11y’s core framework, React components, icons, and documentation into a <LinkOpenNew LinkUrl="https://github.com/Natura11y/root" LinkText="monorepo" />—a single repository for related code and applications. This let me update a component, check its examples, and revise its documentation in the same workspace.
 
-I also wanted to prepare Natura11y for <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/ai-and-design-systems/" LinkText="AI-assisted development" />. My goal was to give AI tools the same examples and guidance I rely on when making changes.
+I removed a copied set of styles from the React development setup so HTML and React components could share the styles in Core. Storybook brought their examples into one workbench, where I could compare appearance and behavior.
 
-The documentation needed attention too. I had built the original site with Gatsby, but maintaining it had become increasingly difficult. I found Astro much more intuitive and completed the bulk of the migration in just a few days, with support from AI. I also brought Storybook into the workspace so I could develop and review components alongside their documentation.
+The documentation needed attention too. I had built the original site with Gatsby, but maintaining it had become increasingly difficult. I found Astro much more intuitive and completed the bulk of the migration in just a few days, with support from AI.
 
-Within a <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/the-design-system-ecosystem/" LinkText="design system ecosystem" />, the code library, development workbench, and documentation each serve a different purpose, but need to work together.
+## Giving AI tools the context they need
 
-## One source for shared styles
+The monorepo was the starting point. I continued the work in Figma by adding component descriptions that explain how to use each component and the accessibility behavior to preserve.
 
-Core provides the shared styles and JavaScript used by Natura11y’s HTML components. The React package uses those same styles and some of Core’s reusable JavaScript functions. React handles its own component interactions. Icons contains the shared icon assets.
+For example, the Button guidance explains when to use a button for an action or a link for navigation. Icon-only buttons need an accessible name. Those details give AI tools something specific to follow when turning a design into code.
 
-I removed a copied set of styles from the React development setup. React now gets those styles directly from Core, giving me one source to maintain.
+The Main Menu guidance explains which settings belong to Figma and how others map to React. A setting for previewing a small screen should not become an invented property in the code.
 
-Each package still has its own version and release. People can install the parts they need for their project.
-
-## Reviewing components in Storybook
-
-Storybook gives me a <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/a-frontend-workshop-environment/" LinkText="frontend workshop" /> where I can build and test components on their own. I connected the HTML and React examples so I can compare their appearance and behavior in one place.
-
-That review includes accessibility. For example, I corrected the markup that tells screen readers which controls belong to a group of tabs. I made the change in both the HTML and React examples.
-
-## Keeping documentation close to the code
-
-The documentation lives in the same repository as the packages. I built the site with Astro, adding live component examples and guidance on typography, spacing, and themes.
+I also connected Figma variables to the CSS names used in Core. The repository records which source to follow when design and code disagree, with production code guiding accessibility and behavior. That is what I mean by AI-ready: giving the tools usable context for the decisions already built into the system.
 
 ## Result
 
-Core, React, Icons, documentation, and Storybook now live in one workspace. Shared styles come from Core, and I can review component changes alongside their examples and documentation. I completed the bulk of the documentation’s move to Astro in just a few days.
+Natura11y now gives me code, examples, and written guidance to draw on during AI-assisted work. I can point an AI tool to a component’s intended use and check its output against working examples. I’m still refining that context as the system changes.
