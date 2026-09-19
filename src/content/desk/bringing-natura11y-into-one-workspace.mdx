@@ -12,35 +12,35 @@ projectUrl: '/portfolio/natura11y'
 import LightboxImage from '../../components/LightboxImage.astro';
 import architecture from '../../images/natura11y/design-system-architecture.jpg';
 
-This was a long-overdue update to Natura11y. I brought its Core, React, and Icons packages into one repository, built a new documentation site in Astro, and connected the HTML and React examples through Storybook.
+Bringing Natura11y into one repository was a long-overdue update. Its code and examples had grown across separate projects, making it harder to keep them consistent.
 
-Natura11y had grown across separate projects. Keeping its styles, component behavior, and examples aligned meant coordinating changes across those projects. I wanted one place to maintain the shared code and see how a change affected the different parts of the system.
+I moved Core, React, and Icons into a monorepo: a single code repository for related packages and applications. I also built the Astro documentation site and brought Storybook into the same workspace.
 
-## Giving shared code a clear home
+## One source for shared styles
 
-A monorepo brings several related packages and applications into a single code repository. For Natura11y, that meant defining what each package owns and where the others should depend on it.
+Core provides the shared styles and JavaScript used by Natura11y’s HTML components. The React package uses those same styles and some of Core’s reusable JavaScript functions. React handles its own component interactions. Icons contains the shared icon assets.
 
-Core owns the shared styles, vanilla JavaScript behavior, and utilities. React uses those same styles and imports the utilities it needs, while managing its interactions through React. Icons remains a separate package for the icon assets.
+I removed a copied set of styles from the React development setup. React now gets those styles directly from Core, giving me one source to maintain.
 
-One practical change was removing the copied framework Sass from the React development setup. With React using Core directly, a shared style has one source to maintain. The packages still have their own versions and releases, so people can install the parts they need.
+Each package still has its own version and release. People can install the parts they need for their project.
 
 <figure>
   <LightboxImage
     src={architecture}
     alt="Natura11y monorepo architecture. Core provides shared styles and JavaScript utilities; React uses Core; Icons supplies shared icon assets. The Astro documentation and Storybook apps use these packages, which are distributed through npm and CDNs."
-    caption="Natura11y’s packages and applications share a common source while keeping their own responsibilities."
+    caption="How Natura11y’s packages, documentation, and Storybook connect."
   />
-  <figcaption>The package relationships behind the migration. Select the diagram to enlarge it.</figcaption>
+  <figcaption>Core supplies shared code to the other parts of Natura11y. Select the diagram to enlarge it.</figcaption>
 </figure>
 
-## Reviewing HTML and React together
+## Reviewing components in Storybook
 
-I moved Storybook into a shared application so I could work with HTML and React examples in the same environment. That gives me a place to compare how a component looks and behaves in each implementation.
+Storybook lets me view and test components on their own. I connected the HTML and React examples so I can compare their appearance and behavior in one place.
 
-I corrected tab semantics, dropdown accessibility attributes, and color contrast across the examples. For example, I updated the HTML and React tabs so the tab-list role sits on the navigation list. Reviewing both implementations together makes those relationships easier to inspect.
+That review includes accessibility. For example, I corrected the markup that tells screen readers which controls belong to a group of tabs. I made the change in both the HTML and React examples.
 
-## Bringing documentation into the workflow
+## Keeping documentation close to the code
 
-The Astro documentation site joined the same repository. I built out component guidance, live examples, and pages covering typography, spacing, and themes. Storybook supports component development and review; the documentation explains how to use the system.
+The documentation lives in the same repository as the packages. I built the site with Astro, adding live component examples and guidance on typography, spacing, and themes.
 
-The ongoing responsibility is keeping those pieces aligned. Having the source, examples, and documentation together gives me a practical way to review that work whenever a component changes.
+With code, examples, and guidance in one place, I can review them together when a component changes.
