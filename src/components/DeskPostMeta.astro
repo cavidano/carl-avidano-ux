@@ -3,7 +3,7 @@ import { formatDeskDate } from '../lib/desk.js';
 
 const { frontmatter } = Astro.props;
 ---
-<p class="desk-meta">
+<p class="flex-row align-items-baseline gap-1 font-size-sm margin-bottom-2">
   <span>{frontmatter.topic}</span>
   <span aria-hidden="true">·</span>
   {frontmatter.workDate ? (

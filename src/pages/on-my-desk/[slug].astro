@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header/Header.astro';
 import DeskPostMeta from '../../components/DeskPostMeta.astro';
 import { getDeskPosts, formatDeskDate } from '../../lib/desk.js';
-import '../../styles/desk.scss';
 
 export function getStaticPaths() {
   return getDeskPosts().map((post) => ({
@@ -25,31 +24,35 @@ const otherPosts = getDeskPosts().filter(({ slug }) => slug !== post.slug);
 >
   <Header />
 
-  <main id="skip-header-target" class="container wide margin-y-5">
-    <article class="desk-post">
-      <header class="desk-post__header">
-        <a class="desk-back" href="/on-my-desk"><span aria-hidden="true">← </span>On my desk</a>
+  <main id="skip-header-target" class="margin-y-5">
+    <article>
+      <header class="container medium margin-bottom-4">
+        <a class="link display-inline-block margin-bottom-4" href="/on-my-desk"><span aria-hidden="true">← </span>On my desk</a>
         <DeskPostMeta frontmatter={frontmatter} />
         <h1 class="banner-headline">{frontmatter.title}</h1>
       </header>
 
-      <div class="desk-prose">
+      <div class="container narrow">
         <Content />
       </div>
 
-      <footer class="desk-post__footer">
-        <p>Posted <time datetime={frontmatter.date}>{formatDeskDate(frontmatter.date)}</time></p>
-        <a href={frontmatter.projectUrl}>Explore the {frontmatter.projectName} case study <span aria-hidden="true">→</span></a>
+      <footer class="container narrow margin-top-4">
+        <div class="border-top padding-top-3">
+          <p class="font-size-sm margin-bottom-1">Posted <time datetime={frontmatter.date}>{formatDeskDate(frontmatter.date)}</time></p>
+          <a class="link" href={frontmatter.projectUrl}>Explore the {frontmatter.projectName} case study <span aria-hidden="true">→</span></a>
+        </div>
       </footer>
     </article>
 
-    {otherPosts.length > 0 && <nav class="desk-more" aria-label="More from On my desk">
-      <p>Also on my desk</p>
-      <ul class="list-unstyled">
-        {otherPosts.map(({ slug, frontmatter: other }) => (
-          <li><a class="h4" href={`/on-my-desk/${slug}`}>{other.title} <span aria-hidden="true">→</span></a></li>
-        ))}
-      </ul>
+    {otherPosts.length > 0 && <nav class="container narrow margin-top-5" aria-label="More from On my desk">
+      <div class="border-top padding-top-3">
+        <p class="font-size-sm margin-bottom-2">Also on my desk</p>
+        <ul class="grid gap-3">
+          {otherPosts.map(({ slug, frontmatter: other }) => (
+            <li><a class="link h4" href={`/on-my-desk/${slug}`}>{other.title} <span aria-hidden="true">→</span></a></li>
+          ))}
+        </ul>
+      </div>
     </nav>}
   </main>
 </Layout>

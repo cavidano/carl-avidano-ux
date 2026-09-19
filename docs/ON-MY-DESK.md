@@ -10,6 +10,10 @@ Add posts as MDX files in `src/content/desk/`. The filename becomes the URL. Fro
 
 Images reuse the portfolio’s existing assets. Article bodies can use Markdown or import Astro’s `Image` component for figures.
 
+## Layout
+
+Use Natura11y Core defaults and utilities for this section. Article headers use `container medium` with `banner-headline` on the H1. Article bodies and footers use `container narrow`. Use the existing spacing, grid, font-size, and link utilities; figures use `margin-y-4` and Core’s default caption styling. Do not add a separate article stylesheet for styles the system already supplies.
+
 ## Writing standard
 
 Follow the federal plain language guidance maintained by GSA on [Digital.gov](https://digital.gov/guides/plain-language/). Apply it to article bodies and preview descriptions. Write for prospective clients, hiring managers, and design colleagues who want to understand the work and the decisions behind it.
