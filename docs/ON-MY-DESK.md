@@ -1,6 +1,6 @@
 # On my desk preview
 
-The section lives at `/on-my-desk`. Its two sample posts use material already in the Visionlearning and Cheetah.org case studies. A third article covers Natura11y’s July 2026 monorepo migration, grounded in the canonical repository’s Git history. Review the copy and dates before publishing. Nothing in this branch has been deployed.
+The section lives at `/on-my-desk` and currently shows only the Natura11y article about the July 2026 monorepo migration, grounded in the canonical repository’s Git history. The Visionlearning and Cheetah.org sample stories remain in the content folder with `published: false`; they do not appear in the listing or generate article pages. Review the copy and dates before publishing. Nothing in this branch has been deployed.
 
 Add posts as MDX files in `src/content/desk/`. The filename becomes the URL. Frontmatter includes `title`, `description`, `date` (quoted ISO date), `topic`, `image`, `imageAlt`, `projectName`, and `projectUrl`. Set `published: false` to omit a post from both the listing and generated routes.
 

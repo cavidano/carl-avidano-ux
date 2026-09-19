@@ -43,13 +43,13 @@ const otherPosts = getDeskPosts().filter(({ slug }) => slug !== post.slug);
       </footer>
     </article>
 
-    <nav class="desk-more" aria-label="More from On my desk">
+    {otherPosts.length > 0 && <nav class="desk-more" aria-label="More from On my desk">
       <p>Also on my desk</p>
       <ul class="list-unstyled">
         {otherPosts.map(({ slug, frontmatter: other }) => (
           <li><a class="h4" href={`/on-my-desk/${slug}`}>{other.title} <span aria-hidden="true">→</span></a></li>
         ))}
       </ul>
-    </nav>
+    </nav>}
   </main>
 </Layout>
