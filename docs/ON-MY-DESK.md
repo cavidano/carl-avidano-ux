@@ -12,7 +12,7 @@ Images reuse the portfolio’s existing assets. Article bodies can use Markdown 
 
 ## Layout
 
-Use Natura11y Core defaults and utilities for this section. Article headers use `container medium` with `banner-headline` on the H1. Article bodies and footers use `container narrow`. Use the existing spacing, grid, font-size, and link utilities; figures use `margin-y-4` and Core’s default caption styling. Do not add a separate article stylesheet for styles the system already supplies.
+Use Natura11y Core defaults and utilities for this section. Article headers use `container medium` with `banner-headline` on the H1. Center the headline, topic, and date with `text-align-center` and `justify-content-center`; omit a separate back link. Article bodies and footers use `container narrow`. Use the existing spacing, grid, font-size, and link utilities; figures use `margin-y-4` and Core’s default caption styling. Do not add a separate article stylesheet for styles the system already supplies.
 
 ## Writing standard
 

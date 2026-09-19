@@ -1,9 +1,9 @@
 ---
 import { formatDeskDate } from '../lib/desk.js';
 
-const { frontmatter } = Astro.props;
+const { frontmatter, class: className } = Astro.props;
 ---
-<p class="flex-row align-items-baseline gap-1 font-size-sm margin-bottom-2">
+<p class:list={["flex-row align-items-baseline gap-1 font-size-sm margin-bottom-2", className]}>
   <span>{frontmatter.topic}</span>
   <span aria-hidden="true">·</span>
   {frontmatter.workDate ? (
