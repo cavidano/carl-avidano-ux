@@ -1,0 +1,62 @@
+---
+title: 'Preparing Natura11y for contrast themes'
+description: 'Keeping component boundaries, selected states, and controls clear when people choose their own color palette.'
+brief: >-
+  I updated Natura11y to support contrast themes while respecting the colors people choose
+  for themselves. I focused on keeping component borders, selected tabs, and arrows
+  visible, adding custom styles only where needed.
+date: '2026-09-16'
+topic: 'Accessibility'
+image: '../../images/natura11y/contrast-themes-feature.png'
+imageAlt: 'A Natura11y example page with yellow links, white text, and outlined controls on a black background.'
+projectName: 'Natura11y'
+projectUrl: '/portfolio/natura11y'
+usefulLinks:
+  - label: 'Harvard’s guide to contrast themes'
+    url: 'https://accessibility.huit.harvard.edu/news/2026/05/deep-dive-contrast-themes'
+  - label: 'Natura11y documentation'
+    url: 'https://gonatura11y.com/'
+---
+
+import LightboxImage from '../../components/LightboxImage.astro';
+import LinkOpenNew from '../../components/LinkOpenNew.astro';
+import contrastThemes from '../../images/natura11y/contrast-themes.jpg';
+
+Natura11y needs to work when someone replaces the colors I designed it with. Windows <LinkOpenNew LinkUrl="https://support.microsoft.com/en-us/accessibility/windows/change-color-contrast-in-windows" LinkText="contrast themes" /> let people choose a palette that makes their screen easier to read. Supporting that choice means checking whether the interface still makes sense when its usual colors change.
+
+For this update, I focused on the details that help people recognize and use a component: its edges, the selected state, and the arrows that suggest what it does. Those cues need to survive the change in palette.
+
+<figure className="margin-y-4">
+  <LightboxImage
+    src={contrastThemes}
+    alt="A Natura11y example page in a contrast theme. Yellow navigation links and outlined search and action buttons appear against a black background. White headline text has a black background over a bird photograph."
+    caption="A contrast-theme example from Natura11y’s accessibility documentation."
+  />
+  <figcaption>A contrast-theme example from Natura11y’s accessibility documentation.</figcaption>
+</figure>
+
+## Keeping the edges visible
+
+Browsers can apply these palettes through a mode called <LinkOpenNew LinkUrl="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/forced-colors" LinkText="forced colors" />. It replaces many of a page’s colors and removes effects such as box shadows. A component that relies on a shadow or background fill for its shape can become harder to distinguish from its surroundings.
+
+I added a shared border rule for controls and panels that needed a clearer boundary, including buttons, dropdown menus, and modals. The border uses the person’s system colors. Keyboard focus keeps its own outline, so the edge of a component and the control currently receiving keyboard input remain separate cues.
+
+## Keeping the state clear
+
+Tabs needed more than an outer border. I updated their dividers and selected styles so the current tab remains identifiable. The pill-shaped tabs use the system’s highlight and text colors for their selected state.
+
+The small arrows in dropdowns and select fields also needed attention. These shapes are made with CSS borders, and changing the border colors can change the shape itself. I kept the transparent sides transparent and used system colors for the visible part of each arrow. Disabled select fields use the system’s disabled-text color.
+
+These are small changes, but they carry useful information. I wanted the browser to apply the person’s palette while keeping that information intact.
+
+## Making the fixes part of the system
+
+I kept these rules in Core, where both the HTML and React components can use them. That gives me one place to maintain the behavior across the system.
+
+I also added automated checks against the Storybook examples in Chromium and Firefox. They cover component boundaries, tab selection, arrows, switches, and keyboard focus, including checks at different screen widths.
+
+Browser emulation helps catch regressions as the code changes. The <LinkOpenNew LinkUrl="https://github.com/Natura11y/root/blob/main/packages/core/FORCED-COLORS.md" LinkText="review checklist" /> also calls for checking real Windows contrast themes in Edge and Firefox, where the actual system palette and browser behavior can be reviewed together.
+
+## Result
+
+Natura11y now has shared contrast-theme styles in Core and repeatable browser checks for future component changes. Component boundaries, selected tabs, and arrows use system colors so they can adapt to the palette a person chooses. The HTML and React components share these improvements.

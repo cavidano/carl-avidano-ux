@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import DeskPostMeta from './DeskPostMeta.astro';
+import { getDeskImageOptions } from '../lib/desk.js';
+
+const { post, compact = false, headingLevel = 2, eager = false } = Astro.props;
+const { slug, frontmatter, image } = post;
+const Heading = headingLevel === 3 ? 'h3' : 'h2';
+---
+
+<article class="height-100">
+  <a
+    class:list={[
+      'desk-post-link subtle-fill-1 height-100',
+      compact
+        ? 'card'
+        : 'grid grid--column-2--lg align-items-center gap-4 padding-3 padding-4--lg'
+    ]}
+    href={`/on-my-desk/${slug}`}
+  >
+    <Image
+      {...getDeskImageOptions(image)}
+      class="display-block width-100"
+      alt=""
+      widths={[480, 720, 960, 1200]}
+      sizes={compact ? '(min-width: 992px) 30vw, 90vw' : '(min-width: 992px) 43vw, 85vw'}
+      loading={eager ? 'eager' : 'lazy'}
+    />
+    <div class={compact ? 'padding-3' : 'narrow'}>
+      <DeskPostMeta frontmatter={frontmatter} />
+      <Heading class:list={['desk-post-title text-color-link margin-bottom-2', compact ? 'h4' : 'h3']}>
+        {frontmatter.title}
+      </Heading>
+      <p class:list={['margin-bottom-0', { 'font-size-md': compact }]}>{frontmatter.description}</p>
+    </div>
+  </a>
+</article>
+
+<style>
+  .desk-post-link:is(:hover, :focus-visible) .desk-post-title {
+    text-decoration: underline;
+  }
+</style>

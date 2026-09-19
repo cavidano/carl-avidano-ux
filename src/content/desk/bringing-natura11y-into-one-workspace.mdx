@@ -1,20 +1,52 @@
 ---
-title: 'The Natura11y monorepo: a more complete design ecosystem'
+title: 'Moving the Natura11y design system into a monorepo'
 description: 'How I connected Core, React, Icons, documentation, and Storybook to make Natura11y easier to maintain as a shared design system.'
+brief: >-
+  I brought Natura11y’s code, documentation, and component development into one workspace.
+  The work included moving documentation from Gatsby to Astro, sharing styles across vanilla
+  and React components, and setting up Storybook as a workbench. My goal was easier maintenance
+  and better support for AI-assisted development.
 date: '2026-07-10'
-topic: 'Design systems'
-image: '../../images/natura11y/design-system-architecture.jpg'
-imageAlt: 'Diagram connecting Natura11y’s Core, React, and Icons packages with its documentation and Storybook apps.'
+topic: 'Design Systems'
+image: '../../images/natura11y/monorepo-feature.png'
+imageAlt: 'Diagram of the Natura11y monorepo showing documentation, Storybook, and the shared Core and Icons packages.'
 projectName: 'Natura11y'
 projectUrl: '/portfolio/natura11y'
+usefulLinks:
+  - label: 'Natura11y repository on GitHub'
+    url: 'https://github.com/Natura11y/root'
+  - label: 'Natura11y documentation'
+    url: 'https://gonatura11y.com/'
 ---
 
 import LightboxImage from '../../components/LightboxImage.astro';
+import LinkOpenNew from '../../components/LinkOpenNew.astro';
 import architecture from '../../images/natura11y/design-system-architecture.jpg';
 
-Bringing Natura11y into one repository was a long-overdue update. Its code and examples had grown across separate projects, making it harder to keep them consistent.
+Natura11y has grown and evolved a lot over the years. An update to the way I maintained it was long overdue, and I knew it was time to bring everything together into one workspace.
 
-I moved Core, React, and Icons into a monorepo: a single code repository for related packages and applications. I also built the Astro documentation site and brought Storybook into the same workspace.
+I had originally set up separate repositories for the core vanilla framework, React components, icons, and documentation. As the system grew, keeping related changes consistent took more effort. I wanted a better way to work across those parts.
+
+<figure className="margin-y-4">
+  <LightboxImage
+    src={architecture}
+    alt="Natura11y monorepo architecture. Core provides shared styles and JavaScript utilities; React uses Core; Icons supplies shared icon assets. The Astro documentation and Storybook apps use these packages, which are distributed through npm and CDNs."
+    caption="How Natura11y’s packages, documentation, and Storybook connect."
+  />
+  <figcaption>
+    Core supplies shared code to the other parts of Natura11y.
+  </figcaption>
+</figure>
+
+## A single centralized repository
+
+I brought Natura11y’s core framework, React components, icons, and documentation into a <LinkOpenNew LinkUrl="https://github.com/Natura11y/root" LinkText="monorepo" />—a single repository for related code and applications. This let me update a component, check its examples, and revise its documentation in the same workspace.
+
+I also wanted to prepare Natura11y for <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/ai-and-design-systems/" LinkText="AI-assisted development" />. My goal was to give AI tools the same examples and guidance I rely on when making changes.
+
+The documentation needed attention too. I had built the original site with Gatsby, but maintaining it had become increasingly difficult. I found Astro much more intuitive and completed the bulk of the migration in just a few days, with support from AI. I also brought Storybook into the workspace so I could develop and review components alongside their documentation.
+
+Within a <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/the-design-system-ecosystem/" LinkText="design system ecosystem" />, the code library, development workbench, and documentation each serve a different purpose, but need to work together.
 
 ## One source for shared styles
 
@@ -24,18 +56,9 @@ I removed a copied set of styles from the React development setup. React now get
 
 Each package still has its own version and release. People can install the parts they need for their project.
 
-<figure className="margin-y-4">
-  <LightboxImage
-    src={architecture}
-    alt="Natura11y monorepo architecture. Core provides shared styles and JavaScript utilities; React uses Core; Icons supplies shared icon assets. The Astro documentation and Storybook apps use these packages, which are distributed through npm and CDNs."
-    caption="How Natura11y’s packages, documentation, and Storybook connect."
-  />
-  <figcaption>Core supplies shared code to the other parts of Natura11y. Select the diagram to enlarge it.</figcaption>
-</figure>
-
 ## Reviewing components in Storybook
 
-Storybook lets me view and test components on their own. I connected the HTML and React examples so I can compare their appearance and behavior in one place.
+Storybook gives me a <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/a-frontend-workshop-environment/" LinkText="frontend workshop" /> where I can build and test components on their own. I connected the HTML and React examples so I can compare their appearance and behavior in one place.
 
 That review includes accessibility. For example, I corrected the markup that tells screen readers which controls belong to a group of tabs. I made the change in both the HTML and React examples.
 
@@ -43,4 +66,6 @@ That review includes accessibility. For example, I corrected the markup that tel
 
 The documentation lives in the same repository as the packages. I built the site with Astro, adding live component examples and guidance on typography, spacing, and themes.
 
-With code, examples, and guidance in one place, I can review them together when a component changes.
+## Result
+
+Core, React, Icons, documentation, and Storybook now live in one workspace. Shared styles come from Core, and I can review component changes alongside their examples and documentation. I completed the bulk of the documentation’s move to Astro in just a few days.

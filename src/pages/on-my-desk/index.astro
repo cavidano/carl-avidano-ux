@@ -1,12 +1,11 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header/Header.astro';
-import DeskPostMeta from '../../components/DeskPostMeta.astro';
+import DeskPostCard from '../../components/DeskPostCard.astro';
 import { getDeskPosts } from '../../lib/desk.js';
 
 const posts = getDeskPosts();
-const description = 'Work in progress, experiments, and notes from past projects.';
+const description = 'A look at my process and the work still taking shape. I share what I’m trying and learning as AI changes how we design and build digital products.';
 ---
 <Layout title="On my desk • Carl Avidano" description={description} noindex>
   <Header />
@@ -17,30 +16,10 @@ const description = 'Work in progress, experiments, and notes from past projects
       <p class="font-size-md margin-bottom-0">{description}</p>
     </header>
 
-    <ul class="grid">
-      {posts.map(({ slug, frontmatter, image }, index) => (
-        <li class="border-top">
-          <article class="grid grid--column-3--lg align-items-center gap-4 padding-y-4">
-            <Image
-              class="display-block width-100"
-              src={image}
-              alt=""
-              widths={[480, 720, 960]}
-              sizes="(min-width: 992px) 32vw, 90vw"
-              loading={index === 0 ? 'eager' : 'lazy'}
-            />
-            <div class="grid__colspan-2--lg narrow">
-              <DeskPostMeta frontmatter={frontmatter} />
-              <h2 class="h3 margin-bottom-2">
-                <a class="link font-weight-bold" href={`/on-my-desk/${slug}`}>{frontmatter.title}</a>
-              </h2>
-              <p>{frontmatter.description}</p>
-              <a class="link" href={`/on-my-desk/${slug}`}>
-                <span class="link__text">Read the note<span class="screen-reader-only">: {frontmatter.title}</span></span>
-                <span class="icon icon-arrow-right" aria-hidden="true"></span>
-              </a>
-            </div>
-          </article>
+    <ul class="grid gap-4">
+      {posts.map((post, index) => (
+        <li>
+          <DeskPostCard post={post} eager={index === 0} />
         </li>
       ))}
     </ul>

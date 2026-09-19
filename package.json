@@ -19,7 +19,7 @@
   "dependencies": {
     "@astrojs/mdx": "latest",
     "@astrojs/sitemap": "latest",
-    "@natura11y/core": "5.2.5",
+    "@natura11y/core": "5.2.6",
     "@natura11y/icons": "2.3.0",
     "astro": "latest",
     "sass": "latest",

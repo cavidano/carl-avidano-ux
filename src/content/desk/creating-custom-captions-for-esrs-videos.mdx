@@ -1,0 +1,76 @@
+---
+title: 'Creating inclusive captioning for ESR'
+description: 'How I brought a custom Plyr video player and captions created in YouTube Studio together on ESR’s website.'
+brief: >-
+  I built a custom video player for Endangered Species Revenge using Plyr and created
+  captions in YouTube Studio. Viewers can control playback and turn captions on or off,
+  while ESR can correct the caption text without rebuilding the video.
+date: '2026-02-01'
+topic: 'Accessibility'
+image: '../../images/endangered-species-revenge/video-player.png'
+imageAlt: 'ESR’s website video player showing an animated character, closed captions, and playback controls.'
+projectName: 'Endangered Species Revenge'
+projectUrl: 'https://avidanodigital.com/work/endangered-species-revenge'
+usefulLinks:
+  - label: 'Watch ESR’s videos'
+    url: 'https://esrevenge.org/videos/'
+  - label: 'Plyr documentation and source code'
+    url: 'https://github.com/sampotts/plyr'
+  - label: 'The original project update'
+    url: 'https://avidanodigital.com/news/project-update-accessible-captions-for-endangered-species-revenge'
+  - label: 'WebAIM’s guide to captions and transcripts'
+    url: 'https://webaim.org/techniques/captions/'
+---
+
+import LightboxImage from '../../components/LightboxImage.astro';
+import LinkOpenNew from '../../components/LinkOpenNew.astro';
+import captionEditor from '../../images/endangered-species-revenge/customized-captions.png';
+import videoPlayer from '../../images/endangered-species-revenge/video-player.png';
+
+Endangered Species Revenge (ESR) uses animated characters and humor to draw attention to wildlife conservation. Its videos carry much of that story. Updating the website gave me a chance to work on both the viewing experience and the captions that help Deaf and hard-of-hearing viewers follow it.
+
+I used <LinkOpenNew LinkUrl="https://github.com/sampotts/plyr" LinkText="Plyr" /> as the basis for a custom video player and YouTube Studio to create and time the captions. The player needed to fit ESR’s website and give viewers control. The captions needed to carry the words and important sounds at the right moment.
+
+The existing captions were inconsistent. Some videos had none. Others had text permanently baked into the picture, often called burned-in captions. That text could be difficult to read on a phone. On YouTube, turning on another caption track could also leave viewers with two sets of text on screen.
+
+## Giving viewers control
+
+I replaced the burned-in captions with closed captions: text that the player displays separately from the video. Viewers can turn them on or off, and corrections can be made without editing and exporting the video again.
+
+Keeping the text separate also makes it available for translation. It gives ESR a more useful starting point for future language versions, even though the website’s caption track is currently in English.
+
+## Getting the words and timing right
+
+I created and reviewed the captions in YouTube Studio, refining the wording and timing alongside the video. That meant checking what appeared on screen and when, rather than treating the text as a finished transcript.
+
+Speech was only part of the work. In “The Origin of Carbonita,” the captions also describe polar bears roaring and heavy guitar music. Those sounds contribute to the scene, so they belong in the captions too.
+
+<figure className="margin-y-4">
+  <LightboxImage
+    src={captionEditor}
+    alt="YouTube Studio’s caption editor for The Origin of Carbonita, showing editable text, start and end times, sound descriptions, and a video preview."
+    caption="Reviewing the caption text and timing in YouTube Studio."
+  />
+  <figcaption>Reviewing the caption text and timing in YouTube Studio.</figcaption>
+</figure>
+
+## Building the player around the videos
+
+Plyr provided the playback controls. I integrated it into ESR’s WordPress site so a video opens in a viewing window with its description and links to YouTube or the related conservation project. Closing the window pauses the video, so it does not keep playing after someone leaves it.
+
+I configured the controls for playback, volume, captions, and fullscreen viewing. Once the captions were ready in YouTube Studio, I exported them and connected them to the player. The website loads a separate caption file alongside each local video, with the text and the timing for when it should appear.
+
+Captions appear by default, with a control to turn them off. This brought the player work and the caption work together on ESR’s own website.
+
+<figure className="margin-y-4">
+  <LightboxImage
+    src={videoPlayer}
+    alt="The Origin of Carbonita playing in ESR’s website, with a caption above the playback controls and the video title and description below."
+    caption="The reviewed captions displayed in ESR’s website player."
+  />
+  <figcaption>The reviewed captions displayed in ESR’s website player.</figcaption>
+</figure>
+
+## Result
+
+ESR now has a custom viewing experience built with Plyr, paired with captions created and timed in YouTube Studio. Viewers can control playback and captions within the website, and ESR can correct the caption text separately from the video or reuse it for translation.
