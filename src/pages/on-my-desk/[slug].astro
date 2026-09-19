@@ -30,7 +30,7 @@ const otherPosts = getDeskPosts().filter(({ slug }) => slug !== post.slug);
       <header class="desk-post__header">
         <a class="desk-back" href="/on-my-desk"><span aria-hidden="true">← </span>On my desk</a>
         <DeskPostMeta frontmatter={frontmatter} />
-        <h1>{frontmatter.title}</h1>
+        <h1 class="banner-headline">{frontmatter.title}</h1>
       </header>
 
       <div class="desk-prose">
