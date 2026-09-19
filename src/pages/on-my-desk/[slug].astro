@@ -22,7 +22,7 @@ const usefulLinks = [
 const otherPosts = getDeskPosts().filter(({ slug }) => slug !== post.slug);
 ---
 <Layout
-  title={`${frontmatter.title} • On my desk • Carl Avidano`}
+  title={`${frontmatter.title} • The Drawing Board • Carl Avidano`}
   description={frontmatter.description}
   image={featureImage.src}
   imageAlt={frontmatter.imageAlt}
@@ -70,9 +70,9 @@ const otherPosts = getDeskPosts().filter(({ slug }) => slug !== post.slug);
       </footer>
     </article>
 
-    {otherPosts.length > 0 && <nav class="container narrow margin-top-5" aria-label="More from On my desk">
+    {otherPosts.length > 0 && <nav class="container narrow margin-top-5" aria-label="More from The Drawing Board">
       <div class="border-top padding-top-3">
-        <p class="font-size-sm margin-bottom-2">Also on my desk</p>
+        <p class="font-size-sm margin-bottom-2">More from The Drawing Board</p>
         <ul class="grid gap-3">
           {otherPosts.map(({ slug, frontmatter: other }) => (
             <li><a class="link h4" href={`/on-my-desk/${slug}`}>{other.title} <span aria-hidden="true">→</span></a></li>

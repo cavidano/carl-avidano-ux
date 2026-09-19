@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      // Keep the draft On my desk preview out of search until its posts are approved.
+      // Keep the draft The Drawing Board preview out of search until its posts are approved.
       filter: (page) => !page.endsWith('/aclu') && !new URL(page).pathname.startsWith('/on-my-desk')
     })
   ]

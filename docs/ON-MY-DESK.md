@@ -1,4 +1,6 @@
-# On my desk preview
+# The Drawing Board preview
+
+The public label is **The Drawing Board**. Keep the existing `/on-my-desk/` URLs and internal file and component names.
 
 The section lives at `/on-my-desk` and currently shows five working articles: the Natura11y monorepo migration, “Preparing Natura11y for contrast themes,” “Creating inclusive captioning for ESR,” “The Malar Stripe Project: building an accessible foundation for cheetah.org,” and “Social Graphics: Advocating for inclusion through Avidano Digital.” All are drafts for local review, without visible draft labels. The entire section remains `noindex` and excluded from the sitemap. The Visionlearning and Cheetah.org logo sample stories remain in the content folder with `published: false`; they do not appear in the listing or generate article pages. Review the copy and dates before publishing. Nothing in this branch has been deployed.
 
@@ -32,7 +34,7 @@ The contrast-theme article’s feature image is `src/images/natura11y/contrast-t
 
 ## Layout
 
-The homepage ends with an “On my desk” section after the “Who I am” / “What I do” block and its About Me button, separated by the same horizontal divider used between the homepage’s other sections. Show only the section heading above the cards; omit the explanatory paragraph on the homepage. It automatically takes the latest three visible articles from `getDeskPosts()`, followed by a “View All Articles” link. The homepage uses three columns at Core’s `lg` breakpoint and stacks the cards on smaller screens. `DeskPostCard.astro` shares images, metadata, whole-card linking, and focus behavior between the homepage’s compact cards and the article listing.
+The homepage ends with an “The Drawing Board” section after the “Who I am” / “What I do” block and its About Me button, separated by the same horizontal divider used between the homepage’s other sections. Show only the section heading above the cards; omit the explanatory paragraph on the homepage. It automatically takes the latest three visible articles from `getDeskPosts()`, followed by a “View All Articles” link. The homepage uses three columns at Core’s `lg` breakpoint and stacks the cards on smaller screens. `DeskPostCard.astro` shares images, metadata, whole-card linking, and focus behavior between the homepage’s compact cards and the article listing.
 
 The article listing uses two equal columns at Core’s `lg` breakpoint: half the row for the 2:1 thumbnail and half for the text, separated by `gap-4`. On smaller screens, the image stacks above the text. Each entire card is one native link, with Core’s `subtle-fill-1` background and responsive padding. Use space between cards instead of divider lines, and omit a separate “Read the note” link. Keep the headline in the link color; underline it when the card is hovered or keyboard-focused. Core supplies the keyboard focus outline.
 
@@ -40,7 +42,7 @@ Use Natura11y Core defaults and utilities for this section. Article headers use 
 
 ## Editing in Confluence
 
-The [On My Desk](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/21954562/On+My+Desk) parent page in the Carl Avidano UX space contains separate working copies of the five website articles. Each page includes the preview description, TLDR, article text, useful links, captions, and alt text. These are editable copies; changes in Confluence do not automatically update the website. Read the current Confluence page before bringing approved edits back into its matching MDX file.
+The [The Drawing Board](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/21954562/The+Drawing+Board) parent page in the Carl Avidano UX space contains separate working copies of the five website articles. Each page includes the preview description, TLDR, article text, useful links, captions, and alt text. These are editable copies; changes in Confluence do not automatically update the website. Read the current Confluence page before bringing approved edits back into its matching MDX file.
 
 - [The Malar Stripe Project: building an accessible foundation for cheetah.org](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/21757960/The+Malar+Stripe+Project+building+an+accessible+foundation+for+cheetah.org) — `src/content/desk/building-an-accessible-foundation-for-cheetah-org.mdx`
 - [Preparing Natura11y for contrast themes](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/21987329/Preparing+Natura11y+for+contrast+themes) — `src/content/desk/preparing-natura11y-for-contrast-themes.mdx`

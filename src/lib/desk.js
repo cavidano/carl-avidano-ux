@@ -33,10 +33,10 @@ export function getDeskPosts() {
   const slugs = new Set();
   for (const post of posts) {
     if (!deskTopics.has(post.frontmatter.topic)) {
-      throw new Error(`On my desk topic must be User Experience, Design Systems, or Accessibility: ${post.frontmatter.title}`);
+      throw new Error(`The Drawing Board topic must be User Experience, Design Systems, or Accessibility: ${post.frontmatter.title}`);
     }
     if (!post.slug || slugs.has(post.slug)) {
-      throw new Error(`On my desk title needs a unique, nonempty URL slug: ${post.frontmatter.title}`);
+      throw new Error(`The Drawing Board title needs a unique, nonempty URL slug: ${post.frontmatter.title}`);
     }
     slugs.add(post.slug);
   }
