@@ -2,8 +2,10 @@
 import { getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header/Header.astro';
-import Button from '../../components/Button.astro';
 import LinkOpenNew from '../../components/LinkOpenNew.astro';
+import TextBlock from '../../components/TextBlock.astro';
+import FigureSingle from '../../components/FigureSingle.astro';
+import FigureSideBySide from '../../components/FigureSideBySide.astro';
 import { getDrawingBoardPosts, getDrawingBoardTopics, formatDrawingBoardDate, getDrawingBoardImageOptions } from '../../lib/drawing-board.js';
 
 export function getStaticPaths() {
@@ -15,6 +17,7 @@ export function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, frontmatter, image } = post;
+const mdxComponents = { TextBlock, FigureSingle, FigureSideBySide };
 const topicLink = getDrawingBoardTopics().find(({ name }) => name === frontmatter.topic);
 if (!topicLink) {
   throw new Error(`Unsupported Drawing Board topic: ${frontmatter.topic}`);
@@ -53,24 +56,15 @@ const usefulLinks = [
           )}
         </p>
 
-        <h1 class="banner-headline margin-bottom-4">{frontmatter.title}</h1>
+        <h1 class="banner-headline margin-bottom-3">{frontmatter.title}</h1>
         
         <a class="badge" href={topicLink.href}>{frontmatter.topic}</a>
       
       </header>
 
-      <div class="container narrow">
+      <Content components={mdxComponents} />
 
-        {frontmatter.brief && <section class="subtle-fill-1 border-left padding-3 margin-bottom-5">
-          <h2 class="font-size-md margin-bottom-2">TLDR</h2>
-          <p class="margin-bottom-0">{frontmatter.brief}</p>
-        </section>}
-        
-        <Content />
-      
-      </div>
-
-      <section class="container narrow margin-top-5">
+      <section class="narrow margin-x-auto margin-top-4">
 
         <div class="subtle-fill-1 padding-3">
           
@@ -94,15 +88,13 @@ const usefulLinks = [
       
       </section>
 
-      <footer class="container narrow margin-top-4">
+      <footer class="container margin-top-5">
         
-        <div class="border-top padding-top-3">
-          <Button
-            href="/drawing-board"
-            title="Back to The Drawing Board"
-            iconStartHandle="arrow-left"
-            utilities="font-size-sm padding-x-2 padding-y-1"
-          />
+        <div class=" narrow margin-x-auto border-top padding-top-2 padding-bottom-4">
+          <a class="link font-size-sm" href="/drawing-board">
+            <span class="icon icon-arrow-left" aria-hidden="true"></span>
+            <span class="link__text">Back to The Drawing Board</span>
+          </a>
         </div>
       
       </footer>
@@ -112,3 +104,9 @@ const usefulLinks = [
   </main>
 
 </Layout>
+
+<style>
+  footer {
+    --link-color: currentColor;
+  }
+</style>

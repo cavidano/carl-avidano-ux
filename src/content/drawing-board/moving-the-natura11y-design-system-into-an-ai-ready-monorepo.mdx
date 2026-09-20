@@ -1,10 +1,6 @@
 ---
 title: 'Moving the Natura11y design system into an AI-ready monorepo'
 description: 'How I brought Natura11y’s code and documentation together and added component guidance to support AI-assisted development.'
-brief: >-
-  I brought Natura11y’s code and documentation into one workspace, then added guidance
-  for AI-assisted development. The goal was easier maintenance and reliable context
-  for using the system’s components.
 date: '2026-07-10'
 status: published
 topic: 'Design Systems'
@@ -23,20 +19,25 @@ import LightboxImage from '../../components/LightboxImage.astro';
 import LinkOpenNew from '../../components/LinkOpenNew.astro';
 import architecture from '../../images/natura11y/design-system-architecture.jpg';
 
+<TextBlock className="margin-x-auto">
+
 Natura11y had grown across separate repositories for its core framework, React components, icons, and documentation. Keeping them aligned took more effort, and an update was long overdue.
 
 As I brought more <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/ai-and-design-systems/" LinkText="AI-assisted development" /> into my work, I wanted the tools to have reliable context. That meant making the code and guidance easier to find and trust.
 
-<figure className="margin-y-4">
+</TextBlock>
+
+<FigureSingle width="medium" className="margin-x-auto" caption="Core supplies shared code to the other parts of Natura11y.">
+
   <LightboxImage
     src={architecture}
     alt="Natura11y monorepo architecture. Core provides shared styles and JavaScript utilities; React uses Core; Icons supplies shared icon assets. The Astro documentation and Storybook apps use these packages, which are distributed through npm and CDNs."
     caption="How Natura11y’s packages, documentation, and Storybook connect."
   />
-  <figcaption>
-    Core supplies shared code to the other parts of Natura11y.
-  </figcaption>
-</figure>
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
 
 ## One workspace
 
@@ -46,6 +47,10 @@ I removed duplicate styles from the React setup so HTML and React components sha
 
 The old Gatsby documentation had become difficult to maintain. I found Astro more intuitive and completed the bulk of the migration in a few days, with AI support.
 
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
 ## Context for AI
 
 After the move, I continued adding context in Figma. Component descriptions explain intended use and accessibility behavior. Button guidance, for example, distinguishes actions from navigation and explains that icon-only buttons need a label screen readers can announce.
@@ -54,6 +59,12 @@ The Main Menu guidance separates Figma’s preview settings from the properties 
 
 I also connected Figma variables to Core’s CSS names and documented which source to follow when design and code disagree. Production code is the authority for accessibility and behavior.
 
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
 ## Result
 
 The code, examples, and design guidance now reinforce each other. I have clearer context to give AI tools and working components to check their output against. I’m still refining that guidance as I use it.
+
+</TextBlock>

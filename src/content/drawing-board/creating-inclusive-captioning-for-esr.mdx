@@ -1,10 +1,6 @@
 ---
 title: 'Creating inclusive captioning for ESR'
 description: 'How I brought a custom Plyr video player and captions created in YouTube Studio together on ESR’s website.'
-brief: >-
-  I paired a custom Plyr video player with captions created in YouTube Studio. Keeping
-  captions separate from the video gives viewers control and lets ESR correct the text
-  without exporting the video again.
 date: '2026-02-01'
 status: published
 topic: 'Accessibility'
@@ -19,14 +15,20 @@ usefulLinks:
     url: 'https://webaim.org/techniques/captions/'
 ---
 
-import LightboxImage from '../../components/LightboxImage.astro';
+import { Image } from 'astro:assets';
 import LinkOpenNew from '../../components/LinkOpenNew.astro';
 import captionEditor from '../../images/endangered-species-revenge/customized-captions.png';
 import videoPlayer from '../../images/endangered-species-revenge/video-player.png';
 
+<TextBlock className="margin-x-auto">
+
 Endangered Species Revenge (ESR) uses animated characters and humor to draw attention to wildlife conservation. Its captions were inconsistent: some videos had none, while others had text permanently burned into the picture. That text could be hard to read on a phone. On YouTube, turning on captions could also leave two sets of text on screen.
 
 I wanted to give viewers control over the captions and make them easier for ESR to maintain.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
 
 ## Viewer control
 
@@ -34,20 +36,28 @@ I replaced the burned-in text with closed captions, which the player displays se
 
 Separate caption files also give ESR a starting point for future translations. The website’s current caption track is in English.
 
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
 ## Words and timing
 
 I created and reviewed the captions in YouTube Studio, checking the wording and timing against the video.
 
 Captions need to carry sounds that help explain a scene, too. In “The Origin of Carbonita,” I included polar bears roaring and heavy guitar music so Deaf and hard-of-hearing viewers could follow those parts of the story.
 
-<figure className="margin-y-4">
-  <LightboxImage
+</TextBlock>
+
+<FigureSingle width="medium" className="margin-x-auto" caption="Reviewing the caption text and timing in YouTube Studio.">
+
+  <Image
     src={captionEditor}
     alt="YouTube Studio’s caption editor for The Origin of Carbonita, showing editable text, start and end times, sound descriptions, and a video preview."
-    caption="Reviewing the caption text and timing in YouTube Studio."
   />
-  <figcaption>Reviewing the caption text and timing in YouTube Studio.</figcaption>
-</figure>
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
 
 ## The video player
 
@@ -55,15 +65,21 @@ I used <LinkOpenNew LinkUrl="https://github.com/sampotts/plyr" LinkText="Plyr" /
 
 Viewers have playback, volume, caption, and fullscreen controls. Captions appear by default and can be turned off. Closing the video window pauses playback.
 
-<figure className="margin-y-4">
-  <LightboxImage
+</TextBlock>
+
+<FigureSingle width="medium" className="margin-x-auto" caption="The reviewed captions displayed in ESR’s website player.">
+
+  <Image
     src={videoPlayer}
     alt="The Origin of Carbonita playing in ESR’s website, with a caption above the playback controls and the video title and description below."
-    caption="The reviewed captions displayed in ESR’s website player."
   />
-  <figcaption>The reviewed captions displayed in ESR’s website player.</figcaption>
-</figure>
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
 
 ## Result
 
 ESR can now maintain caption text separately from its videos. The player gives viewers control over how they watch, while the captions carry both speech and sounds that matter to the story.
+
+</TextBlock>
