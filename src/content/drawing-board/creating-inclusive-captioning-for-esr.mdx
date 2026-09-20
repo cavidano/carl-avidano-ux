@@ -4,13 +4,11 @@ description: 'How I brought a custom Plyr video player and captions created in Y
 date: '2026-02-01'
 status: published
 topic: 'Accessibility'
-image: '../../images/endangered-species-revenge/captioning-feature.png'
+image: '../../images/endangered-species-revenge/drawing-board-esr-inclusive-captioning.png'
 imageAlt: 'YouTube Studio’s caption editor showing ESR’s caption text and timing alongside a preview of The Origin of Carbonita.'
 projectName: 'Endangered Species Revenge'
 projectUrl: 'https://avidanodigital.com/work/endangered-species-revenge'
 usefulLinks:
-  - label: 'Watch ESR’s videos'
-    url: 'https://esrevenge.org/videos/'
   - label: 'WebAIM’s guide to captions and transcripts'
     url: 'https://webaim.org/techniques/captions/'
 ---
@@ -30,21 +28,9 @@ I wanted to give viewers control over the captions and make them easier for ESR 
 
 <TextBlock className="margin-x-auto">
 
-## Viewer control
+## Custom captions in YouTube Studio
 
-I replaced the burned-in text with closed captions, which the player displays separately from the video. Viewers can turn them on or off, and ESR can correct the text without editing and exporting the video again.
-
-Separate caption files also give ESR a starting point for future translations. The website’s current caption track is in English.
-
-</TextBlock>
-
-<TextBlock className="margin-x-auto">
-
-## Words and timing
-
-I created and reviewed the captions in YouTube Studio, checking the wording and timing against the video.
-
-Captions need to carry sounds that help explain a scene, too. In “The Origin of Carbonita,” I included polar bears roaring and heavy guitar music so Deaf and hard-of-hearing viewers could follow those parts of the story.
+I worked with the videos’ original producer to get copies without burned-in captions. I then created and reviewed the captions in YouTube Studio, checking the wording and timing for each video.
 
 </TextBlock>
 
@@ -59,11 +45,15 @@ Captions need to carry sounds that help explain a scene, too. In “The Origin o
 
 <TextBlock className="margin-x-auto">
 
+Captions need to carry sounds that help explain a scene, too. In “The Origin of Carbonita,” I included polar bears roaring and heavy guitar music so Deaf and hard-of-hearing viewers could follow those parts of the story.
+
 ## The video player
 
-I used <LinkOpenNew LinkUrl="https://github.com/sampotts/plyr" LinkText="Plyr" /> to build a custom player for ESR’s WordPress site, then exported the captions from YouTube Studio and connected them to the local videos. Each video opens with its description and related links.
+Once the captions were ready, I exported the files from YouTube Studio and imported them into a custom <LinkOpenNew LinkUrl="https://github.com/sampotts/plyr" LinkText="Plyr" /> player for ESR’s WordPress site, pairing them with the videos supplied by the producer.
 
-Viewers have playback, volume, caption, and fullscreen controls. Captions appear by default and can be turned off. Closing the video window pauses playback.
+The player displays closed captions separately from the video. Viewers can turn them on or off, and ESR can correct the text without editing and exporting the video again.
+
+Captions appear by default. Viewers also have playback, volume, and fullscreen controls. Each video opens with its description and related links, and closing the video window pauses playback.
 
 </TextBlock>
 
@@ -77,6 +67,8 @@ Viewers have playback, volume, caption, and fullscreen controls. Captions appear
 </FigureSingle>
 
 <TextBlock className="margin-x-auto">
+
+Separate caption files also give ESR a starting point for future translations. The website’s current caption track is in English.
 
 ## Result
 

@@ -4,7 +4,7 @@ description: 'How I brought Natura11y’s code and documentation together and ad
 date: '2026-07-10'
 status: published
 topic: 'Design Systems'
-image: '../../images/natura11y/monorepo-feature.png'
+image: '../../images/natura11y/drawing-board-natura11y-monorepo.png'
 imageAlt: 'Diagram of the Natura11y monorepo showing documentation, Storybook, and the shared Core and Icons packages.'
 projectName: 'Natura11y'
 projectUrl: '/portfolio/natura11y'
@@ -15,9 +15,11 @@ usefulLinks:
     url: 'https://gonatura11y.com/'
 ---
 
+import { Image } from 'astro:assets';
 import LightboxImage from '../../components/LightboxImage.astro';
 import LinkOpenNew from '../../components/LinkOpenNew.astro';
 import architecture from '../../images/natura11y/design-system-architecture.jpg';
+import figmaContext from '../../images/natura11y/monorepo-figma-context.png';
 
 <TextBlock className="margin-x-auto">
 
@@ -45,15 +47,26 @@ I moved Natura11y’s code and documentation into a <LinkOpenNew LinkUrl="https:
 
 I removed duplicate styles from the React setup so HTML and React components share Core’s styles. Storybook became the workbench for comparing their appearance and behavior.
 
-The old Gatsby documentation had become difficult to maintain. I found Astro more intuitive and completed the bulk of the migration in a few days, with AI support.
-
 </TextBlock>
 
 <TextBlock className="margin-x-auto">
 
 ## Context for AI
 
-After the move, I continued adding context in Figma. Component descriptions explain intended use and accessibility behavior. Button guidance, for example, distinguishes actions from navigation and explains that icon-only buttons need a label screen readers can announce.
+After the move, I continued adding context in Figma. Component descriptions explain intended use and accessibility behavior. Backdrop guidance, for example, explains overlay and stacked layouts and makes clear that Core controls the responsive breakpoint.
+
+</TextBlock>
+
+<FigureSingle width="narrow" className="margin-x-auto" caption="Backdrop’s component description explains its layout behavior and which settings belong in production code.">
+
+  <Image
+    src={figmaContext}
+    alt="Figma configuration for the Backdrop component, showing Overlay and Stack variants and guidance that Core controls the responsive breakpoint."
+  />
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
 
 The Main Menu guidance separates Figma’s preview settings from the properties supported in React. That gives AI tools a clearer reference when translating a design into code.
 
