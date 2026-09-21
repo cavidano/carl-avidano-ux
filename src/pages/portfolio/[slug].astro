@@ -67,17 +67,28 @@ const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-te
   imageAlt={`${frontmatter.title} case study`}
 >
   <div class="theme-primary overflow-hidden" style={projectThemeStyles}>
+
     <div>
+      
       <GlobalHeader />
 
       <header class="marquee">
+        
         <div class="container wide">
+          
           <div class="grid grid--column-7--xl align-items-end--xl gap-5--xl margin-top-3 margin-top-5--lg">
+            
             <div class="grid__colspan-3--xl">
+              
               <div class="margin-bottom-5 margin-top-5--lg">
-                <h1 class="banner-headline">{frontmatter.title}</h1>
-                <p>{frontmatter.tagline || frontmatter.description}</p>
+                <h1 class="banner-headline">
+                  {frontmatter.title}
+                </h1>
+                <p>
+                  {frontmatter.tagline || frontmatter.description}
+                </p>
               </div>
+            
             </div>
 
             <div class="grid__colspan-4--xl">
@@ -89,10 +100,15 @@ const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-te
                 fetchpriority="high"
               />
             </div>
+          
           </div>
+        
         </div>
+      
       </header>
+    
     </div>
+  
   </div>
 
   <main id="skip-header-target" style={projectThemeStyles}>
