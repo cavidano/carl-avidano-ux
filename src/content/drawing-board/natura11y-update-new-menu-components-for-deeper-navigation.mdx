@@ -1,0 +1,77 @@
+---
+title: 'Natura11y update: New menu components for deeper navigation'
+description: 'How I added a flyout menu and nested navigation to Natura11y to help people move through multiple levels of content.'
+date: '2026-03-09'
+status: published
+topic: 'Design Systems'
+image: '../../images/natura11y/drawing-board-natura11y-navigation.png'
+animatedImage: '/media/drawing-board/drawing-board-natura11y-navigation.gif'
+imageAlt: 'The upper portion of Natura11y’s phone demonstration centered on a dark background, with its navigation menu button visible.'
+projectName: 'Natura11y'
+projectUrl: '/portfolio/natura11y'
+usefulLinks:
+  - label: 'Natura11y Flyout documentation'
+    url: 'https://gonatura11y.com/docs/flyout/'
+  - label: 'Natura11y Nested nav documentation'
+    url: 'https://gonatura11y.com/docs/nested-nav/'
+---
+
+import { Image } from 'astro:assets';
+import flyoutExample from '../../images/natura11y/natura11y-flyout-navigation.png';
+import nestedNavExample from '../../images/natura11y/natura11y-nested-navigation.png';
+
+<TextBlock className="margin-x-auto">
+
+I added two navigation patterns to Natura11y for sites with multiple content levels: a flyout menu for moving between levels and nested navigation to group related pages. Both patterns draw inspiration from USWDS menu options, but I refined them—adding an out-of-the-box drill-down menu inside the flyout.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Flyout menu
+
+The flyout opens a panel from the side of the screen. Choosing a section brings its links into view, with a back control to return to the previous level. Showing one level at a time gives a longer menu room to work on a small screen.
+
+</TextBlock>
+
+<FigureSingle width="medium" className="margin-x-auto" caption="The current Flyout example in Storybook, showing the first level of navigation.">
+
+  <Image
+    src={flyoutExample}
+    alt="Storybook showing an open Flyout panel with Wildlife and Trails buttons, links to Events, About, and Contact, and a close button. The page behind the panel is dimmed."
+  />
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
+
+I reused Natura11y’s shared overlay behavior to keep keyboard focus inside the open menu and return it to the opening control when the menu closes. Inactive panels stay out of the tab order, so someone using a keyboard moves through the choices currently on screen.
+
+Escape closes the menu. The transitions also respect the person’s reduced-motion setting.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Nested navigation
+
+For someone already browsing a section, I added a sidebar that keeps its related pages visible. Indentation shows which pages sit beneath a parent, so the structure stays in view while someone chooses where to go next.
+
+</TextBlock>
+
+<FigureSingle width="medium" className="margin-x-auto" caption="The Nested Nav example in Storybook marks the American Robin section and Nesting as the current page.">
+
+  <Image
+    src={nestedNavExample}
+    alt="Storybook showing Nested Nav and its HTML. American Robin has a vertical section bar, and Nesting is bold and underlined beneath it. Indented links show deeper levels within Eastern Bluebird."
+  />
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
+
+I used bold text and underlining to identify the current page, with a bar marking the active section. The markup also identifies the current page for assistive technology. Those cues connect a page to the section around it.
+
+The component uses ordinary links in nested lists. People can Tab through the links and follow them with Enter, using the browser’s standard keyboard behavior.
+
+</TextBlock>

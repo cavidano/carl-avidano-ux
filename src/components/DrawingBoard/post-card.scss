@@ -1,9 +1,22 @@
+.drawing-board-post.grid {
+  row-gap: var(--spacer-3);
+}
+
 .drawing-board-post-link {
-  &.grid {
-    row-gap: var(--spacer-3);
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
   }
 
-  &:is(:hover, :focus-visible) .drawing-board-post-title {
+  &:is(:hover, :focus-visible) {
     text-decoration: underline;
   }
+}
+
+.drawing-board-motion-toggle {
+  position: absolute;
+  inset-block-end: var(--spacer-2);
+  inset-inline-end: var(--spacer-2);
+  z-index: 1;
 }
