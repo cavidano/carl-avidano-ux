@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header/Header.astro';
+import GlobalHeader from '../components/GlobalHeader/GlobalHeader.astro';
 import Button from '../components/Button.astro';
 import LinkOpenNew from '../components/LinkOpenNew.astro';
 import ProjectListView from '../components/ProjectListView.astro';
@@ -90,7 +90,7 @@ const strengths = [
 
 <Layout title={title} description={description} noindex={true}>
 
-  <Header />
+  <GlobalHeader />
 
   <main id="skip-header-target">
 

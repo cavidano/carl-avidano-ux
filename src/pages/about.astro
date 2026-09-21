@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header/Header.astro';
+import GlobalHeader from '../components/GlobalHeader/GlobalHeader.astro';
 
 import AboutContent, { frontmatter } from '../content/pages/about.mdx';
 
@@ -18,11 +18,11 @@ const mdxComponents = {
 ---
 <Layout title={title} description={description} image={portrait} imageAlt={portraitAlt}>
 
-  <Header />
+  <GlobalHeader />
 
   <main class="container wide" id="skip-header-target">
     
-    <div class="margin-y-5 position-relative">
+    <div class="margin-y-3 margin-y-5--lg position-relative">
       <Image
         class="project-image"
         src={portrait}

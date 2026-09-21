@@ -1,0 +1,120 @@
+//////////////////////////////////////////////
+// Global Header
+//////////////////////////////////////////////
+
+.global-header {
+  --icon-size: 1em;
+  --global-header-padding: var(--spacer-3);
+
+  padding-block: var(--global-header-padding);
+
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    'logo title theme'
+    'logo title nav';
+  align-items: end;
+
+  row-gap: var(--spacer-1);
+  column-gap: calc(var(--global-header-padding) * 2);
+  border-bottom: var(--border-width) var(--border-style) var(--border-color);
+
+  &__logo {
+    grid-area: logo;
+    justify-self: start;
+  }
+
+  &__title {
+    grid-area: title;
+    font-size: var(--font-size-sm);
+    list-style: none;
+    line-height: 1.625;
+  }
+
+  &__theme {
+    --button-border-radius: var(--border-radius-pill);
+    --button-padding-x: 0.75em;
+    --button-padding-y: 0.375em;
+    --button-font-weight: var(--font-weight-normal);
+    --button-target-size: 2.25em;
+
+    grid-area: theme;
+    justify-self: end;
+    align-self: start;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  &__menu {
+    display: none;
+  }
+
+  &__nav {
+    grid-area: nav;
+    min-width: 0;
+    // background-color: tan;
+    margin-block-start: var(--spacer-3);
+  }
+
+  @media (max-width: 991px) {
+    padding-block: var(--spacer-3) 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      'logo logo'
+      'title title'
+      'menu theme'
+      'nav nav';
+    gap: 0 var(--spacer-3);
+    text-align: center;
+    border-bottom: 0;
+
+    &__logo {
+      justify-self: center;
+      margin-block-end: var(--spacer-2);
+
+      .h5 {
+        font-size: var(--h4-font-size);
+      }
+    }
+
+    &__title {
+      padding-block-end: var(--spacer-3);
+      margin-block-end: var(--spacer-3);
+      border-bottom: var(--border-width) var(--border-style) var(--border-color);
+    }
+
+    &__menu,
+    &__theme {
+      --button-border-radius: var(--border-radius-1);
+      --button-font-weight: var(--font-weight-bold);
+      --button-target-size: 3rem;
+      --button-padding-x: var(--spacer-2);
+
+      min-width: 0;
+      justify-self: stretch;
+      font-size: var(--font-size-md);
+    }
+
+    &__menu {
+      grid-area: menu;
+      display: inline-flex;
+    }
+
+  }
+
+  @media (min-width: 992px) {
+    &__nav {
+      --nav-gap: 1.5em;
+
+      // Keep desktop navigation at its natural height.
+      height: auto;
+      margin-block-start: unset;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .global-header-container {
+    --wide-width: 100%;
+  }
+}

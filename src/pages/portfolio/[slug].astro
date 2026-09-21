@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header/Header.astro';
+import GlobalHeader from '../../components/GlobalHeader/GlobalHeader.astro';
 import { getAllProjects, getProjectBySlug } from '../../lib/projects.js';
 import CaseStudyOverview from '../../components/CaseStudyOverview.astro';
 import Divider from '../../components/Divider.astro';
@@ -68,13 +68,13 @@ const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-te
 >
   <div class="theme-primary overflow-hidden" style={projectThemeStyles}>
     <div>
-      <Header />
+      <GlobalHeader />
 
       <header class="marquee">
         <div class="container wide">
-          <div class="grid grid--column-7--xl align-items-end--xl gap-5--xl margin-top-5">
+          <div class="grid grid--column-7--xl align-items-end--xl gap-5--xl margin-top-3 margin-top-5--lg">
             <div class="grid__colspan-3--xl">
-              <div class="margin-y-5">
+              <div class="margin-bottom-5 margin-top-5--lg">
                 <h1 class="banner-headline">{frontmatter.title}</h1>
                 <p>{frontmatter.tagline || frontmatter.description}</p>
               </div>

@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header/Header.astro';
+import GlobalHeader from '../../components/GlobalHeader/GlobalHeader.astro';
 import ProjectListView from '../../components/ProjectListView.astro';
 import { getMainProjects } from '../../lib/projects.js';
 
@@ -9,11 +9,11 @@ const title = 'Portfolio • Carl Avidano • UX Manager';
 const description = 'Explore UX research, accessibility, design systems, and front-end work for government agencies, global nonprofits, education, and civic technology.';
 ---
 <Layout title={title} description={description}>
-  <Header />
+  <GlobalHeader />
 
   <main id="skip-header-target">
 
-    <section class="margin-y-5">
+    <section class="margin-top-3 margin-top-5--lg margin-bottom-5">
 
       <header class="container wide">
         <h1 class="banner-headline margin-bottom-3">
@@ -27,7 +27,7 @@ const description = 'Explore UX research, accessibility, design systems, and fro
       </header>
 
       <div class="container--md wide--md">
-        <ProjectListView projects={projects} />
+        <ProjectListView projects={projects} margin="margin-top-3 margin-top-5--lg margin-bottom-5" />
       </div>
 
     </section>

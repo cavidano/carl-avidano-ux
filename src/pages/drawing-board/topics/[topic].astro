@@ -1,6 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import Header from '../../../components/Header/Header.astro';
+import GlobalHeader from '../../../components/GlobalHeader/GlobalHeader.astro';
 import PostCard from '../../../components/DrawingBoard/PostCard.astro';
 import TopicNav from '../../../components/DrawingBoard/TopicNav.astro';
 import { getDrawingBoardPosts, getDrawingBoardTopics } from '../../../lib/drawing-board.js';
@@ -21,10 +21,10 @@ const { topic, posts } = Astro.props;
   description={`${topic.name} articles from The Drawing Board.`}
   noindex
 >
-  <Header />
+  <GlobalHeader />
 
-  <main id="skip-header-target" class="container wide margin-y-5">
-    <header class="narrow margin-bottom-5">
+  <main id="skip-header-target" class="container wide margin-top-3 margin-top-5--lg margin-bottom-5">
+    <header class="narrow margin-bottom-3 margin-bottom-5--lg">
       <h1 class="banner-headline">The Drawing Board</h1>
       <p class="font-size-md margin-bottom-0">Short reads on my process and a look at my ongoing work.</p>
     </header>

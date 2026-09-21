@@ -1,0 +1,69 @@
+---
+import './style.scss';
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const getCurrent = (href: string) => {
+  if (currentPath === href) return 'page';
+  return currentPath.startsWith(`${href}/`) ? 'true' : undefined;
+};
+---
+
+<div class="global-header-container container wide">
+
+  <header class="global-header">
+    
+    <a class="global-header__logo" href="/" aria-label="Carl Avidano home">
+      <div class="h5">
+        <strong>Carl Avidano</strong>
+      </div>
+    </a>
+
+    <ul class="global-header__title">
+      <li>User Experience</li>
+      <li>Design Systems</li>
+      <li>Accessibility</li>
+    </ul>
+
+    <button
+      class="global-header__menu button"
+      type="button"
+      data-toggle="collapse"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+    >
+      <span class="icon icon-menu" aria-hidden="true"></span>
+      <span class="button__text">Menu</span>
+    </button>
+
+    <button class="global-header__theme button" type="button" data-theme-toggle>
+      <span class="icon icon-mode-light-dark" aria-hidden="true"></span>
+      <span class="button__text">Theme</span>
+    </button>
+
+    <nav class="global-header__nav collapse shown--lg" id="primary-navigation" aria-label="Primary navigation">
+      <ul class="nav nav--horizontal--lg font-size-md justify-content-end--lg flex-wrap--lg padding-y-3 padding-y-0--lg">
+        <li>
+          <a href="/portfolio" aria-current={getCurrent('/portfolio')}>
+            <span class="nav__text">Portfolio</span>
+          </a>
+        </li>
+        <li>
+          <a href="/drawing-board" aria-current={getCurrent('/drawing-board')}>
+            <span class="nav__text">Drawing Board</span>
+          </a>
+        </li>
+        <li>
+          <a href="/about" aria-current={getCurrent('/about')}>
+            <span class="nav__text">About Me</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+</div>
+
+<script>
+  import '@natura11y/core';
+</script>

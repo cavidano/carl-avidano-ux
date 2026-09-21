@@ -17,12 +17,13 @@ interface ProjectListItem {
 interface Props {
   projects?: ProjectListItem[];
   headingLevel?: 2 | 3;
+  margin?: string;
 }
 
-const { projects = [], headingLevel = 2 } = Astro.props as Props;
+const { projects = [], headingLevel = 2, margin = 'margin-y-5' } = Astro.props as Props;
 const Heading = headingLevel === 3 ? 'h3' : 'h2';
 ---
-<div class="grid gap-3 margin-y-5">
+<div class:list={['grid gap-3', margin]}>
   {projects.map((project: ProjectListItem, index: number) => (
     <section
       class="theme-primary container"

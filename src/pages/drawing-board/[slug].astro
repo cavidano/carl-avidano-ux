@@ -1,7 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header/Header.astro';
+import GlobalHeader from '../../components/GlobalHeader/GlobalHeader.astro';
 import LinkOpenNew from '../../components/LinkOpenNew.astro';
 import TextBlock from '../../components/TextBlock.astro';
 import FigureSingle from '../../components/FigureSingle.astro';
@@ -40,7 +40,7 @@ const usefulLinks = [
   imageType="image/jpeg"
   article={{ date: frontmatter.date, topic: frontmatter.topic }}
 >
-  <Header />
+  <GlobalHeader />
 
   <main id="skip-header-target">
 
