@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import PostMeta from './PostMeta.astro';
+import PostTags from './PostTags.astro';
 import { getDrawingBoardImageOptions } from '../../lib/drawing-board.js';
 import './post-card.scss';
 
@@ -47,7 +48,7 @@ const Heading = headingLevel === 3 ? 'h3' : 'h2';
       </a>
     </Heading>
     <p class:list={['margin-bottom-3', { 'font-size-md': compact }]}>{frontmatter.description}</p>
-    <span class="badge">{frontmatter.topic}</span>
+    <PostTags tags={post.tags} />
   </div>
 </article>
 

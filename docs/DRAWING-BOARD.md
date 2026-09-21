@@ -4,14 +4,15 @@ Use **The Drawing Board** consistently in the interface and `drawing-board` in c
 
 - `src/content/drawing-board/` — article MDX files, named for their current headlines.
 - `src/pages/drawing-board/` — listing, article, and topic routes.
-- `src/components/DrawingBoard/` — shared `PostCard`, `PostMeta`, and `TopicNav` components.
-- `src/lib/drawing-board.js` — content loading, title-derived slugs, topics, dates, and image settings.
+- `src/components/DrawingBoard/` — shared `PostCard`, `PostMeta`, `PostTags`, and `TagNav` components.
+- `src/lib/drawing-board.js` — content loading, the published tag index, dates, and image settings.
+- `src/lib/drawing-board-content.js` — publication filtering, title and tag slugs, validation, and tag membership.
 
 All internal links, canonical URLs, social metadata, and structured data use `/drawing-board`. The former `/on-my-desk` URLs exist only as compatibility redirects in `astro.config.mjs`; do not recreate that source folder. Astro generates HTML redirect pages for the static build, covering the listing, current article slugs, and topic filters. These old URLs are excluded from the sitemap. They are not server-level HTTP redirects on the static host.
 
 The section lives at `/drawing-board`. The site includes six articles: the Natura11y monorepo migration, contrast themes, ESR captioning, social graphics, navigation, and Gatsby-to-Astro documentation migration. The user approved publishing the reviewed changes on September 21, 2026, after correcting the Astro migration account. The Cheetah.org design-system article and logo sample remain in the content folder as drafts. Only posts with `status: published` appear in the listing, homepage, topic filters, sitemap, and generated article routes.
 
-Add posts as MDX files in `src/content/drawing-board/`. The title generates the URL slug automatically, so editing a headline updates both its article route and preview links. Filenames do not control URLs. Slugs use lowercase words separated by hyphens, with punctuation removed; empty or duplicate slugs stop the build. Frontmatter includes `title`, `description`, `date` (quoted ISO date), `status`, `topic`, `image`, `imageAlt`, `projectName`, and `projectUrl`. Set `status: draft` to keep an article out of every public page, including its own route and any legacy redirect. Change it to `status: published` when ready. A missing status defaults to draft; any other value stops the build. This replaces the old `published` boolean.
+Add posts as MDX files in `src/content/drawing-board/`. The title generates the URL slug automatically, so editing a headline updates both its article route and preview links. Filenames do not control URLs. Slugs use lowercase words separated by hyphens, with punctuation removed; empty or duplicate slugs stop the build. Frontmatter includes `title`, `description`, `date` (quoted ISO date), `status`, `tags`, `image`, `imageAlt`, `projectName`, and `projectUrl`. Set `status: draft` to keep an article out of every public page, including its own route and any legacy redirect. Change it to `status: published` when ready. A missing status defaults to draft; any other value stops the build. This replaces the old `published` boolean.
 
 ```yaml
 status: draft
@@ -19,7 +20,17 @@ status: draft
 
 Status controls the local preview and the next production build. Publishing or unpublishing an existing live article takes effect after deployment. The deployment workflow removes stale HTML only inside the generated `drawing-board` and `on-my-desk` directories so a previously published article cannot remain accessible after it becomes a draft.
 
-Give each article one primary tag in the scalar `topic` field, chosen from `User Experience`, `Design Systems`, and `Accessibility`. A missing, unsupported, or non-string value stops the build for a visible article. CCF and the monorepo use Design Systems; contrast themes, ESR captioning, and social graphics use Accessibility. Topic filters and article metadata use this same primary topic.
+Define tags in each article's frontmatter as a list. Articles may have multiple tags or no tags. There is no separate registry or hardcoded list of available tags:
+
+```yaml
+tags:
+  - Design Systems
+  - Accessibility
+```
+
+Only published articles contribute to the shared tag index. Tag navigation, card and article tag links, archive routes, and social metadata all use that index and the same normalized tag names. Tags are listed alphabetically; matching articles remain newest first. Publishing an article with a new tag creates its link and archive automatically. Removing or unpublishing its last article removes that tag and archive on the next build. Untagged articles remain in All articles and show no empty tag list. Draft-only tags never appear publicly.
+
+Use consistent tag names. Whitespace is normalized; malformed values, duplicate tags on one article, empty URL slugs, and conflicting names that produce the same URL stop the build with a content error. Existing tag assignments were preserved when the scalar `topic` field became a `tags` list. Keep the existing `/drawing-board/topics/<slug>` URLs for compatibility. The build does not generate empty tag archives, and deployment removes stale archive files. `npm test` covers publication filtering, multiple tags, new tags, removal of the last matching article, archive ordering, and invalid data; it also runs as part of every production build.
 
 `date` is the individual post’s editorial publication date and controls newest-first ordering. Display the full date, including the day, on article cards and article headers. Posts can appear whenever there is work to share; there is no monthly publishing schedule. Vary the dates: the social graphics article is dated September 5, 2026, contrast themes September 16, and the CCF foundation September 19. These dates are provisional while drafting and may be assigned for preview, but they do not establish when the underlying work happened. The Natura11y article is dated July 10, 2026 at the user’s request to cover that month’s work; its status is published. An optional `workDate` identifies an older project; the page labels it “From the archive.” The CCF sample uses June 2019, the launch month documented in its case study. Do not repeat the posting date at the end of an article.
 
@@ -45,7 +56,7 @@ Images reuse the portfolio’s existing assets. All article thumbnails and socia
 
 Article metadata is generated from the existing frontmatter. The page title includes the article headline and site name; Open Graph and X/Twitter previews use the headline alone, its preview description, and a generated JPEG of its feature image at up to 1200 × 600 pixels. Include descriptive `imageAlt` text. Image dimensions, MIME type, and absolute image URLs are supplied for social crawlers. Keep the 2:1 crop consistent with the listing images.
 
-Article pages use `og:type="article"`, publication date, author, and one primary topic tag. Their `BlogPosting` structured data includes the headline, description, canonical URL, feature image, author profile, editorial publication date, and primary topic. Dates come from frontmatter, not build time; do not invent a modification date. `max-image-preview:large` allows large search-result image previews without guaranteeing how a search engine displays them.
+Article pages use `og:type="article"`, publication date, author, and one `article:tag` entry per assigned tag. Their `BlogPosting` structured data includes the headline, description, canonical URL, feature image, author profile, editorial publication date, and tag names in `keywords`. Dates come from frontmatter, not build time; do not invent a modification date. `max-image-preview:large` allows large search-result image previews without guaranteeing how a search engine displays them.
 
 Canonical links, social-image URLs, the sitemap, and the generated `robots.txt` all use `site` in `astro.config.mjs` as their public origin. Keep that value aligned with the public portfolio address. Social metadata is rendered in the static HTML, so crawlers do not need JavaScript. `status: draft` omits an article entirely; topic filters remain outside the sitemap. After deployment, verify that the article URL and image are publicly accessible, then check the real shared-link preview. Local metadata checks do not verify a social network's live cache or rendering.
 

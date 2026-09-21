@@ -14,7 +14,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "check": "astro check",
-    "build": "npm run check && astro build",
+    "test": "node --test tests/*.test.js",
+    "build": "npm test && npm run check && astro build",
     "preview": "astro preview"
   },
   "dependencies": {

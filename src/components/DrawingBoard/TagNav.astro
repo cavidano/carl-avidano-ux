@@ -1,0 +1,23 @@
+---
+import { getDrawingBoardTags } from '../../lib/drawing-board.js';
+
+const { currentTag } = Astro.props;
+const items = [
+  { name: 'All articles', slug: undefined, href: '/drawing-board' },
+  ...getDrawingBoardTags()
+];
+---
+
+<nav aria-label="Article tags" class="margin-bottom-3 margin-bottom-5--lg">
+  <ul class="list-unstyled flex-row gap-2 font-size-sm margin-bottom-0">
+    {items.map(({ name, slug, href }) => (
+      <li>
+        <a
+          class:list={['badge', { 'theme-primary': slug === currentTag }]}
+          href={href}
+          aria-current={slug === currentTag ? 'page' : undefined}
+        >{name}</a>
+      </li>
+    ))}
+  </ul>
+</nav>

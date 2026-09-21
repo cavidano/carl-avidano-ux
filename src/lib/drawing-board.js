@@ -1,7 +1,12 @@
 import { resolveImage } from './projects.js';
+import { prepareDrawingBoardPosts, groupDrawingBoardTags } from './drawing-board-content.js';
 
 const postModules = import.meta.glob('/src/content/drawing-board/*.mdx', { eager: true });
-const drawingBoardTopics = new Set(['User Experience', 'Design Systems', 'Accessibility']);
+const posts = prepareDrawingBoardPosts(Object.values(postModules)).map((post) => ({
+  ...post,
+  image: resolveImage(post.frontmatter.image)
+}));
+const tags = groupDrawingBoardTags(posts);
 
 export function getDrawingBoardImageOptions(image) {
   // Match the project marquees' 2:1 ratio without enlarging the source image.
@@ -9,53 +14,11 @@ export function getDrawingBoardImageOptions(image) {
   return { src: image, width, height: width / 2, fit: 'cover', position: 'center' };
 }
 
-function createDrawingBoardSlug(title) {
-  return title
-    .normalize('NFKD')
-    .replace(/\p{Mark}/gu, '')
-    .toLowerCase()
-    .replace(/['’]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-
-export function getDrawingBoardTopics() {
-  return [...drawingBoardTopics].map((name) => ({
-    name,
-    slug: createDrawingBoardSlug(name),
-    href: `/drawing-board/topics/${createDrawingBoardSlug(name)}`
-  }));
+export function getDrawingBoardTags() {
+  return tags;
 }
 
 export function getDrawingBoardPosts() {
-  const posts = Object.values(postModules)
-    .filter(({ frontmatter }) => {
-      const status = frontmatter.status ?? 'draft';
-      if (status !== 'draft' && status !== 'published') {
-        throw new Error(`The Drawing Board status must be draft or published: ${frontmatter.title}`);
-      }
-      return status === 'published';
-    })
-    .map((module) => ({
-      slug: createDrawingBoardSlug(module.frontmatter.title),
-      Content: module.default,
-      frontmatter: module.frontmatter,
-      image: resolveImage(module.frontmatter.image)
-    }))
-    .sort((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date));
-
-  const slugs = new Set();
-  for (const post of posts) {
-    const { topic } = post.frontmatter;
-    if (typeof topic !== 'string' || !drawingBoardTopics.has(topic)) {
-      throw new Error(`The Drawing Board needs one primary topic: User Experience, Design Systems, or Accessibility: ${post.frontmatter.title}`);
-    }
-    if (!post.slug || slugs.has(post.slug)) {
-      throw new Error(`The Drawing Board title needs a unique, nonempty URL slug: ${post.frontmatter.title}`);
-    }
-    slugs.add(post.slug);
-  }
-
   return posts;
 }
 

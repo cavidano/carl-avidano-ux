@@ -2,23 +2,22 @@
 import Layout from '../../../layouts/Layout.astro';
 import GlobalHeader from '../../../components/GlobalHeader/GlobalHeader.astro';
 import PostCard from '../../../components/DrawingBoard/PostCard.astro';
-import TopicNav from '../../../components/DrawingBoard/TopicNav.astro';
-import { getDrawingBoardPosts, getDrawingBoardTopics } from '../../../lib/drawing-board.js';
+import TagNav from '../../../components/DrawingBoard/TagNav.astro';
+import { getDrawingBoardTags } from '../../../lib/drawing-board.js';
 
 export function getStaticPaths() {
-  const posts = getDrawingBoardPosts();
-  return getDrawingBoardTopics().map((topic) => ({
-    params: { topic: topic.slug },
-    props: { topic, posts: posts.filter((post) => post.frontmatter.topic === topic.name) }
+  return getDrawingBoardTags().map((tag) => ({
+    params: { topic: tag.slug },
+    props: { tag }
   }));
 }
 
-const { topic, posts } = Astro.props;
+const { tag } = Astro.props;
 ---
 
 <Layout
-  title={`${topic.name} • The Drawing Board • Carl Avidano`}
-  description={`${topic.name} articles from The Drawing Board.`}
+  title={`${tag.name} • The Drawing Board • Carl Avidano`}
+  description={`${tag.name} articles from The Drawing Board.`}
   noindex
 >
   
@@ -31,17 +30,13 @@ const { topic, posts } = Astro.props;
       <p class="font-size-md margin-bottom-0">Short reads on my process and a look at my ongoing work.</p>
     </header>
 
-    <TopicNav currentTopic={topic.name} />
+    <TagNav currentTag={tag.slug} />
 
-    {posts.length > 0 ? (
-      <ul class="grid gap-4">
-        {posts.map((post, index) => (
-          <li><PostCard post={post} eager={index === 0} /></li>
-        ))}
-      </ul>
-    ) : (
-      <p>No articles on this topic yet.</p>
-    )}
+    <ul class="grid gap-4">
+      {tag.posts.map((post, index) => (
+        <li><PostCard post={post} eager={index === 0} /></li>
+      ))}
+    </ul>
 
   </main>
 

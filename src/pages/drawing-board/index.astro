@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import GlobalHeader from '../../components/GlobalHeader/GlobalHeader.astro';
 import PostCard from '../../components/DrawingBoard/PostCard.astro';
-import TopicNav from '../../components/DrawingBoard/TopicNav.astro';
+import TagNav from '../../components/DrawingBoard/TagNav.astro';
 import { getDrawingBoardPosts } from '../../lib/drawing-board.js';
 
 const posts = getDrawingBoardPosts();
@@ -19,7 +19,7 @@ const description = 'Short reads on my process and a look at my ongoing work.';
       <p class="font-size-md margin-bottom-0">{description}</p>
     </header>
 
-    <TopicNav />
+    <TagNav />
 
     <ul class="grid gap-3">
       {posts.map((post, index) => (

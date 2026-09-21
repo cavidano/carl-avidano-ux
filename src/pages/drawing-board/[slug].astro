@@ -6,7 +6,8 @@ import LinkOpenNew from '../../components/LinkOpenNew.astro';
 import TextBlock from '../../components/TextBlock.astro';
 import FigureSingle from '../../components/FigureSingle.astro';
 import FigureSideBySide from '../../components/FigureSideBySide.astro';
-import { getDrawingBoardPosts, getDrawingBoardTopics, formatDrawingBoardDate, getDrawingBoardImageOptions } from '../../lib/drawing-board.js';
+import PostTags from '../../components/DrawingBoard/PostTags.astro';
+import { getDrawingBoardPosts, formatDrawingBoardDate, getDrawingBoardImageOptions } from '../../lib/drawing-board.js';
 
 export function getStaticPaths() {
   return getDrawingBoardPosts().map((post) => ({
@@ -18,10 +19,6 @@ export function getStaticPaths() {
 const { post } = Astro.props;
 const { Content, frontmatter, image } = post;
 const mdxComponents = { TextBlock, FigureSingle, FigureSideBySide };
-const topicLink = getDrawingBoardTopics().find(({ name }) => name === frontmatter.topic);
-if (!topicLink) {
-  throw new Error(`Unsupported Drawing Board topic: ${frontmatter.topic}`);
-}
 const featureImageOptions = getDrawingBoardImageOptions(image);
 const featureImage = await getImage({ ...featureImageOptions, format: 'jpg' });
 const usefulLinks = [
@@ -38,7 +35,7 @@ const usefulLinks = [
   imageWidth={featureImageOptions.width}
   imageHeight={featureImageOptions.height}
   imageType="image/jpeg"
-  article={{ date: frontmatter.date, topic: frontmatter.topic }}
+  article={{ date: frontmatter.date, tags: post.tags.map(({ name }) => name) }}
 >
   <GlobalHeader />
 
@@ -58,7 +55,7 @@ const usefulLinks = [
 
         <h1 class="banner-headline margin-bottom-3">{frontmatter.title}</h1>
         
-        <a class="badge" href={topicLink.href}>{frontmatter.topic}</a>
+        <PostTags tags={post.tags} class="justify-content-center" />
       
       </header>
 

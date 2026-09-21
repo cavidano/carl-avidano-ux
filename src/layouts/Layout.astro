@@ -16,7 +16,7 @@ interface Props {
   socialTitle?: string;
   article?: {
     date: string;
-    topic: string;
+    tags: string[];
   };
   noindex?: boolean;
 }
@@ -58,7 +58,7 @@ const articleSchema = article ? {
     height: imageHeight,
     caption: imageAlt
   },
-  articleSection: article.topic,
+  keywords: article.tags,
   inLanguage: 'en-US',
   isPartOf: {
     '@type': 'Blog',
@@ -97,7 +97,7 @@ const articleSchema = article ? {
     {article && <>
       <meta property="article:published_time" content={article.date} />
       <meta property="article:author" content={authorUrl} />
-      <meta property="article:tag" content={article.topic} />
+      {article.tags.map((tag) => <meta property="article:tag" content={tag} />)}
     </>}
 
     <meta name="twitter:card" content="summary_large_image" />
