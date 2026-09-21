@@ -5,10 +5,7 @@ const { currentTopic } = Astro.props;
 const publishedTopics = new Set(getDrawingBoardPosts().map(({ frontmatter }) => frontmatter.topic));
 const items = [
   { name: 'All articles', href: '/drawing-board' },
-  ...getDrawingBoardTopics().map((topic) => ({
-    ...topic,
-    href: publishedTopics.has(topic.name) ? topic.href : undefined
-  }))
+  ...getDrawingBoardTopics().filter(({ name }) => publishedTopics.has(name))
 ];
 ---
 
@@ -16,11 +13,11 @@ const items = [
   <ul class="list-unstyled flex-row gap-2 font-size-sm margin-bottom-0">
     {items.map(({ name, href }) => (
       <li>
-        {href ? <a
+        <a
           class:list={['badge', { 'theme-primary': currentTopic ? name === currentTopic : href === '/drawing-board' }]}
           href={href}
           aria-current={(currentTopic ? name === currentTopic : href === '/drawing-board') ? 'page' : undefined}
-        >{name}</a> : <span class="badge">{name}</span>}
+        >{name}</a>
       </li>
     ))}
   </ul>
