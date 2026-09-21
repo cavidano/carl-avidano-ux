@@ -41,9 +41,9 @@ I moved Natura11y’s documentation from Gatsby to Astro to reduce unnecessary c
 
 Gatsby had become a substantial dependency that was cumbersome to update. I was also maintaining custom components built for the Gatsby environment, which added another layer of code to look after.
 
-The migration let me remove that entire set of Gatsby-specific components and use lighter Astro components, with React islands where needed. Search, for example, runs as a React island within the documentation site.
+The migration let me remove that entire set of Gatsby-specific components and use lighter Astro components, with React where needed. Search, for example, runs as a React island: an interactive component within an Astro page.
 
-I could also use Natura11y’s own styles directly across the documentation interface and its examples. That removed the duplicated styles I had maintained for the Gatsby setup, leaving fewer places to update when the design system changed.
+I now use Natura11y’s own styles across the documentation interface and its examples. Removing the styles duplicated for Gatsby gives me fewer places to update and helps keep the documentation consistent with the system it describes.
 
 </TextBlock>
 
@@ -53,6 +53,6 @@ I could also use Natura11y’s own styles directly across the documentation inte
 
 The documentation now lives alongside Core, React, and Icons in Natura11y’s monorepo. It is part of the same shared ecosystem it describes. I can update a component and its guidance in one workspace, then check the rendered example as part of that work.
 
-That shared context also supports the AI-assisted workflow I’m developing. Tools can work with the implementation and the guidance that explains it in one place. As I continue updating the monorepo, I want keeping the documentation current to be a routine part of each change.
+That shared context also supports the AI-assisted workflow I’m developing: tools can work with the implementation and the guidance that explains it together. My goal is to make documentation updates a routine part of component changes.
 
 </TextBlock>

@@ -4,9 +4,11 @@ Use **The Drawing Board** consistently in the interface and `drawing-board` in c
 
 - `src/content/drawing-board/` — article MDX files, named for their current headlines.
 - `src/pages/drawing-board/` — listing, article, and topic routes.
-- `src/components/DrawingBoard/` — shared `PostCard`, `PostMeta`, `PostTags`, and `TagNav` components.
+- `src/components/DrawingBoard/` — shared `ListingPage`, `PostList`, `PostCard`, `PostMeta`, `PostTags`, and `TagNav` components.
 - `src/lib/drawing-board.js` — content loading, the published tag index, dates, and image settings.
 - `src/lib/drawing-board-content.js` — publication filtering, title and tag slugs, validation, and tag membership.
+
+The main listing and tag archives render one `ListingPage` component, which owns the page header, introduction, tag navigation, metadata, and results layout. Their route files only supply the articles and current tag. `PostList` owns the card loop and `gap-3` spacing; the homepage uses its compact three-column variant. Keep changes to the listing markup and spacing in these shared components so the views stay aligned.
 
 All internal links, canonical URLs, social metadata, and structured data use `/drawing-board`. The former `/on-my-desk` URLs exist only as compatibility redirects in `astro.config.mjs`; do not recreate that source folder. Astro generates HTML redirect pages for the static build, covering the listing, current article slugs, and topic filters. These old URLs are excluded from the sitemap. They are not server-level HTTP redirects on the static host.
 

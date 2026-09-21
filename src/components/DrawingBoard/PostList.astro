@@ -1,0 +1,24 @@
+---
+import PostCard from './PostCard.astro';
+import type { getDrawingBoardPosts } from '../../lib/drawing-board.js';
+
+interface Props {
+  posts: ReturnType<typeof getDrawingBoardPosts>;
+  compact?: boolean;
+}
+
+const { posts, compact = false } = Astro.props;
+---
+
+<ul class:list={['grid gap-3', { 'grid--column-3--lg': compact }]}>
+  {posts.map((post, index) => (
+    <li>
+      <PostCard
+        post={post}
+        compact={compact}
+        headingLevel={compact ? 3 : 2}
+        eager={!compact && index === 0}
+      />
+    </li>
+  ))}
+</ul>

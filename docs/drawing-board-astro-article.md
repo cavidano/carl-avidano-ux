@@ -31,6 +31,16 @@ The revised article uses “Removing Gatsby-specific code” and “Keeping docu
 
 ## Local verification
 
+### Rovo editorial review — September 21, 2026
+
+The user supplied a Rovo narration transcript for this article. It is preserved, including transcription errors and repeated passages, on the separate child page [Rovo summary and editorial notes — Goodbye Gatsby, hello Astro](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/24215553). That page also contains an edited summary, the selected refinements, and evidence notes. No recording file or audio URL was supplied; this is the transcript record.
+
+Three paragraphs were refined in the MDX article and Confluence version 6: explain the search React island in plain language, connect shared styles to consistency, and tighten the goal of making documentation updates routine. The introduction still states that guidance and examples were already paired before the migration. The title, dates, image, caption, useful links, and monorepo context are unchanged. The current canonical search component and Core stylesheet import were rechecked. The summary introduces no new historical or measured claims.
+
+Confluence read-back matches the revised local paragraphs, and the existing figure and alt text are preserved. The child page's original transcript matches the supplied text. The local production build passes. The user approved publishing these editorial refinements together with the shared Drawing Board listing cleanup on September 21, 2026.
+
+### Earlier publication check
+
 The corrected migration account was synchronized to Confluence version 5 on September 21. All article paragraphs, headings, the figure caption, and image description were compared against the MDX source after saving. The local preview renders the corrected copy. The build after the rewrite passes with zero errors, warnings, or hints; this validates rendering, not the historical claims, which are grounded in the user's account and the evidence above.
 
 `npm run build` passes with zero errors, warnings, or hints. The draft route renders, the list orders July 8 between July 10 and March 9, and the generated canonical URL, article date, BlogPosting metadata, and 1200 × 600 social image match the frontmatter. The original feature PNG is 1800 × 900 and includes both waving hands.

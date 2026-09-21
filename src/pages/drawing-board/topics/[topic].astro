@@ -1,8 +1,5 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import GlobalHeader from '../../../components/GlobalHeader/GlobalHeader.astro';
-import PostCard from '../../../components/DrawingBoard/PostCard.astro';
-import TagNav from '../../../components/DrawingBoard/TagNav.astro';
+import ListingPage from '../../../components/DrawingBoard/ListingPage.astro';
 import { getDrawingBoardTags } from '../../../lib/drawing-board.js';
 
 export function getStaticPaths() {
@@ -15,29 +12,4 @@ export function getStaticPaths() {
 const { tag } = Astro.props;
 ---
 
-<Layout
-  title={`${tag.name} • The Drawing Board • Carl Avidano`}
-  description={`${tag.name} articles from The Drawing Board.`}
-  noindex
->
-  
-  <GlobalHeader />
-
-  <main id="skip-header-target" class="container wide margin-top-3 margin-top-5--lg margin-bottom-5">
-    
-    <header class="narrow margin-bottom-3 margin-bottom-5--lg">
-      <h1 class="banner-headline">The Drawing Board</h1>
-      <p class="font-size-md margin-bottom-0">Short reads on my process and a look at my ongoing work.</p>
-    </header>
-
-    <TagNav currentTag={tag.slug} />
-
-    <ul class="grid gap-4">
-      {tag.posts.map((post, index) => (
-        <li><PostCard post={post} eager={index === 0} /></li>
-      ))}
-    </ul>
-
-  </main>
-
-</Layout>
+<ListingPage posts={tag.posts} currentTag={tag} />

@@ -1,32 +1,8 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import GlobalHeader from '../../components/GlobalHeader/GlobalHeader.astro';
-import PostCard from '../../components/DrawingBoard/PostCard.astro';
-import TagNav from '../../components/DrawingBoard/TagNav.astro';
+import ListingPage from '../../components/DrawingBoard/ListingPage.astro';
 import { getDrawingBoardPosts } from '../../lib/drawing-board.js';
 
 const posts = getDrawingBoardPosts();
-const description = 'Short reads on my process and a look at my ongoing work.';
 ---
-<Layout title="The Drawing Board • Carl Avidano" description={description}>
-  
-  <GlobalHeader />
 
-  <main id="skip-header-target" class="container wide margin-top-3 margin-top-5--lg margin-bottom-5">
-
-    <header class="narrow margin-bottom-3 margin-bottom-5--lg">
-      <h1 class="banner-headline">The Drawing Board</h1>
-      <p class="font-size-md margin-bottom-0">{description}</p>
-    </header>
-
-    <TagNav />
-
-    <ul class="grid gap-3">
-      {posts.map((post, index) => (
-        <li>
-          <PostCard post={post} eager={index === 0} />
-        </li>
-      ))}
-    </ul>
-  </main>
-</Layout>
+<ListingPage posts={posts} />

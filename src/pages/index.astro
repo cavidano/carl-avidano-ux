@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import GlobalHeader from '../components/GlobalHeader/GlobalHeader.astro';
 import Button from '../components/Button.astro';
 import ProjectListView from '../components/ProjectListView.astro';
-import PostCard from '../components/DrawingBoard/PostCard.astro';
+import PostList from '../components/DrawingBoard/PostList.astro';
 import { getFeaturedProjects } from '../lib/projects.js';
 import { getDrawingBoardPosts } from '../lib/drawing-board.js';
 
@@ -78,11 +78,7 @@ const description = 'Carl Avidano is a UX leader, researcher, and inclusive desi
         <h2 class="margin-bottom-0">The Drawing Board</h2>
       </header>
 
-      <ul class="grid grid--column-3--lg gap-4">
-        {latestPosts.map((post) => (
-          <li><PostCard post={post} compact headingLevel={3} /></li>
-        ))}
-      </ul>
+      <PostList posts={latestPosts} compact />
 
       <div class="margin-top-4">
         <Button href="/drawing-board" utilities="theme-primary" title="View All Articles" />
