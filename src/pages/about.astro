@@ -10,7 +10,7 @@ import AboutHeading from '../components/AboutHeading.astro';
 
 import portrait from '../images/carl-avidano-16x9.jpg';
 
-const { title, description, portraitAlt, profile } = frontmatter;
+const { title, description, portraitAlt, profile, skills } = frontmatter;
 const phoneHref = `tel:${profile.phone.replace(/[^\d+]/g, '')}`;
 const mdxComponents = {
   h1: AboutHeading
@@ -32,61 +32,54 @@ const mdxComponents = {
       />
     </div>
 
-    <article class="border-top padding-y-4">
-      
-      <div class="grid grid--column-4--lg gap-3">
-        <div class="grid__colspan-3 grid__colspan-2--xl order-2--xl">
-          
-          <AboutContent components={mdxComponents} />
-
-          <a class="button button--has-icon button--outline font-size-md" href="/resume-carl-avidano.pdf" download>
-            <span class="icon icon-file-download" aria-hidden="true"></span>
-            <span class="button__text">Download Resume (PDF)</span>
-          </a>
-
-        </div>
-
-        <div class="grid__colspan-2--xl order-1--xl">
-          
-          <div class="grid grid--column-2--xl gap-3">
-            
-            <div>
-              <p class="h6">{profile.name}</p>
-              <p>{profile.pronouns}</p>
-            </div>
-
-            <div class="font-size-md">
-
-                <p class="margin-bottom-2">
-                  <strong>
-                    {profile.location}
-                  </strong>
-                </p>
-
-                <ul class="nav gap-2">
-                  <li>
-                    <a href={`mailto:${profile.email}`}>{profile.email}</a>
-                  </li>
-                  <li>
-                    <a href='https://www.linkedin.com/in/carlavidano/' target='_blank' rel='noreferrer'>
-                      LinkedIn
-                    </a>
-                  </li>
-                  <li>
-                    <a href={phoneHref}>
-                      {profile.phone}
-                    </a>
-                  </li>
-                </ul>
-
-            </div>
-
-          </div>
-        
-        </div>
-      
+    <article class="grid grid--column-4--xl gap-3 border-top padding-y-4">
+      <div>
+        <p class="h6">{profile.name}</p>
+        <p>{profile.pronouns}</p>
       </div>
-    
+
+      <div class="grid grid__colspan-3--xl gap-4">
+        <section class="grid grid--column-3--lg gap-3">
+          <p class="font-size-md margin-bottom-0">Location:<br />{profile.location}</p>
+
+          <div class="grid__colspan-2--lg">
+            <AboutContent components={mdxComponents} />
+          </div>
+        </section>
+
+        <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-expertise">
+          <h2 class="h5 margin-bottom-0">Skills and experience</h2>
+
+          <ul class="grid grid__colspan-2--lg gap-2 font-size-md margin-bottom-0">
+            {skills.map((skill: string) => (
+              <li>{skill}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="get-in-touch">
+          <h2 class="h5 margin-bottom-0">Get in touch</h2>
+
+          <div class="grid__colspan-2--lg font-size-md">
+            <ul class="nav gap-2 margin-bottom-4">
+              <li>
+                <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/carlavidano/" target="_blank" rel="noreferrer">LinkedIn</a>
+              </li>
+              <li>
+                <a href={phoneHref}>{profile.phone}</a>
+              </li>
+            </ul>
+
+            <a class="button button--has-icon button--outline font-size-md" href="/resume-carl-avidano.pdf" download>
+              <span class="icon icon-file-download" aria-hidden="true"></span>
+              <span class="button__text">Download Resume (PDF)</span>
+            </a>
+          </div>
+        </section>
+      </div>
     </article>
   
   </main>
