@@ -2,7 +2,9 @@ import { resolveImage } from './projects.js';
 import { prepareDrawingBoardPosts, groupDrawingBoardTags } from './drawing-board-content.js';
 
 const postModules = import.meta.glob('/src/content/drawing-board/*.mdx', { eager: true });
-const posts = prepareDrawingBoardPosts(Object.values(postModules)).map((post) => ({
+const posts = prepareDrawingBoardPosts(Object.values(postModules), {
+  includePreviews: import.meta.env.DEV
+}).map((post) => ({
   ...post,
   image: resolveImage(post.frontmatter.image)
 }));

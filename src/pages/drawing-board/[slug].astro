@@ -29,6 +29,7 @@ const usefulLinks = [
 <Layout
   title={`${frontmatter.title} • The Drawing Board • Carl Avidano`}
   socialTitle={frontmatter.title}
+  noindex={frontmatter.status !== 'published'}
   description={frontmatter.description}
   image={featureImage.src}
   imageAlt={frontmatter.imageAlt}

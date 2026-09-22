@@ -27,6 +27,20 @@ test('articles can belong to multiple tags and each archive stays newest first',
   assert.deepEqual(tags[1].posts.map(({ slug }) => slug), ['newer', 'older']);
 });
 
+test('draft previews are opt-in and never included by default', () => {
+  const modules = [
+    article('Published', ['Accessibility']),
+    article('Local preview', ['Education'], { status: 'draft', preview: true }),
+    article('Private draft', ['Research'], { status: 'draft' }),
+    article('Invalid preview flag', ['Research'], { status: 'draft', preview: 'true' })
+  ];
+  assert.deepEqual(prepareDrawingBoardPosts(modules).map(({ slug }) => slug), ['published']);
+  assert.deepEqual(index(modules).map(({ name }) => name), ['Accessibility']);
+  const previews = prepareDrawingBoardPosts(modules, { includePreviews: true });
+  assert.deepEqual(previews.map(({ slug }) => slug), ['published', 'local-preview']);
+  assert.deepEqual(groupDrawingBoardTags(previews).map(({ name }) => name), ['Accessibility', 'Education']);
+});
+
 test('a new tag creates a usable archive URL without a hardcoded registry', () => {
   const [tag] = index([article('An article', ['  Content   Strategy  '])]);
   assert.equal(tag.name, 'Content Strategy');

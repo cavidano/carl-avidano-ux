@@ -8,7 +8,7 @@ function createSlug(value) {
     .replace(/^-+|-+$/g, '');
 }
 
-export function prepareDrawingBoardPosts(modules) {
+export function prepareDrawingBoardPosts(modules, { includePreviews = false } = {}) {
   const slugs = new Set();
   const tagNames = new Map();
   const posts = [];
@@ -19,7 +19,7 @@ export function prepareDrawingBoardPosts(modules) {
     if (status !== 'draft' && status !== 'published') {
       throw new Error(`The Drawing Board status must be draft or published: ${title}`);
     }
-    if (status === 'draft') continue;
+    if (status === 'draft' && !(includePreviews && frontmatter.preview === true)) continue;
 
     const slug = createSlug(title);
     if (!slug || slugs.has(slug)) {

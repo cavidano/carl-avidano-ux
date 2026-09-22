@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { posts, currentTag } = Astro.props;
-const introduction = 'Quick reads on my creative process and a look at ongoing work as it unfolds.';
+const introduction = 'Quick reads on my creative process, collaborations, and a look at ongoing work as it unfolds.';
 const title = `${currentTag ? `${currentTag.name} • ` : ''}The Drawing Board • Carl Avidano`;
 const description = currentTag ? `${currentTag.name} articles from The Drawing Board.` : introduction;
 ---
