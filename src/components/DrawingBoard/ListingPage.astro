@@ -11,15 +11,17 @@ interface Props {
 }
 
 const { posts, currentTag } = Astro.props;
-const introduction = 'Short reads on my process and a look at my ongoing work.';
+const introduction = 'Quick reads on my creative process and a look at ongoing work as it unfolds.';
 const title = `${currentTag ? `${currentTag.name} • ` : ''}The Drawing Board • Carl Avidano`;
 const description = currentTag ? `${currentTag.name} articles from The Drawing Board.` : introduction;
 ---
 
 <Layout title={title} description={description} noindex={Boolean(currentTag)}>
+
   <GlobalHeader />
 
   <main id="skip-header-target" class="container wide margin-top-3 margin-top-5--lg margin-bottom-5">
+
     <header class="narrow margin-bottom-3 margin-bottom-5--lg">
       <h1 class="banner-headline">The Drawing Board</h1>
       <p class="font-size-md margin-bottom-0">{introduction}</p>

@@ -1,11 +1,24 @@
 ---
 import './style.scss';
+import KeyResultsCard from './KeyResultsCard.astro';
+
+interface Props {
+  results?: { stat: string; description: string }[];
+}
+
+const { results = [] } = Astro.props;
 ---
 
 <div class="medium margin-y-5">
   
   <div class="key-results-grid">
-    <slot />
+    {results.length > 0 ? (
+      results.map(({ stat, description }) => (
+        <KeyResultsCard stat={stat} description={description} />
+      ))
+    ) : (
+      <slot />
+    )}
   </div>
   
 </div>

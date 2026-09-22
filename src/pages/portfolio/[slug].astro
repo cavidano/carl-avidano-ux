@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import GlobalHeader from '../../components/GlobalHeader/GlobalHeader.astro';
 import { getAllProjects, getProjectBySlug } from '../../lib/projects.js';
+import { getDrawingBoardPosts } from '../../lib/drawing-board.js';
+import PostList from '../../components/DrawingBoard/PostList.astro';
 import CaseStudyOverview from '../../components/CaseStudyOverview.astro';
 import Divider from '../../components/Divider.astro';
 import FigureSideBySide from '../../components/FigureSideBySide.astro';
@@ -45,6 +47,9 @@ if (!project) {
 }
 
 const { Content, frontmatter } = project;
+const relatedPosts = getDrawingBoardPosts()
+  .filter((post) => post.frontmatter.projectUrl?.replace(/\/+$/, '') === `/portfolio/${project.slug}`)
+  .slice(0, 3);
 const mdxComponents = {
   CaseStudyOverview,
   Divider,
@@ -115,5 +120,15 @@ const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-te
     <article class="margin-y-5">
       <Content components={mdxComponents} />
     </article>
+
+    {relatedPosts.length > 0 && (
+      <section id="from-the-drawing-board" class="container wide margin-y-5">
+        <hr class="margin-bottom-5" />
+        <header class="margin-bottom-4">
+          <h2 class="margin-bottom-0">From the Drawing Board</h2>
+        </header>
+        <PostList posts={relatedPosts} compact />
+      </section>
+    )}
   </main>
 </Layout>

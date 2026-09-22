@@ -1,6 +1,6 @@
 ---
 title: 'Phoenix.gov'
-tagline: "Civic Services: Unified for a Connected City"
+tagline: "Making city services easier to find"
 description: "UX research, strategy, and low-fidelity design for the official website of the City of Phoenix, serving 1.5 million residents."
 buttonLabel: 'View Project'
 primaryColor: '#A7005B'
@@ -12,181 +12,160 @@ isMainProject: true
 isFeatured: true
 sortOrder: 1
 caseStudy:
+  myRole: >-
+    As UX Director at Reingold, I led the user experience strategy, research, information architecture, and low-fidelity design, working alongside content and development teams.
   projectUrl: 'https://phoenix.gov/'
   projectButtonLabel: 'View project'
-  roleAndContributions:
-    - Led the user experience strategy and research
-    - Translated findings into user stories, personas, and recommendations
-    - Restructured the information architecture across more than 40 departments
-    - Validated the proposed sitemap through tree testing with nearly 100 residents
-    - Created low-fidelity wireframes and prototypes
   keyResults:
-    - stat: '57%'
-      description: Downloads of city materials increased from 37% to 57%
     - stat: '2,300 pages'
-      description: Content consolidation reduced the site from 5,500 pages to under 2,300
+      description: Content consolidation from 5,500 pages to fewer than 2,300.
     - stat: 'WCAG AA'
-      description: Achieved WCAG Level AA conformance at launch
+      description: WCAG Level AA conformance at launch.
+    - stat: '57%'
+      description: An increase in downloads of city materials from 37% to 57%.
 ---
 
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
 ## Challenge
 
-Phoenix.gov serves more than 1.5 million residents across America's fifth-largest city, but the old site was cluttered, difficult to navigate, and organized around dense departmental content. Residents often struggled to find services and information, and search frequently returned irrelevant or outdated results.
+Phoenix is America’s fifth-largest city, with more than 1.5 million residents. Its official website, Phoenix.gov, was cluttered and hard to navigate, with dense content organized around individual departments. Search often returned irrelevant or outdated information. Visitors needed clear paths to services and information without having to understand the city’s internal structure.
 
 ## Solution
 
-As UX Director at Reingold, I led the user experience strategy for a research-driven redesign of the city's official website. My work included peer website analysis, user stories and personas, information architecture, tree testing, findings and recommendations, wireframes, and low-fidelity prototypes.
+We organized the site around how residents and businesses look for services. Services and topics had their own paths, independent of the departments responsible for them, so people could find what they needed without first choosing an office. I guided the information architecture and developed shared navigation and page patterns to make that approach consistent throughout the site.
+
+We refined those patterns through iterative wireframing and review with stakeholders, gaining buy-in along the way. The wireframes worked through how people would move between services and related information, including when they entered through a department page. Those patterns became the beginning of the design system and helped the visual design team move faster.
 
 ## Results
 
-The redesigned Phoenix.gov launched on March 24, 2025, three months ahead of schedule and exceeding accessibility targets. The project was a full Reingold team effort across UX, content, and development, and I led the user experience strategy that helped simplify access to city services.
+The redesigned site launched on March 24, 2025, three months ahead of schedule. The project reported:
 
 </CaseStudyOverview>
 
 <TextBlock>
 
-## Discovery
+## Organizing the site around services
 
-Designing a website that serves 1.5 million residents meant balancing the needs of more than 40 departments. We started by identifying what wasn't working and learning how people actually use the site. 
+Peer website analysis, stakeholder interviews, and user research informed our approach. We used personas and user stories to describe tasks people needed to complete, including finding social services and disability-related support. The stories covered specific needs, such as finding rental assistance or a swimming pool with accessible accommodations. They helped us keep those needs in view as we organized the content.
 
-Through stakeholder interviews, peer website analysis, and user research, we uncovered clear opportunities to simplify navigation, improve search, and make city services easier to find.
+We rebuilt the citywide sitemap alongside individual department sitemaps across more than 40 departments. Services and topics had their own paths, so people could look for what they needed without first choosing an office. The department sitemaps also needed to work for people already inside a section. Connecting those local structures to the wider site was a substantial part of the information architecture work.
 
 </TextBlock>
 
-<FigureSingle caption='Slides from Peer Website Analysis Deck'>
+<FigureSingle caption={"The proposed sitemap provided paths to resident and business services alongside department information."}>
 
-![](../../images/phoenix/PHX-peer-landscape-ppt.png)
-    
+![Phoenix.gov sitemap with resident and business services alongside Explore Phoenix, Government, News, and Events.](../../images/phoenix/phx-sitemap.png)
+
 </FigureSingle>
 
 <TextBlock>
 
-### Personas and user stories
+## Testing where people looked
 
-To ensure the new site reflected how residents find and complete city tasks, we created user stories and personas informed by generative research and validated through stakeholder feedback. These insights helped us focus on essential services and features during the redesign.
+We tested the proposed sitemap with 92 residents using Optimal Workshop. Tree testing helped us see whether people could find information within the proposed structure. We used those findings, together with a content audit and SEO analysis, to refine the sitemap.
 
-</TextBlock>
-
-<FigureSingle caption='Screenshot of User Stories Miro Board'>
-
-![](../../images/phoenix/phx-user-stories-miro.png)
-    
-</FigureSingle>
-
-<TextBlock>
-
-### Information architecture
-
-Before reimagining the information architecture, we laid out the current-state structure of phoenix.gov using Slickplan. This exercise shed light on the website's existing content. Building on our findings from the discovery phase, we crafted a new sitemap aimed at creating a more intuitive and user-centric experience.
+One task asked participants to find help for someone experiencing homelessness. Overall success was 68%, and some people looked under Housing. The report recommended moving Homeless Solutions into that category or linking the sections so people could find related support.
 
 </TextBlock>
 
-<FigureSingle>
+<FigureSingle caption={"Tree-testing findings included a recommendation to make homelessness support easier to find through Housing."}>
 
-![Depiction of Phoenix.gov sitemap exported from Slickplan](../../images/phoenix/phx-sitemap.png)
-    
-</FigureSingle>
+![Tree-testing report for 92 participants, including 68 percent overall success for finding homelessness support and a recommendation to connect it with Housing.](../../images/phoenix/PHX-tree-testing-ppt.png)
 
-<TextBlock>
-
-### Tree testing
-
-To validate our new sitemap, we conducted a tree test using <LinkOpenNew LinkUrl='https://www.optimalworkshop.com' LinkText='Optimal Workshop' />. We had nearly 100 Phoenix residents participate. The insights from this test, combined with a thorough content audit and SEO analysis, allowed us to further refine the sitemap.
-
-</TextBlock>
-
-<FigureSingle caption='Slides from Tree Testing Analysis Deck'>
-
-![](../../images/phoenix/PHX-tree-testing-ppt.png)
-    
-</FigureSingle>
-
-<TextBlock>
-
-## Wireframes
-
-After finalizing our new draft sitemap, I created a series of low-fidelity wireframes to visualize our proposed user experience and content strategy for the new phoenix.gov.
-
-</TextBlock>
-
-<FigureSingle caption='We used Miro to plan and collaborate with the client team.'>
-
-![](../../images/phoenix/phx-user-experience-strategy-miro.jpg)
-    
 </FigureSingle>
 
 <ThemeWrapper>
 
 <TextBlock>
 
-I began with the global header and footer, which allowed me to validate the sitemap and navigation strategy early in the process. Below are the initial wireframes, including the header and navigation menus.
+## Working through navigation in wireframes
+
+I started with the global header and footer because they would be available throughout the site. People might arrive directly at a department or service page, so the navigation needed to help them understand where to go next from any entry point.
+
+I developed the wireframes through repeated review and refinement with stakeholders. We used Miro to bring the sitemap, navigation states, and key pages together, making their relationships visible during review. This was the most extensive wireframing effort I had undertaken, allowing us to work through the navigation and page structure before moving into visual design.
 
 </TextBlock>
 
-<FigureSingle width='wide'>
+<FigureSingle caption={"The shared header, footer, and menus provided access to services throughout the site."}>
 
-![Depiction of several CCF website layouts](../../images/phoenix/phx-masonry-header-footer-01.jpg)
+![Desktop wireframes showing the global header and footer, resident service navigation, Explore Phoenix menu, and search suggestions.](../../images/phoenix/phx-masonry-header-footer-01.jpg)
 
 </FigureSingle>
 
 <TextBlock>
 
-Prototyping rough mobile wireframes confirmed the effectiveness of our navigation approach on handheld devices.
+The desktop wireframes also addressed search. Suggestions appeared as someone typed, with labels identifying the type of result, such as a service, document, or form. Those distinctions were intended to help people understand a result before opening it.
+
+Mobile prototypes showed how the same navigation could work on a smaller screen. Menu, Search, and Language remained separate controls, while the menu let people move through service categories one level at a time.
 
 </TextBlock>
 
-<FigureSingle>
+<FigureSingle caption={"The mobile prototype showed how people could move through navigation levels to reach a service."}>
 
-![](../../images/phoenix/phx-masonry-mobile-menu.jpg)
-    
+![Four mobile wireframes showing separate Menu, Search, and Language controls and the path through Residents to Make a Payment.](../../images/phoenix/phx-masonry-mobile-menu.jpg)
+
 </FigureSingle>
 
 </ThemeWrapper>
 
 <TextBlock>
 
-One of our key strategies for the redesign focused on decoupling services and topics from specific departments. This approach aimed to simplify the process for residents, allowing them to find services directly without needing to know which department was responsible.
+## Connecting services and related information
+
+Service pages needed to help people take the next step and find other relevant information. The Make a Payment wireframe, for example, brought payment options, payment assistance, and related topics together. It gave someone arriving at that page a useful starting point within the wider site. The All Resident Topics page offered another route into these services, grouping links under headings such as Water & Sewer and Trash & Recycling.
 
 </TextBlock>
 
 <ThemeWrapper>
-<FigureSingle>
 
-![](../../images/phoenix/phx-masonry-wireframes-desktop-key-pages.jpg)
-    
-</FigureSingle>
+<FigureSingle caption={"The Make a Payment wireframe grouped payment options with assistance and related information."}>
 
-<TextBlock>
+![Wireframes for the homepage and topic pages, including Make a Payment with payment options, assistance, and related topics.](../../images/phoenix/phx-masonry-wireframes-desktop-key-pages.jpg)
 
-### Department landing pages
-
-We designed consistent layouts for department landing pages, ensuring a familiar experience across city departments.
-
-</TextBlock>
-
-<FigureSingle>
-
-![](../../images/phoenix/phx-masonry-wireframes-desktop-dept-landing-pages.jpg)
-    
 </FigureSingle>
 
 </ThemeWrapper>
 
 <TextBlock>
 
-### Deeper department pages
+## Making department pages familiar
 
-In collaboration with content strategists and department stakeholders, we identified specific departmental needs. Our goal is to design coherent pages that prioritize structure and readability.
+Departments had different content, but shared page patterns gave them a consistent way to present it. Working with content strategists and department stakeholders, I developed layouts for landing pages and deeper service information. Side navigation kept related pages available as people moved through a section.
+
+A permitting page needed space for applications and checklists; a Human Services page needed to bring programs and support into view. The shared structure accommodated these differences while keeping navigation familiar.
+
+These patterns became the beginning of the design system. We also allowed room in the layouts for longer Spanish-language text, so translated content could fit without disrupting the page structure.
 
 </TextBlock>
 
+<FigureSingle caption={"Department pages used familiar navigation and content patterns across different services."}>
 
-<FigureSingle>
+![Planning and Development and Human Services wireframes showing shared side navigation across landing pages, services, and contact pages.](../../images/phoenix/phx-department-level-wireframes.png)
 
-![](../../images/phoenix/phx-department-level-wireframes.png)
-    
+</FigureSingle>
+
+<TextBlock>
+
+## The launch
+
+City of Phoenix preview of the redesigned Phoenix.gov, shared ahead of its March 24, 2025 launch.
+
+</TextBlock>
+
+<FigureSingle width="medium">
+
+<iframe
+  class="aspect-ratio-16x9 border-radius-3"
+  src="https://www.youtube-nocookie.com/embed/bNropFe0m0M?playsinline=1&rel=0"
+  title="Upcoming phoenix.gov sneak peek — City of Phoenix"
+  loading="lazy"
+  referrerPolicy="strict-origin-when-cross-origin"
+  allow="encrypted-media; picture-in-picture; fullscreen"
+  allowFullScreen
+  style={{ border: 0, minHeight: '200px' }}
+></iframe>
+
 </FigureSingle>
 
 <TextBlock>
@@ -194,6 +173,8 @@ In collaboration with content strategists and department stakeholders, we identi
 ## Looking back
 
 Team Reingold transformed Phoenix.gov into a modern, accessible, and user-friendly platform. Leading the user experience strategy for the official website of one of America's largest cities was exciting and humbling.
+
+The investment in wireframing paid off in the design process. The high-fidelity designs closely followed the low-fidelity work because we had already resolved much of the structure and navigation. That helped the team move faster through visual design.
 
 The project gave me valuable experience conducting research, organizing large amounts of information, and collaborating with stakeholders across more than forty city departments. It allowed me to build on lessons I learned in New York while expanding my experience working in municipal government.
 

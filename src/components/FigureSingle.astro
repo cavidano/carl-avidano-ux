@@ -7,6 +7,7 @@ const {
   width = 'wide'
 } = Astro.props;
 
+const hasCaption = caption || Astro.slots.has('caption');
 const containerClasses = ['container wide', margin].filter(Boolean).join(' ');
 const figureClasses = [
   isContained && width,
@@ -18,9 +19,9 @@ const figureClasses = [
   <div class={containerClasses}>
     <figure class={figureClasses}>
       <slot />
-      {caption && (
+      {hasCaption && (
         <figcaption class="font-size-md">
-          <p><em>{caption}</em></p>
+          <slot name="caption"><p><em>{caption}</em></p></slot>
         </figcaption>
       )}
     </figure>
@@ -28,13 +29,9 @@ const figureClasses = [
 ) : (
   <figure class={figureClasses}>
     <slot />
-    {caption && (
+    {hasCaption && (
       <figcaption class="font-size-md">
-        <p>
-          <em>
-            {caption}
-          </em>
-        </p>
+        <slot name="caption"><p><em>{caption}</em></p></slot>
       </figcaption>
     )}
   </figure>

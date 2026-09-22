@@ -1,10 +1,6 @@
 ---
 import Button from './Button.astro';
 import KeyResults from './KeyResults/KeyResults.astro';
-import KeyResultsCard from './KeyResults/KeyResultsCard.astro';
-
-const ACTIVITIES_HEADING = 'Activities at a glance';
-const ROLE_AND_CONTRIBUTIONS_HEADING = 'Role and contributions';
 
 interface KeyResult {
   stat: string;
@@ -12,8 +8,7 @@ interface KeyResult {
 }
 
 interface CaseStudy {
-  activitiesAtAGlance?: string[];
-  roleAndContributions?: string[];
+  myRole?: string;
   projectUrl?: string | null;
   projectButtonLabel?: string;
   keyResults?: KeyResult[];
@@ -28,35 +23,27 @@ const {
 } = Astro.props as Props;
 
 const {
-  activitiesAtAGlance = [],
-  roleAndContributions = [],
+  myRole = '',
   projectUrl = null,
   projectButtonLabel = 'View project',
   keyResults = []
 } = caseStudy || {};
 
-const roleAndContributionItems = Array.isArray(roleAndContributions) ? roleAndContributions.filter(Boolean) : [];
-const activityItems = roleAndContributionItems.length > 0
-  ? roleAndContributionItems
-  : Array.isArray(activitiesAtAGlance) ? activitiesAtAGlance.filter(Boolean) : [];
-const activitiesHeading = roleAndContributionItems.length > 0
-  ? ROLE_AND_CONTRIBUTIONS_HEADING
-  : ACTIVITIES_HEADING;
 const keyResultItems = Array.isArray(keyResults) ? keyResults.filter(Boolean) : [];
 
 const hasOverview = Astro.slots.has('default');
-const hasActivities = activityItems.length > 0;
+const hasRole = Boolean(myRole);
 const hasProjectLink = Boolean(projectUrl);
 const hasKeyResults = keyResultItems.length > 0;
 ---
 
-{(hasOverview || hasActivities || hasProjectLink || hasKeyResults) && (
+{(hasOverview || hasRole || hasProjectLink || hasKeyResults) && (
   
   <div class="container wide">
-    {(hasOverview || hasActivities || hasProjectLink) && (
+    {(hasOverview || hasRole || hasProjectLink) && (
       <div
         class="grid-sidebar--right gap-5 margin-y-5"
-        style="--grid-sidebar-width: min(35rem, 100%);"
+        style="--grid-sidebar-width: min(35rem, 35%);"
       >
         {hasOverview && (
           <div class="grid-sidebar__major narrow">
@@ -64,17 +51,13 @@ const hasKeyResults = keyResultItems.length > 0;
           </div>
         )}
 
-        {(hasActivities || hasProjectLink) && (
-          <div class="grid-sidebar__minor font-size-md">
+        {(hasRole || hasProjectLink) && (
+          <div class="grid-sidebar__minor">
             <aside>
-              {hasActivities && (
+              {hasRole && (
                 <>
-                  <h2 class="h5">{activitiesHeading}</h2>
-                  <ul class="bulleted margin-bottom-0">
-                    {activityItems.map((activity: string) => (
-                      <li>{activity}</li>
-                    ))}
-                  </ul>
+                  <h2 class="h5">My role</h2>
+                  <p class="margin-bottom-0">{myRole}</p>
                 </>
               )}
 
@@ -97,11 +80,7 @@ const hasKeyResults = keyResultItems.length > 0;
     )}
 
     {hasKeyResults && (
-      <KeyResults>
-        {keyResultItems.map(({ stat, description }: KeyResult) => (
-          <KeyResultsCard stat={stat} description={description} />
-        ))}
-      </KeyResults>
+      <KeyResults results={keyResultItems} />
     )}
 
     <hr class="margin-y-5" />

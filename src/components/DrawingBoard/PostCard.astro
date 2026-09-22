@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import AnimatedImage from '../AnimatedImage.astro';
 import PostMeta from './PostMeta.astro';
 import PostTags from './PostTags.astro';
 import { getDrawingBoardImageOptions } from '../../lib/drawing-board.js';
@@ -15,31 +15,16 @@ const Heading = headingLevel === 3 ? 'h3' : 'h2';
     'drawing-board-post subtle-fill-1 height-100 position-relative',
     compact ? 'card' : 'grid grid--column-2--lg align-items-center gap-5'
   ]}
-  data-animated-feature={frontmatter.animatedImage}
 >
-  <div class="position-relative">
-    <picture class="display-block">
-      {frontmatter.animatedImage && <source type="image/gif" />}
-      <Image
-        {...getDrawingBoardImageOptions(image)}
-        class="display-block width-100"
-        alt=""
-        widths={[480, 720, 960, 1200]}
-        sizes={compact ? '(min-width: 992px) 30vw, 90vw' : '(min-width: 992px) 43vw, 85vw'}
-        loading={eager ? 'eager' : 'lazy'}
-      />
-    </picture>
-    {frontmatter.animatedImage && (
-      <button
-        class="drawing-board-motion-toggle button button--icon-only border-radius-circle font-size-sm theme-light"
-        type="button"
-        aria-label="Pause animation"
-        hidden
-      >
-        <span class="icon icon-pause" aria-hidden="true"></span>
-      </button>
-    )}
-  </div>
+  <AnimatedImage
+    {...getDrawingBoardImageOptions(image)}
+    animatedSrc={frontmatter.animatedImage}
+    class="display-block width-100"
+    alt=""
+    widths={[480, 720, 960, 1200]}
+    sizes={compact ? '(min-width: 992px) 30vw, 90vw' : '(min-width: 992px) 43vw, 85vw'}
+    loading={eager ? 'eager' : 'lazy'}
+  />
   <div class={compact ? 'padding-3' : 'narrow padding-x-3 padding-bottom-3 padding-0--lg'}>
     <PostMeta frontmatter={frontmatter} />
     <Heading class={compact ? 'h4' : 'h3'}>
@@ -51,28 +36,3 @@ const Heading = headingLevel === 3 ? 'h3' : 'h2';
     <PostTags tags={post.tags} />
   </div>
 </article>
-
-<script>
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  document.querySelectorAll<HTMLElement>('[data-animated-feature]').forEach((card) => {
-    const source = card.querySelector('source');
-    const button = card.querySelector<HTMLButtonElement>('.drawing-board-motion-toggle');
-    const icon = button?.querySelector('.icon');
-    if (!source || !button || !icon) return;
-
-    let playing = false;
-    const setPlaying = (value: boolean) => {
-      playing = value;
-      source.srcset = playing ? card.dataset.animatedFeature! : '';
-      button.setAttribute('aria-label', playing ? 'Pause animation' : 'Play animation');
-      icon.classList.toggle('icon-pause', playing);
-      icon.classList.toggle('icon-play', !playing);
-    };
-
-    setPlaying(!reducedMotion.matches);
-    button.hidden = false;
-    button.addEventListener('click', () => setPlaying(!playing));
-    reducedMotion.addEventListener('change', (event) => setPlaying(!event.matches));
-  });
-</script>

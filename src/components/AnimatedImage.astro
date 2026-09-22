@@ -1,0 +1,61 @@
+---
+import { Image, type LocalImageProps } from 'astro:assets';
+
+type Props = LocalImageProps & {
+  animatedSrc?: string;
+  animatedType?: string;
+};
+
+const { animatedSrc, animatedType = 'image/gif', ...imageProps } = Astro.props;
+---
+
+<div class="position-relative" data-animated-image={animatedSrc}>
+  <picture class="display-block">
+    {animatedSrc && <source type={animatedType} />}
+    <Image {...imageProps} />
+  </picture>
+  {animatedSrc && (
+    <button
+      class="motion-toggle button button--icon-only border-radius-circle font-size-sm theme-light"
+      type="button"
+      aria-label="Pause animation"
+      hidden
+    >
+      <span class="icon icon-pause" aria-hidden="true"></span>
+    </button>
+  )}
+</div>
+
+<script>
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  document.querySelectorAll<HTMLElement>('[data-animated-image]').forEach((image) => {
+    const source = image.querySelector('source');
+    const button = image.querySelector<HTMLButtonElement>('.motion-toggle');
+    const icon = button?.querySelector('.icon');
+    if (!source || !button || !icon) return;
+
+    let playing = false;
+    const setPlaying = (value: boolean) => {
+      playing = value;
+      source.srcset = playing ? image.dataset.animatedImage! : '';
+      button.setAttribute('aria-label', playing ? 'Pause animation' : 'Play animation');
+      icon.classList.toggle('icon-pause', playing);
+      icon.classList.toggle('icon-play', !playing);
+    };
+
+    setPlaying(!reducedMotion.matches);
+    button.hidden = false;
+    button.addEventListener('click', () => setPlaying(!playing));
+    reducedMotion.addEventListener('change', (event) => setPlaying(!event.matches));
+  });
+</script>
+
+<style>
+  .motion-toggle {
+    position: absolute;
+    inset-block-end: var(--spacer-2);
+    inset-inline-end: var(--spacer-2);
+    z-index: 1;
+  }
+</style>
