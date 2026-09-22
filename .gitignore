@@ -5,3 +5,6 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Retain the supplied workshop PDF locally without republishing it in Git.
+/docs/references/Job-Search-2026-What-Makes-a-Great-UX-Portfolio.pdf

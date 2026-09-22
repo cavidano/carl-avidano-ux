@@ -11,3 +11,7 @@ Before drafting or revising any audience-facing copy for this website, read the 
 - If Confluence cannot be reached, say so clearly. Do not claim to have reviewed its current writing or silently treat a cached copy as current.
 
 These instructions supplement the user's global project and design-system requirements.
+
+# Portfolio positioning reference
+
+For portfolio positioning, hiring-focused reviews, and case-study selection or structure, read [Jared Spool's September 2026 portfolio workshop guide](docs/references/jared-spool-ux-portfolio-2026.md). Carl asked to keep this as an ongoing reference. Use it alongside the target job description, verified project evidence, current Confluence copy, and Carl's latest instructions.
