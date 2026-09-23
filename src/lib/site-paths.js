@@ -1,12 +1,16 @@
+import { applicationSites } from './application-sites.js';
+
 const siteOrigin = 'https://carlavidano.com';
 const pagePath = /^\/(?:portfolio|drawing-board|about|404)(?:\/|$)/;
 
 export function getSiteId(pathname) {
-  return /^\/bny(?:\/|$)/.test(pathname) ? 'bny' : 'main';
+  const segment = pathname.split('/')[1];
+  return applicationSites.includes(segment) ? segment : 'main';
 }
 
 export function getSiteBase(pathname) {
-  return getSiteId(pathname) === 'bny' ? '/bny' : '';
+  const siteId = getSiteId(pathname);
+  return siteId === 'main' ? '' : `/${siteId}`;
 }
 
 /** Scope page links, leaving shared media, external sites, and local fragments intact. */

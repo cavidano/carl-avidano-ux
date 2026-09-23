@@ -1,0 +1,76 @@
+---
+title: 'Presentation: Introducing digital accessibility through practical examples'
+description: 'How I collaborated with AJ Favors on a presentation that connects digital accessibility principles to everyday design and content decisions.'
+date: '2026-08-25'
+status: published
+tags:
+  - 'Accessibility'
+image: '../../../images/avidano-digital/drawing-board-introduction-to-digital-accessibility.png'
+imageAlt: 'The presentation’s Core principles (POUR) slide, with colorful geometric panels explaining Perceivable, Operable, Understandable, and Robust.'
+projectName: 'Avidano Digital'
+projectUrl: 'https://avidanodigital.com/'
+projectLinkLabel: 'Avidano Digital'
+usefulLinks:
+  - label: 'AJ Favors’s website'
+    url: 'https://www.dsgnfav.com/'
+  - label: 'W3C’s accessibility principles'
+    url: 'https://www.w3.org/WAI/fundamentals/accessibility-principles/'
+---
+
+import { Image } from 'astro:assets';
+import LinkOpenNew from '../../../components/LinkOpenNew.astro';
+import slideCollection from '../../../images/avidano-digital/introduction-to-digital-accessibility-collection.png';
+import indesignArticles from '../../../images/avidano-digital/indesign-articles-reading-order.png';
+
+<TextBlock className="margin-x-auto">
+
+Through Avidano Digital, I collaborated with <LinkOpenNew LinkUrl="https://www.dsgnfav.com/" LinkText="AJ Favors" /> to create an introduction to digital accessibility for a New York City nonprofit. We connected the principles to things people encounter every day: reading a page, navigating a menu, watching a video, and understanding what to do next.
+
+</TextBlock>
+
+<FigureSingle width="wide" className="margin-x-auto" caption="Selected slides from the introduction to digital accessibility presentation.">
+
+  <Image
+    src={slideCollection}
+    alt="An overlapping collection of presentation slides covering accessibility principles, disabilities, common barriers, laws, and practical examples for structure, images, and captions."
+  />
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
+
+## What we covered
+
+We introduced digital accessibility through common disabilities and barriers, the four principles—perceivable, operable, understandable, and robust—and a brief overview of accessibility laws.
+
+The practical examples focused on eight areas:
+
+- **Programmatic access:** Structuring content with semantic HTML and built-in styles, and using tables for data.
+- **Images and labels:** Describing meaningful images with alt text and clearly labeling icons, buttons, links, and form fields.
+- **Keyboard access:** Making interactive elements usable without a mouse, with visible focus and a clear navigation order.
+- **Fonts and typography:** Using readable type, spacing, and hierarchy, and keeping important text out of images.
+- **Color and contrast:** Keeping text and controls easy to see without relying on color alone to convey information.
+- **Motion and playback:** Giving people ways to pause moving content, control playback, and reduce unnecessary motion.
+- **Accessible multimedia:** Providing captions, transcripts, and audio description to make video and audio available to more people.
+- **Plain language:** Writing clearly so people can find what they need and understand it the first time.
+
+We also conducted a light accessibility review of the nonprofit’s website and shared practical recommendations to help their team plan improvements.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Making the presentation itself accessible
+
+Accessibility also shaped the presentation itself. We used clear headings and plain language to organize the explanations. In InDesign, we organized the slide content in the Articles panel to define the intended reading order. The PDF includes document tags, a defined language, and bookmarks—structural features that support navigation and interpretation by assistive technology alongside the visual design.
+
+</TextBlock>
+
+<FigureSingle width="narrow" className="margin-x-auto" caption="Setting the reading order for a slide in InDesign’s Articles panel.">
+
+  <Image
+    src={indesignArticles}
+    alt="InDesign’s Articles panel with Common accessibility failures expanded, listing the slide heading, each finding and its percentage, the source note, and the image in sequence."
+  />
+
+</FigureSingle>

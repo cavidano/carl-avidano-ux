@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import GlobalHeader from './GlobalHeader/GlobalHeader.astro';
+
+interface Props {
+  image: ImageMetadata;
+  logo: { light: string; dark: string; alt: string; width: number; height: number };
+  headline: string;
+  introduction: string;
+  context?: string;
+}
+
+const { image, logo, headline, introduction, context } = Astro.props;
+---
+
+<div class="application-hero backdrop backdrop--fixed">
+  <div class="backdrop__media gradient-mask-bottom">
+    <Image
+      class="opacity-30"
+      src={image}
+      alt=""
+      widths={[640, 1280, 1920, 2400]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+
+  <div class="backdrop__cover justify-content-between">
+    <div class="application-hero__header">
+      <GlobalHeader />
+    </div>
+
+    <div class="container wide padding-y-4 padding-y-5--lg">
+      {(['light', 'dark'] as const).map((theme) => (
+        <img
+          class={`application-logo application-logo--${theme} display-block margin-bottom-4`}
+          src={logo[theme]}
+          alt={logo.alt}
+          width={logo.width}
+          height={logo.height}
+        />
+      ))}
+      {context && <p class="font-size-md margin-bottom-3">{context}</p>}
+      <h1 class="banner-headline width-80--xxl margin-bottom-3">{headline}</h1>
+      <p class="narrow margin-bottom-0">
+        {introduction}
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  :global(body:has(.application-hero)) {
+    --body-min-width: 0;
+  }
+
+  .application-hero {
+    --backdrop-fixed-height: 85svh;
+    --gradient-direction-start: 35%;
+    background-color: var(--background-color);
+  }
+
+  .application-hero__header {
+    /* Follow the active theme independently of the photograph's bottom fade. */
+    background: linear-gradient(to bottom, var(--background-color), transparent);
+  }
+
+  :global(.theme-dark) .application-logo--light,
+  :global(.theme-canvas) .application-logo--dark {
+    display: none;
+  }
+
+  .backdrop__media img {
+    /* Keep the skyline in view and crop out the road in the foreground. */
+    height: 150%;
+    object-position: right top;
+  }
+
+  @media (forced-colors: active) {
+    .backdrop__media {
+      display: none;
+    }
+
+    .application-logo {
+      /* Preserve the matching surface behind the supplied brand artwork. */
+      forced-color-adjust: none;
+      background-color: var(--background-color);
+    }
+  }
+</style>

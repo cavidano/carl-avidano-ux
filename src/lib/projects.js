@@ -1,6 +1,6 @@
 import { contentRoot } from './sites.js';
 
-const projectModules = import.meta.glob(['/src/content/portfolio/*.mdx', '/src/sites/bny/portfolio/*.mdx'], { eager: true });
+const projectModules = import.meta.glob(['/src/content/portfolio/*.mdx', '/src/sites/*/portfolio/*.mdx'], { eager: true });
 const imageModules = import.meta.glob('/src/images/**/*.{avif,gif,jpeg,jpg,png,webp}', {
   eager: true,
   import: 'default'

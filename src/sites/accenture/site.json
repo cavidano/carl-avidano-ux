@@ -1,0 +1,29 @@
+{
+  "home": {
+    "title": "Accenture • Work & Co Design Lead • Carl Avidano",
+    "description": "Carl Avidano’s selected work for the Design Lead opportunity at Work & Co, part of Accenture Song: product strategy, visual design, interactive tools, and accessible design systems.",
+    "headline": "I'm a product designer who brings strategy, visual design, and code together",
+    "introduction": "Work & Co’s hands-on approach to product design connects with how I work: exploring ideas, refining interactions, and staying involved through implementation. I bring a visual designer’s eye and a developer’s understanding of how the experience works, with accessibility built into the decisions along the way.",
+    "workButton": "Explore My Work",
+    "projectsIntroduction": "These case studies show how I connect product strategy with visual design, develop interactive tools, and work with clients and developers to bring the details into production.",
+    "aboutHeading": "About Me",
+    "whoHeading": "Who I am",
+    "who": "I'm a New York–based product designer and inclusive design advocate. My work brings together UX research, visual design, illustration, and front-end development. I’ve managed and mentored designers as a UX Director, and I stay closely involved in the design and implementation.",
+    "whatHeading": "What I do",
+    "what": "I work with clients and developers to turn complex requirements into interfaces people can understand and use. Wireframes and prototypes help me explore the interactions; visual design gives them clarity and character. I carry that work into reusable components and production code, refining the experience as the product evolves.",
+    "aboutButton": "About Me",
+    "storiesButton": "All articles",
+    "articlesIntroduction": "A closer look at the interaction details, visual communication, and accessibility decisions behind my work."
+  },
+  "portfolio": {
+    "title": "Portfolio • Carl Avidano • UX Manager",
+    "description": "Explore UX research, accessibility, design systems, and front-end work for government agencies, global nonprofits, education, and civic technology.",
+    "headline": "Explore my work",
+    "introduction": "I've led and collaborated on high-impact digital projects for city, state, and federal government agencies and global nonprofits."
+  },
+  "drawingBoard": {
+    "headline": "The Drawing Board",
+    "title": "The Drawing Board • Carl Avidano",
+    "introduction": "Quick reads on my creative process, collaborations, and a look at ongoing work as it unfolds."
+  }
+}

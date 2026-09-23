@@ -24,7 +24,7 @@ In a case study's frontmatter, `isFeatured: true` selects it for the homepage pr
 
 All published Drawing Board articles remain available under `/bny/drawing-board`, newest first, with tags and related articles drawn from the full collection. For the curated homepage, add `isFeatured: true` and a numeric `sortOrder` to a BNY article's frontmatter, just as with case studies. The homepage currently features the AI-ready monorepo, navigation components, and contrast themes, in that order. Homepage selection is independent of publication dates and does not limit the article routes or archives. Article publication rules still apply: `status: published` / `status: draft` and local `preview: true`; featuring a draft does not publish it. Article URLs come from their titles. The main homepage continues to show its three newest articles.
 
-The shared header, page templates, Natura11y styles, image components, and interaction behavior remain in `src/components` and `src/layouts`. They are shared deliberately: a navigation or accessibility fix should apply everywhere. Edit content here; edit shared components only when the change should affect both sites. A BNY-only layout addition belongs in this folder, following `Hero.astro`.
+The shared header, page templates, Natura11y styles, image components, and interaction behavior remain in `src/components` and `src/layouts`. They are shared deliberately: a navigation or accessibility fix should apply everywhere. Edit content here; edit shared components only when the change should affect both sites. The backdrop markup and styles now live in the shared `src/components/ApplicationHero.astro`. `Hero.astro` keeps BNY’s editable logo size, image, and copy. A BNY-only layout addition belongs in this folder.
 
 ## Links and media
 
@@ -38,7 +38,7 @@ The BNY About page downloads `/bny/resume-carl-avidano.pdf`, served directly fro
 
 After exporting an updated BNY résumé from InDesign, replace the BNY public file with that PDF. Keep the public filename unchanged so the existing download button and direct links continue to work. The InDesign export and the website asset are separate files; exporting from InDesign alone does not update the site.
 
-For each future application site, follow the same convention: `public/<application>/resume-carl-avidano.pdf`, with its résumé links scoped to `/<application>/resume-carl-avidano.pdf`. Add its tailored export before publishing, and verify that its About page downloads that file rather than the main site's résumé.
+Create a new branch for each future application site and use an official SVG logo with light- and dark-mode variants. Follow the same résumé convention: `public/<application>/resume-carl-avidano.pdf`, with its résumé links scoped to `/<application>/resume-carl-avidano.pdf`. Add its tailored export before publishing, and verify that its About page downloads that file rather than the main site's résumé.
 
 All generated BNY pages are `noindex, follow` and excluded from the sitemap. This is search-indexing control, not authentication. The site is local until Carl requests deployment. `/bny/404` is available, but an unknown URL on a static production host still uses that host's configured error page.
 

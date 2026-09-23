@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import { applicationSites } from '../src/lib/application-sites.js';
+import { getSiteId } from '../src/lib/site-paths.js';
 
 const dist = new URL('../dist/', import.meta.url).pathname;
 const origin = 'https://carlavidano.com';
@@ -12,14 +14,16 @@ const attributes = (tag) => Object.fromEntries(
   [...tag.matchAll(/([\w:-]+)="([^"]*)"/g)].map(([, key, value]) => [key, value.replaceAll('&amp;', '&')])
 );
 const present = (path) => existsSync(join(dist, path)) || existsSync(join(dist, path, 'index.html'));
-const pages = walk(join(dist, 'bny')).filter((path) => path.endsWith('.html'));
+const pages = applicationSites.flatMap((site) => walk(join(dist, site)).filter((path) => path.endsWith('.html')));
 assert.ok(pages.length > 0, 'Build the site before checking application links.');
 
 for (const file of pages) {
   const html = readFileSync(file, 'utf8');
   const path = `/${relative(dist, file).replace(/\/index\.html$/, '')}`;
-  if (path === '/bny/portfolio') {
-    assert.match(html, /http-equiv="refresh"[^>]*content="[^"]*url=\/bny#projects"/, 'Old BNY listing redirects to homepage projects');
+  const site = getSiteId(path);
+  const base = `/${site}`;
+  if (path === `${base}/portfolio`) {
+    assert.ok(html.includes(`url=${base}#projects`), `${site}: portfolio listing redirects to homepage projects`);
     continue;
   }
   const tags = [...html.matchAll(/<(?:a|img|source|video|script|link|meta)\b[^>]*>/g)].map(([tag]) => ({
@@ -27,8 +31,8 @@ for (const file of pages) {
   }));
   assert.ok(tags.some((tag) => tag.name === 'robots' && tag.content === 'noindex, follow'), `${path}: noindex`);
   assert.ok(tags.some((tag) => tag.rel === 'canonical' && tag.href === origin + path), `${path}: canonical`);
-  assert.ok(tags.some((tag) => tag['aria-label'] === 'Carl Avidano home' && tag.href === '/bny'), `${path}: home link`);
-  assert.ok(!tags.some((tag) => tag.name === 'a' && /^\/bny\/portfolio\/?(?:[?#]|$)/.test(tag.href ?? '')), `${path}: no separate portfolio listing links`);
+  assert.ok(tags.some((tag) => tag['aria-label'] === 'Carl Avidano home' && tag.href === base), `${path}: home link`);
+  assert.ok(!tags.some((tag) => tag.name === 'a' && new RegExp(`^${base}/portfolio/?(?:[?#]|$)`).test(tag.href ?? '')), `${path}: no separate portfolio listing links`);
   assert.ok(!/<nav\b[^>]*id="primary-navigation"[^>]*>[\s\S]*?nav__text">Portfolio</.test(html), `${path}: no Portfolio navigation item`);
 
   for (const tag of tags) {
@@ -38,7 +42,8 @@ for (const file of pages) {
       const url = new URL(value, origin + path);
       if (url.origin !== origin) continue;
       if (tag.name === 'a') {
-        assert.ok(!/^\/(?:portfolio|drawing-board|about)(?:\/|$)/.test(url.pathname) && url.pathname !== '/', `${path}: link leaves BNY: ${value}`);
+        const targetSite = getSiteId(url.pathname);
+        assert.ok(targetSite === site || (targetSite === 'main' && !/^\/(?:portfolio|drawing-board|about|404)(?:\/|$)/.test(url.pathname) && url.pathname !== '/' && url.pathname !== '/resume-carl-avidano.pdf'), `${path}: link leaves ${site}: ${value}`);
       }
       assert.ok(present(decodeURIComponent(url.pathname)), `${path}: missing file for ${value}`);
     }
@@ -46,16 +51,20 @@ for (const file of pages) {
   for (const [, json] of html.matchAll(/<script type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)) {
     const schema = JSON.parse(json);
     assert.equal(schema.url, origin + path);
-    assert.equal(schema.author.url, `${origin}/bny/about`);
-    assert.equal(schema.isPartOf.url, `${origin}/bny/drawing-board`);
+    assert.equal(schema.author.url, `${origin}${base}/about`);
+    assert.equal(schema.isPartOf.url, `${origin}${base}/drawing-board`);
   }
 }
 
 for (const file of readdirSync(dist).filter((name) => /^sitemap.*\.xml$/.test(name))) {
-  assert.ok(!readFileSync(join(dist, file), 'utf8').includes(`${origin}/bny`), 'BNY is excluded from the sitemap');
+  for (const site of applicationSites) {
+    assert.ok(!readFileSync(join(dist, file), 'utf8').includes(`${origin}/${site}`), `${site} is excluded from the sitemap`);
+  }
 }
-for (const file of walk(dist).filter((path) => path.endsWith('.html') && !path.startsWith(join(dist, 'bny') + '/'))) {
+for (const file of walk(dist).filter((path) => path.endsWith('.html') && getSiteId(`/${relative(dist, path)}`) === 'main')) {
   const html = readFileSync(file, 'utf8');
-  assert.ok(!/href="(?:https:\/\/carlavidano.com)?\/bny(?:[\/"#?])/.test(html), `${relative(dist, file)}: main site links into BNY`);
+  for (const site of applicationSites) {
+    assert.ok(!new RegExp(`href="(?:https://carlavidano.com)?/${site}(?:[/"#?])`).test(html), `${relative(dist, file)}: main site links into ${site}`);
+  }
 }
-console.log(`Verified ${pages.length} BNY pages: navigation, assets, metadata, sitemap exclusion, and main-site isolation.`);
+console.log(`Verified ${pages.length} application pages (${applicationSites.join(', ')}): navigation, assets, metadata, sitemap exclusion, and site isolation.`);

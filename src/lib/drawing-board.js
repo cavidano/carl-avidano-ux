@@ -2,7 +2,7 @@ import { resolveImage } from './projects.js';
 import { prepareDrawingBoardPosts, groupDrawingBoardTags } from './drawing-board-content.js';
 import { contentRoot } from './sites.js';
 
-const postModules = import.meta.glob(['/src/content/drawing-board/*.mdx', '/src/sites/bny/drawing-board/*.mdx'], { eager: true });
+const postModules = import.meta.glob(['/src/content/drawing-board/*.mdx', '/src/sites/*/drawing-board/*.mdx'], { eager: true });
 
 export function getDrawingBoardImageOptions(image) {
   // Match the project marquees' 2:1 ratio without enlarging the source image.

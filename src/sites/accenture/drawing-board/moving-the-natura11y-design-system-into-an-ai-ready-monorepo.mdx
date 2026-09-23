@@ -1,0 +1,84 @@
+---
+title: 'Moving the Natura11y design system into an AI-ready monorepo'
+description: 'How I brought Natura11y’s code and documentation together and added component guidance to support AI-assisted development.'
+date: '2026-07-10'
+status: published
+tags:
+  - 'Design Systems'
+image: '../../../images/natura11y/drawing-board-natura11y-monorepo.png'
+imageAlt: 'Diagram of the Natura11y monorepo showing documentation, Storybook, and the shared Core and Icons packages.'
+projectName: 'Natura11y'
+projectUrl: '/portfolio/natura11y'
+usefulLinks:
+  - label: 'Natura11y repository on GitHub'
+    url: 'https://github.com/Natura11y/root'
+  - label: 'Natura11y documentation'
+    url: 'https://gonatura11y.com/'
+---
+
+import { Image } from 'astro:assets';
+import LightboxImage from '../../../components/LightboxImage.astro';
+import LinkOpenNew from '../../../components/LinkOpenNew.astro';
+import architecture from '../../../images/natura11y/design-system-architecture.jpg';
+import figmaContext from '../../../images/natura11y/monorepo-figma-context.png';
+
+<TextBlock className="margin-x-auto">
+
+Natura11y had grown across separate repositories for its core framework, React components, icons, and documentation. Keeping them aligned took more effort, and an update was long overdue.
+
+As I brought more <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/ai-and-design-systems/" LinkText="AI-assisted development" /> into my work, I wanted the tools to have reliable context. That meant making the code and guidance easier to find and trust.
+
+</TextBlock>
+
+<FigureSingle width="medium" className="margin-x-auto" caption="Core supplies shared code to the other parts of Natura11y.">
+
+  <LightboxImage
+    src={architecture}
+    alt="Natura11y monorepo architecture. Core provides shared styles and JavaScript utilities; React uses Core; Icons supplies shared icon assets. The Astro documentation and Storybook apps use these packages, which are distributed through npm and CDNs."
+    caption="How Natura11y’s packages, documentation, and Storybook connect."
+  />
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
+
+## One workspace
+
+I moved Natura11y’s code and documentation into a <LinkOpenNew LinkUrl="https://github.com/Natura11y/root" LinkText="monorepo" />—one repository for related packages and applications. Now I could update a component, verify its examples, and revise its documentation in the same workspace.
+
+I removed duplicate styles from the React setup so HTML and React components share Core’s styles. Storybook became the workbench for comparing their appearance and behavior.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Context for AI
+
+After the move, I continued adding context in Figma. Component descriptions explain intended use and accessibility behavior. Backdrop guidance, for example, explains overlay and stacked layouts and makes clear that Core controls the responsive breakpoint.
+
+</TextBlock>
+
+<FigureSingle width="narrow" className="margin-x-auto" caption="Backdrop’s component description explains its layout behavior and which settings belong in production code.">
+
+  <Image
+    src={figmaContext}
+    alt="Figma configuration for the Backdrop component, showing Overlay and Stack variants and guidance that Core controls the responsive breakpoint."
+  />
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
+
+The Main Menu guidance separates Figma’s preview settings from the properties supported in React. That gives AI tools a clearer reference when translating a design into code.
+
+I also connected Figma variables to Core’s CSS names and documented which source to follow when design and code disagree. Production code is the authority for accessibility and behavior.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Result
+
+The code, examples, and design guidance now reinforce each other. I have clearer context to give AI tools and working components to check their output against. I’m still refining that guidance as I use it.
+
+</TextBlock>

@@ -1,0 +1,90 @@
+---
+title: 'Preparing Natura11y for contrast themes (a.k.a. forced colors)'
+description: 'How I adapted Natura11y’s components to keep controls and selected states clear when people use contrast themes.'
+date: '2026-09-16'
+status: published
+tags:
+  - 'Accessibility'
+image: '../../../images/natura11y/drawing-board-natura11y-contrast-themes.png'
+imageAlt: 'A Natura11y example page with yellow links, white text, and outlined controls on a black background.'
+projectName: 'Natura11y'
+projectUrl: '/portfolio/natura11y'
+usefulLinks:
+  - label: 'Harvard’s guide to contrast themes'
+    url: 'https://accessibility.huit.harvard.edu/news/2026/05/deep-dive-contrast-themes'
+  - label: 'Natura11y documentation'
+    url: 'https://gonatura11y.com/'
+---
+
+import { Image } from 'astro:assets';
+import LinkOpenNew from '../../../components/LinkOpenNew.astro';
+import contrastThemes from '../../../images/natura11y/contrast-themes.png';
+import polypaneContrastThemes from '../../../images/natura11y/contrast-themes-polypane.png';
+
+<TextBlock className="margin-x-auto">
+
+Natura11y needs to work when someone replaces its colors with a palette that makes their screen easier to read. Windows <LinkOpenNew LinkUrl="https://support.microsoft.com/en-us/accessibility/windows/change-color-contrast-in-windows" LinkText="contrast themes" /> let people make that choice, and browsers apply it through a mode called <LinkOpenNew LinkUrl="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/forced-colors" LinkText="forced colors" />. Microsoft previously reported that Windows High Contrast was enabled on 4% of Windows installations. I wanted to preserve the cues that help people use an interface—where a control begins, which tab is selected, and what an arrow means—while respecting their chosen colors.
+
+</TextBlock>
+
+<FigureSingle width="medium" className="margin-x-auto" caption="Natura11y’s Avian Elegance example in a dark contrast theme.">
+
+  <Image
+    src={contrastThemes}
+    alt="Natura11y’s bird-themed example page with yellow navigation links and white outlines around search, language, and action controls. A white headline sits on a black background over a bird photograph."
+  />
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
+
+## Visible controls
+
+In forced colors mode, browsers remove effects such as box shadows. A button or panel that relies on a shadow or background fill can lose its visible boundary.
+
+I added borders where those boundaries disappeared, using the person’s system colors. Keyboard focus keeps its own outline, so it remains distinct from a component’s edge.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Clear states
+
+I adjusted tab dividers and selected styles so the active tab stays recognizable. Pill-shaped tabs use the system’s highlight and text colors.
+
+Dropdown and select arrows needed care because they are built with CSS borders. I kept the transparent sides transparent and used system colors for the visible part, including the disabled-text color for disabled selects.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Checking the work
+
+I use <LinkOpenNew LinkUrl="https://polypane.app/docs/emulation/" LinkText="Polypane" />, a browser for developing and testing websites, to emulate forced colors. It lets me check the same components in light and dark contrast themes side by side.
+
+</TextBlock>
+
+<FigureSingle width="medium" className="margin-x-auto" caption="Testing Natura11y’s form controls in Polypane with dark and light contrast themes.">
+
+  <Image
+    src={polypaneContrastThemes}
+    alt="The same Natura11y form in Storybook, with light text on a black background on the left and dark text on a white background on the right. Input fields and radio options retain visible borders in both views."
+  />
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
+
+I also added automated checks against the Storybook examples in Chromium and Firefox, covering boundaries, selected states, arrows, switches, and keyboard focus at different screen widths.
+
+Emulation helps catch problems during development. The <LinkOpenNew LinkUrl="https://github.com/Natura11y/root/blob/main/packages/core/FORCED-COLORS.md" LinkText="review checklist" /> also calls for checks with real Windows contrast themes in Edge and Firefox.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Result
+
+Core now holds these adjustments for both HTML and React components. The changes preserve useful visual cues while leaving the color palette to the person using the site.
+
+</TextBlock>
