@@ -15,7 +15,18 @@ The supplied job description is retained in [job-posting.txt](job-posting.txt). 
 
 ## Application handoff — September 22, 2026
 
-Carl plans to return and complete the BNY website application together. No application has been submitted in this task. Resume from this note when he returns; no reminder or automatic submission is scheduled.
+The BNY application was completed and submitted with Carl on September 23, 2026. The latest status below supersedes the historical preparation notes; no reminder or automatic follow-up is scheduled.
+
+### Latest application status — September 23, 2026
+
+- **Submitted successfully.** After Carl explicitly approved final submission and the e-signature statement, BNY displayed “Thank you for your job application.” The candidate profile lists Director, Product Design, job **82305**, under Active Job Applications with status **Application Received** and “Applied on 09/23/2026.” Do not submit a duplicate application.
+- Both final PDFs are now uploaded and their filenames were verified in Supporting Documents and URLs. Carl requested consistent, clean filenames: `carl-avidano-resume-bny.pdf` and `carl-avidano-cover-letter-bny.pdf`, both in `/Users/carlavidano/Projects/Job Applications/CVs/BNY/_PDF/`. Use these for the application; the earlier numbered résumé remains a local source copy.
+- The résumé is unchanged and still matches the website download. The cover letter was re-exported after Carl's latest InDesign design change: one tagged page, 42,019 bytes, approved wording intact, and an explicit portfolio hyperlink. This replaces the earlier 38,945-byte cover-letter export.
+- Browser uploads work by starting the file-chooser listener and pressing Enter on the upload control, then using the returned chooser's `setFiles`. Mouse activation had timed out. Upload completion was verified by the final filenames and Remove buttons.
+- The employment timeline was corrected: Reingold ends in August 2026, Avidano Digital remains the current role with the Owner / Principal title, and the malformed duplicate was removed. Carl confirmed the pre-existing Avidano Digital and education month/year dates. NYC dates and the degree/institution were checked against the résumé.
+- Carl corrected the conflicting screening selection himself, and the correction was verified before submission. Do not record sensitive screening or demographic responses here.
+
+The session notes below preserve earlier progress; this status supersedes their attachment, timeline, and submission blockers.
 
 ### September 23 session
 
@@ -39,17 +50,14 @@ Carl plans to return and complete the BNY website application together. No appli
 ### Files and current status
 
 - **Editable source:** `/Users/carlavidano/Projects/Job Applications/CVs/BNY/Carl-Avidano-CV-BNY-82305.indd`. Pages 1–2 are the résumé; page 3 is the cover letter. Saved September 23 with the approved cover letter. Carl also edits this document directly, so inspect its current contents before making changes. The adjacent IDML exchange file predates his latest edits; do not reopen it over the current InDesign document.
-- **Tailored résumé PDF:** `/Users/carlavidano/Projects/Job Applications/CVs/BNY/_PDF/carl-avidano-resume-bny-82305.pdf`. Revised and exported as two pages; layout and links checked. Preserve Carl's Senior Product Designer opening. Reingold employment ended August 31, 2026; the résumé displays August 2026.
-- **Current cover-letter PDF:** `/Users/carlavidano/Projects/Job Applications/CVs/BNY/_PDF/carl-avidano-cover-letter.pdf`. Approved September 23 and exported from page 3 of the tailored InDesign source. One page, tagged PDF, 38,945 bytes. The extracted body matches `cover-letter.md` exactly. The approved letter includes the correct BNY role, broader Reingold research and leadership, NYC operational workflows, Avidano Digital and UNICEF, and ownership of the open-source Natura11y design system. The existing header, typography, and signature are preserved. Carl requested proceeding with the application using this letter and the tailored résumé.
+- **Submitted résumé PDF:** `/Users/carlavidano/Projects/Job Applications/CVs/BNY/_PDF/carl-avidano-resume-bny.pdf`. Two tagged pages, 95,230 bytes; layout and links checked. Byte-identical to the earlier numbered export and the website download. Preserve Carl's Senior Product Designer opening. Reingold employment ended August 31, 2026; the résumé displays August 2026.
+- **Submitted cover-letter PDF:** `/Users/carlavidano/Projects/Job Applications/CVs/BNY/_PDF/carl-avidano-cover-letter-bny.pdf`. Approved September 23 and re-exported from page 3 of the tailored InDesign source after Carl's final design change. One page, tagged PDF, 42,019 bytes, with an explicit portfolio hyperlink. The extracted body matches `cover-letter.md` exactly. The approved letter includes the correct BNY role, broader Reingold research and leadership, NYC operational workflows, Avidano Digital and UNICEF, and ownership of the open-source Natura11y design system. The existing header, typography, and signature are preserved.
 - **Website résumé copy:** `public/bny/resume-carl-avidano.pdf`, downloaded from `/bny/resume-carl-avidano.pdf`. It matches the tailored résumé export above byte for byte as of September 22. Verified the local BNY About button serves this file and the main About page serves its separate general résumé. New InDesign exports must also be copied into this website file.
 - **Portfolio:** `https://carlavidano.com/bny/` is live and verified. Local preview remains `http://127.0.0.1:4321/bny`. The approved work from `codex/bny-microsite` is merged into `main`; the working checkout is on `main`.
 
 ### When Carl returns
 
-1. Resume the existing job 82305 application and inspect its current state before changing anything Carl may have entered.
-2. Attach the approved résumé and cover letter listed above. Do not reuse the old generic résumé or rewrite the approved letter.
-3. Continue after Carl supplies the required step 2 answers; review the saved experience, update Reingold's end date to August 2026 if still stale, and complete the remaining fields from verified facts.
-4. Review the completed application with Carl before final submission. Ask only for required answers not already supplied; do not infer personal eligibility or sensitive answers. Handle any new legal attestations at the point they appear.
+The application is complete. If Carl requests a status check, inspect the existing job 82305 entry in My Applications. Keep the submitted PDFs above as the record of what BNY received; do not reapply or replace documents unless Carl requests it.
 
 ## Applying Jared's guidance
 
