@@ -1,9 +1,13 @@
 ---
+import SiteLink from '../SiteLink.astro';
 import './style.scss';
+import { getSiteBase, siteHref } from '../../lib/site-paths.js';
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isApplicationSite = Boolean(getSiteBase(currentPath));
 
-const getCurrent = (href: string) => {
+const getCurrent = (path: string) => {
+  const href = siteHref(path, Astro.url.pathname);
   if (currentPath === href) return 'page';
   return currentPath.startsWith(`${href}/`) ? 'true' : undefined;
 };
@@ -13,11 +17,11 @@ const getCurrent = (href: string) => {
 
   <header class="global-header">
     
-    <a class="global-header__logo" href="/" aria-label="Carl Avidano home">
+    <SiteLink class="global-header__logo" href="/" aria-label="Carl Avidano home">
       <div class="h5">
         <strong>Carl Avidano</strong>
       </div>
-    </a>
+    </SiteLink>
 
     <ul class="global-header__title">
       <li>User Experience</li>
@@ -43,20 +47,20 @@ const getCurrent = (href: string) => {
 
     <nav class="global-header__nav collapse shown--lg" id="primary-navigation" aria-label="Primary navigation">
       <ul class="nav nav--horizontal--lg font-size-md justify-content-end--lg flex-wrap--lg padding-y-3 padding-y-0--lg">
-        <li>
-          <a href="/portfolio" aria-current={getCurrent('/portfolio')}>
+        {!isApplicationSite && <li>
+          <SiteLink href="/portfolio" aria-current={getCurrent('/portfolio')}>
             <span class="nav__text">Portfolio</span>
-          </a>
-        </li>
+          </SiteLink>
+        </li>}
         <li>
-          <a href="/drawing-board" aria-current={getCurrent('/drawing-board')}>
+          <SiteLink href="/drawing-board" aria-current={getCurrent('/drawing-board')}>
             <span class="nav__text">The Drawing Board</span>
-          </a>
+          </SiteLink>
         </li>
         <li>
-          <a href="/about" aria-current={getCurrent('/about')}>
+          <SiteLink href="/about" aria-current={getCurrent('/about')}>
             <span class="nav__text">About Me</span>
-          </a>
+          </SiteLink>
         </li>
       </ul>
     </nav>

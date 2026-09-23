@@ -1,0 +1,29 @@
+{
+  "home": {
+    "title": "BNY • Director, Product Design • Carl Avidano",
+    "description": "Carl Avidano’s portfolio for the Director, Product Design opportunity on BNY’s Fund and Investor Solutions team.",
+    "headline": "I'm a product designer specializing in design systems and digital accessibility",
+    "introduction": "BNY is looking for someone who can make complex workflows clear for clients and the teams supporting them, then turn those solutions into patterns other teams can reuse. That’s the connection between product design and systems thinking that drives my work.",
+    "workButton": "Explore My Work",
+    "projectsIntroduction": "These case studies show how I simplify complex workflows, build reusable design systems, and use research and collaboration to guide product decisions.",
+    "aboutHeading": "About Me",
+    "whoHeading": "Who I am",
+    "who": "I'm a New York–based product designer and UX leader who combines interaction design with front-end development. I’ve designed public services and internal tools, and managed and mentored designers as a UX Director. Digital accessibility is part of how I approach every project.",
+    "whatHeading": "What I do",
+    "what": "I work with stakeholders and developers to understand the needs of people using a service and the teams supporting it. Research, workflow mapping, and prototypes help me turn those needs into clear interfaces and explain the decisions behind them. I build reusable components and documentation so teams can implement and maintain shared patterns.",
+    "aboutButton": "About Me",
+    "storiesButton": "All articles",
+    "articlesIntroduction": "A closer look at how I design accessible navigation and keep a shared design system consistent across Figma, code, and documentation."
+  },
+  "portfolio": {
+    "title": "Portfolio • Carl Avidano • UX Manager",
+    "description": "Explore UX research, accessibility, design systems, and front-end work for government agencies, global nonprofits, education, and civic technology.",
+    "headline": "Explore my work",
+    "introduction": "I've led and collaborated on high-impact digital projects for city, state, and federal government agencies and global nonprofits."
+  },
+  "drawingBoard": {
+    "headline": "The Drawing Board",
+    "title": "The Drawing Board • Carl Avidano",
+    "introduction": "Quick reads on my creative process, collaborations, and a look at ongoing work as it unfolds."
+  }
+}

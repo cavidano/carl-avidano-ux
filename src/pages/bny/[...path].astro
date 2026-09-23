@@ -1,0 +1,37 @@
+---
+import HomePage from '../../components/Pages/HomePage.astro';
+import AboutPage from '../../components/Pages/AboutPage.astro';
+import ProjectPage from '../../components/Pages/ProjectPage.astro';
+import PostPage from '../../components/Pages/PostPage.astro';
+import NotFoundPage from '../../components/Pages/NotFoundPage.astro';
+import ListingPage from '../../components/DrawingBoard/ListingPage.astro';
+import Hero from '../../sites/bny/Hero.astro';
+import { getAllProjects } from '../../lib/projects.js';
+import { getDrawingBoardPosts, getDrawingBoardTags } from '../../lib/drawing-board.js';
+
+export function getStaticPaths() {
+  return [
+    { params: { path: undefined }, props: { kind: 'home' } },
+    { params: { path: 'about' }, props: { kind: 'about' } },
+    { params: { path: 'drawing-board' }, props: { kind: 'articles', posts: getDrawingBoardPosts('bny') } },
+    { params: { path: '404' }, props: { kind: 'notFound' } },
+    ...getAllProjects('bny').map((project) => ({
+      params: { path: `portfolio/${project.slug}` }, props: { kind: 'project', project }
+    })),
+    ...getDrawingBoardPosts('bny').map((post) => ({
+      params: { path: `drawing-board/${post.slug}` }, props: { kind: 'post', post }
+    })),
+    ...getDrawingBoardTags('bny').map((tag) => ({
+      params: { path: `drawing-board/topics/${tag.slug}` }, props: { kind: 'articles', posts: tag.posts, tag }
+    }))
+  ];
+}
+
+const { kind, project, post, posts, tag } = Astro.props;
+---
+{kind === 'home' && <HomePage><Hero slot="hero" /></HomePage>}
+{kind === 'about' && <AboutPage />}
+{kind === 'project' && project && <ProjectPage project={project} />}
+{kind === 'post' && post && <PostPage post={post} />}
+{kind === 'articles' && <ListingPage posts={posts ?? []} currentTag={tag} />}
+{kind === 'notFound' && <NotFoundPage />}

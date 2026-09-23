@@ -1,10 +1,12 @@
 ---
+import SiteLink from '../SiteLink.astro';
 import { getDrawingBoardTags } from '../../lib/drawing-board.js';
+import { getSiteId } from '../../lib/site-paths.js';
 
 const { currentTag } = Astro.props;
 const items = [
   { name: 'All articles', slug: undefined, href: '/drawing-board' },
-  ...getDrawingBoardTags()
+  ...getDrawingBoardTags(getSiteId(Astro.url.pathname))
 ];
 ---
 
@@ -12,11 +14,11 @@ const items = [
   <ul class="list-unstyled flex-row gap-2 font-size-sm margin-bottom-0">
     {items.map(({ name, slug, href }) => (
       <li>
-        <a
+        <SiteLink
           class:list={['badge', { 'theme-primary': slug === currentTag }]}
           href={href}
           aria-current={slug === currentTag ? 'page' : undefined}
-        >{name}</a>
+        >{name}</SiteLink>
       </li>
     ))}
   </ul>

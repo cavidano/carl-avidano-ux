@@ -1,0 +1,26 @@
+{
+  "home": {
+    "title": "Carl Avidano • UX Manager",
+    "description": "Carl Avidano is a UX leader, researcher, and inclusive design advocate specializing in digital accessibility, design systems, and front-end development.",
+    "headline": "I'm a UX leader specializing in digital accessibility and design systems",
+    "workButton": "Explore My Work",
+    "aboutHeading": "About Me",
+    "whoHeading": "Who I am",
+    "who": "I'm a UX leader, researcher, and inclusive design advocate with a successful track record of delivering digital products for government, nonprofits, education, healthcare, and civic technology.",
+    "whatHeading": "What I do",
+    "what": "I help organizations understand user needs, align teams, and lead the design of inclusive digital products through research, design systems, and front-end expertise.",
+    "aboutButton": "About Me",
+    "storiesButton": "More stories"
+  },
+  "portfolio": {
+    "title": "Portfolio • Carl Avidano • UX Manager",
+    "description": "Explore UX research, accessibility, design systems, and front-end work for government agencies, global nonprofits, education, and civic technology.",
+    "headline": "Explore my work",
+    "introduction": "I've led and collaborated on high-impact digital projects for city, state, and federal government agencies and global nonprofits."
+  },
+  "drawingBoard": {
+    "headline": "The Drawing Board",
+    "title": "The Drawing Board • Carl Avidano",
+    "introduction": "Quick reads on my creative process, collaborations, and a look at ongoing work as it unfolds."
+  }
+}

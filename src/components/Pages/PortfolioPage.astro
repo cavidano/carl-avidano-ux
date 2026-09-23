@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
+import ProjectListView from '../ProjectListView.astro';
+import { getMainProjects } from '../../lib/projects.js';
+
+import { getSiteId } from '../../lib/site-paths.js';
+import { getSiteCopy } from '../../lib/sites.js';
+
+const copy = getSiteCopy(Astro.url.pathname).portfolio;
+const projects = getMainProjects(getSiteId(Astro.url.pathname));
+const { title, description } = copy;
+---
+<Layout title={title} description={description}>
+  <GlobalHeader />
+
+  <main id="skip-header-target">
+
+    <section class="margin-top-3 margin-top-5--lg margin-bottom-5">
+
+      <header class="container wide">
+        <h1 class="banner-headline margin-bottom-3">
+          {copy.headline}
+        </h1>
+        <div class="narrow">
+          <p>
+            {copy.introduction}
+          </p>
+        </div>
+      </header>
+
+      <div class="container--md wide--md">
+        <ProjectListView projects={projects} margin="margin-top-3 margin-top-5--lg margin-bottom-5" />
+      </div>
+
+    </section>
+
+  </main>
+
+</Layout>

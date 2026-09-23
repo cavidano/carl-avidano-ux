@@ -1,0 +1,109 @@
+---
+import { getImage } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
+import LinkOpenNew from '../LinkOpenNew.astro';
+import SiteLink from '../SiteLink.astro';
+import TextBlock from '../TextBlock.astro';
+import FigureSingle from '../FigureSingle.astro';
+import FigureSideBySide from '../FigureSideBySide.astro';
+import PostTags from '../DrawingBoard/PostTags.astro';
+import { formatDrawingBoardDate, getDrawingBoardImageOptions } from '../../lib/drawing-board.js';
+import type { getDrawingBoardPosts } from '../../lib/drawing-board.js';
+
+interface Props {
+  post: ReturnType<typeof getDrawingBoardPosts>[number];
+}
+
+const { post } = Astro.props;
+const { Content, frontmatter, image } = post;
+const mdxComponents = { a: SiteLink, TextBlock, FigureSingle, FigureSideBySide };
+const featureImageOptions = getDrawingBoardImageOptions(image);
+const featureImage = await getImage({ ...featureImageOptions, format: 'jpg' });
+const usefulLinks = [
+  { label: frontmatter.projectLinkLabel ?? `${frontmatter.projectName} case study`, url: frontmatter.projectUrl },
+  ...(frontmatter.usefulLinks ?? [])
+];
+---
+<Layout
+  title={`${frontmatter.title} • The Drawing Board • Carl Avidano`}
+  socialTitle={frontmatter.title}
+  noindex={frontmatter.status !== 'published'}
+  description={frontmatter.description}
+  image={featureImage.src}
+  imageAlt={frontmatter.imageAlt}
+  imageWidth={featureImageOptions.width}
+  imageHeight={featureImageOptions.height}
+  imageType="image/jpeg"
+  article={{ date: frontmatter.date, tags: post.tags.map(({ name }) => name) }}
+>
+  <GlobalHeader />
+
+  <main id="skip-header-target">
+
+    <article class="margin-y-6">
+
+      <header class="container medium text-align-center margin-bottom-5">
+
+        <p class="font-size-sm margin-bottom-2">
+          {frontmatter.workDate ? (
+            <span>From the archive · <time datetime={frontmatter.workDate}>{formatDrawingBoardDate(frontmatter.workDate)}</time></span>
+          ) : (
+            <time datetime={frontmatter.date}>{formatDrawingBoardDate(frontmatter.date)}</time>
+          )}
+        </p>
+
+        <h1 class="banner-headline margin-bottom-3">{frontmatter.title}</h1>
+
+        <PostTags tags={post.tags} class="justify-content-center" />
+
+      </header>
+
+      <Content components={mdxComponents} />
+
+      <section class="narrow margin-x-auto margin-top-4">
+
+        <div class="subtle-fill-1 padding-3">
+
+          <h2 class="h5 margin-bottom-2">
+            Useful links
+          </h2>
+
+          <ul class="nav gap-2">
+            {usefulLinks.map(({ label, url }) => (
+              <li>
+                {/^https?:\/\//.test(url) ? (
+                  <LinkOpenNew LinkUrl={url} LinkText={label} utilities="link" />
+                ) : (
+                  <SiteLink class="link" href={url}>{label}</SiteLink>
+                )}
+              </li>
+            ))}
+          </ul>
+
+        </div>
+
+      </section>
+
+      <footer class="container margin-top-5">
+
+        <div class=" narrow margin-x-auto border-top padding-top-2 padding-bottom-4">
+          <SiteLink class="link font-size-sm" href="/drawing-board">
+            <span class="icon icon-arrow-left" aria-hidden="true"></span>
+            <span class="link__text">Back to The Drawing Board</span>
+          </SiteLink>
+        </div>
+
+      </footer>
+
+    </article>
+
+  </main>
+
+</Layout>
+
+<style>
+  footer {
+    --link-color: currentColor;
+  }
+</style>

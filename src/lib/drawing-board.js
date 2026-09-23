@@ -1,14 +1,8 @@
 import { resolveImage } from './projects.js';
 import { prepareDrawingBoardPosts, groupDrawingBoardTags } from './drawing-board-content.js';
+import { contentRoot } from './sites.js';
 
-const postModules = import.meta.glob('/src/content/drawing-board/*.mdx', { eager: true });
-const posts = prepareDrawingBoardPosts(Object.values(postModules), {
-  includePreviews: import.meta.env.DEV
-}).map((post) => ({
-  ...post,
-  image: resolveImage(post.frontmatter.image)
-}));
-const tags = groupDrawingBoardTags(posts);
+const postModules = import.meta.glob(['/src/content/drawing-board/*.mdx', '/src/sites/bny/drawing-board/*.mdx'], { eager: true });
 
 export function getDrawingBoardImageOptions(image) {
   // Match the project marquees' 2:1 ratio without enlarging the source image.
@@ -16,12 +10,17 @@ export function getDrawingBoardImageOptions(image) {
   return { src: image, width, height: width / 2, fit: 'cover', position: 'center' };
 }
 
-export function getDrawingBoardTags() {
-  return tags;
+export function getDrawingBoardTags(siteId = 'main') {
+  return groupDrawingBoardTags(getDrawingBoardPosts(siteId));
 }
 
-export function getDrawingBoardPosts() {
-  return posts;
+export function getDrawingBoardPosts(siteId = 'main') {
+  const modules = Object.entries(postModules)
+    .filter(([path]) => path.startsWith(`${contentRoot(siteId)}/drawing-board/`))
+    .map(([, module]) => module);
+  return prepareDrawingBoardPosts(modules, {
+    includePreviews: import.meta.env.DEV
+  }).map((post) => ({ ...post, image: resolveImage(post.frontmatter.image) }));
 }
 
 export function formatDrawingBoardDate(date) {

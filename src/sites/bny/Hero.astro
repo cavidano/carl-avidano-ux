@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import GlobalHeader from '../../components/GlobalHeader/GlobalHeader.astro';
+import skyline from './images/new-york-city-at-night.png';
+import copy from './site.json';
+
+// Maximum logo width in pixels. Height follows the SVG's 84:18 proportions.
+const logoMaxWidth = 840;
+---
+
+<div class="bny-hero backdrop backdrop--fixed">
+  <div class="backdrop__media gradient-mask-bottom">
+    <Image
+      class="opacity-30"
+      src={skyline}
+      alt=""
+      widths={[640, 1280, 1920, 2400]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+
+  <div class="backdrop__cover justify-content-between">
+    <div class="bny-hero__header">
+      <GlobalHeader />
+    </div>
+
+    <div class="container wide padding-y-4 padding-y-5--lg">
+      {['light', 'dark'].map((theme) => (
+        <img
+          class={`bny-logo bny-logo--${theme} display-block margin-bottom-4`}
+          src={`/bny/bny-logo-${theme}.svg`}
+          alt="BNY"
+          width={logoMaxWidth}
+          height={Math.round(logoMaxWidth * 18 / 84)}
+        />
+      ))}
+      <h1 class="banner-headline width-80--xxl margin-bottom-3">{copy.home.headline}</h1>
+      <p class="narrow margin-bottom-0">
+        {copy.home.introduction}
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  :global(body:has(.bny-hero)) {
+    --body-min-width: 0;
+  }
+
+  .bny-hero {
+    --backdrop-fixed-height: 85svh;
+    --gradient-direction-start: 35%;
+    background-color: var(--background-color);
+  }
+
+  .bny-hero__header {
+    /* Follow the active theme independently of the photograph's bottom fade. */
+    background: linear-gradient(to bottom, var(--background-color), transparent);
+  }
+
+  :global(.theme-dark) .bny-logo--light,
+  :global(.theme-canvas) .bny-logo--dark {
+    display: none;
+  }
+
+  .backdrop__media img {
+    /* Keep the skyline in view and crop out the road in the foreground. */
+    height: 150%;
+    object-position: right top;
+  }
+
+  @media (forced-colors: active) {
+    .backdrop__media {
+      display: none;
+    }
+
+    .bny-logo {
+      /* Preserve the matching surface behind the supplied brand artwork. */
+      forced-color-adjust: none;
+      background-color: var(--background-color);
+    }
+  }
+</style>

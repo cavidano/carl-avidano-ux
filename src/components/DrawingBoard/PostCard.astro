@@ -1,4 +1,5 @@
 ---
+import SiteLink from '../SiteLink.astro';
 import AnimatedImage from '../AnimatedImage.astro';
 import PostMeta from './PostMeta.astro';
 import PostTags from './PostTags.astro';
@@ -28,9 +29,9 @@ const Heading = headingLevel === 3 ? 'h3' : 'h2';
   <div class={compact ? 'padding-3' : 'narrow padding-x-3 padding-bottom-3 padding-0--lg'}>
     <PostMeta frontmatter={frontmatter} />
     <Heading class={compact ? 'h4' : 'h3'}>
-      <a class="drawing-board-post-link" href={`/drawing-board/${slug}`}>
+      <SiteLink class="drawing-board-post-link" href={`/drawing-board/${slug}`}>
         {frontmatter.title}
-      </a>
+      </SiteLink>
     </Heading>
     <p class:list={['margin-bottom-3', { 'font-size-md': compact }]}>{frontmatter.description}</p>
     <PostTags tags={post.tags} />

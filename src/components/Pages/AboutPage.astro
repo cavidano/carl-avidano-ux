@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+
+import Layout from '../../layouts/Layout.astro';
+import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
+
+import { getAboutPage } from '../../lib/about.js';
+import { getSiteId } from '../../lib/site-paths.js';
+import SiteLink from '../SiteLink.astro';
+
+const { default: AboutContent, frontmatter } = getAboutPage(getSiteId(Astro.url.pathname));
+
+import AboutHeading from '../AboutHeading.astro';
+
+import portrait from '../../images/carl-avidano-16x9.jpg';
+
+const { title, description, portraitAlt, profile, skills } = frontmatter;
+const phoneHref = `tel:${profile.phone.replace(/[^\d+]/g, '')}`;
+const mdxComponents = {
+  h1: AboutHeading,
+  a: SiteLink
+};
+---
+<Layout title={title} description={description} image={portrait} imageAlt={portraitAlt}>
+
+  <GlobalHeader />
+
+  <main class="container wide" id="skip-header-target">
+
+    <div class="margin-y-3 margin-y-5--lg position-relative">
+      <Image
+        class="project-image"
+        src={portrait}
+        alt={portraitAlt}
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+
+    <article class="grid grid--column-4--xl gap-3 border-top padding-y-4">
+      <div>
+        <p class="h6">{profile.name}</p>
+        <p>{profile.pronouns}</p>
+      </div>
+
+      <div class="grid grid__colspan-3--xl gap-4">
+        <section class="grid grid--column-3--lg gap-3">
+          <p class="font-size-md margin-bottom-0">Location:<br />{profile.location}</p>
+
+          <div class="grid__colspan-2--lg">
+            <AboutContent components={mdxComponents} />
+          </div>
+        </section>
+
+        <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-expertise">
+          <h2 class="h5 margin-bottom-0">Skills and experience</h2>
+
+          <ul class="grid grid__colspan-2--lg gap-2 font-size-md margin-bottom-0">
+            {skills.map((skill: string) => (
+              <li>{skill}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="get-in-touch">
+          <h2 class="h5 margin-bottom-0">Get in touch</h2>
+
+          <div class="grid__colspan-2--lg font-size-md">
+            <ul class="nav gap-2 margin-bottom-4">
+              <li>
+                <SiteLink href={`mailto:${profile.email}`}>{profile.email}</SiteLink>
+              </li>
+              <li>
+                <SiteLink href="https://www.linkedin.com/in/carlavidano/" target="_blank" rel="noreferrer">LinkedIn</SiteLink>
+              </li>
+              <li>
+                <SiteLink href={phoneHref}>{profile.phone}</SiteLink>
+              </li>
+            </ul>
+
+            <SiteLink class="button button--has-icon button--outline font-size-md" href="/resume-carl-avidano.pdf" download>
+              <span class="icon icon-file-download" aria-hidden="true"></span>
+              <span class="button__text">Download Resume (PDF)</span>
+            </SiteLink>
+          </div>
+        </section>
+      </div>
+    </article>
+
+  </main>
+
+</Layout>

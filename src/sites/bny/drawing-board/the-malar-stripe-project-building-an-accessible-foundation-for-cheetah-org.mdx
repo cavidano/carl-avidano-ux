@@ -1,0 +1,78 @@
+---
+title: 'The Malar Stripe Project: building an accessible foundation for cheetah.org'
+description: 'Bringing UX, accessibility, and a shared design system together for the next stage of Cheetah.org.'
+date: '2026-09-19'
+status: draft
+tags:
+  - 'Design Systems'
+image: '../../../images/cheetah-conservation-fund/design-system-typography.png'
+imageAlt: 'The CCF Figma kit’s typography sheet, showing a banner headline, six heading levels, and body text sizes.'
+projectName: 'Cheetah.org'
+projectUrl: '/portfolio/cheetah-conservation-fund'
+usefulLinks:
+  - label: 'CCF design system in Figma'
+    url: 'https://www.figma.com/design/Ey3TdUGVg8vOioarckOiZq/CCF-Design-System?node-id=3146-162'
+  - label: 'Visit Cheetah Conservation Fund'
+    url: 'https://cheetah.org/'
+---
+
+import LightboxImage from '../../../components/LightboxImage.astro';
+import typography from '../../../images/cheetah-conservation-fund/design-system-typography.png';
+
+<TextBlock className="margin-x-auto">
+
+My work with Cheetah Conservation Fund (CCF) has grown since the website redesign we launched in 2019. I’m now developing a design system for the next stage of cheetah.org, bringing the user experience and accessibility decisions into the work from the start.
+
+The site has a lot to do. People come to learn about cheetahs, follow conservation work, find educational resources, and offer support. The design system needs to help those activities make sense together, while keeping CCF’s identity recognizable.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Starting with what people need to do
+
+Navigation is one place where those decisions become concrete. The mobile menu groups information under “Who We Are,” “What We Do,” “Get Involved,” and “Learn.” Each group opens into its own panel, with a way back to the main choices.
+
+The header brings together search, language selection, and links to Donate and CCF Kids. I’m working through how those controls fit at different screen sizes and which choices need to stay easy to reach. That is UX work inside the design system: deciding how the pieces help someone move through the site.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Making reading part of the system
+
+The Figma kit gives headings and body text a shared scale. Instead of choosing a new size for every page, I can work with a consistent set of relationships between the headline, section headings, and paragraphs.
+
+That helps me think about the reading experience across news, conservation information, and educational content. The website styles also define reading widths and adjust the type scale on smaller screens. These are decisions I can reuse and refine across the site.
+
+</TextBlock>
+
+<FigureSingle width="medium" className="margin-x-auto" caption="The working typography scale in CCF’s Figma kit.">
+
+  <LightboxImage
+    src={typography}
+    alt="CCF’s Figma typography sheet with examples of a banner headline, heading levels one through six, and regular and bold body text at several sizes."
+    caption="The working typography scale in CCF’s Figma kit."
+  />
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
+
+## Reviewing how the pieces behave
+
+I’m developing the components in Storybook, a workspace where I can view and use them in the browser. The header and mobile menu have their own examples, and they also appear together in a homepage layout. That lets me review an interaction on its own and then see how it fits into a page.
+
+Accessibility is part of those decisions. The menu uses buttons to open its panels and provides back and close controls. Shared color rules pair backgrounds with text and link colors, with contrast checks to catch combinations that fall below the chosen threshold.
+
+I used Natura11y as the starting point for the code, then gave CCF its own version to maintain. That allows the system to develop around CCF’s content, brand, and chapter sites. The Figma kit already includes chapter logo variants alongside the main CCF and Kids identities.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Result
+
+CCF now has a working Figma kit and a growing library of components and page examples in Storybook. The website work is still in progress. I have a place to review navigation, reading, and interaction decisions together, and carry those decisions into the site through reusable components.
+
+</TextBlock>

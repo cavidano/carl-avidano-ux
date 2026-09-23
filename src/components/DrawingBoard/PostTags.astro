@@ -1,4 +1,5 @@
 ---
+import SiteLink from '../SiteLink.astro';
 interface Props {
   tags: { name: string; href: string }[];
   class?: string;
@@ -10,7 +11,7 @@ const { tags, class: className } = Astro.props;
 {tags.length > 0 && (
   <ul class:list={['drawing-board-tags list-unstyled flex-row gap-2 margin-bottom-0', className]}>
     {tags.map(({ name, href }) => (
-      <li><a class="badge" href={href}>{name}</a></li>
+      <li><SiteLink class="badge" href={href}>{name}</SiteLink></li>
     ))}
   </ul>
 )}

@@ -1,17 +1,4 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import GlobalHeader from '../components/GlobalHeader/GlobalHeader.astro';
+import NotFoundPage from '../components/Pages/NotFoundPage.astro';
 ---
-<Layout title="Page not found • Carl Avidano" description="The requested page could not be found." noindex={true}>
-  <GlobalHeader />
-
-  <main class="container narrow margin-y-6" id="skip-header-target">
-    <h1>Page not found</h1>
-    <p>Sorry, we couldn't find what you were looking for.</p>
-    <p>
-      <a class="button theme-primary" href="/">
-        <span class="text">Go home</span>
-      </a>
-    </p>
-  </main>
-</Layout>
+<NotFoundPage />

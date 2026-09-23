@@ -1,4 +1,5 @@
 ---
+import SiteLink from './SiteLink.astro';
 const {
   href = '#',
   title = 'Button',
@@ -13,8 +14,8 @@ const {
 const classes = ['button', outline && 'button--outline', utilities].filter(Boolean).join(' ');
 ---
 
-<a class={classes} href={href} target={target} rel={rel}>
+<SiteLink class={classes} href={href} target={target} rel={rel}>
   {iconStartHandle && <span class={`icon icon-${iconStartHandle}`} aria-hidden="true"></span>}
   <span class="text">{title}</span>
   {iconEndHandle && <span class={`icon icon-${iconEndHandle}`} aria-hidden="true"></span>}
-</a>
+</SiteLink>

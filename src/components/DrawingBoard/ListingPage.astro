@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getSiteCopy } from '../../lib/sites.js';
 import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
 import PostList from './PostList.astro';
 import TagNav from './TagNav.astro';
@@ -11,8 +12,9 @@ interface Props {
 }
 
 const { posts, currentTag } = Astro.props;
-const introduction = 'Quick reads on my creative process, collaborations, and a look at ongoing work as it unfolds.';
-const title = `${currentTag ? `${currentTag.name} • ` : ''}The Drawing Board • Carl Avidano`;
+const copy = getSiteCopy(Astro.url.pathname).drawingBoard;
+const { introduction } = copy;
+const title = `${currentTag ? `${currentTag.name} • ` : ''}${copy.title}`;
 const description = currentTag ? `${currentTag.name} articles from The Drawing Board.` : introduction;
 ---
 
@@ -23,7 +25,7 @@ const description = currentTag ? `${currentTag.name} articles from The Drawing B
   <main id="skip-header-target" class="container wide margin-top-3 margin-top-5--lg margin-bottom-5">
 
     <header class="narrow margin-bottom-3 margin-bottom-5--lg">
-      <h1 class="banner-headline">The Drawing Board</h1>
+      <h1 class="banner-headline">{copy.headline}</h1>
       <p class="font-size-md margin-bottom-0">{introduction}</p>
     </header>
 

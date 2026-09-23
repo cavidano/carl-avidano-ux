@@ -17,10 +17,11 @@ interface ProjectListItem {
 interface Props {
   projects?: ProjectListItem[];
   headingLevel?: 2 | 3;
+  headingClass?: string;
   margin?: string;
 }
 
-const { projects = [], headingLevel = 2, margin = 'margin-y-5' } = Astro.props as Props;
+const { projects = [], headingLevel = 2, headingClass, margin = 'margin-y-5' } = Astro.props as Props;
 const Heading = headingLevel === 3 ? 'h3' : 'h2';
 ---
 <div class:list={['grid gap-3', margin]}>
@@ -42,7 +43,7 @@ const Heading = headingLevel === 3 ? 'h3' : 'h2';
         </div>
 
         <div class="container--xl grid__colspan-3--xl margin-y-4">
-          <Heading id={`project-${project.slug}`}>{project.frontmatter.title}</Heading>
+          <Heading id={`project-${project.slug}`} class={headingClass}>{project.frontmatter.title}</Heading>
           <p>{project.frontmatter.description}</p>
 
           <Button

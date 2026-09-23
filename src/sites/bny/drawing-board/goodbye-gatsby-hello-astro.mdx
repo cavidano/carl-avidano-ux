@@ -1,0 +1,58 @@
+---
+title: 'Goodbye Gatsby, hello Astro'
+description: 'How I simplified Natura11y’s documentation by moving to Astro, removing Gatsby-specific components, and reusing the design system’s styles.'
+date: '2026-07-08'
+status: published
+tags:
+  - 'Design Systems'
+image: '../../../images/natura11y/drawing-board-goodbye-gatsby-hello-astro.png'
+imageAlt: 'The Astro logo between two waving hands on a black background.'
+projectName: 'Natura11y'
+projectUrl: '/portfolio/natura11y'
+usefulLinks:
+  - label: 'Natura11y documentation'
+    url: 'https://gonatura11y.com/'
+  - label: 'Astro documentation'
+    url: 'https://docs.astro.build/en/concepts/why-astro/'
+---
+
+import LightboxImage from '../../../components/LightboxImage.astro';
+import documentation from '../../../images/natura11y/natura11y-docs-masonry.jpg';
+
+<TextBlock className="margin-x-auto">
+
+I moved Natura11y’s documentation from Gatsby to Astro to reduce unnecessary code and simplify maintenance. The site already paired guidance with working examples. I wanted a simpler setup behind those pages that would be easier to keep current as the design system grew.
+
+</TextBlock>
+
+<FigureSingle width="medium" className="margin-x-auto" caption="Natura11y’s Backdrop and Color documentation pages after the migration to Astro.">
+
+  <LightboxImage
+    src={documentation}
+    alt="Natura11y's Backdrop and Color documentation pages side by side, with navigation, accessibility guidance, visual examples, and highlighted code."
+    caption="Natura11y’s documentation after the move to Astro."
+  />
+
+</FigureSingle>
+
+<TextBlock className="margin-x-auto">
+
+## Removing Gatsby-specific code
+
+Gatsby had become a substantial dependency that was cumbersome to update. I was also maintaining custom components built for the Gatsby environment, which added another layer of code to look after.
+
+The migration let me remove that entire set of Gatsby-specific components and use lighter Astro components, with React where needed. Search, for example, runs as a React island: an interactive component within an Astro page.
+
+I now use Natura11y’s own styles across the documentation interface and its examples. Removing the styles duplicated for Gatsby gives me fewer places to update and helps keep the documentation consistent with the system it describes.
+
+</TextBlock>
+
+<TextBlock className="margin-x-auto">
+
+## Keeping documentation close to the code
+
+The documentation now lives alongside Core, React, and Icons in Natura11y’s monorepo. It is part of the same shared ecosystem it describes. I can update a component and its guidance in one workspace, then check the rendered example as part of that work.
+
+That shared context also supports the AI-assisted workflow I’m developing: tools can work with the implementation and the guidance that explains it together. My goal is to make documentation updates a routine part of component changes.
+
+</TextBlock>

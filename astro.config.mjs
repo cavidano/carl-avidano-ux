@@ -6,6 +6,7 @@ export default defineConfig({
   site: 'https://carlavidano.com',
   trailingSlash: 'never',
   redirects: {
+    '/bny/portfolio': '/bny#projects',
     '/drawing-board/making-room-for-deeper-navigation-in-natura11y': '/drawing-board/natura11y-update-new-menu-components-for-deeper-navigation',
     '/on-my-desk': '/drawing-board',
     '/on-my-desk/[slug]': '/drawing-board/[slug]',
@@ -18,6 +19,7 @@ export default defineConfig({
       filter: (page) => {
         const { pathname } = new URL(page);
         return pathname !== '/aclu' &&
+          !/^\/bny(?:\/|$)/.test(pathname) &&
           pathname !== '/drawing-board/making-room-for-deeper-navigation-in-natura11y' &&
           !pathname.startsWith('/on-my-desk') &&
           !pathname.startsWith('/drawing-board/topics/');
