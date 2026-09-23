@@ -1,16 +1,7 @@
 ---
 import SiteLink from '../SiteLink.astro';
+import NavigationLinks from './NavigationLinks.astro';
 import './style.scss';
-import { getSiteBase, siteHref } from '../../lib/site-paths.js';
-
-const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
-const isApplicationSite = Boolean(getSiteBase(currentPath));
-
-const getCurrent = (path: string) => {
-  const href = siteHref(path, Astro.url.pathname);
-  if (currentPath === href) return 'page';
-  return currentPath.startsWith(`${href}/`) ? 'true' : undefined;
-};
 ---
 
 <div class="global-header-container container wide">
@@ -32,9 +23,9 @@ const getCurrent = (path: string) => {
     <button
       class="global-header__menu button"
       type="button"
-      data-toggle="collapse"
-      aria-controls="primary-navigation"
-      aria-expanded="false"
+      data-open="flyout"
+      aria-controls="mobile-navigation"
+      aria-haspopup="dialog"
     >
       <span class="icon icon-menu" aria-hidden="true"></span>
       <span class="button__text">Menu</span>
@@ -45,27 +36,33 @@ const getCurrent = (path: string) => {
       <span class="button__text">Theme</span>
     </button>
 
-    <nav class="global-header__nav collapse shown--lg" id="primary-navigation" aria-label="Primary navigation">
-      <ul class="nav nav--horizontal--lg font-size-md justify-content-end--lg flex-wrap--lg padding-y-3 padding-y-0--lg">
-        {!isApplicationSite && <li>
-          <SiteLink href="/portfolio" aria-current={getCurrent('/portfolio')}>
-            <span class="nav__text">Portfolio</span>
-          </SiteLink>
-        </li>}
-        <li>
-          <SiteLink href="/drawing-board" aria-current={getCurrent('/drawing-board')}>
-            <span class="nav__text">The Drawing Board</span>
-          </SiteLink>
-        </li>
-        <li>
-          <SiteLink href="/about" aria-current={getCurrent('/about')}>
-            <span class="nav__text">About Me</span>
-          </SiteLink>
-        </li>
+    <nav class="global-header__nav display-none display-block--lg" id="primary-navigation" aria-label="Primary navigation">
+      <ul class="nav nav--horizontal--lg font-size-md justify-content-end--lg flex-wrap--lg">
+        <NavigationLinks />
       </ul>
     </nav>
   </header>
 
+</div>
+
+<div class="flyout" id="mobile-navigation" aria-hidden="true">
+  <div class="flyout__content" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="flyout__header">
+      <button
+        class="button button--icon-only font-size-md"
+        type="button"
+        data-flyout-close
+        aria-label="Close menu"
+      >
+        <span class="icon icon-close" aria-hidden="true"></span>
+      </button>
+    </div>
+    <nav class="flyout__body" aria-label="Primary navigation">
+      <ul class="nav nav--divider font-size-md">
+        <NavigationLinks includeHome />
+      </ul>
+    </nav>
+  </div>
 </div>
 
 <script>

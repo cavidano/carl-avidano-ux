@@ -12,6 +12,13 @@ Before drafting or revising any audience-facing copy for this website, read the 
 
 These instructions supplement the user's global project and design-system requirements.
 
+# Application microsites
+
+- Create a new `codex/<application>-microsite` branch before starting each new application site. Keep existing work safe and separate; do not publish until Carl requests it.
+- Use an SVG logo from the employer's official website or brand assets. Record its source, preserve its geometry, and verify the appropriate light- and dark-mode versions, including forced colors.
+- Keep each application's content and résumé asset independently editable under `src/sites/<application>` and `public/<application>`. Share layout, Natura11y behavior, and link scoping. The logo's home link, navigation, cards, articles, and résumé download must stay within that application's URL space.
+- Reuse `GlobalHeader` and its `NavigationLinks` component across the main site and every application. Mobile navigation uses Natura11y's standard flyout, with Home first and links scoped to the current site. Do not create separate menu implementations per application.
+
 # Portfolio positioning reference
 
 For portfolio positioning, hiring-focused reviews, and case-study selection or structure, read [Jared Spool's September 2026 portfolio workshop guide](docs/references/jared-spool-ux-portfolio-2026.md). Carl asked to keep this as an ongoing reference. Use it alongside the target job description, verified project evidence, current Confluence copy, and Carl's latest instructions.

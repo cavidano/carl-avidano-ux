@@ -52,8 +52,6 @@
   &__nav {
     grid-area: nav;
     min-width: 0;
-    // background-color: tan;
-    margin-block-start: var(--spacer-3);
   }
 
   @media (max-width: 991px) {
@@ -62,8 +60,7 @@
     grid-template-areas:
       'logo logo'
       'title title'
-      'menu theme'
-      'nav nav';
+      'menu theme';
     gap: 0 var(--spacer-3);
     text-align: center;
     border-bottom: 0;
@@ -105,10 +102,6 @@
   @media (min-width: 992px) {
     &__nav {
       --nav-gap: 1.5em;
-
-      // Keep desktop navigation at its natural height.
-      height: auto;
-      margin-block-start: unset;
     }
   }
 }

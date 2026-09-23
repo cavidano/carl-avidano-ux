@@ -1,0 +1,32 @@
+---
+import SiteLink from '../SiteLink.astro';
+import { getSiteBase, siteHref } from '../../lib/site-paths.js';
+
+interface Props {
+  includeHome?: boolean;
+}
+
+const { includeHome = false } = Astro.props;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = [
+  ...(includeHome ? [{ href: '/', label: 'Home' }] : []),
+  ...(!getSiteBase(currentPath) ? [{ href: '/portfolio', label: 'Portfolio' }] : []),
+  { href: '/drawing-board', label: 'The Drawing Board' },
+  { href: '/about', label: 'About Me' }
+];
+
+const getCurrent = (path: string) => {
+  const href = siteHref(path, Astro.url.pathname);
+  if (currentPath === href) return 'page';
+  if (path === '/') return undefined;
+  return currentPath.startsWith(`${href}/`) ? 'true' : undefined;
+};
+---
+
+{links.map(({ href, label }) => (
+  <li>
+    <SiteLink href={href} aria-current={getCurrent(href)}>
+      <span class="nav__text">{label}</span>
+    </SiteLink>
+  </li>
+))}
