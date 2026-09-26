@@ -3,7 +3,8 @@
 export const applications = [
   { id: 'bny', status: 'published' },
   { id: 'accenture', status: 'draft' },
-  { id: 'datadog', status: 'draft' }
+  { id: 'datadog', status: 'draft' },
+  { id: 'chromatic', status: 'draft' }
 ];
 
 // ACLU rejection confirmed by Carl on September 26, 2026.

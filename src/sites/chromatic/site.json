@@ -1,0 +1,29 @@
+{
+  "home": {
+    "title": "Chromatic • Senior Product Designer • Carl Avidano",
+    "description": "Selected work for Chromatic: accessible component systems, React implementation, visual design, research, and developer collaboration.",
+    "headline": "I design, build, and test accessible interfaces.",
+    "workButton": "Explore My Work",
+    "aboutHeading": "About Me",
+    "whoHeading": "Who I am",
+    "who": "I’m a New York–based product designer with more than 15 years of experience. As a disabled person, I know what it feels like to be left out. Accessibility shapes how I design and build interfaces, and how I support other designers. I’ve led and mentored designers at NYC OTI and Reingold alongside running Avidano Digital.",
+    "whatHeading": "What I do",
+    "what": "I work through user flows, visual design, and implementation. With Natura11y, that includes React components, Figma libraries, documentation, and checks against working examples in Storybook. In client work, I use research and feedback to understand what people need and refine the interfaces they use.",
+    "aboutButton": "About Me",
+    "storiesButton": "All articles",
+    "introduction": "I created Natura11y and work across Figma, React, documentation, and Storybook to keep design and implementation connected. My work includes component behavior, accessibility checks, and guidance for developers and AI tools. I’m interested in bringing that experience to Chromatic’s work on interface quality and developer workflows.",
+    "projectsIntroduction": "Natura11y shows my work on reusable components and the tools around them. Visionlearning brings together visual design and working interfaces. NYC OTI shows how I design for complex workflows, while Phoenix shows how research and stakeholder feedback inform my decisions."
+  },
+  "portfolio": {
+    "title": "Selected Work • Chromatic • Carl Avidano",
+    "description": "Accessible component systems, visual design, front-end implementation, and research-informed product decisions.",
+    "headline": "Explore my work",
+    "introduction": "Selected work connecting user needs, visual design, and the details of implementation."
+  },
+  "drawingBoard": {
+    "headline": "The Drawing Board",
+    "title": "The Drawing Board • Chromatic • Carl Avidano",
+    "introduction": "Quick reads on my creative process, collaborations, and what I’m learning as I build accessible interfaces and design systems. I also share the smaller details that don’t always fit into a case study."
+  },
+  "backgroundImage": "images/chromatic-chart.png"
+}

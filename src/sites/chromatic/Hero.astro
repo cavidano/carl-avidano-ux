@@ -1,0 +1,17 @@
+---
+import ApplicationHero from '../../components/Applications/ApplicationHero.astro';
+import copy from './site.json';
+---
+
+<ApplicationHero
+  logo={{
+    light: '/chromatic/chromatic-logo-light.svg',
+    dark: '/chromatic/chromatic-logo-dark.svg',
+    alt: 'Chromatic',
+    width: 360,
+    height: 72
+  }}
+  context="Senior Product Designer"
+  headline={copy.home.headline}
+  introduction={copy.home.introduction}
+/>
