@@ -2,7 +2,8 @@
 // New sites start as draft. Change to published only when Carl requests a launch.
 export const applications = [
   { id: 'bny', status: 'published' },
-  { id: 'accenture', status: 'draft' }
+  { id: 'accenture', status: 'draft' },
+  { id: 'datadog', status: 'draft' }
 ];
 
 // ACLU rejection confirmed by Carl on September 26, 2026.

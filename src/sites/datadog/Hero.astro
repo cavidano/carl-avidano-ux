@@ -1,0 +1,20 @@
+---
+import ApplicationHero from '../../components/Applications/ApplicationHero.astro';
+import copy from './site.json';
+
+// Official horizontal wordmarks; the source SVGs retain their original geometry.
+const logoMaxWidth = 400;
+---
+
+<ApplicationHero
+  logo={{
+    light: '/datadog/datadog-logo-light.svg',
+    dark: '/datadog/datadog-logo-dark.svg',
+    alt: 'Datadog',
+    width: logoMaxWidth,
+    height: Math.round(logoMaxWidth * 203.19 / 800.5)
+  }}
+  context="Senior Design Manager · Design Systems"
+  headline={copy.home.headline}
+  introduction={copy.home.introduction}
+/>
