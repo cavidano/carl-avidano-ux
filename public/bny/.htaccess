@@ -1,0 +1,6 @@
+# Keep application-specific PDF downloads out of search results.
+<IfModule mod_headers.c>
+    <FilesMatch "(?i)\.pdf$">
+        Header always set X-Robots-Tag "noindex"
+    </FilesMatch>
+</IfModule>

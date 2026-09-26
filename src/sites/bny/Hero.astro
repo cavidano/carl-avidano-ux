@@ -1,13 +1,15 @@
 ---
-import ApplicationHero from '../../components/ApplicationHero.astro';
+import ApplicationHero from '../../components/Applications/ApplicationHero.astro';
 import skyline from './images/new-york-city-at-night.png';
 import copy from './site.json';
+import './hero.scss';
 
 // Maximum logo width in pixels. Height follows the SVG's 84:18 proportions.
 const logoMaxWidth = 840;
 ---
 
 <ApplicationHero
+  class="application-hero--bny"
   image={skyline}
   logo={{
     light: '/bny/bny-logo-light.svg',

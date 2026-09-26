@@ -5,12 +5,14 @@ import ProjectPage from '../../components/Pages/ProjectPage.astro';
 import PostPage from '../../components/Pages/PostPage.astro';
 import NotFoundPage from '../../components/Pages/NotFoundPage.astro';
 import ListingPage from '../../components/DrawingBoard/ListingPage.astro';
-import { applicationSites } from '../../lib/application-sites.js';
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+import { getApplicationSites } from '../../lib/application-sites.js';
 import { getAllProjects } from '../../lib/projects.js';
 import { getDrawingBoardPosts, getDrawingBoardTags } from '../../lib/drawing-board.js';
 
 export function getStaticPaths() {
-  return applicationSites.flatMap((site) => [
+  const sites = getApplicationSites({ includeDrafts: import.meta.env.DEV || process.env.APPLICATION_PREVIEW === 'true' });
+  return sites.flatMap((site) => [
     { params: { path: undefined }, props: { kind: 'home' } },
     { params: { path: 'about' }, props: { kind: 'about' } },
     { params: { path: 'drawing-board' }, props: { kind: 'articles', posts: getDrawingBoardPosts(site) } },
@@ -27,8 +29,9 @@ export function getStaticPaths() {
   ].map((route) => ({ ...route, params: { ...route.params, site } })));
 }
 
-const heroes = import.meta.glob<typeof import('../../sites/bny/Hero.astro').default>('../../sites/*/Hero.astro', { eager: true, import: 'default' });
+const heroes = import.meta.glob<AstroComponentFactory>('../../sites/*/Hero.astro', { eager: true, import: 'default' });
 const Hero = heroes[`../../sites/${Astro.params.site}/Hero.astro`];
+if (!Hero) throw new Error(`Application ${Astro.params.site}: missing Hero.astro.`);
 const { kind, project, post, posts, tag } = Astro.props;
 ---
 {kind === 'home' && <HomePage><Hero slot="hero" /></HomePage>}

@@ -4,7 +4,7 @@ Reviewed September 21, 2026.
 
 ## Scope and basis
 
-Reviewed the current MDX copy for all eight published portfolio case studies and representative source figures from each. Inspected the rendered Phoenix case study, the current Phoenix.gov homepage/navigation, and its payment page. The ACLU page is a tailored introduction to existing work, not a ninth case study.
+Reviewed the current MDX copy for all eight published portfolio case studies and representative source figures from each. Inspected the rendered Phoenix case study, the current Phoenix.gov homepage/navigation, and its payment page. The former ACLU page was a tailored introduction to existing work, not a ninth case study; it was removed after Carl confirmed the rejection on September 26, 2026.
 
 This is an editorial assessment for senior UX, product design, design-system, and UX management roles. It identifies what a reader can assess from the portfolio; missing information does not establish that the underlying work was not done. Client analytics, research records, and accessibility audit reports were not independently audited. No case-study copy or images were changed during this review.
 

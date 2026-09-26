@@ -12,8 +12,7 @@
     "whatHeading": "What I do",
     "what": "I work with stakeholders and developers to understand the needs of people using a service and the teams supporting it. Research, workflow mapping, and prototypes help me turn those needs into clear interfaces and explain the decisions behind them. I build reusable components and documentation so teams can implement and maintain shared patterns.",
     "aboutButton": "About Me",
-    "storiesButton": "All articles",
-    "articlesIntroduction": "A closer look at how I design accessible navigation and keep a shared design system consistent across Figma, code, and documentation."
+    "storiesButton": "All articles"
   },
   "portfolio": {
     "title": "Portfolio • Carl Avidano • UX Manager",

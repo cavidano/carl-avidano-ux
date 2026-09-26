@@ -2,7 +2,7 @@ import mainCopy from '../content/pages/site.json';
 import { applicationSites } from './application-sites.js';
 import { getSiteId } from './site-paths.js';
 
-/** @type {Record<string, typeof mainCopy & {home: typeof mainCopy.home & {introduction: string, projectsIntroduction: string, articlesIntroduction: string}}>} */
+/** @type {Record<string, typeof mainCopy & {home: typeof mainCopy.home & {introduction: string, projectsIntroduction: string}}>} */
 const copies = import.meta.glob('/src/sites/*/site.json', { eager: true, import: 'default' });
 
 export function getSiteCopy(pathname) {

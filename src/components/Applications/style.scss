@@ -1,0 +1,46 @@
+//////////////////////////////////////////////
+// Application Hero
+//////////////////////////////////////////////
+
+body:has(.application-hero) {
+  --body-min-width: 0;
+}
+
+.application-hero {
+  --backdrop-fixed-height: 85svh;
+  --gradient-direction-start: 35%;
+
+  background-color: var(--background-color);
+
+  &__header {
+    // Follow the active theme independently of the photograph's bottom fade.
+    background: linear-gradient(to bottom, var(--background-color), transparent);
+  }
+
+  .backdrop__media img {
+    // Each site's hero.scss can override these without inline styles.
+    height: var(--application-hero-image-height, 100%);
+    object-position: var(--application-hero-image-position, center);
+  }
+
+  .theme-dark & .application-logo--light,
+  .theme-canvas & .application-logo--dark {
+    display: none;
+  }
+
+  .theme-dark & .backdrop__media img {
+    filter: opacity(var(--application-hero-dark-image-opacity, 0.3));
+  }
+
+  @media (forced-colors: active) {
+    .backdrop__media {
+      display: none;
+    }
+
+    .application-logo {
+      // Preserve the matching surface behind the supplied brand artwork.
+      forced-color-adjust: none;
+      background-color: var(--background-color);
+    }
+  }
+}

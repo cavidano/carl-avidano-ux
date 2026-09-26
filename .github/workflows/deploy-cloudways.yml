@@ -34,6 +34,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check application drafts
+        run: npm run build:review
+
       - name: Build site
         run: npm run build
 
@@ -120,12 +123,15 @@ jobs:
           CLOUDWAYS_USERNAME: ${{ secrets.CLOUDWAYS_USERNAME }}
           CLOUDWAYS_DEPLOY_PATH: ${{ vars.CLOUDWAYS_DEPLOY_PATH }}
         run: |
+          set -euo pipefail
+
           rsync \
             --archive \
             --compress \
             --itemize-changes \
             --exclude='.DS_Store' \
             --exclude='.well-known/' \
+            --exclude='.retired-applications.json' \
             -e "ssh -i ~/.ssh/cloudways -p 22" \
             site/ \
             "${CLOUDWAYS_USERNAME}@${CLOUDWAYS_HOST}:${CLOUDWAYS_DEPLOY_PATH}/"
@@ -142,3 +148,34 @@ jobs:
               "site/${section}/" \
               "${CLOUDWAYS_USERNAME}@${CLOUDWAYS_HOST}:${CLOUDWAYS_DEPLOY_PATH}/${section}/"
           done
+
+      - name: Remove retired applicant sites
+        env:
+          CLOUDWAYS_HOST: ${{ secrets.CLOUDWAYS_HOST }}
+          CLOUDWAYS_USERNAME: ${{ secrets.CLOUDWAYS_USERNAME }}
+          CLOUDWAYS_DEPLOY_PATH: ${{ vars.CLOUDWAYS_DEPLOY_PATH }}
+        run: |
+          set -euo pipefail
+
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const retired = JSON.parse(fs.readFileSync('site/.retired-applications.json', 'utf8'));
+          const protectedPaths = new Set(['main', 'about', 'portfolio', 'drawing-board', 'on-my-desk', '404', 'media']);
+          if (!Array.isArray(retired) || retired.some(id =>
+            typeof id !== 'string' || !/^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/.test(id) ||
+            protectedPaths.has(id) || fs.existsSync(path.join('site', id))
+          )) throw new Error('Refusing an invalid or active application removal target.');
+          fs.writeFileSync(path.join(process.env.RUNNER_TEMP, 'retired-applications.txt'), retired.map(id => id + '\n').join(''));
+          NODE
+
+          # Only remove named application directories, from the verified site root.
+          # The JSON manifest remains in the build artifact, not on the public server.
+          printf -v quoted_deploy_path '%q' "$CLOUDWAYS_DEPLOY_PATH"
+          while IFS= read -r application; do
+            ssh \
+              -i ~/.ssh/cloudways \
+              -p 22 \
+              "${CLOUDWAYS_USERNAME}@${CLOUDWAYS_HOST}" \
+              "cd ${quoted_deploy_path} && test -f index.html && rm -rf -- './${application}'"
+          done < "${RUNNER_TEMP}/retired-applications.txt"

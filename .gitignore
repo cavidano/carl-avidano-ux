@@ -1,10 +1,14 @@
 node_modules/
 dist/
+dist-review/
 .astro/
 .DS_Store
 .env
 .env.*
 !.env.example
+
+# Local generated artwork and working exports; final assets belong in src/ or public/.
+/output/
 
 # Retain the supplied workshop PDF locally without republishing it in Git.
 /docs/references/Job-Search-2026-What-Makes-a-Great-UX-Portfolio.pdf

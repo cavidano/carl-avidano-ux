@@ -1,0 +1,48 @@
+# Application sites
+
+## Start an application
+
+1. Confirm the employer, exact role, requisition, and official posting. Create a new `codex/<application>-microsite` branch from the appropriate current base. Preserve existing uncommitted work before switching branches.
+2. Choose a unique lowercase URL slug, such as `employer-role`. Add `{ id: 'employer-role', status: 'draft' }` to `applications` in `src/lib/application-sites.js`.
+3. Create `src/sites/<application>/` and `public/<application>/`. Required source files are `site.json`, `Hero.astro`, `pages/about.mdx`, `portfolio/`, `drawing-board/`, `README.md`, and `application-brief.md`. The public directory needs its independent `resume-carl-avidano.pdf`.
+4. Use the main site's approved content as the writing baseline and an existing application's folder structure as a structural example. Do not blindly inherit another employer's positioning, role, job records, publication claims, or résumé. Relative image imports may need adjustment when copying main-site MDX into the deeper application directory.
+5. Use the official employer SVG logo, record its source, and verify the light, dark, and forced-colors treatments. Keep hero artwork in that site's `images/` folder. Compose `Hero.astro` with `src/components/Applications/ApplicationHero.astro`. Its shared styles live in `Applications/style.scss`; site-specific image height, crop, and dark-mode opacity belong in the site's `hero.scss`, using a unique modifier class and the existing `--application-hero-*` custom properties.
+6. Tailor copy from current Confluence sources, the official job description, verified project evidence, and Carl's latest instructions. Keep the selected project order in `isFeatured` and `sortOrder` frontmatter. The application homepage's Drawing Board selection uses the same fields; its full listing retains all published articles.
+7. Record document work in `application-documents.md`. Follow the Avidano job application skill for the separate InDesign source and PDF exports under `/Users/carlavidano/Projects/Job Applications/CVs/<application>/`. If a general résumé is temporarily copied for preview, label it as such in the records.
+
+The build validates the registry, required files, homepage fields, and independent résumé path. Registration does not approve content or check the résumé's factual suitability.
+
+## Shared code and separate content
+
+- Keep layout changes in `src/components/` and `src/layouts/`. Applications use the same `GlobalHeader`, `NavigationLinks`, Natura11y flyout, and page components.
+- Put components used specifically by applicant sites in `src/components/Applications/`, with their styling in SCSS. Keep components used by the main portfolio too, such as `GlobalHeader` and shared page templates, in their existing shared folders.
+- Use `SiteLink` and unscoped internal links such as `/about`, `/portfolio/phoenix`, and `/resume-carl-avidano.pdf`. MDX anchor links are mapped through `SiteLink`. Application portfolio-list links resolve to that application's `#projects` section.
+- Do not add employer-specific branches to shared page components. Place copy in `site.json` or MDX, artwork and logo choices in `Hero.astro`, and style overrides in that application's `hero.scss`.
+- Keep every application's copy and résumé independently editable. Shared images may be reused; new application-specific visuals need distinct files.
+- Keep drafts, approvals, exports, publication, and submission as separate facts in the working records. Existing records contain history; use the latest verified status.
+
+## Review and launch
+
+Use `npm run dev` for ongoing work. Run `npm run build:review` and `npm run preview:review` for a static review of the main site and all applications. This output goes to `dist-review/` and must stay local.
+
+Before launch, review the homepage, About page, project order, responsive layout, mobile navigation, light/dark themes, forced colors, and résumé download. Verify the final exported résumé against its website asset, including visible and embedded portfolio links. Link checks cannot establish that a PDF is the correct approved document.
+
+When Carl requests publication, change only that application's registry status to `published`, run `npm run build`, and review the resulting production output. The build automatically checks internal links, referenced assets and responsive image candidates, required application pages, canonical URLs, article schema, sitemap exclusion, and navigation isolation. Draft application directories must be absent from `dist/`, including their static assets.
+
+Commit and publish through the existing Cloudways process only with the requested publication scope. Verify the live pages and résumé after deployment, then record the result. Submitting the job application is a separate action.
+
+## Maintenance boundaries
+
+The framework configuration uses one shared route for every application. It has no dependency on BNY's component type or a fixed employer count. New IDs are checked for reserved routes and duplicates.
+
+The production and review builds use the same source and locked dependencies. The `APPLICATION_PREVIEW=true` setting is confined to the review build command; production link checks reject draft application directories even if that setting was accidentally inherited.
+
+## Rejected applications
+
+When Carl confirms a rejection, remove that applicant site from the project. Delete its `src/sites/<application>/` and `public/<application>/` directories, any older standalone page route, and unused employer-specific images and site working notes. Preserve shared case studies, shared components/media, and the separate InDesign/PDF application archive. Git history retains the removed website work.
+
+Remove its entry from `applications` and add its slug to `retiredApplicationSites` in `src/lib/application-sites.js`. The build rejects retired source directories and routes, verifies that they are absent from the output, and writes `.retired-applications.json` into the deployment artifact. The Cloudways workflow excludes that manifest from public uploads and removes only its validated, explicitly listed application directories after deployment. Active build directories and shared routes cannot be removal targets. Keep the retired slug in the list to prevent accidental reuse.
+
+Run both builds before committing. After the next authorized deployment, verify the old route no longer serves the applicant site. Local commits do not remove live content by themselves. Application-specific article removals on retained sites still need deployment review because the existing remote article cleanup covers the main Drawing Board only.
+
+ACLU was retired on September 26, 2026, after Carl confirmed the rejection. Its standalone page, dedicated images, and obsolete site copy/review notes were removed; its submitted documents remain in the external Job Applications archive.

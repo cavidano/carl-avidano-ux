@@ -1,19 +1,18 @@
 {
   "home": {
-    "title": "Accenture • Work & Co Design Lead • Carl Avidano",
-    "description": "Carl Avidano’s selected work for the Design Lead opportunity at Work & Co, part of Accenture Song: product strategy, visual design, interactive tools, and accessible design systems.",
-    "headline": "I'm a product designer who brings strategy, visual design, and code together",
-    "introduction": "Work & Co’s hands-on approach to product design connects with how I work: exploring ideas, refining interactions, and staying involved through implementation. I bring a visual designer’s eye and a developer’s understanding of how the experience works, with accessibility built into the decisions along the way.",
+    "title": "Accenture • Work & Co Senior Design Lead • Carl Avidano",
+    "description": "Carl Avidano’s selected work for the Senior Design Lead opportunity at Work & Co, part of Accenture Song: product strategy, visual design, interactive tools, and accessible design systems.",
+    "headline": "I’m a senior product designer who builds design systems, conducts research, and leads design teams.",
+    "introduction": "Work & Co is looking for a designer who can shape the strategy, refine the interface, and stay involved through implementation. I bring that experience: I’ve led UX for city services, designed interactive science tools, and built an open-source design system. I can guide a design team while contributing directly to the design and code, with accessibility informing the work throughout.",
     "workButton": "Explore My Work",
     "projectsIntroduction": "These case studies show how I connect product strategy with visual design, develop interactive tools, and work with clients and developers to bring the details into production.",
     "aboutHeading": "About Me",
     "whoHeading": "Who I am",
-    "who": "I'm a New York–based product designer and inclusive design advocate. My work brings together UX research, visual design, illustration, and front-end development. I’ve managed and mentored designers as a UX Director, and I stay closely involved in the design and implementation.",
+    "who": "I’m a New York–based product designer, UX leader, and inclusive design advocate with more than 15 years of experience. During nearly four years as UX Director at Reingold, I led the overall UX strategy for the redesign of Phoenix.gov, serving more than 1.5 million residents. My work there also included the NFL, St. Jude Global, and Maximus. Since 2011, I’ve run Avidano Digital, building long-term partnerships with nonprofit and education clients.",
     "whatHeading": "What I do",
-    "what": "I work with clients and developers to turn complex requirements into interfaces people can understand and use. Wireframes and prototypes help me explore the interactions; visual design gives them clarity and character. I carry that work into reusable components and production code, refining the experience as the product evolves.",
+    "what": "I lead product design from research and early concepts through visual design and implementation. I work through interactions in wireframes, explain decisions to clients, and refine the experience with developers. I stay hands-on in Figma and front-end code while guiding designers and building accessible components that teams can reuse.",
     "aboutButton": "About Me",
-    "storiesButton": "All articles",
-    "articlesIntroduction": "A closer look at the interaction details, visual communication, and accessibility decisions behind my work."
+    "storiesButton": "All articles"
   },
   "portfolio": {
     "title": "Portfolio • Carl Avidano • UX Manager",

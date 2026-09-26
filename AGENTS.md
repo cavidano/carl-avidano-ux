@@ -18,6 +18,12 @@ These instructions supplement the user's global project and design-system requir
 - Use an SVG logo from the employer's official website or brand assets. Record its source, preserve its geometry, and verify the appropriate light- and dark-mode versions, including forced colors.
 - Keep each application's content and résumé asset independently editable under `src/sites/<application>` and `public/<application>`. Share layout, Natura11y behavior, and link scoping. The logo's home link, navigation, cards, articles, and résumé download must stay within that application's URL space.
 - Reuse `GlobalHeader` and its `NavigationLinks` component across the main site and every application. Mobile navigation uses Natura11y's standard flyout, with Home first and links scoped to the current site. Do not create separate menu implementations per application.
+- When Carl confirms a rejection, remove that employer's applicant site from the project: its routes/content, dedicated public assets, unused employer-specific images, and obsolete site working notes. Preserve shared portfolio work and the separate Job Applications document archive. Remove its active registry entry and add its slug to `retiredApplicationSites` so the next authorized deployment removes the old server directory too. Follow `docs/APPLICATION-SITES.md` and verify that the retired route is absent from both builds.
+
+# Application documents
+
+- Use the [Avidano job application documents skill](/Users/carlavidano/.codex/skills/avidano-job-applications/SKILL.md) for tailored résumés, cover letters, and InDesign/PDF work. Create a new folder for each application in the Job Applications collection; the current document root is `/Users/carlavidano/Projects/Job Applications/CVs/`. Keep the editable source and that application's `_PDF` exports together.
+- Before reporting document status or starting edits, read `src/sites/<application>/application-documents.md` when present and the current application brief. Record exact source/export paths and distinguish copied layouts, tailored drafts, approved copy, verified PDFs, and submitted attachments. Exporting a résumé does not update its website download automatically.
 
 # Portfolio positioning reference
 

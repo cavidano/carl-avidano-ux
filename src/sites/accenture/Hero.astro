@@ -1,14 +1,16 @@
 ---
-import ApplicationHero from '../../components/ApplicationHero.astro';
-import skyline from '../bny/images/new-york-city-at-night.png';
+import ApplicationHero from '../../components/Applications/ApplicationHero.astro';
+import backdrop from './images/purple-abstract-backdrop.png';
 import copy from './site.json';
+import './hero.scss';
 
 // Maximum logo width in pixels. Height follows the official SVG proportions.
 const logoMaxWidth = 560;
 ---
 
 <ApplicationHero
-  image={skyline}
+  class="application-hero--accenture"
+  image={backdrop}
   logo={{
     light: '/accenture/accenture-logo-light.svg',
     dark: '/accenture/accenture-logo-dark.svg',
@@ -16,7 +18,6 @@ const logoMaxWidth = 560;
     width: logoMaxWidth,
     height: Math.round(logoMaxWidth * 40 / 153)
   }}
-  context="Work & Co, part of Accenture Song · Design Lead"
   headline={copy.home.headline}
   introduction={copy.home.introduction}
 />
