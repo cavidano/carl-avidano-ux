@@ -40,6 +40,10 @@ body[data-application] {
   justify-content: space-between;
   min-height: 85svh;
 
+  &__content {
+    width: 100%;
+  }
+
   .theme-dark & .application-logo--light,
   .theme-canvas & .application-logo--dark {
     display: none;

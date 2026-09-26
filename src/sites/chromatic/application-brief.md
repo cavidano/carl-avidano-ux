@@ -14,9 +14,11 @@ A specific area to discuss is authoring agent skills and harnesses: the monorepo
 
 ## Content decisions
 
+- Carl supplied a conversational introduction paragraph: introduce himself, express interest in the specific role, explain the experience that fits, and welcome the reader to a tailored portfolio. He clarified that the original headline should remain “I design, build, and test accessible interfaces.” His name belongs in the paragraph, not in a large greeting headline. The paragraph starts “Hi there. I’m Carl, and I’m eager to apply…” and connects more than 15 years of design and development experience with his current focus on accessibility and design systems. The selected case studies supply the project evidence. Avoid beginning the paragraph with a list of tools or a single project before establishing the personal introduction.
 - Featured projects: Natura11y, Visionlearning, NYC OTI, Phoenix, in that order. Each adds distinct evidence; there is no automatic three-project limit.
 - Featured articles: contrast themes, monorepo, navigation. Their approved bodies, dates, images, and publication states are retained.
-- Homepage and About emphasize accessibility informed by lived experience, design in code, component behavior, and developer collaboration. Management supports the story but does not displace the hands-on work.
+- The homepage’s “Who I am” introduces Carl’s professional background, roles, and independent practice. “What I do” explains his approach to research, accessible interfaces, implementation, and design systems without repeating Natura11y’s name. Carl explicitly rejected moving “I know what it feels like to be left out” into the homepage introduction. The separate About page retains its existing copy.
+- The tailored-case-study introduction belongs beneath “Curated case studies,” not in the opening paragraph. It replaces the redundant project-by-project summary; the cards introduce their own projects.
 - Independent copies start from the current main-site content. The Natura11y result omits the outdated claim that the new CCF system uses Natura11y; CCF has its own independent system.
 - The CCF system article remains a draft while Carl prepares its work-in-progress update. Do not feature it as published evidence yet.
 - The résumé is a separate unchanged general PDF for preview. See [application-documents.md](application-documents.md).

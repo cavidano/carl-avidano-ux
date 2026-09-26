@@ -17,7 +17,7 @@ const { logo, headline, introduction, context } = Astro.props;
     <GlobalHeader />
   </div>
 
-  <div class="container wide padding-y-4 padding-y-5--lg">
+  <div class="application-hero__content container wide padding-y-4 padding-y-5--lg">
     {(['light', 'dark'] as const).map((theme) => (
       <img
         class={`application-logo application-logo--${theme} display-block margin-bottom-4`}

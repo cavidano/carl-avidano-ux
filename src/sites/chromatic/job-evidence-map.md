@@ -21,10 +21,10 @@ Evidence labels: **Supported** means documented at the actual scope shown; **Par
 | ID | Ask | Evidence and exact site placement | Assessment |
 | --- | --- | --- | --- |
 | D1 | End-to-end product detail | V branding, reading tools, and front end; O staff flows. Featured cards and A paragraph 3. | Supported. Show the artifacts and Carl's part in implementation. |
-| D2 | Understand underlying mechanics | N Codebase and Components; O infrastructure maps; F interaction behavior. N first card and H introduction. | Supported for these systems. Do not claim experience with Chromatic's internal algorithms. |
+| D2 | Understand underlying mechanics | N Codebase and Components; O infrastructure maps; F interaction behavior. N is the first featured project. | Supported for these systems. Do not claim experience with Chromatic's internal algorithms. |
 | D3 | Research and prioritize | P tree testing and revised navigation; O staff needs. P card and A paragraph 3. | Supported for research-informed decisions; commercial prioritization is less explicit than research evidence. |
-| D4 | Check implementation quality | C automated and visual checks; F keyboard behavior; N Storybook. H headline/what and first featured article. | Supported for accessibility and interaction quality. No invented coverage percentage or exhaustive edge-case claim. |
-| D5 | Components, tokens, guidance | N Figma/Core/React/docs; M variables and instructions. H introduction and N card. | Supported. Make working code and documentation discoverable through the case study. |
+| D4 | Check implementation quality | C automated and visual checks; F keyboard behavior; N Storybook. H headline and first featured article introduce this work. | Supported for accessibility and interaction quality. No invented coverage percentage or exhaustive edge-case claim. |
+| D5 | Components, tokens, guidance | N Figma/Core/React/docs; M variables and instructions. H introduction names the design-system focus; H what and N card supply the technical detail. | Supported. Make working code and documentation discoverable through the case study. |
 | D6 | Encode decisions for agents | M Figma guidance, production authority, and shared context. Featured article. | Partial. Supports agent-oriented context; no claim of a complete custom agent harness or evaluation product. |
 | D7 | Support feature marketing | V branding and illustrations; N public docs/templates. V card and A visual-design paragraph. | Partial. Communication and visual work are documented; partnership with a product marketing team on launches is not. |
 
@@ -34,8 +34,8 @@ Evidence labels: **Supported** means documented at the actual scope shown; **Par
 | --- | --- | --- | --- |
 | Q1 | Experienced UX and visual designer | R chronology; V identity/UI; P research/IA. H who and project order. | Supported. Retain actual employment dates and roles. |
 | Q2 | Shipped technical products | N released packages and implementation; O operational tools. N/O cards. | Supported at the documented scale; no invented SaaS growth metrics. |
-| Q3 | Coding agents and quality judgment | N reflection; M context and shared behavior; C checks. H intro/what and articles. | Supported for the practices described. Avoid inferring custom harness expertise from tool use. |
-| Q4 | React implementation | N Components and Codebase; React Storybook figures and project documentation. H introduction/what. | Supported for component design and implementation. O's DoRIS React work was collaborative; do not misattribute the developer's work to Carl. Carl prefers descriptions of working interfaces over extra prototype emphasis. |
+| Q3 | Coding agents and quality judgment | N reflection; M context and shared behavior; C checks. Featured articles provide the detail. | Supported for the practices described. Avoid inferring custom harness expertise from tool use. |
+| Q4 | React implementation | N Components and Codebase; React Storybook figures and project documentation. N card and A paragraph 2. | Supported for component design and implementation. O's DoRIS React work was collaborative; do not misattribute the developer's work to Carl. Carl prefers descriptions of working interfaces over extra prototype emphasis. |
 | Q5 | Patterns and pragmatic scope | N shared Core styles; P reusable department patterns; O existing operational needs. | Supported for reuse and constraints. No invented budget or prioritization story. |
 | Q6 | Recommendations, feedback, revision | P sitemap tests and repeated stakeholder review, with specific changes explained. P card and A. | Supported. Preserve the reasoning and findings instead of replacing them with an abstract process description. |
 | Q7 | Clear technical communication | N docs, M/C/F articles, V illustrations, P review artifacts. | Supported by visible writing and figures. |

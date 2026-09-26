@@ -6,13 +6,13 @@
     "workButton": "Explore My Work",
     "aboutHeading": "About Me",
     "whoHeading": "Who I am",
-    "who": "I’m a New York–based product designer with more than 15 years of experience. As a disabled person, I know what it feels like to be left out. Accessibility shapes how I design and build interfaces, and how I support other designers. I’ve led and mentored designers at NYC OTI and Reingold alongside running Avidano Digital.",
+    "who": "I’m a product designer and front-end developer based in New York. My background spans public services, education, and nonprofit work, including design leadership at NYC OTI and Reingold. I also run Avidano Digital, where I work directly with clients to design and build their websites and digital tools.",
     "whatHeading": "What I do",
-    "what": "I work through user flows, visual design, and implementation. With Natura11y, that includes React components, Figma libraries, documentation, and checks against working examples in Storybook. In client work, I use research and feedback to understand what people need and refine the interfaces they use.",
+    "what": "I help teams understand what people need and turn those findings into accessible interfaces. I stay involved through implementation, working with developers and writing code myself. I also create and maintain design systems, giving teams reusable components and clear guidance they can apply across projects.",
     "aboutButton": "About Me",
     "storiesButton": "All articles",
-    "introduction": "I created Natura11y and work across Figma, React, documentation, and Storybook to keep design and implementation connected. My work includes component behavior, accessibility checks, and guidance for developers and AI tools. I’m interested in bringing that experience to Chromatic’s work on interface quality and developer workflows.",
-    "projectsIntroduction": "Natura11y shows my work on reusable components and the tools around them. Visionlearning brings together visual design and working interfaces. NYC OTI shows how I design for complex workflows, while Phoenix shows how research and stakeholder feedback inform my decisions."
+    "introduction": "Hi there. I’m Carl, and I’m eager to apply for the Senior Product Designer role with Chromatic because it brings together my experience in design and front-end development. I’ve spent more than 15 years designing and building digital experiences, with accessibility and design systems now central to my work.",
+    "projectsIntroduction": "I’ve tailored the following case studies to highlight the work and outcomes most relevant to what you’re looking for in your next Senior Product Designer."
   },
   "portfolio": {
     "title": "Selected Work • Chromatic • Carl Avidano",
