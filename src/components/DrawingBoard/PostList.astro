@@ -12,7 +12,7 @@ const { posts, compact = false } = Astro.props;
 
 <ul class:list={['grid gap-3', { 'grid--column-3--lg': compact }]}>
   {posts.map((post, index) => (
-    <li>
+    <li class="theme-">
       <PostCard
         post={post}
         compact={compact}

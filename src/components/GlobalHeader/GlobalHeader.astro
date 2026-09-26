@@ -4,65 +4,68 @@ import NavigationLinks from './NavigationLinks.astro';
 import './style.scss';
 ---
 
-<div class="global-header-container container wide">
+<div class="global-header-surface">
+  <div class="global-header-container container wide">
 
-  <header class="global-header">
-    
-    <SiteLink class="global-header__logo" href="/" aria-label="Carl Avidano home">
-      <div class="h5">
-        <strong>Carl Avidano</strong>
-      </div>
-    </SiteLink>
+    <header class="global-header">
 
-    <ul class="global-header__title">
-      <li>User Experience</li>
-      <li>Design Systems</li>
-      <li>Accessibility</li>
-    </ul>
+      <SiteLink class="global-header__logo" href="/" aria-label="Carl Avidano home">
+        <div class="h5">
+          <strong>Carl Avidano</strong>
+        </div>
+      </SiteLink>
 
-    <button
-      class="global-header__menu button"
-      type="button"
-      data-open="flyout"
-      aria-controls="mobile-navigation"
-      aria-haspopup="dialog"
-    >
-      <span class="icon icon-menu" aria-hidden="true"></span>
-      <span class="button__text">Menu</span>
-    </button>
-
-    <button class="global-header__theme button" type="button" data-theme-toggle>
-      <span class="icon icon-mode-light-dark" aria-hidden="true"></span>
-      <span class="button__text">Theme</span>
-    </button>
-
-    <nav class="global-header__nav display-none display-block--lg" id="primary-navigation" aria-label="Primary navigation">
-      <ul class="nav nav--horizontal--lg font-size-md justify-content-end--lg flex-wrap--lg">
-        <NavigationLinks />
+      <ul class="global-header__title">
+        <li>User Experience</li>
+        <li>Design Systems</li>
+        <li>Accessibility</li>
       </ul>
-    </nav>
-  </header>
 
-</div>
-
-<div class="flyout" id="mobile-navigation" aria-hidden="true">
-  <div class="flyout__content" role="dialog" aria-modal="true" aria-label="Menu">
-    <div class="flyout__header">
       <button
-        class="button button--icon-only font-size-md"
+        class="global-header__menu button"
         type="button"
-        data-flyout-close
-        aria-label="Close menu"
+        data-open="flyout"
+        aria-controls="mobile-navigation"
+        aria-haspopup="dialog"
       >
-        <span class="icon icon-close" aria-hidden="true"></span>
+        <span class="icon icon-menu" aria-hidden="true"></span>
+        <span class="button__text">Menu</span>
       </button>
-    </div>
-    <nav class="flyout__body" aria-label="Primary navigation">
-      <ul class="nav nav--divider font-size-md">
-        <NavigationLinks includeHome />
-      </ul>
-    </nav>
+
+      <button class="global-header__theme button" type="button" data-theme-toggle>
+        <span class="icon icon-mode-light-dark" aria-hidden="true"></span>
+        <span class="button__text">Theme</span>
+      </button>
+
+      <nav class="global-header__nav display-none display-block--lg" id="primary-navigation" aria-label="Primary navigation">
+        <ul class="nav nav--horizontal--lg font-size-md justify-content-end--lg flex-wrap--lg">
+          <NavigationLinks />
+        </ul>
+      </nav>
+    </header>
+
   </div>
+
+  <div class="flyout" id="mobile-navigation" aria-hidden="true">
+    <div class="flyout__content" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="flyout__header">
+        <button
+          class="button button--icon-only font-size-md"
+          type="button"
+          data-flyout-close
+          aria-label="Close menu"
+        >
+          <span class="icon icon-close" aria-hidden="true"></span>
+        </button>
+      </div>
+      <nav class="flyout__body" aria-label="Primary navigation">
+        <ul class="nav nav--divider font-size-md">
+          <NavigationLinks includeHome />
+        </ul>
+      </nav>
+    </div>
+  </div>
+
 </div>
 
 <script>

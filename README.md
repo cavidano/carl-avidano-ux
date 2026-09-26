@@ -31,12 +31,13 @@ The development server includes all registered applications. The current applica
 | Location | Responsibility |
 | --- | --- |
 | `src/content/` | Main-site homepage copy, About page, case studies, and Drawing Board posts |
-| `src/sites/<application>/` | Application copy, selected projects/articles, hero artwork, and working records |
+| `src/sites/<application>/` | Application copy, selected projects/articles, decorative artwork, and working records |
 | `public/<application>/` | That application's résumé, employer SVG logos, and server rules |
 | `src/images/`, `public/media/` | Shared project illustrations, photographs, and videos |
 | `src/components/`, `src/layouts/` | Shared page composition, navigation, theme, and interactions |
 | `src/components/Applications/` | Components and SCSS shared specifically by applicant sites |
 | `src/pages/[site]/[...path].astro` | Routes for every registered application |
+| `src/pages/[site]/background.css.ts` | Optimized decorative background assets for each application |
 | `src/lib/application-sites.js` | Application IDs and website publication status |
 | `src/lib/site-paths.js`, `SiteLink.astro` | Scope links to the current application |
 | `scripts/application-build.mjs` | Validate application files and exclude draft public assets from production output |

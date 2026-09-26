@@ -9,19 +9,21 @@ Branch: `codex/accenture-microsite`. Created September 23, 2026, from the approv
 | Content | File |
 | --- | --- |
 | Homepage headline, introduction, section introductions, and metadata | `site.json` |
-| Logo width, role label, and backdrop image | `Hero.astro` |
+| Logo width and optional role label | `Hero.astro` |
+| Decorative background image | `site.json` → `backgroundImage` |
+| Shared background dimensions, crop, opacity, and fade | `../../components/Applications/style.scss` and `../../pages/[site]/background.css.ts` |
 | About page and skills | `pages/about.mdx` |
 | Case-study cards, order, and page content | `portfolio/*.mdx` |
 | Article selection and content | `drawing-board/*.mdx` |
 | Résumé download | `../../../public/accenture/resume-carl-avidano.pdf` |
 
-`logoMaxWidth` in `Hero.astro` is the maximum width in pixels; height follows the SVG's original proportions. The shared `src/components/Applications/ApplicationHero.astro` and its adjacent `style.scss` retain the approved Natura11y backdrop, theme-aware header gradient, and downward image fade. Accenture uses its own `images/purple-abstract-backdrop.png`, exported from [Carl's Figma artwork](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1287-104) on September 23, 2026. The image uses a centered cover crop; image height and position can be adjusted independently with the `--application-hero-image-height` and `--application-hero-image-position` properties in this site's `hero.scss`.
+`logoMaxWidth` in `Hero.astro` is the maximum width in pixels; height follows the SVG's original proportions. The shared `src/components/Applications/ApplicationHero.astro` uses a normal-flow introduction with a theme-aware header gradient. `ApplicationBackground.astro` provides decorative CSS artwork and a downward fade only on the application landing page; their shared styles live in the adjacent `style.scss`. Accenture uses its own `images/purple-abstract-backdrop.png`, exported from [Carl's Figma artwork](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1287-104) on September 23, 2026. Astro produces the same 2:1 responsive WebP sizes for every employer. The artwork uses a top-aligned cover treatment on the landing page and scrolls with the page.
 
 Phoenix.gov, Visionlearning, NYC OTI, Natura11y, and UNICEF are featured in that order. Carl requested leading with Phoenix.gov. Edit `isFeatured` and `sortOrder` to change the selection. All eight copied case studies remain independently editable. Their body copy, figures, colors, and supported results are preserved; featured card descriptions and hero taglines are tailored to this role.
 
 The homepage features navigation components, social graphics, and ESR captioning. All published Drawing Board articles remain available in the listing, topic archives, and related-article sections. Draft visibility follows the existing local-preview rules. Changing this site's content does not change BNY or the main portfolio.
 
-Accenture's `hero.scss` sets `--application-hero-dark-image-opacity: 0.6` for 60% artwork visibility in dark mode. Light mode keeps the shared 30% treatment for dark-text readability; the original image file is unchanged.
+The shared background uses 20% opacity in both themes and fades to transparent over one viewport height. `Layout.astro` includes it only on the landing page; interior pages have no decorative background image. The original image file is unchanged.
 
 ## Navigation and résumé
 

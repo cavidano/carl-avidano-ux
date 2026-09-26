@@ -1,42 +1,51 @@
 //////////////////////////////////////////////
-// Application Hero
+// Application background and introduction
 //////////////////////////////////////////////
 
-body:has(.application-hero) {
+body[data-application] {
   --body-min-width: 0;
+  position: relative;
+  isolation: isolate;
+}
+
+.application-background {
+  // One viewport-sized image at the top of every page, which scrolls away.
+  position: absolute;
+  inset: 0 0 auto;
+  height: 100svh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, black 35%, transparent);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--application-background-image);
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+  }
+
+  @media (forced-colors: active) {
+    display: none;
+  }
 }
 
 .application-hero {
-  --backdrop-fixed-height: 85svh;
-  --gradient-direction-start: 35%;
-
-  background-color: var(--background-color);
-
-  &__header {
-    // Follow the active theme independently of the photograph's bottom fade.
-    background: linear-gradient(to bottom, var(--background-color), transparent);
-  }
-
-  .backdrop__media img {
-    // Each site's hero.scss can override these without inline styles.
-    height: var(--application-hero-image-height, 100%);
-    object-position: var(--application-hero-image-position, center);
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 85svh;
 
   .theme-dark & .application-logo--light,
   .theme-canvas & .application-logo--dark {
     display: none;
   }
 
-  .theme-dark & .backdrop__media img {
-    filter: opacity(var(--application-hero-dark-image-opacity, 0.3));
-  }
-
   @media (forced-colors: active) {
-    .backdrop__media {
-      display: none;
-    }
-
     .application-logo {
       // Preserve the matching surface behind the supplied brand artwork.
       forced-color-adjust: none;

@@ -30,6 +30,13 @@ for (const site of applicationSites) {
       assert.ok(present(`/${site}${page}`), `${site}: missing required page ${page || '/'}`);
     }
     assert.ok(present(`/${site}/resume-carl-avidano.pdf`), `${site}: missing résumé download`);
+    assert.ok(present(`/${site}/background.css`), `${site}: missing background stylesheet`);
+    const background = readFileSync(join(dist, site, 'background.css'), 'utf8');
+    const images = [...background.matchAll(/url\("([^"]+)"\)/g)];
+    assert.ok(images.length > 0, `${site}: background stylesheet has no image assets`);
+    for (const [, image] of images) {
+      assert.ok(present(decodeURIComponent(image)), `${site}: missing optimized background ${image}`);
+    }
   } else {
     assert.ok(!existsSync(join(dist, site)), `${site}: draft application pages or assets leaked into the production build`);
   }
@@ -51,6 +58,7 @@ for (const file of pages) {
     element: tag.match(/^<(\w+)/)[1], ...attributes(tag)
   }));
   if (site !== 'main') {
+    assert.equal(tags.some((tag) => tag.rel === 'stylesheet' && tag.href === `${base}/background.css`), path === base, `${path}: application artwork appears only on the landing page`);
     assert.ok(tags.some((tag) => tag.name === 'robots' && tag.content === 'noindex, follow'), `${path}: noindex`);
     assert.ok(tags.some((tag) => tag.rel === 'canonical' && tag.href === origin + path), `${path}: canonical`);
     assert.ok(tags.some((tag) => tag['aria-label'] === 'Carl Avidano home' && tag.href === base), `${path}: home link`);

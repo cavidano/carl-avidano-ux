@@ -36,7 +36,9 @@ interface Project {
 const { project } = Astro.props as { project: Project };
 
 const { Content, frontmatter } = project;
-const relatedPosts = getDrawingBoardPosts(getSiteId(Astro.url.pathname))
+const siteId = getSiteId(Astro.url.pathname);
+const applicationSite = siteId !== 'main';
+const relatedPosts = getDrawingBoardPosts(siteId)
   .filter((post) => post.frontmatter.projectUrl?.replace(/\/+$/, '') === `/portfolio/${project.slug}`)
   .slice(0, 3);
 const mdxComponents = {
@@ -61,11 +63,12 @@ const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-te
   image={project.marqueeImage}
   imageAlt={`${frontmatter.title} case study`}
 >
+  {applicationSite && <GlobalHeader />}
   <div class="theme-primary overflow-hidden" style={projectThemeStyles}>
 
     <div>
 
-      <GlobalHeader />
+      {!applicationSite && <GlobalHeader />}
 
       <header class="marquee">
 

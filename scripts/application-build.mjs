@@ -24,6 +24,8 @@ export function validateApplicationFiles(root) {
     assert.ok(existsSync(join(root, 'public', site, 'resume-carl-avidano.pdf')), `${site}: missing its independent résumé asset.`);
 
     const copy = JSON.parse(readFileSync(join(directory, 'site.json'), 'utf8'));
+    assert.ok(/^images\/[\w-]+\.(png|jpe?g|webp|avif)$/.test(copy.backgroundImage ?? ''), `${site}: backgroundImage must name an image in this application's images directory.`);
+    assert.ok(existsSync(join(directory, copy.backgroundImage)), `${site}: missing background image ${copy.backgroundImage}`);
     for (const [section, fields] of Object.entries(mainCopy)) {
       for (const field of Object.keys(fields)) {
         assert.ok(typeof copy[section]?.[field] === 'string' && copy[section][field].trim(), `${site}: missing text at site.json → ${section}.${field}`);

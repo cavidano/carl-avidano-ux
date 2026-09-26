@@ -111,3 +111,7 @@
     --wide-width: 100%;
   }
 }
+// Give every application page the same theme-aware surface above its artwork.
+body[data-application] .global-header-surface {
+  background: linear-gradient(to bottom, var(--background-color), transparent);
+}

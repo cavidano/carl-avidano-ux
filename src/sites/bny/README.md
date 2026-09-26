@@ -16,7 +16,9 @@ The local case-study drafts feature NYC OTI, UNICEF, Natura11y, and Phoenix, in 
 | About copy, skills, role title, contact information | `pages/about.mdx` |
 | Case studies and card descriptions | `portfolio/*.mdx` |
 | Articles and their card descriptions | `drawing-board/*.mdx` |
-| BNY backdrop and logo placement | `Hero.astro` |
+| Decorative skyline image | `site.json` → `backgroundImage` |
+| Shared background dimensions, crop, opacity, and fade | `../../components/Applications/style.scss` and `../../pages/[site]/background.css.ts` |
+| Logo placement | `Hero.astro` |
 | Maximum logo width in pixels (both themes) | `Hero.astro` → `logoMaxWidth` (currently `840`; height is calculated automatically and the logo shrinks to fit smaller screens) |
 | BNY-specific résumé | `../../../public/bny/resume-carl-avidano.pdf` |
 
@@ -24,7 +26,7 @@ In a case study's frontmatter, `isFeatured: true` selects it for the homepage pr
 
 All published Drawing Board articles remain available under `/bny/drawing-board`, newest first, with tags and related articles drawn from the full collection. For the curated homepage, add `isFeatured: true` and a numeric `sortOrder` to a BNY article's frontmatter, just as with case studies. The homepage currently features the AI-ready monorepo, navigation components, and contrast themes, in that order. Homepage selection is independent of publication dates and does not limit the article routes or archives. Article publication rules still apply: `status: published` / `status: draft` and local `preview: true`; featuring a draft does not publish it. Article URLs come from their titles. The main homepage continues to show its three newest articles.
 
-The shared header, page templates, Natura11y styles, image components, and interaction behavior remain in `src/components` and `src/layouts`. They are shared deliberately: a navigation or accessibility fix should apply everywhere. Edit content here; edit shared components only when the change should affect both sites. The backdrop markup lives in `src/components/Applications/ApplicationHero.astro`, with its styles in the adjacent `style.scss`. `Hero.astro` keeps BNY’s editable logo size, image, and copy. This site's `hero.scss` keeps the skyline's 150% image height and top-right crop in BNY's own modifier class. A BNY-only layout addition belongs in this folder.
+The shared header, page templates, Natura11y styles, image components, and interaction behavior remain in `src/components` and `src/layouts`. They are shared deliberately: a navigation or accessibility fix should apply everywhere. Edit content here; edit shared components only when the change should affect both sites. The introduction lives in `src/components/Applications/ApplicationHero.astro`, and `ApplicationBackground.astro` supplies the decorative CSS artwork. Their shared styles live in the adjacent `style.scss`. `Hero.astro` keeps BNY’s editable logo size and copy. The image path lives in `site.json` → `backgroundImage`; shared SCSS controls the same background treatment for every employer. A BNY-only layout addition belongs in this folder.
 
 ## Links and media
 
@@ -54,12 +56,12 @@ The job requirements and evidence map are in [application-brief.md](application-
 
 `public/bny/bny-logo-light.svg` and `bny-logo-dark.svg` preserve the SVG paths from the light and dark header logos on [BNY's official website](https://www.bny.com/corporate/global/en.html), retrieved September 22, 2026. `Hero.astro` displays the navy wordmark in light mode and the white wordmark in dark mode using the site's existing theme classes.
 
-## Homepage backdrop
+## Background and introduction
 
-The homepage uses Natura11y’s `backdrop backdrop--fixed`, `backdrop__media`, and `backdrop__cover` structure. The real `GlobalHeader` is inside the cover, as on the case studies. Native `opacity-30` and `gradient-mask-bottom` utilities fade the photograph downward into the site's active `--background-color`. A separate gradient on the header wrapper uses that same theme token to protect navigation readability. Text and borders inherit the active theme. The logo and introduction align to the left edge of the wide container. The image is cropped toward the upper right at 150% height to emphasize the skyline over the foreground road; the original asset is unchanged. The BNY landing page overrides `--body-min-width` to allow reflow at 320 CSS pixels. The backdrop can grow with its content, including the expanded mobile menu.
+The skyline is a decorative CSS background only on the BNY landing page. It uses a viewport-height frame at the top of the document with a downward fade. Interior pages omit the decorative layer and its image stylesheet. It scrolls out of view with the page. The shared component hides this empty decorative layer from assistive technology and removes it in forced-colors mode; the logo remains a named image with its matching protected surface.
 
-`justify-content-between` keeps the header at the top and the introduction at the bottom of the cover. Natura11y's `--backdrop-fixed-height: 85svh` sets a minimum height, so spare space shows the photograph between them, while long content remains in normal flow. The content uses `padding-y-4 padding-y-5--lg`; the following divider has matching bottom spacing and no extra margin above it. This places the divider at the backdrop boundary, with equal spacing before and after it. To resize the logo, edit only `logoMaxWidth` at the top of `Hero.astro`; the image dimensions preserve the supplied SVG's proportions and the shared responsive image styles limit it to the available width.
+The introduction uses normal-flow flex layout, `justify-content: space-between`, and `min-height: 85svh`. The header stays at the top and the introduction at the bottom when space allows; longer content grows the section. A gradient on the header wrapper protects navigation readability. The wide container, logo dimensions, content padding, and following divider retain their original spacing. Application pages allow reflow at 320 CSS pixels.
 
-The decorative image has empty alt text. At 30% image opacity, the current theme colors give worst-case text contrast of approximately 6.4:1 in dark mode and 7.9:1 in light mode, before either gradient. These bounds use a pure-white photo pixel in dark mode and a pure-black pixel in light mode. Forced-colors mode hides the photograph and preserves a matching surface behind the supplied logo. No new navigation or theme JavaScript is added.
+The skyline uses the common 20% opacity in both themes and a top-aligned cover crop. `/<application>/background.css` supplies Astro-optimized 2:1 WebP variants at 640×320, 1280×640, 1920×960, and 2000×1000; shared `Applications/style.scss` controls presentation. No new navigation or theme JavaScript is added.
 
 Photograph supplied by Carl on September 22, 2026: `images/new-york-city-at-night.png`. The original file is preserved unchanged; Astro produces responsive WebP variants. Photographer attribution has not been supplied. This replaces the initial Unsplash image and its credit.

@@ -1,54 +1,36 @@
 ---
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
 import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
 import './style.scss';
 
 interface Props {
-  image: ImageMetadata;
-  class?: string;
   logo: { light: string; dark: string; alt: string; width: number; height: number };
   headline: string;
   introduction: string;
   context?: string;
 }
 
-const { image, class: className, logo, headline, introduction, context } = Astro.props;
+const { logo, headline, introduction, context } = Astro.props;
 ---
 
-<div class:list={['application-hero backdrop backdrop--fixed', className]}>
-  <div class="backdrop__media gradient-mask-bottom">
-    <Image
-      class="opacity-30"
-      src={image}
-      alt=""
-      widths={[640, 1280, 1920, 2400]}
-      sizes="100vw"
-      loading="eager"
-      fetchpriority="high"
-    />
+<div class="application-hero">
+  <div class="application-hero__header">
+    <GlobalHeader />
   </div>
 
-  <div class="backdrop__cover justify-content-between">
-    <div class="application-hero__header">
-      <GlobalHeader />
-    </div>
-
-    <div class="container wide padding-y-4 padding-y-5--lg">
-      {(['light', 'dark'] as const).map((theme) => (
-        <img
-          class={`application-logo application-logo--${theme} display-block margin-bottom-4`}
-          src={logo[theme]}
-          alt={logo.alt}
-          width={logo.width}
-          height={logo.height}
-        />
-      ))}
-      {context && <p class="font-size-md margin-bottom-3">{context}</p>}
-      <h1 class="banner-headline width-80--xxl margin-bottom-3">{headline}</h1>
-      <p class="narrow margin-bottom-0">
-        {introduction}
-      </p>
-    </div>
+  <div class="container wide padding-y-4 padding-y-5--lg">
+    {(['light', 'dark'] as const).map((theme) => (
+      <img
+        class={`application-logo application-logo--${theme} display-block margin-bottom-4`}
+        src={logo[theme]}
+        alt={logo.alt}
+        width={logo.width}
+        height={logo.height}
+      />
+    ))}
+    {context && <p class="font-size-md margin-bottom-3">{context}</p>}
+    <h1 class="banner-headline width-80--xxl margin-bottom-3">{headline}</h1>
+    <p class="narrow margin-bottom-0">
+      {introduction}
+    </p>
   </div>
 </div>
