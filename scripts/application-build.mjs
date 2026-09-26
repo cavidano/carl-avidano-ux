@@ -9,6 +9,9 @@ export function validateApplicationFiles(root) {
   const folders = readdirSync(sitesRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory()).map(({ name }) => name);
   assert.deepEqual(folders.sort(), [...applicationSites].sort(), 'Every src/sites directory must be registered in src/lib/application-sites.js.');
   const mainCopy = JSON.parse(readFileSync(join(root, 'src/content/pages/site.json'), 'utf8'));
+  // Application homepages introduce the selected work; their biography lives
+  // on About rather than repeating the main site's Who/What section.
+  const mainOnlyHomeFields = new Set(['aboutHeading', 'whoHeading', 'who', 'whatHeading', 'what']);
 
   for (const site of retiredApplicationSites) {
     for (const path of [`src/pages/${site}.astro`, `src/sites/${site}`, `public/${site}`]) {
@@ -28,6 +31,7 @@ export function validateApplicationFiles(root) {
     assert.ok(existsSync(join(directory, copy.backgroundImage)), `${site}: missing background image ${copy.backgroundImage}`);
     for (const [section, fields] of Object.entries(mainCopy)) {
       for (const field of Object.keys(fields)) {
+        if (section === 'home' && mainOnlyHomeFields.has(field)) continue;
         assert.ok(typeof copy[section]?.[field] === 'string' && copy[section][field].trim(), `${site}: missing text at site.json → ${section}.${field}`);
       }
     }

@@ -1,5 +1,7 @@
 # Chromatic — Senior Product Designer
 
+**Latest copy revision — September 26, 2026:** Landing, About, cards, and all eight cases have been reviewed and synchronized with the [application Confluence page](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28540930). See [copy-review.md](copy-review.md) for the current structure, source links, and verification. This supersedes earlier prose drafts in this brief; publication and document status remain separate.
+
 September 26, 2026. Local website draft on `codex/chromatic-microsite`. Carl asked to leave Datadog as a draft for today and start the next application website. Chromatic is next for a new site; Accenture already has a draft and Vetcove follows.
 
 ## Complete posting and form review

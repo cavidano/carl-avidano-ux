@@ -59,6 +59,7 @@ const hasHero = Astro.slots.has('hero');
       </div>}
     </section>
 
+    {!isApplicationSite && <>
     <div class="container wide margin-y-5">
       <hr />
     </div>
@@ -89,6 +90,7 @@ const hasHero = Astro.slots.has('hero');
         <Button href="/about" utilities="theme-primary" title={copy.aboutButton} />
       </div>
     </section>
+    </>}
 
     {homepagePosts.length > 0 && <div class="container wide margin-y-5">
       <hr />
@@ -105,6 +107,10 @@ const hasHero = Astro.slots.has('hero');
         <Button href="/drawing-board" utilities="theme-primary" title={copy.storiesButton} />
       </div>
     </section>}
+
+    {isApplicationSite && <div class="container wide margin-y-5">
+      <Button href="/about" utilities="theme-primary" title={copy.aboutButton} />
+    </div>}
 
   </main>
 

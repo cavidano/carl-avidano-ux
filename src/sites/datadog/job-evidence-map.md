@@ -2,13 +2,13 @@
 
 September 26, 2026. [Official posting](https://careers.datadoghq.com/detail/8223855/), R21400. This internal audit supports review of the local draft; it is not published application copy.
 
-**Current disposition: reviewing Carl's accessibility-led positioning.** The earlier categorical exclusion over-weighted one qualification and failed to account for the employer's stated willingness to consider applicants who do not meet every qualification. Dedicated system-team growth remains an experience gap; it is not established as an automatic rejection rule. Carl now emphasizes disability-led accessibility, full system ownership, adoption across projects and by other developers, and roughly five to seven years of people management. See [positioning-draft.md](positioning-draft.md). No new priority ranking, publication, or submission is implied by this copy discussion.
+**Current disposition: local application draft, with the latest copy synchronized to Confluence.** The earlier categorical exclusion over-weighted one qualification and failed to account for the employer's stated willingness to consider applicants who do not meet every qualification. Dedicated system-team growth remains an experience gap; it is not established as an automatic rejection rule. Carl now emphasizes disability-led accessibility, full system ownership, adoption across projects and by other developers, and roughly five to seven years of people management. See [positioning-draft.md](positioning-draft.md). No new priority ranking, publication, or submission is implied by this copy discussion.
 
 The labels below follow the [research guide](../../../docs/references/application-tailoring-evidence-guide.md). Supported means the cited work substantiates that capability at its actual scale, not that it establishes every aspect of the employer's environment. Partial and missing requirements remain visible. IDs follow the posting's bullet order so Carl can compare the audit with the original.
 
 ## Sources and exact placements
 
-- **N — Natura11y:** [case study](portfolio/natura11y.mdx), especially “Ecosystem architecture,” “Codebase,” “Components (vanilla and React),” “Figma UI kits,” and “Public documentation.” Current [Confluence source](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/23855116), v1. Homepage card uses its `description`; homepage introduction and About opening summarize ownership.
+- **N — Natura11y:** [case study](portfolio/natura11y.mdx), especially “Keeping changes consistent across the system,” “Codebase,” “Shared patterns in HTML and React,” “Figma UI kits,” and “Public documentation.” Current [Confluence source](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/23855116), v1. Homepage card uses its `description`; homepage introduction and About opening summarize ownership.
 - **P — Phoenix:** [case study](portfolio/phoenix.mdx), “Solution,” “Testing where people looked,” “Working through navigation in wireframes,” and “Making department pages familiar.” Current [Confluence source](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/23789570), v7. Homepage card names UX leadership and shared patterns.
 - **V — Visionlearning:** [case study](portfolio/visionlearning.mdx), `caseStudy.myRole`, “Interactive learning tools,” and “Looking back.” [Main Confluence page](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/23429129), v1; [revised working copy](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/25100290), v8. The main-site local copy includes Carl's later edits; retain those rather than restoring removed sections from the working copy. Homepage card explicitly attributes teacher-CMS adoption to the backend developer.
 - **O — NYC OTI:** [case study](portfolio/nyc-oti.mdx), Materials for the Arts, Notify NYC, DoRIS, and NYC Poletop Manager sections. Current [Confluence source](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/24510466), v1. Homepage card names services, staff tools, maps, and guided requests.
@@ -16,7 +16,7 @@ The labels below follow the [research guide](../../../docs/references/applicatio
 - **C — Contrast themes:** [article](drawing-board/preparing-natura11y-for-contrast-themes-a-k-a-forced-colors.mdx), “Visible controls,” “Clear states,” and “Checking the work.” Current [Confluence source](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/21987329), v10.
 - **F — Navigation:** [article](drawing-board/natura11y-update-new-menu-components-for-deeper-navigation.mdx), flyout focus behavior and nested-navigation states. Current [Confluence source](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/23298049), v4.
 - **R — Actual résumé:** [general PDF](../../../public/resume-carl-avidano.pdf), both pages text-extracted September 26, 2026. Page 1 records UX/UI Director at Reingold, March 2022–August 2026, general management/mentoring, Phoenix, Nebraska pilot, and NYC OTI. Page 2 records Natura11y and Visionlearning. This establishes what the current document says; it does not independently prove every claim or provide management examples. The Datadog download is still an unchanged copy.
-- **A — About / H — Home:** [About](pages/about.mdx), opening and skills; [home content](site.json), `home.introduction`, `home.who`, `home.what`, and `home.projectsIntroduction`.
+- **A — About / H — Home:** [About](pages/about.mdx), opening and skills; [home content](site.json), `home.introduction` and `home.projectsIntroduction`.
 - **U — Carl's latest account:** In response to a request for examples of team growth, direct-report development, performance management, or the Nebraska pilot, Carl said, “I have never done that.” Do not treat missing examples as permission to infer them from his title or the pilot's scope.
 - **U2 — Subsequent clarification:** Carl then affirmed that he has led and mentored designers throughout his career, including at NYC OTI and more extensively at Reingold. This supports general leadership and mentoring in their own right. Do not interpret U as denying that experience. U2 does not establish dedicated system-team growth, hiring, or performance-management outcomes, and does not by itself restart this application.
 
@@ -33,17 +33,17 @@ The “Ask” column is a short paraphrase. Use the linked posting for its full 
 | ID | Ask | Evidence and current placement | Assessment / gap |
 | --- | --- | --- | --- |
 | D1 | Define system boundaries | N: Core/React architecture; M: shared styles and production behavior as authority. H introduces system ownership. | Partial. Technical package boundaries are demonstrated; allocation of responsibility across product teams is not. |
-| D2 | Set system direction | N: ecosystem architecture and reflection; M: rationale for consolidation. H introduction and A opening. | Supported for Carl's independently maintained ecosystem. No claim of comparable organizational scale. |
+| D2 | Set system direction | N: ecosystem architecture and reflection; M: rationale for consolidation. H introduction and A system-ownership paragraph. | Supported for Carl's independently maintained ecosystem. No claim of comparable organizational scale. |
 | D3 | Prioritize a roadmap | N shows ongoing evolution; P shows stakeholder review. | Partial. Neither shows a system roadmap negotiated with partner teams. Do not insert that claim. |
 | D4 | Coach, assign ownership, hire | R p1 and A mention general management and mentoring; U2 confirms leadership and mentoring at NYC OTI and especially Reingold. | Partial. Mentoring is supported; hiring, dedicated team growth, and design-engineer management are not established. |
-| D5 | Own component quality | N component examples; C borders, states, focus, and checks; F navigation behavior. H `what`; featured articles. | Supported. Specific component decisions make the claim inspectable. |
+| D5 | Own component quality | N component examples; C borders, states, focus, and checks; F navigation behavior. N case-study sections and featured articles. | Supported. Specific component decisions make the claim inspectable. |
 | D6 | Set contribution standards | C and F show Carl's quality decisions. | Partial. No documented process for accepting other people's system contributions. |
 | D7 | Improve quality through systems | N shared implementations; V interactive tools and CMS adoption. Both featured. | Supported as concrete design and implementation examples. No invented cross-company improvement metric. |
 | D8 | Challenge inadequate work | R names critique and feedback. | Partial. No specific incident or demonstrated outcome; do not write one. |
 | D9 | Own tooling and workflows | N monorepo, Storybook, Figma, docs, and releases; M removes duplicate styles. N card and featured M article. | Supported at the scale shown. |
 | D10 | Evaluate human/agent output | C automated component checks; M guidance connecting Figma and implementation. | Partial. Component testing and AI context do not establish a mature agent-evaluation or release-gating program. |
 | D11 | Deliver beyond components | N icons, Figma kits, documentation, templates, and examples. | Supported. Keep these artifacts visible in the case study. |
-| D12 | Understand product-team friction | V direct developer collaboration; O staff workflows; N evolved through client use. H project introduction. | Supported through client/product work; no claim of a formal internal listening program. |
+| D12 | Understand product-team friction | V direct developer collaboration; O staff workflows; N evolved through client use. O card and full case study. | Supported through client/product work; no claim of a formal internal listening program. |
 | D13 | Establish team support practices | N documentation; P stakeholder review; V developer collaboration. | Partial. Evidence of collaboration and support artifacts, not a defined operating model across many teams. |
 | D14 | Encourage adoption | V “Looking back”: backend developer used Natura11y for teacher CMS. Updated V card. | Supported as a specific adoption example. No adoption rate, team count, or scale inferred. |
 
@@ -91,7 +91,11 @@ Carl's subsequent clarification supports this additional About wording: “I've 
 ## Copy and status checks
 
 - Current H/A ownership statements point to N; general management points to R. The case studies retain their supporting figures and approved core narratives.
-- The Visionlearning card now surfaces developer adoption and is featured third; NYC OTI moves to fourth. H `projectsIntroduction` explains each project's distinct relevance.
+- The Visionlearning card now surfaces developer adoption and is featured third; NYC OTI moves to fourth. Each card explains its distinct relevance; H `projectsIntroduction` introduces the collection once.
 - Application-only wording remains a local review draft. Canonical Confluence text and other application copy are not overwritten by this audit.
 - No claim has been added about hiring, growing a dedicated system team, performance management, enterprise adoption scale, or a measured agent-quality program.
 - The draft PDF remains general. See [application-documents.md](application-documents.md). No tailored export, publication, or submission has occurred.
+
+## Current copy record
+
+See [copy-review.md](copy-review.md). The homepage now opens with a brief greeting and the connection between system ownership and people leadership. About contains one disability-informed accessibility statement and explicitly distinguishes the settings in which management and system ownership developed. It does not imply prior growth of a dedicated system team. The full editable copy is under Custom Applications in Confluence.

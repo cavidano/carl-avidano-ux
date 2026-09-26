@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
 import { getSiteId } from '../../lib/site-paths.js';
+import { getSiteCopy } from '../../lib/sites.js';
 import SiteLink from '../SiteLink.astro';
 import { getDrawingBoardPosts } from '../../lib/drawing-board.js';
 import PostList from '../DrawingBoard/PostList.astro';
@@ -53,7 +54,9 @@ const mdxComponents = {
   TextBlock,
   ThemeWrapper
 };
-const title = `${frontmatter.title} • Carl Avidano • UX Manager`;
+const title = applicationSite
+  ? `${frontmatter.title} • ${getSiteCopy(Astro.url.pathname).home.title}`
+  : `${frontmatter.title} • Carl Avidano • UX Manager`;
 const description = frontmatter.description;
 const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-text: ${frontmatter.primaryTextColor}; --secondary: ${frontmatter.secondaryColor}; --secondary-text: ${frontmatter.secondaryTextColor};`;
 ---

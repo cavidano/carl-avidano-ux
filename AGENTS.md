@@ -14,6 +14,7 @@ These instructions supplement the user's global project and design-system requir
 
 # Application microsites
 
+- Keep employer-specific writing under [Custom Applications](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28442625) in Confluence, on a separate subpage for each employer. Read that application's current page and matching local sources before revising it. Keep the main website's Case Studies and Drawing Board collections separate; do not overwrite their copy with an employer-specific variant. The page links and latest synchronization status are in each application's `copy-review.md`.
 - Create a new `codex/<application>-microsite` branch before starting each new application site. Keep existing work safe and separate; do not publish until Carl requests it.
 - Use an SVG logo from the employer's official website or brand assets. Record its source, preserve its geometry, and verify the appropriate light- and dark-mode versions, including forced colors.
 - Keep each application's content and résumé asset independently editable under `src/sites/<application>` and `public/<application>`. Share layout, Natura11y behavior, and link scoping. The logo's home link, navigation, cards, articles, and résumé download must stay within that application's URL space.

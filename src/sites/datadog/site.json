@@ -1,24 +1,19 @@
 {
   "home": {
     "title": "Datadog • Senior Design Manager, Design Systems • Carl Avidano",
-    "description": "Selected work for Datadog: accessible design systems, design leadership, and hands-on implementation across Figma, HTML, and React.",
+    "description": "Carl Avidano’s selected work for Datadog: accessible design-system ownership, adoption, UX leadership, and collaboration with developers.",
     "headline": "I build accessible design systems and lead design teams.",
     "workButton": "Explore My Work",
-    "aboutHeading": "About Me",
-    "whoHeading": "Who I am",
-    "who": "I’m a New York–based product designer and inclusive design advocate with more than 15 years of experience. As UX/UI Director at Reingold, I managed and mentored designers and led UX strategy for the redesign of Phoenix.gov. I’ve also run Avidano Digital since 2011, working with nonprofit and education clients.",
-    "whatHeading": "What I do",
-    "what": "I build design systems that connect Figma libraries with working interfaces and clear documentation. With Natura11y, I take responsibility for component design, accessibility behavior, testing, and releases. As a manager, I help designers work through decisions and stay involved in the details of implementation.",
-    "aboutButton": "About Me",
+    "aboutButton": "More about my background",
     "storiesButton": "All articles",
-    "introduction": "I created Natura11y and continue to design its components, write the code, and maintain its documentation. Alongside that work, I’ve managed designers and led UX for complex public services. I’m interested in bringing that combination of system ownership and hands-on leadership to Datadog.",
-    "projectsIntroduction": "Natura11y shows how I connect design decisions with reusable components and documentation. Phoenix shows my approach to UX leadership and shared page patterns. Visionlearning brings together visual design, interactive tools, and adoption of Natura11y by another developer. NYC OTI shows my work on complex services and staff tools."
+    "introduction": "Hi there. I’m Carl, and I’m eager to apply for Datadog’s Senior Design Manager role. I’ve built and maintained an accessible design system used across multiple projects, alongside managing and mentoring designers over the past five to seven years. Helping your team shape DRUIDS and support the people who build with it is an opportunity I’d be excited to take on.",
+    "projectsIntroduction": "I’ve tailored the following case studies to highlight the work and outcomes most relevant to DRUIDS: maintaining a shared system, helping others use it, and bringing teams together around complex design decisions."
   },
   "portfolio": {
     "title": "Selected Work • Datadog • Carl Avidano",
-    "description": "Design-system ownership, UX leadership, and implementation for complex digital services.",
+    "description": "Carl Avidano’s selected work for Datadog: accessible design-system ownership, adoption, UX leadership, and collaboration with developers.",
     "headline": "Explore my work",
-    "introduction": "Selected work in accessible design systems, UX leadership, and the design and development of public services."
+    "introduction": "I’ve tailored the following case studies to highlight the work and outcomes most relevant to DRUIDS: maintaining a shared system, helping others use it, and bringing teams together around complex design decisions."
   },
   "drawingBoard": {
     "headline": "The Drawing Board",
