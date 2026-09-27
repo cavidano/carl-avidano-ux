@@ -11,7 +11,7 @@ export const applications = [
 // Keep retired URLs here to remove stale server directories and prevent accidental reuse.
 export const retiredApplicationSites = ['aclu'];
 
-const reservedIds = new Set(['main', 'about', 'portfolio', 'drawing-board', 'on-my-desk', '404', 'media']);
+const reservedIds = new Set(['main', 'about', 'portfolio', 'case-studies', 'drawing-board', 'on-my-desk', '404', 'media']);
 
 export function validateRetiredApplicationSites(ids) {
   const seen = new Set();

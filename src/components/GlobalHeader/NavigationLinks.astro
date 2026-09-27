@@ -10,7 +10,7 @@ const { includeHome = false } = Astro.props;
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const links = [
   ...(includeHome ? [{ href: '/', label: 'Home' }] : []),
-  ...(!getSiteBase(currentPath) ? [{ href: '/portfolio', label: 'Portfolio' }] : []),
+  ...(!getSiteBase(currentPath) ? [{ href: '/case-studies', label: 'Case Studies' }] : []),
   { href: '/drawing-board', label: 'The Drawing Board' },
   { href: '/about', label: 'About Me' }
 ];

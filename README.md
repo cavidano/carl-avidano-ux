@@ -49,6 +49,8 @@ The development server includes all registered applications. The current applica
 
 Application content copies are deliberate snapshots. A change to the main case study or a shared image does not automatically approve new wording for an already submitted application. Keep application text independently editable. If an image must differ for one application, give it a separate source file and import it from that application's MDX or hero.
 
+The main Case Studies listing is at `/case-studies`, with individual pages at `/case-studies/<slug>`. Application case studies use `/<application>/case-studies/<slug>`; their overview is the application's homepage `#projects` section. The editable MDX files remain in the existing `portfolio/` source folders. Listing copy and metadata use the `caseStudies` section of `site.json`.
+
 ## Application workflow
 
 Follow [the application-site guide](context/application-sites.md). Start a new `codex/<application>-microsite` branch and register each new site as `draft`. Review current Confluence sources before writing website copy, as required by [AGENTS.md](AGENTS.md).

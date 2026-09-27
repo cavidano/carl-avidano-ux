@@ -10,7 +10,7 @@ export function validateApplicationFiles(root) {
   assert.deepEqual(folders.sort(), [...applicationSites].sort(), 'Every src/sites directory must be registered in src/lib/application-sites.js.');
   const requiredCopy = {
     home: ['title', 'description', 'headline', 'introduction', 'projectsIntroduction', 'workButton', 'aboutHeading', 'whoHeading', 'who', 'whatHeading', 'what', 'aboutButton', 'storiesButton'],
-    portfolio: ['title', 'description', 'headline', 'introduction'],
+    caseStudies: ['title', 'description', 'headline', 'introduction'],
     drawingBoard: ['headline', 'title', 'introduction']
   };
 
@@ -64,10 +64,8 @@ export default function applicationBuild({ includeDrafts = false } = {}) {
   return {
     name: 'application-sites',
     hooks: {
-      'astro:config:setup': ({ config, command, updateConfig }) => {
+      'astro:config:setup': ({ config }) => {
         validateApplicationFiles(fileURLToPath(config.root));
-        const sites = getApplicationSites({ includeDrafts: command === 'dev' || includeDrafts });
-        updateConfig({ redirects: Object.fromEntries(sites.map((site) => [`/${site}/portfolio`, `/${site}#projects`])) });
       },
       'astro:build:done': ({ dir, logger }) => {
         cleanApplicationOutput(fileURLToPath(dir), { includeDrafts });

@@ -27,7 +27,7 @@ The shared background uses 20% opacity in both themes and fades to transparent o
 
 ## Navigation and résumé
 
-Use ordinary internal links such as `/about` or `/portfolio/visionlearning`. `SiteLink` prefixes those routes with `/accenture`, including the logo home link and résumé download. `/accenture/portfolio` redirects to `/accenture#projects`. External links, shared media, and same-page anchors keep their destinations.
+Use ordinary internal links such as `/about` or `/case-studies/visionlearning`. `SiteLink` prefixes those routes with `/accenture`, including the logo home link and résumé download. Case-study list links resolve to `/accenture#projects`. External links, shared media, and same-page anchors keep their destinations.
 
 The local résumé asset is an unchanged copy of the main site's general résumé, including its August 2026 Reingold end date. It contains no BNY branding or links, but it is **not yet tailored to Work & Co**. Its printed portfolio address remains `carlavidano.com`. Replace this dedicated asset with the approved Accenture export before applying; do not overwrite either the main or BNY PDF.
 

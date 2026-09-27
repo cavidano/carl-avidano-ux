@@ -39,7 +39,7 @@ const { Content, frontmatter } = project;
 const siteId = getSiteId(Astro.url.pathname);
 const applicationSite = siteId !== 'main';
 const relatedPosts = getDrawingBoardPosts(siteId)
-  .filter((post) => post.frontmatter.projectUrl?.replace(/\/+$/, '') === `/portfolio/${project.slug}`)
+  .filter((post) => post.frontmatter.projectUrl?.replace(/\/+$/, '') === `/case-studies/${project.slug}`)
   .slice(0, 3);
 const mdxComponents = {
   a: SiteLink,
@@ -53,7 +53,7 @@ const mdxComponents = {
   TextBlock,
   ThemeWrapper
 };
-const title = `${frontmatter.title} • Carl Avidano • UX Manager`;
+const title = `${frontmatter.title} Case Study • Carl Avidano • UX Manager`;
 const description = frontmatter.description;
 const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-text: ${frontmatter.primaryTextColor}; --secondary: ${frontmatter.secondaryColor}; --secondary-text: ${frontmatter.secondaryTextColor};`;
 ---

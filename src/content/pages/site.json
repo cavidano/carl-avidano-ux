@@ -1,8 +1,8 @@
 {
-  "portfolio": {
-    "title": "Portfolio • Carl Avidano • UX Manager",
-    "description": "Explore UX research, accessibility, design systems, and front-end work for government agencies, global nonprofits, education, and civic technology.",
-    "headline": "Explore my work",
+  "caseStudies": {
+    "title": "Case Studies • Carl Avidano • UX Manager",
+    "description": "Explore case studies in UX research, accessibility, design systems, and front-end development for government, nonprofits, education, and civic technology.",
+    "headline": "Case Studies",
     "introduction": "I've led and collaborated on high-impact digital projects for city, state, and federal government agencies and global nonprofits."
   },
   "drawingBoard": {

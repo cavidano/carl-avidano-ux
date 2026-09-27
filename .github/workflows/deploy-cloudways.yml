@@ -161,7 +161,7 @@ jobs:
           const fs = require('node:fs');
           const path = require('node:path');
           const retired = JSON.parse(fs.readFileSync('site/.retired-applications.json', 'utf8'));
-          const protectedPaths = new Set(['main', 'about', 'portfolio', 'drawing-board', 'on-my-desk', '404', 'media']);
+          const protectedPaths = new Set(['main', 'about', 'portfolio', 'case-studies', 'drawing-board', 'on-my-desk', '404', 'media']);
           if (!Array.isArray(retired) || retired.some(id =>
             typeof id !== 'string' || !/^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/.test(id) ||
             protectedPaths.has(id) || fs.existsSync(path.join('site', id))

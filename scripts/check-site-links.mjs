@@ -20,13 +20,17 @@ const attributes = (tag) => Object.fromEntries(
 const present = (path) => [join(dist, path), join(dist, path, 'index.html')]
   .some((file) => existsSync(file) && statSync(file).isFile());
 assert.ok(existsSync(dist), 'Build the site before checking links.');
+assert.ok(present('/case-studies'), 'Main case-study listing is missing.');
+for (const base of ['', ...applicationSites.map((site) => `/${site}`)]) {
+  assert.ok(!existsSync(join(dist, base, 'portfolio')), `${base || 'main'}: old portfolio routes remain in the build`);
+}
 assert.deepEqual(JSON.parse(readFileSync(join(dist, '.retired-applications.json'), 'utf8')), retiredApplicationSites, 'Deployment removal list must match the application registry.');
 for (const site of retiredApplicationSites) {
   assert.ok(!existsSync(join(dist, site)), `${site}: retired application remains in the build`);
 }
 for (const site of applicationSites) {
   if (includedSites.includes(site)) {
-    for (const page of ['', '/about', '/drawing-board', '/404', '/portfolio']) {
+    for (const page of ['', '/about', '/drawing-board', '/404']) {
       assert.ok(present(`/${site}${page}`), `${site}: missing required page ${page || '/'}`);
     }
     assert.ok(present(`/${site}/resume-carl-avidano.pdf`), `${site}: missing résumé download`);
@@ -50,10 +54,6 @@ for (const file of pages) {
   const site = getSiteId(path);
   const base = `/${site}`;
   if (site !== 'main') applicationPages++;
-  if (site !== 'main' && path === `${base}/portfolio`) {
-    assert.ok(html.includes(`url=${base}#projects`), `${site}: portfolio listing redirects to homepage projects`);
-    continue;
-  }
   const tags = [...html.matchAll(/<(?:a|img|source|video|script|link|meta)\b[^>]*>/g)].map(([tag]) => ({
     element: tag.match(/^<(\w+)/)[1], ...attributes(tag)
   }));
@@ -62,9 +62,16 @@ for (const file of pages) {
     assert.ok(tags.some((tag) => tag.name === 'robots' && tag.content === 'noindex, follow'), `${path}: noindex`);
     assert.ok(tags.some((tag) => tag.rel === 'canonical' && tag.href === origin + path), `${path}: canonical`);
     assert.ok(tags.some((tag) => tag['aria-label'] === 'Carl Avidano home' && tag.href === base), `${path}: home link`);
-    assert.ok(!tags.some((tag) => tag.element === 'a' && new RegExp(`^${base}/portfolio/?(?:[?#]|$)`).test(tag.href ?? '')), `${path}: no separate portfolio listing links`);
-    assert.ok(!/<nav\b[^>]*id="primary-navigation"[^>]*>[\s\S]*?nav__text">Portfolio</.test(html), `${path}: no Portfolio navigation item`);
+    assert.ok(!tags.some((tag) => tag.element === 'a' && new RegExp(`^${base}/case-studies/?(?:[?#]|$)`).test(tag.href ?? '')), `${path}: case-study listing links go to the application homepage`);
+    assert.ok(!/<nav\b[^>]*id="primary-navigation"[^>]*>[\s\S]*?nav__text">Case Studies</.test(html), `${path}: no separate Case Studies navigation item`);
     assert.ok(tags.some((tag) => tag.element === 'a' && tag.href === base && tag.class?.includes('global-header__logo')), `${path}: shared global header`);
+  }
+
+  const caseStudyBase = site === 'main' ? '/case-studies' : `${base}/case-studies`;
+  if (path === caseStudyBase || path.startsWith(`${caseStudyBase}/`)) {
+    assert.ok(tags.some((tag) => tag.rel === 'canonical' && tag.href === origin + path), `${path}: case-study canonical`);
+    assert.ok(tags.some((tag) => tag.property === 'og:url' && tag.content === origin + path), `${path}: case-study sharing URL`);
+    assert.ok(/<title>[^<]*Case Stud(?:y|ies)[^<]*<\/title>/.test(html), `${path}: case-study page title`);
   }
 
   for (const tag of tags) {
@@ -76,9 +83,10 @@ for (const file of pages) {
       if (/^(?:#|mailto:|tel:|data:)/.test(value)) continue;
       const url = new URL(value, origin + path);
       if (url.origin !== origin) continue;
+      assert.ok(!/^\/(?:[^/]+\/)?portfolio(?:\/|$)/.test(url.pathname), `${path}: old portfolio URL remains: ${value}`);
       if (tag.element === 'a' && site !== 'main') {
         const targetSite = getSiteId(url.pathname);
-        assert.ok(targetSite === site || (targetSite === 'main' && !/^\/(?:portfolio|drawing-board|about|404)(?:\/|$)/.test(url.pathname) && url.pathname !== '/' && url.pathname !== '/resume-carl-avidano.pdf'), `${path}: link leaves ${site}: ${value}`);
+        assert.ok(targetSite === site || (targetSite === 'main' && !/^\/(?:case-studies|drawing-board|about|404)(?:\/|$)/.test(url.pathname) && url.pathname !== '/' && url.pathname !== '/resume-carl-avidano.pdf'), `${path}: link leaves ${site}: ${value}`);
       }
       if (tag.element === 'a' && site === 'main') {
         assert.equal(getSiteId(url.pathname), 'main', `${path}: main site links into an application: ${value}`);
@@ -96,6 +104,7 @@ for (const file of pages) {
 }
 
 for (const file of readdirSync(dist).filter((name) => /^sitemap.*\.xml$/.test(name))) {
+  assert.ok(!readFileSync(join(dist, file), 'utf8').includes(`${origin}/portfolio`), 'Sitemaps must use case-study URLs.');
   for (const site of applicationSites) {
     assert.ok(!readFileSync(join(dist, file), 'utf8').includes(`${origin}/${site}`), `${site} is excluded from the sitemap`);
   }

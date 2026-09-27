@@ -4,6 +4,8 @@ Use this file for case-study structure, source locations, Carl's confirmed accou
 
 Apply the shared [plain-language standard](plain-language.md) to each revision while preserving approved facts and structure.
 
+On September 27, 2026, Carl chose **Case Studies** for the section name, navigation, page metadata, and URLs. The main listing uses `/case-studies`, and individual pages use `/case-studies/<slug>` or `/<application>/case-studies/<slug>`. He described this as a new start and explicitly requested no redirects from the old portfolio URLs. This route change is local until publication is requested. Source MDX folders remain named `portfolio`; listing settings use `caseStudies` in `site.json`. The Case Studies landing section uses `margin-y-6`, matching the homepage.
+
 For custom applications, [reuse the approved foundation and tailor the emphasis](application-tailoring-evidence-guide.md#reuse-the-foundation-and-tailor-the-emphasis). Keep useful wording intact and highlight the evidence relevant to each role; a new application does not call for a complete case-study rewrite.
 
 - [Writing sources](#writing-sources)

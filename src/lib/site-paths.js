@@ -1,7 +1,7 @@
 import { applicationSites } from './application-sites.js';
 
 const siteOrigin = 'https://carlavidano.com';
-const pagePath = /^\/(?:portfolio|drawing-board|about|404)(?:\/|$)/;
+const pagePath = /^\/(?:case-studies|drawing-board|about|404)(?:\/|$)/;
 
 export function getSiteId(pathname) {
   const segment = pathname.split('/')[1];
@@ -20,7 +20,7 @@ export function siteHref(href, pathname) {
 
   const url = new URL(href, new URL(pathname, siteOrigin));
   if (url.origin !== siteOrigin) return href;
-  if (url.pathname.replace(/\/$/, '') === '/portfolio' || url.pathname.replace(/\/$/, '') === `${base}/portfolio`) {
+  if (url.pathname.replace(/\/$/, '') === '/case-studies' || url.pathname.replace(/\/$/, '') === `${base}/case-studies`) {
     return `${base}${url.search}${url.hash || '#projects'}`;
   }
   if (getSiteBase(url.pathname) === base) return href;

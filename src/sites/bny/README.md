@@ -2,7 +2,7 @@
 
 Preview: http://127.0.0.1:4321/bny
 
-This is an independently editable content copy of the public portfolio. The homepage has a BNY-branded NYC backdrop and an introduction connecting the role to Carl’s approach to product design and systems thinking. There is no separate Portfolio navigation item or listing step; `/bny/portfolio` redirects to `/bny#projects`. Changes in this folder do not change the main site's content.
+This is an independently editable content copy of the public portfolio. The homepage has a BNY-branded NYC backdrop and an introduction connecting the role to Carl’s approach to product design and systems thinking. There is no separate Case Studies navigation item or listing step; the curated case studies are at `/bny#projects`. Changes in this folder do not change the main site's content.
 
 The local case-study drafts feature NYC OTI, UNICEF, Natura11y, and Phoenix, in that order. Carl approved this selection on September 22, 2026. Each uses the shared Challenge, Solution, Results, and My role opening, followed by supporting work and a reflection. The copy emphasizes complex workflows, collaboration, reusable systems, and research. Existing figures, captions, and project colors are preserved. Detailed mentorship and technical-tradeoff examples are deferred until Carl is ready to supply them; this pass establishes the structure and overall story. Other copied case studies remain available for later editing but are not featured on the homepage.
 
@@ -22,7 +22,7 @@ The local case-study drafts feature NYC OTI, UNICEF, Natura11y, and Phoenix, in 
 | Maximum logo width in pixels (both themes) | `Hero.astro` → `logoMaxWidth` (currently `840`; height is calculated automatically and the logo shrinks to fit smaller screens) |
 | BNY-specific résumé | `../../../public/bny/resume-carl-avidano.pdf` |
 
-In a case study's frontmatter, `isFeatured: true` selects it for the homepage project feed, and `sortOrder` controls its position. Set `published: false` to omit it from this application site entirely. The copied `isMainProject` values and `site.json` portfolio listing text do not control this microsite's homepage; they belong to the original site's separate listing structure.
+In a case study's frontmatter, `isFeatured: true` selects it for the homepage project feed, and `sortOrder` controls its position. Set `published: false` to omit it from this application site entirely. The copied `isMainProject` values and `site.json` → `caseStudies` listing text do not control this microsite's homepage; they belong to the original site's separate listing structure.
 
 All published Drawing Board articles remain available under `/bny/drawing-board`, newest first, with tags and related articles drawn from the full collection. For the curated homepage, add `isFeatured: true` and a numeric `sortOrder` to a BNY article's frontmatter, just as with case studies. The homepage currently features the AI-ready monorepo, navigation components, and contrast themes, in that order. Homepage selection is independent of publication dates and does not limit the article routes or archives. Article publication rules still apply: `status: published` / `status: draft` and local `preview: true`; featuring a draft does not publish it. Article URLs come from their titles. The main homepage continues to show its three newest articles.
 
@@ -30,7 +30,7 @@ The shared header, page templates, Natura11y styles, image components, and inter
 
 ## Links and media
 
-Write ordinary internal links such as `/portfolio/phoenix`, `/about`, or `/drawing-board`. `SiteLink.astro` scopes them to `/bny` at build time, including the logo, navigation, cards, tags, related articles, Markdown links, and résumé download. A link to the `/portfolio` listing resolves to the homepage's `#projects` section instead. Individual case-study URLs stay under `/bny/portfolio/`. New custom components should use `SiteLink` for links too. External links and same-page anchors keep their destinations.
+Write ordinary internal links such as `/case-studies/phoenix`, `/about`, or `/drawing-board`. `SiteLink.astro` scopes them to `/bny` at build time, including the logo, navigation, cards, tags, related articles, Markdown links, and résumé download. A link to the `/case-studies` listing resolves to the homepage's `#projects` section instead. Individual case-study URLs stay under `/bny/case-studies/`. New custom components should use `SiteLink` for links too. External links and same-page anchors keep their destinations.
 
 Images and animations initially use the existing shared assets. If an image needs a BNY-specific edit, save a new file and update the BNY MDX reference; do not overwrite a shared original. The résumé already has a separate copy under `public/bny`.
 

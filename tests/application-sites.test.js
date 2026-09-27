@@ -16,7 +16,7 @@ test('draft applications require an explicit preview while published sites remai
 });
 
 test('application registration rejects colliding routes, unsafe slugs, and unknown statuses', () => {
-  for (const id of ['main', 'portfolio', 'drawing-board', 'media', '../other', '', 'Employer', 'my/site', undefined]) {
+  for (const id of ['main', 'portfolio', 'case-studies', 'drawing-board', 'media', '../other', '', 'Employer', 'my/site', undefined]) {
     assert.throws(() => selectApplicationSites([{ id, status: 'draft' }]), /URL slug/);
   }
   assert.throws(() => selectApplicationSites([{ id: 'example', status: 'draft' }, { id: 'example', status: 'published' }]), /URL slug/);
@@ -24,7 +24,7 @@ test('application registration rejects colliding routes, unsafe slugs, and unkno
 });
 
 test('retirement cannot target live applications, shared directories, or paths outside the site', () => {
-  for (const id of ['bny', 'accenture', 'main', 'portfolio', 'drawing-board', 'media', '../other', '.', '', 'my/site']) {
+  for (const id of ['bny', 'accenture', 'main', 'portfolio', 'case-studies', 'drawing-board', 'media', '../other', '.', '', 'my/site']) {
     assert.throws(() => validateRetiredApplicationSites([id]), /Invalid retired application URL/);
   }
   assert.throws(() => validateRetiredApplicationSites(['old-employer', 'old-employer']), /Invalid retired application URL/);
