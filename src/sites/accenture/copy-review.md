@@ -15,10 +15,14 @@ The Confluence copy was exported from the rendered local review build and read b
 - Open conversationally with the specific role and a credible connection to Carl's experience.
 - Keep the greeting in the paragraph, with a capability-focused main headline.
 - Introduce the curated work once. Use capability/problem-focused card headlines, with the project name retained as a smaller label.
-- Give each card a contribution and supported outcome. Keep career context on About.
+- Give each card a contribution and supported outcome. Preserve the landing page’s Who I am and What I do sections, with their About Me button, before the Drawing Board.
 - Avoid repeating the disability story and framework names throughout the opening. The Datadog About page contains one relevant disability statement; the other introductions do not use it.
 - Preserve detailed project evidence and credit collaborators. Distinguish research recommendations from shipped results and client-reported metrics from individual causal claims.
 - Preserve the existing featured project order. All eight cases remain independently editable in this application.
+
+## September 27 restoration
+
+Restored the original Who I am / What I do section and About Me button position across all four applications. Restored Chromatic’s third featured Drawing Board article. The earlier removal was an unauthorized structural change during a copy revision; it is not the intended design. The approved greeting, revised case-study copy, and card titles remain. The Confluence landing-page copy was synchronized to this restored structure.
 
 ## Status and validation
 

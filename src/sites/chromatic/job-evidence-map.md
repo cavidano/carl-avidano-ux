@@ -52,8 +52,8 @@ The form also requests résumé/contact/location/portfolio information, pronouns
 
 ## Review checks
 
-Four featured projects each add evidence. The two featured articles show implementation decisions relevant to quality and tooling. The navigation article remains available in the full Drawing Board listing. CCF remains unpublished work in progress. The homepage and About are independently editable application drafts. Résumé production and website publication have not occurred.
+Four featured projects each add evidence. The three featured articles show implementation decisions relevant to quality, tooling, and navigation behavior. CCF remains unpublished work in progress. The homepage and About are independently editable application drafts. Résumé production and website publication have not occurred.
 
 ## Current copy record
 
-See [copy-review.md](copy-review.md). The homepage biographies have been removed; the short introduction leads directly to the curated work. The About page holds career context. The current employer-specific Confluence copy is under Custom Applications, separate from the main site.
+See [copy-review.md](copy-review.md). The short introduction leads to the curated work. Who I am and What I do remain on the homepage, followed by the About Me button and three Drawing Board articles. The About page provides additional career context. The current employer-specific Confluence copy is under Custom Applications, separate from the main site.

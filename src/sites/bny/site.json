@@ -7,8 +7,13 @@
     "introduction": "Hi, I’m Carl, and I’m excited to apply for BNY’s Director, Product Design role. I bring more than 15 years of experience designing public services and the tools behind them. The opportunity to work through complex problems with your Fund & Investor Solutions team, while helping designers develop their work, is what draws me to this role.",
     "workButton": "Explore My Work",
     "projectsIntroduction": "I’ve tailored the following case studies to highlight the work and outcomes most relevant to your team: connecting complex workflows, making research useful, and developing patterns that others can build on.",
-    "aboutButton": "More about my background",
-    "storiesButton": "All articles"
+    "aboutButton": "About Me",
+    "storiesButton": "All articles",
+    "aboutHeading": "About Me",
+    "whoHeading": "Who I am",
+    "who": "I'm a New York–based product designer and UX leader who combines interaction design with front-end development. I’ve designed public services and internal tools, and managed and mentored designers as a UX Director. Digital accessibility is part of how I approach every project.",
+    "whatHeading": "What I do",
+    "what": "I work with stakeholders and developers to understand the needs of people using a service and the teams supporting it. Research, workflow mapping, and prototypes help me turn those needs into clear interfaces and explain the decisions behind them. I build reusable components and documentation so teams can implement and maintain shared patterns."
   },
   "portfolio": {
     "title": "Selected Work • BNY • Carl Avidano",
