@@ -1,6 +1,6 @@
 # Chromatic copy review
 
-September 26, 2026. Branch: `codex/application-copy-review`.
+Updated September 27, 2026. Branch: `codex/application-copy-review`.
 
 ## Current editable copy
 
@@ -14,7 +14,7 @@ The Confluence copy was exported from the rendered local review build and read b
 
 - Open conversationally with the specific role and a credible connection to Carl's experience.
 - Keep the greeting in the paragraph, with a capability-focused main headline.
-- Introduce the curated work once. Use capability/problem-focused card headlines, with the project name retained as a smaller label.
+- Introduce the curated work once. Use each project’s name as the card heading; keep its tailored description below. Do not replace the project name with a capability/problem headline.
 - Give each card a contribution and supported outcome. Preserve the landing page’s Who I am and What I do sections, with their About Me button, before the Drawing Board.
 - Avoid repeating the disability story and framework names throughout the opening. The Datadog About page contains one relevant disability statement; the other introductions do not use it.
 - Preserve detailed project evidence and credit collaborators. Distinguish research recommendations from shipped results and client-reported metrics from individual causal claims.
@@ -22,7 +22,13 @@ The Confluence copy was exported from the rendered local review build and read b
 
 ## September 27 restoration
 
-Restored the original Who I am / What I do section and About Me button position across all four applications. Restored Chromatic’s third featured Drawing Board article. The earlier removal was an unauthorized structural change during a copy revision; it is not the intended design. The approved greeting, revised case-study copy, and card titles remain. The Confluence landing-page copy was synchronized to this restored structure.
+Restored the original Who I am / What I do section and About Me button position across all four applications. Restored Chromatic’s third featured Drawing Board article. The earlier removal was an unauthorized structural change during a copy revision; it is not the intended design. The approved greeting remains. The case-study and card restoration below supersedes the subsequent rewrite. The Confluence landing-page copy was synchronized to this restored structure.
+
+## September 27 case-study recovery
+
+At Carl’s request, restored all eight application case-study MDX files exactly from `0e0b4fe`, the checkpoint immediately before the broad copy rewrite in `de71dec`. That checkpoint already includes this application’s earlier tailoring. Restored `ProjectListView.astro` and `Pages/ProjectPage.astro` from the same checkpoint, returning project names to the card headings. Across the four applications, all 32 MDX files and both components were verified byte for byte against that commit.
+
+The approved greeting, Who I am / What I do sections, About Me button position, three featured Drawing Board articles, and current About-page copy are preserved. Only the featured-card and complete-case-study portions of this application’s Confluence page were replaced, then read back and checked against the restored rendered copy. The surrounding Confluence copy is preserved.
 
 ## Status and validation
 
@@ -36,7 +42,7 @@ Both review and production builds passed the existing 23 tests, Astro checks, an
 
 - `site.json`: introduction, curated-work introduction, metadata, and navigation labels.
 - `pages/about.mdx`: background, skills, and contact details.
-- `portfolio/*.mdx`: card titles/descriptions, case-study headings, narrative, role, and results.
+- `portfolio/*.mdx`: project names, tailored card descriptions, case-study headings, narrative, role, and results.
 - `job-evidence-map.md`: requirement mapping and known limitations.
 
 Current shared components keep all links in this application's URL space. These copy edits do not authorize a deployment.

@@ -1,6 +1,8 @@
 # Chromatic — Senior Product Designer
 
-**Latest copy revision — September 26, 2026:** Landing, About, cards, and all eight cases have been reviewed and synchronized with the [application Confluence page](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28540930). See [copy-review.md](copy-review.md) for the current structure, source links, and verification. This supersedes earlier prose drafts in this brief; publication and document status remain separate.
+**Current recovery — September 27, 2026:** The eight case studies and their cards have been restored to the already-tailored versions in `0e0b4fe`, before the broad rewrite. Project names are the card headings. The latest greeting and restored landing-page sections remain. Confluence matches the recovered case-study copy; see [copy-review.md](copy-review.md).
+
+**Historical copy revision — September 26, 2026 (case-study rewrite superseded):** Landing, About, cards, and all eight cases have been reviewed and synchronized with the [application Confluence page](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28540930). See [copy-review.md](copy-review.md) for the current structure, source links, and verification. This supersedes earlier prose drafts in this brief; publication and document status remain separate.
 
 September 26, 2026. Local website draft on `codex/chromatic-microsite`. Carl asked to leave Datadog as a draft for today and start the next application website. Chromatic is next for a new site; Accenture already has a draft and Vetcove follows.
 

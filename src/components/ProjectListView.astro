@@ -7,7 +7,6 @@ interface ProjectListItem {
   marqueeImage: ImageMetadata;
   frontmatter: {
     title: string;
-    cardTitle?: string;
     description: string;
     primaryColor: string;
     primaryTextColor: string;
@@ -44,8 +43,7 @@ const Heading = headingLevel === 3 ? 'h3' : 'h2';
         </div>
 
         <div class="container--xl grid__colspan-3--xl margin-y-4">
-          {project.frontmatter.cardTitle && <p class="font-size-md margin-bottom-2">{project.frontmatter.title}</p>}
-          <Heading id={`project-${project.slug}`} class={headingClass}>{project.frontmatter.cardTitle || project.frontmatter.title}</Heading>
+          <Heading id={`project-${project.slug}`} class={headingClass}>{project.frontmatter.title}</Heading>
           <p>{project.frontmatter.description}</p>
 
           <Button

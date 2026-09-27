@@ -1,6 +1,8 @@
 # Accenture / Work & Co — Senior Design Lead
 
-**Latest copy revision — September 26, 2026:** Landing, About, cards, and all eight cases have been reviewed and synchronized with the [application Confluence page](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28344323). See [copy-review.md](copy-review.md) for the current structure, source links, and verification. This supersedes earlier prose drafts in this brief; publication and document status remain separate.
+**Current recovery — September 27, 2026:** The eight case studies and their cards have been restored to the already-tailored versions in `0e0b4fe`, before the broad rewrite. Project names are the card headings. The latest greeting and restored landing-page sections remain. Confluence matches the recovered case-study copy; see [copy-review.md](copy-review.md).
+
+**Historical copy revision — September 26, 2026 (case-study rewrite superseded):** Landing, About, cards, and all eight cases have been reviewed and synchronized with the [application Confluence page](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28344323). See [copy-review.md](copy-review.md) for the current structure, source links, and verification. This supersedes earlier prose drafts in this brief; publication and document status remain separate.
 
 Local planning notes, not website copy. Created September 23, 2026. No application has been started or submitted.
 
