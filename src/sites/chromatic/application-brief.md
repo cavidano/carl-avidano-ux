@@ -33,7 +33,7 @@ Current Confluence sources read during this session: [Natura11y v1](https://avid
 
 Article sources: [Drawing Board parent v5](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/21954562), [contrast themes v10](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/21987329), [monorepo v9](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/22020097), and [navigation v4](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/23298049). The CAU search did not locate a separate About page; use the approved local About baseline and Carl's latest first-person account without claiming to have reviewed a nonexistent result.
 
-Writing follows the Avidano writing skill, [Jared Spool reference](../../../docs/references/jared-spool-ux-portfolio-2026.md), and [additional research guide](../../../docs/references/application-tailoring-evidence-guide.md). Employer-specific copy is a local review draft, not a replacement for canonical Confluence text.
+Writing follows the Avidano writing skill, [Jared Spool reference](../../../context/jared-spool-ux-portfolio-2026.md), and [additional research guide](../../../context/application-tailoring-evidence-guide.md). Employer-specific copy is a local review draft, not a replacement for canonical Confluence text.
 
 ## Before submission
 

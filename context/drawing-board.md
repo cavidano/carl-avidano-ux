@@ -1,5 +1,12 @@
 # The Drawing Board
 
+Use this guide for writing conventions, implementation contracts, and article evidence. Read current Confluence and local copies before revising. Publication and synchronization checks recorded here are dated history, not fresh verification.
+
+- [Writing standard](#writing-standard)
+- [Editing in Confluence](#editing-in-confluence)
+- [Layout and body components](#layout)
+- [Article-specific source notes](#article-specific-source-notes)
+
 Use **The Drawing Board** consistently in the interface and `drawing-board` in content paths, routes, and helpers. The section is organized as follows:
 
 - `src/content/drawing-board/` — article MDX files, named for their current headlines.
@@ -12,9 +19,9 @@ The main listing and tag archives render one `ListingPage` component, which owns
 
 All internal links, canonical URLs, social metadata, and structured data use `/drawing-board`. The former `/on-my-desk` URLs exist only as compatibility redirects in `astro.config.mjs`; do not recreate that source folder. Astro generates HTML redirect pages for the static build, covering the listing, current article slugs, and topic filters. These old URLs are excluded from the sitemap. They are not server-level HTTP redirects on the static host.
 
-The section lives at `/drawing-board`. The site includes seven published articles: the Natura11y monorepo migration, contrast themes, ESR captioning, social graphics, navigation, Gatsby-to-Astro documentation migration, and the accessibility presentation. The user approved publishing the presentation article and reviewed branch changes on September 22, 2026. The Cheetah.org design-system article and logo sample remain in the content folder as drafts. Only posts with `status: published` appear in production listings, the homepage, topic filters, sitemap, and generated article routes.
+The section lives at `/drawing-board`. The September 22 publication record includes seven articles: the Natura11y monorepo migration, contrast themes, ESR captioning, social graphics, navigation, Gatsby-to-Astro documentation migration, and the accessibility presentation. The user approved publishing the presentation article and reviewed branch changes on September 22, 2026. The Cheetah.org design-system article and logo sample remain in the content folder as drafts. Only posts with `status: published` appear in production listings, the homepage, topic filters, sitemap, and generated article routes.
 
-Add posts as MDX files in `src/content/drawing-board/`. The title generates the URL slug automatically, so editing a headline updates both its article route and preview links. Filenames do not control URLs. Slugs use lowercase words separated by hyphens, with punctuation removed; empty or duplicate slugs stop the build. Frontmatter includes `title`, `description`, `date` (quoted ISO date), `status`, `tags`, `image`, `imageAlt`, `projectName`, and `projectUrl`. Set `status: draft` to keep an article out of every public page, including its own route and any legacy redirect. Change it to `status: published` when ready. A missing status defaults to draft; any other value stops the build. This replaces the old `published` boolean.
+Add posts as MDX files in `src/content/drawing-board/`. The title generates the URL slug automatically, so editing a headline updates both its article route and preview links. Filenames do not control URLs. Slugs use lowercase words separated by hyphens, with punctuation removed; empty or duplicate slugs stop the build. Frontmatter includes `title`, `description`, `date` (quoted ISO date), `status`, `tags`, `image`, `imageAlt`, `projectName`, and `projectUrl`. Set `status: draft` to keep an article out of every public page, including its own route and any legacy redirect. Change it to `status: published` when Carl authorizes publication. A missing status defaults to draft; any other value stops the build. This replaces the old `published` boolean.
 
 ```yaml
 status: draft
@@ -44,7 +51,7 @@ The ESR caption article uses February 2026 as an editorial date for a reflection
 
 The CCF foundation article uses September 19, 2026 as its editorial date and Design Systems as its primary topic. It retains the user’s requested emphasis on UX alongside accessibility and the design system. Its sources are the current `/Users/carlavidano/Sites/ccf-global-web` monorepo and Figma file `Ey3TdUGVg8vOioarckOiZq`. The exported typography image is frame `1104:1041`; the Brand page documents the main, Kids, and chapter logos. Code evidence includes the global header, mobile flyout, homepage stories, project theme, contrast-check script, and the accepted decision to maintain independent CCF source. This is ongoing work; do not use the 2019 case-study metrics as results of the new system or imply completed user testing, a site launch, or full Figma/code synchronization. The user explicitly approved “The Malar Stripe Project” in the article title, matching the Figma cover; this supersedes the earlier naming uncertainty for this article.
 
-`description` appears in the listing preview and page metadata, not in the article body. Articles go directly from the date, headline, and primary tag into the opening paragraph. There is no TLDR block or `brief` frontmatter field. Let the opening explain what prompted the work and why it mattered. Article pages do not show draft labels.
+`description` appears in the listing preview and page metadata, not in the article body. Articles go directly from the date, headline, and tags into the opening paragraph. There is no TLDR block or `brief` frontmatter field. Let the opening explain what prompted the work and why it mattered. Article pages do not show draft labels.
 
 Card descriptions use the user-requested “How I…” pattern: one direct sentence explaining the author's contribution and what the work involved. Name the actual action or accomplishment confidently, without inventing outcomes. Apply the same voice to future cards. The monorepo and ESR descriptions already followed this pattern; the other visible cards were aligned on September 21. The Astro article focuses on simplifying documentation maintenance and sharing Natura11y’s styles directly; guidance and working examples already appeared together before that migration.
 
@@ -88,19 +95,17 @@ The user approved the separate ESR review draft on September 20, 2026, and its a
 
 ## Layout
 
-Article cards show the date first, then the title and preview description, followed by one small primary-topic badge. This order applies to both the listing and homepage cards. `PostCard.astro` renders a plain `<span class="badge">` inside the one article link. Never add separate links, overlays, or competing click targets to summary cards.
+Cards show the date, title, description, and tags. `PostCard.astro` uses an article container with a title link whose CSS pseudo-element extends the clickable area. `PostTags.astro` renders a separate list of tag links; their stacking keeps them independently usable. Keep the animation pause/play control outside the article link. Do not wrap these controls or tag links inside another anchor.
 
-The article-detail template renders its own single `<a class="badge">` directly beneath the headline. It links to the article's primary topic under `/drawing-board/topics/`. Keep this markup separate from card badges so the article tag's size and spacing can be adjusted independently. Both use Natura11y Core's default badge styling, without inline font-size overrides. Use Core's font-size utilities when a size adjustment is needed. There is no shared tag-list component.
-
-Each topic page shows only visible articles with that primary topic, newest first, with navigation between the three allowed topics and All articles. A topic with no articles shows the existing empty state. Keep The Drawing Board headline and introduction the same across all topic views; only the selected filter and articles change. The current topic uses `aria-current="page"`. These pages remain noindex and excluded from the sitemap. Topic navigation works without JavaScript.
+Cards and article headers reuse `PostTags.astro`. Any article can have multiple tags or none. `TagNav.astro` derives the alphabetized navigation from visible articles and marks the selected tag with `aria-current="page"`. The existing `/drawing-board/topics/<slug>` routes are retained; there is no fixed set of three topics and no generated empty tag archive. Tag pages remain outside the sitemap and work without JavaScript. These component details were checked against local source on September 27, 2026.
 
 Article pages show Useful links in a separate `subtle-fill-1 padding-3` block, spaced from the article with `margin-top-5`. Keep its semantic H2 visually smaller with `h5`; the link list uses `nav gap-2`. The footer has a top border, `padding-top-2`, and `padding-bottom-4` around one compact “Back to The Drawing Board” text link. Use `<a class="link font-size-sm" href="/drawing-board">` with an `aria-hidden="true"` `icon icon-arrow-left` span before the `link__text` span. This uses Core’s icon-link spacing and hover/focus underline without button styling, and stays in the same tab. A scoped `<style>` in the article template sets `--link-color: currentColor` on its footer, keeping the link in the surrounding text color across themes. Override the existing token here rather than adding a color utility. Do not add a “More from The Drawing Board” or related-article section; the user removed it to keep the articles focused and informal.
 
-The homepage ends with a “The Drawing Board” section after the “Who I am” / “What I do” block and its About Me button, separated by the same horizontal divider used between the homepage’s other sections. Show only the section heading above the cards; omit the explanatory paragraph on the homepage. It automatically takes the latest three visible articles from `getDrawingBoardPosts()`, followed by a “More stories” link. The homepage uses three columns at Core’s `lg` breakpoint and stacks the cards on smaller screens. `PostCard.astro` shares images, metadata, whole-card linking, and focus behavior between the homepage’s compact cards and the article listing.
+The homepage ends with a “The Drawing Board” section after the “Who I am” / “What I do” block and its About Me button, separated by the same horizontal divider used between the homepage’s other sections. Show only the section heading above the cards; omit the explanatory paragraph on the homepage. It automatically takes the latest three visible articles from `getDrawingBoardPosts()`, followed by a “More stories” link. The homepage uses three columns at Core’s `lg` breakpoint and stacks the cards on smaller screens. `PostCard.astro` shares images, metadata, article and tag links, and focus behavior between the homepage’s compact cards and the article listing.
 
-The article listing uses two equal columns at Core’s `lg` breakpoint: half the row for the 2:1 thumbnail and half for the text, separated by `gap-5`. Cards have no outer padding. On smaller screens, the image stacks above the text; `post-card.scss` sets `row-gap: var(--spacer-3)` to keep the vertical gap smaller. The text keeps `padding-x-3 padding-bottom-3`, reset with `padding-0--lg` on desktop. Each entire card is one native link with Core’s `subtle-fill-1` background. The primary-topic badge inside it is a plain label, so the card has only one click target. Use space between cards instead of divider lines, and omit a separate “Read the note” link. Keep the headline in the link color; underline it when the card is hovered or keyboard-focused. Core supplies the keyboard focus outline for article and topic links. Keep the two card-specific rules (the smaller row gap and headline hover/focus underline) in `src/components/DrawingBoard/post-card.scss`, imported by `PostCard.astro`, rather than an embedded `<style>` block.
+The article listing uses two equal columns at Core’s `lg` breakpoint: half the row for the 2:1 thumbnail and half for the text, separated by `gap-5`. Cards have no outer padding. On smaller screens, the image stacks above the text; `post-card.scss` sets `row-gap: var(--spacer-3)` to keep the vertical gap smaller. The text keeps `padding-x-3 padding-bottom-3`, reset with `padding-0--lg` on desktop. Each card uses Core’s `subtle-fill-1` background and the separate article/tag links described above. Use space between cards instead of divider lines, and omit a separate “Read the note” link. Keep the headline in the link color; underline it when the card is hovered or keyboard-focused. Core supplies the keyboard focus outline for article and topic links. Keep card-specific spacing, link overlay, tag stacking, and headline hover/focus rules in `src/components/DrawingBoard/post-card.scss`, imported by `PostCard.astro`, rather than an embedded `<style>` block.
 
-Use Natura11y Core defaults and utilities for this section. Article headers use `container medium` with `banner-headline` on the H1. Show the date first, then the headline, then the single topic badge, all centered with `text-align-center`; omit a separate back link. Use `margin-bottom-2` after the date, `margin-bottom-3` after the headline, and `margin-bottom-5` on the header to separate it from the opening text block. Useful links and the footer retain their own `container narrow`. Do not add a separate article stylesheet for styles the system already supplies.
+Use Natura11y Core defaults and utilities for this section. Article headers use `container medium` with `banner-headline` on the H1. Show the date first, then the headline, then the tag links, all centered with `text-align-center`; omit a separate back link. Use `margin-bottom-2` after the date, `margin-bottom-3` after the headline, and `margin-bottom-5` on the header to separate it from the opening text block. Useful links and the footer retain their own `container narrow`. Do not add a separate article stylesheet for styles the system already supplies.
 
 ### Article body components
 
@@ -169,7 +174,7 @@ There are no TLDR blocks, separate preview-description sections, “Article” w
 
 Main child pages are ordered by editorial date, newest first. The September 22 order is CCF foundation, contrast themes, social graphics, accessibility presentation, monorepo, Gatsby-to-Astro migration, navigation, and ESR captioning. The presentation's August 25 date places it between social graphics (September 5) and the monorepo article (July 10). The parent page's existing Children Display macro follows this sidebar order; preserve that automatic list rather than replacing it with manually maintained links.
 
-All eleven article figure attachments were downloaded from Confluence and verified byte-for-byte against the website source assets, including the new monorepo graphic and the ESR screenshots copied with the approved revision. Preserve their original proportions and resolution. Superseded attachments are not used in the current pages; they remain available for page history.
+During the September 20–22 synchronization work, all eleven article figure attachments were downloaded from Confluence and verified byte-for-byte against the website source assets, including the new monorepo graphic and the ESR screenshots copied with the approved revision. Preserve their original proportions and resolution. Superseded attachments are not used in the current pages; they remain available for page history.
 
 The read-back comparison passed for all article-body paragraphs, heading levels, figure order, captions, useful-link text and destinations, and footer links. Verified page versions: ESR 9, contrast themes 10, monorepo 9, CCF foundation 4, social graphics 13, and parent page 3. The updated ESR and monorepo copies were also compared with their generated local HTML. ESR’s Confluence metadata retains the approved “Tag: Accessibility” label; the website displays its topic badge. Image alt-text punctuation also differs: Confluence drops some descriptions containing curly quotes, double quotes, or a colon. Its saved alt text uses straight apostrophes and, for the Pride figure, a comma in place of the colon. All description wording is preserved; the website retains the approved punctuation. Both the connector and native editor were checked. Do not claim literal character-for-character parity for those eight image descriptions.
 
@@ -179,7 +184,7 @@ Changes in Confluence do not automatically update the website. For each approved
 
 Before drafting or revising Drawing Board articles or any other website copy, always read the current relevant Confluence main pages and comparable approved examples in the Carl Avidano UX space. This is a standing user requirement, also recorded in the root `AGENTS.md` and the Drawing Board parent page. Review the matching local source alongside Confluence to understand the approved voice, level of detail, and structure; cached notes or Rovo summaries are not a substitute. Preserve exact approved wording unless a rewrite is requested, follow the user's latest corrections, and verify proposed factual changes against the underlying work before carrying them to both copies.
 
-Follow the federal plain language guidance maintained by GSA on [Digital.gov](https://digital.gov/guides/plain-language/). Apply it to article bodies and preview descriptions. Write for prospective clients, hiring managers, and design colleagues who want to understand the work and the decisions behind it.
+Follow the shared [plain-language standard](plain-language.md), adapted from Digital.gov. Apply its guidance and review checklist to article bodies and preview descriptions. Write for prospective clients, hiring managers, and design colleagues who want to understand the work and the decisions behind it.
 
 Each article should share one small, useful piece of thinking from the work: a decision, an experiment, a lesson, or a question still being worked through. Include only the context needed to understand that point. Add something the case study does not already explain, and link to the case study for the broader project story. Keep these as short, informal snippets rather than repeating the full case study. Do not expand a post just to fill out a template.
 
@@ -187,15 +192,111 @@ Respect the reader’s time. Aim for roughly a two-minute read when the subject 
 
 These posts capture the author's process as the work unfolds, including experiments and work that is still taking shape. Treat them as snapshots in time amid changes in AI and product development, with room for details that brief case studies cannot cover. The section introduction should emphasize process, learning, and work in progress rather than frame the section as an archive of past projects. Keep the focus on the actual work; do not force an AI angle into every article. Explain what prompted the work, the choices considered, and what the author learned. Keep each article simple: a short, informal view into the work as it happens. Include only enough context to explain the work and the thinking behind it. Keep the voice conversational and headlines approachable. Use structure where it helps the reader, without forcing every post into the same format.
 
-- [Put the main point first](https://digital.gov/guides/plain-language/principles/organize). Explain the problem, the decision, and what changed in an order readers can follow.
-- [Use active voice and direct verbs](https://digital.gov/guides/plain-language/writing). Make the person doing the work clear. Use past tense when describing completed work.
-- [Keep sentences and paragraphs focused](https://digital.gov/guides/plain-language/writing/clear-short). Cut repeated explanations and filler while preserving the details readers need.
-- [Use familiar words and explain necessary technical terms](https://digital.gov/guides/plain-language/principles/avoid-jargon) where they first appear. Keep accurate technical language that serves the audience.
-- [Write descriptive headings](https://digital.gov/guides/plain-language/design/headings) that tell readers what each section covers.
-- Link to Brad Frost’s original writing when it helps explain a concept or decision in the article. Verify the source and connect it to the specific work, using descriptive inline links. The monorepo article retains [AI and Design Systems](https://bradfrost.com/blog/post/ai-and-design-systems/) as its relevant reference; keep broader ecosystem and workbench references only when they support the article’s focus. Do not imply a source influenced an earlier decision unless that history is confirmed.
+Link to Brad Frost’s original writing when it helps explain a concept or decision in the article. Verify the source and connect it to the specific work, using descriptive inline links. The monorepo article retains [AI and Design Systems](https://bradfrost.com/blog/post/ai-and-design-systems/) as its relevant reference; keep broader ecosystem and workbench references only when they support the article’s focus. Do not imply a source influenced an earlier decision unless that history is confirmed.
 
 Keep references unobtrusive: link relevant concepts with short, descriptive text and keep the focus on the author's own work and reasoning. In the Natura11y article, retain the source links without mentioning Brad Frost by name in the prose; the AI link text is simply “AI-assisted development.”
 
 Preserve user-approved titles, factual claims, and requested points. Keep descriptions in previews and metadata. Keep dates in article metadata unless a date is necessary to understand the story. Do not add draft labels, work logs, unsupported outcomes, or generic closing statements. A plain language review is an editorial check; do not claim reader comprehension has been tested without testing it with readers.
 
-Before launch, review the content and editorial dates, deploy the completed build, and verify the public article URLs and social previews. Indexing is enabled for the visible articles and main listing; filtered topic views remain `noindex, follow`.
+When launch is authorized, review the content and editorial dates, deploy the completed build, and verify the public article URLs and social previews. Indexing is enabled for the visible articles and main listing; filtered topic views remain `noindex, follow`.
+
+## Article-specific source notes
+
+These notes retain unique evidence and Carl's corrections from September 21–22. Repeated save/build reports and superseded draft instructions have been removed. Source timestamps are not automatically publication dates or evidence of testing.
+
+### Accessibility presentation
+
+[Confluence working copy](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/25722885). Publication was approved September 22. August 25, 2026 is an editorial date based on the source filename, not a verified presentation-delivery date. Version 3 and both figure attachments were checked against local sources on September 22. The InDesign figure's Confluence description uses a straight apostrophe because the connector dropped the curly-apostrophe version; the wording is unchanged.
+
+#### Source and scope
+
+Source: `/Users/carlavidano/Projects/Avidano Digital/Clients/TAP/Presentations/A11y Presentation notes/TAP-Introduction-to-Accessibilty-08-25-26.pdf` (39 pages). This replaces the earlier, incorrect Opportunities PDF.
+
+The user approved a collaborative article crediting AJ Favors and linking to https://www.dsgnfav.com/, with a short paragraph about the presentation's accessibility. They confirmed the audience can be described as a New York City nonprofit while keeping the client unnamed. They asked to omit client-specific material. The draft does not name TAP, include its screenshots or findings, discuss its budget, or imply an ongoing engagement. The full PDF is not copied into the website or Figma.
+
+The user designed and approved the final graphic compositions in Figma: the four-principle slide as the feature image and an overlapping collection of general teaching slides as a wide opening figure. They replace the initial thumbnail and separate slide figures. Article text conveys the main teaching points outside the images as well.
+
+Verified PDF features: `/MarkInfo /Marked true`, a `/StructTreeRoot`, language `en-US`, and four bookmarks. Its producer metadata identifies Adobe InDesign 21.5. Tags alone do not establish correct reading order or complete accessibility. The user has not yet supplied details of alt-text authoring, reading-order remediation, assistive-technology testing, or accessibility-check results. Do not invent these or claim PDF/UA conformance. No audience feedback or measured outcomes have been supplied.
+
+#### Figma and assets
+
+The current article graphics are on The Drawing Board page of the Portfolio file. Preserve the user's compositions and aspect ratios. The collection is intentionally wide; the user explicitly approved its appearance on phones.
+
+- [drawing-board-introduction-to-digital-accessibility](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1274-134) — 1800 × 900; exported PNG is the card image.
+- [introduction-to-digital-accessibility-collection](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1280-417) — 2923 × 433; transparent PNG used as the article's wide opening figure.
+- [indesign-articles-reading-order](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1283-449) — 1400 × 1400; screenshot of the InDesign Articles panel, used as a narrow figure below the presentation-accessibility paragraph.
+
+Website assets live in `src/images/avidano-digital/` and match the Figma frame names. They were exported at the frames' original sizes without changing the composition. Keep later figure edits synchronized.
+
+The user supplied the Articles-panel screenshot after all 39 article entries were given descriptive names in the open InDesign source document. The names intentionally omit slide numbers. The screenshot documents the intended reading sequence; it is not evidence of completed assistive-technology testing or PDF conformance validation.
+
+### Goodbye Gatsby, hello Astro
+
+The subject is the Natura11y documentation migration. Carl supplied the headline and approved publication September 21. [Main Confluence copy](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/23953409); [separate Rovo transcript and editorial notes](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/24215553). The refined paragraphs were checked against version 6 on September 21; this is not a current synchronization check.
+
+- Article: `src/content/drawing-board/goodbye-gatsby-hello-astro.mdx`
+- Local route: `/drawing-board/goodbye-gatsby-hello-astro`
+- `status: published` includes the approved article in local previews and production builds.
+- Provisional editorial date: July 8, 2026, within the documented migration work and before the July 10 monorepo article. This is not a claim of a July 8 launch.
+- The card description starts “How I…” and focuses on removing Gatsby-specific components and reusing Natura11y’s styles to simplify the documentation. The earlier “within days” framing has been removed. July 4–7 remains evidence of initial implementation work, not a claim that the entire project launched or was completed in four days.
+- Feature: [Portfolio Figma frame 1252:1539](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1252-1539), 1800 × 900. Existing frame name is `drawing-board-goodby-gatsby-hello-astro`; the local PNG corrects “goodbye.” Exported through the native Figma PNG export because the connector's render omitted both emoji. Artwork is unchanged.
+- Body figure: existing `natura11y-docs-masonry.jpg`, also used by the case study. It shows the rebuilt Backdrop and Color pages, not a before-and-after comparison.
+
+Canonical source: `/Users/carlavidano/Sites/natura11y`.
+
+- `518d1437` (July 4): Astro scaffolding, initially under `apps/docs-astro`.
+- `10cb7689`, `dd2aa552`, `623b9645` (July 4): MDX content collection, layouts, and initial component examples.
+- July 4–7 history: documentation conversion and component-by-component review, including code formatting, figures, copy behavior, and search.
+- `8fb9b75c` (July 6): Expressive Code setup.
+- Original author and commit timestamps agree: first Astro scaffold `518d1437` is July 4 at 06:29 EDT; documentation cleanup `d087aa08` and search work `8fe1c851` are July 7. These verify the work period, not the exact public launch date.
+- Current `apps/docs/src/content.config.ts`, `layouts/DocsLayout.astro`, `components/ui/FigureExample/FigureExample.astro`, `components/ui/CodeBlock/CodeBlock.astro`, and `scripts/natura11y.ts`: content structure, code presentation, and Core behavior.
+- Current `components/ui/SearchDocs/SearchDocs.astro`: React search island.
+- Current Accordion documentation and the [Astro overview](https://docs.astro.build/en/concepts/why-astro/) checked September 21.
+
+The user clarified the migration’s purpose on September 21: Gatsby had become a large, cumbersome dependency to update; Astro simplified maintenance and allowed the documentation interface to use Natura11y’s own styles directly, removing styles duplicated for the Gatsby setup. The goal is to make documentation easier to keep current as monorepo and AI-assisted workflows develop. Guidance and working examples were already presented together before the migration. Do not present that existing experience as a migration outcome, generalize this project’s maintenance experience to every Gatsby site, or invent performance measurements, quantified time savings, or user-testing results.
+
+The user further confirmed that the migration removed the entire set of custom Gatsby-specific components in favor of lighter Astro components, retaining React islands where needed. Reducing unnecessary code and simplifying the system are the principal wins; preserve the relationship to the shared library ecosystem and monorepo. Current `SearchDocs.astro` renders `SearchDocsIsland` with `client:load`.
+
+The revised article uses “Removing Gatsby-specific code” and “Keeping documentation close to the code” as its two sections. The figure caption identifies the post-migration pages without implying that examples and guidance were first brought together in Astro. The canonical docs entry point, `apps/docs/src/styles/global.scss`, imports `@natura11y/core/src/scss/index` directly. Preserve this distinction between reusing the system’s styles and introducing new documentation features.
+
+### Navigation components
+
+[Main Confluence copy](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/23298049); [Rovo notes and unapproved wording proposals](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/23461895). Publication of the reviewed article was approved September 21; the Rovo proposals did not replace the main copy. The article has two sections, Flyout menu and Nested navigation, each with its own figure.
+
+The March 9 editorial date uses Nested nav refinement commit `5cccafdc`; Flyout began in February and Nested nav followed in March. No separate `workDate` or archive label is used. The original project trigger has not been confirmed: do not attribute it to a client or user research. The former `/drawing-board/making-room-for-deeper-navigation-in-natura11y` route redirects to `/drawing-board/natura11y-update-new-menu-components-for-deeper-navigation`; the USWDS reference was preserved during that rename.
+
+#### Figma figures
+
+The body figures are actual Storybook screenshots captured at 100% zoom on September 21, 2026, placed inside the existing `2024 - Browser` Figma component. They show the Storybook sidebar, live example, and Code panel. Navigation is captured from the working components, not reconstructed or enlarged in Figma. These are current examples, not screenshots from March.
+
+Both browser bars use the verified Storybook URL, page title, and actual pink Storybook favicon from `https://natura11y.github.io/root/storybook/favicon.svg`. The editable frames are on the Portfolio file’s Drawing Board page:
+
+- [Flyout figure](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1248-2439)
+- [Nested navigation figure](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1248-2440)
+- [Separate phone feature graphic](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1251-134)
+
+The separate feature graphic uses the actual phone from the live [drill-down demonstration](https://gonatura11y.com/docs/flyout/#drill-down-navigation). It is 1800 × 900 (2:1), with a 520 px-wide phone centered horizontally, approximately 56 px of space above it, and the bottom cropped. Only the phone appears against the demo’s dark background; no documentation, sidebar, code, or browser windows are included.
+
+The approximately 11-second recording shows opening the menu, entering Wildlife and Birds, returning through both levels, and closing. The GIF and MP4 are saved in `public/media/drawing-board/` as `drawing-board-natura11y-navigation.gif` and `.mp4`. The article’s `animatedImage` enables the GIF in listing cards, with a separate pause/play button outside the article link. Reduced-motion preferences and browsers without JavaScript receive the matching still PNG. The still also supplies social metadata.
+
+| Export name | Content and placement | Suggested caption |
+| --- | --- | --- |
+| `drawing-board-natura11y-navigation.png` | Completed 1800 × 900 feature poster from the real phone recording. Matching GIF and MP4 available for review. | Feature image only. |
+| `natura11y-flyout-navigation.png` | Completed 1536 × 992 browser-framed capture of the [Flyout drill-down HTML story](https://natura11y.github.io/root/storybook/?path=/story/flyout--drill-down-html), with the first-level menu open. Medium body figure. | The current Flyout example in Storybook, showing the first level of navigation. |
+| `natura11y-nested-navigation.png` | Completed 1536 × 992 browser-framed capture of the [Nested Nav HTML story](https://natura11y.github.io/root/storybook/?path=/story/nested-nav--default-html). Medium body figure. | The Nested Nav example in Storybook marks the American Robin section and Nesting as the current page. |
+
+Keep Figma frame names aligned with export filenames. Use transparent PNGs if frames are tilted or arranged over the page background, so they work in light and dark themes. Body figures retain their original proportions. Use the existing `FigureSingle` component and regular images; choose narrow width for an individual tall sidebar. Write final alt text against the completed graphics.
+
+#### Evidence
+
+All historical source checks used the canonical monorepo at `/Users/carlavidano/Sites/natura11y`, including its preserved history before the monorepo move.
+
+| Claim | Source |
+| --- | --- |
+| Flyout began on February 19, 2026, initially named mobile menu. | Commits `f065b557` and [`19654417`](https://github.com/Natura11y/root/commit/19654417). The latter renames the files to flyout-menu. |
+| Flyout supports moving between panels, a Back control, Escape, and excluding inactive panels from keyboard navigation. | `src/js/flyout-menu.js` at `19654417`. Shared `src/js/utilities/overlay.js` contains the focus trap and return-to-trigger behavior. |
+| Flyout transitions respect reduced motion. | `src/scss/_flyout-menu.scss` at `19654417` gates transitions and animations with `prefers-reduced-motion: no-preference`. |
+| Nested navigation was added March 7, 2026. | [`4f0bb95f`](https://github.com/Natura11y/root/commit/4f0bb95f) adds `src/scss/_nav-nested.scss`; `84e7f9e7` finalizes the nested-nav naming that day. |
+| Nested navigation uses indentation, a section indicator, and bold/underlined current links. | `src/scss/_nav-nested.scss` at `4f0bb95f`, plus the canonical Nested nav documentation and example markup. |
+
+Current public references: [Flyout](https://gonatura11y.com/docs/flyout/) and [Nested nav](https://gonatura11y.com/docs/nested-nav/). The article does not claim completed usability testing, measured improvements, or that the later Storybook/monorepo setup existed in March.

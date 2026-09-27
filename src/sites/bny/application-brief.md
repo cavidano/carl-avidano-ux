@@ -65,7 +65,7 @@ The application is complete. If Carl requests a status check, inspect the existi
 
 ## Applying Jared's guidance
 
-Follow [the workshop reference](../../../docs/references/jared-spool-ux-portfolio-2026.md), especially pages 13–14: respond to the actual job bullets through relevant work, Carl's contribution, and the judgment behind decisions. A broad skills list cannot substitute for concrete evidence.
+Follow [the workshop reference](../../../context/jared-spool-ux-portfolio-2026.md), especially pages 13–14: respond to the actual job bullets through relevant work, Carl's contribution, and the judgment behind decisions. A broad skills list cannot substitute for concrete evidence.
 
 The examples below are grounded in the current local case studies, the relevant Confluence pages reviewed for this pass, and Carl's account. The BNY variants are separate drafts; the approved main-site case studies and their Confluence pages remain unchanged. The portfolio does not yet answer every requirement in detail.
 

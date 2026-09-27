@@ -30,6 +30,7 @@ The development server includes all registered applications. The current applica
 
 | Location | Responsibility |
 | --- | --- |
+| [context/](context/README.md) | Project background, working preferences, Confluence writing directory, and application guidance |
 | `src/content/` | Main-site homepage copy, About page, case studies, and Drawing Board posts |
 | `src/sites/<application>/` | Application copy, selected projects/articles, decorative artwork, and working records |
 | `public/<application>/` | That application's résumé, employer SVG logos, and server rules |
@@ -47,7 +48,7 @@ Application content copies are deliberate snapshots. A change to the main case s
 
 ## Application workflow
 
-Follow [the application-site guide](docs/APPLICATION-SITES.md). Start a new `codex/<application>-microsite` branch and register each new site as `draft`. Review current Confluence sources before writing website copy, as required by [AGENTS.md](AGENTS.md).
+Follow [the application-site guide](context/application-sites.md). Start a new `codex/<application>-microsite` branch and register each new site as `draft`. Review current Confluence sources before writing website copy, as required by [AGENTS.md](AGENTS.md).
 
 The registry's `published` status means the website is approved for production builds. It does not mean the job application has been submitted, or that its documents are final. Those facts belong in the application's `application-brief.md` and `application-documents.md`.
 
@@ -63,6 +64,8 @@ Dependencies are pinned to the currently verified versions and `package-lock.jso
 
 ## Content references
 
-- [Case-study conventions](docs/CASE-STUDIES.md)
-- [Drawing Board conventions and source records](docs/DRAWING-BOARD.md)
-- [Portfolio workshop reference](docs/references/jared-spool-ux-portfolio-2026.md)
+- [Project context and writing workspace](context/README.md)
+- [Plain-language writing standard](context/plain-language.md)
+- [Case-study conventions](context/case-studies.md)
+- [Drawing Board conventions and source records](context/drawing-board.md)
+- [Portfolio workshop reference](context/jared-spool-ux-portfolio-2026.md)

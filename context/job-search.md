@@ -1,12 +1,12 @@
-# Job application shortlist
+# Job search preferences and shortlist
 
-Updated September 26, 2026. Private planning notes; inclusion is not a record of application submission or approval to build or publish an employer site.
+Planning snapshot from September 26, 2026. Recheck role availability, compensation, and application records before using it. Carl's latest instructions determine the next task. Private planning notes; inclusion is not a record of application submission or approval to build or publish an employer site.
 
-## Current application queue
+## Application discussion — September 26, 2026
 
-**Datadog: retained as a draft for today at Carl's request.** The assistant's categorical exclusion was an overstatement: the full posting encourages candidates who do not meet every qualification. Carl is developing an application narrative around disability-led accessibility, Natura11y ownership and real adoption, and roughly five to seven years managing people. Dedicated design-system-team growth remains a gap, but must be weighed with the entire posting. The [audit](../src/sites/datadog/job-evidence-map.md) and [positioning draft](../src/sites/datadog/positioning-draft.md) record this distinction. No application has been submitted; no new priority ranking is established by the copy discussion.
+**Datadog was retained as a draft at Carl's request on September 26.** The assistant's categorical exclusion was an overstatement: the full posting encourages candidates who do not meet every qualification. Carl is developing an application narrative around disability-led accessibility, Natura11y ownership and real adoption, and roughly five to seven years managing people. Dedicated design-system-team growth remains a gap, but must be weighed with the entire posting. The [audit](../src/sites/datadog/job-evidence-map.md) and [positioning draft](../src/sites/datadog/positioning-draft.md) record this distinction. No application has been submitted; no new priority ranking is established by the copy discussion.
 
-**Chromatic is the next new website draft.** Carl asked to start the next application while leaving Datadog for today. The full Chromatic posting and Application tab were reviewed; see its [brief](../src/sites/chromatic/application-brief.md) and [evidence map](../src/sites/chromatic/job-evidence-map.md). Accenture already has a draft; Vetcove follows Chromatic. Recheck each remaining posting and map the evidence before further production.
+**Carl asked to start Chromatic on September 26 while leaving Datadog as a draft.** The full Chromatic posting and Application tab were reviewed; see its [brief](../src/sites/chromatic/application-brief.md) and [evidence map](../src/sites/chromatic/job-evidence-map.md). Accenture already had a draft; Vetcove was discussed as following Chromatic. This records that conversation rather than setting a new priority. Recheck each remaining posting and map the evidence before further production.
 
 Carl's clarified standard: pursue roles for which his existing experience makes him very well qualified. An attractive subject area, compensation range, or plausible stretch is insufficient. Surface a central experience gap before asking him to spend time reviewing a microsite.
 
@@ -27,7 +27,7 @@ After its fit audit supports proceeding, prepare a complete local draft for each
 - Focus on New York City / commuting-area roles and US-remote roles. Consider compensation alongside the strength of the match; no minimum salary has been set.
 - Exclude employers with **AI in the company name**. Carl explicitly confirmed this preference on September 26. An established employer asking candidates to use AI tools is not excluded for that reason.
 - Separately assess requirements to have shipped AI-powered products. Using AI tools does not establish that product experience.
-- Require direct evidence for the central responsibilities and qualifications before recommending a role as a strong fit. Distinguish a minor tool gap from missing the kind of experience the job exists to provide. Use the [research and evidence guide](references/application-tailoring-evidence-guide.md). Do not expand the queue solely because of a senior title, salary, subject overlap, or LinkedIn match badge.
+- Require direct evidence for the central responsibilities and qualifications before recommending a role as a strong fit. Distinguish a minor tool gap from missing the kind of experience the job exists to provide. Use the [research and evidence guide](application-tailoring-evidence-guide.md). Do not expand the queue solely because of a senior title, salary, subject overlap, or LinkedIn match badge.
 
 ## Confirmed additions — September 26
 

@@ -4,7 +4,7 @@ September 26, 2026. [Official posting](https://careers.datadoghq.com/detail/8223
 
 **Current disposition: local application draft, with the latest copy synchronized to Confluence.** The earlier categorical exclusion over-weighted one qualification and failed to account for the employer's stated willingness to consider applicants who do not meet every qualification. Dedicated system-team growth remains an experience gap; it is not established as an automatic rejection rule. Carl now emphasizes disability-led accessibility, full system ownership, adoption across projects and by other developers, and roughly five to seven years of people management. See [positioning-draft.md](positioning-draft.md). No new priority ranking, publication, or submission is implied by this copy discussion.
 
-The labels below follow the [research guide](../../../docs/references/application-tailoring-evidence-guide.md). Supported means the cited work substantiates that capability at its actual scale, not that it establishes every aspect of the employer's environment. Partial and missing requirements remain visible. IDs follow the posting's bullet order so Carl can compare the audit with the original.
+The labels below follow the [research guide](../../../context/application-tailoring-evidence-guide.md). Supported means the cited work substantiates that capability at its actual scale, not that it establishes every aspect of the employer's environment. Partial and missing requirements remain visible. IDs follow the posting's bullet order so Carl can compare the audit with the original.
 
 ## Sources and exact placements
 
