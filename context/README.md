@@ -11,13 +11,17 @@ This folder holds the specific background, source material, and reusable guideli
 | [Jared's original workshop PDF](Job-Search-2026-What-Makes-a-Great-UX-Portfolio.pdf) | Original source supplied by Carl; retained locally and excluded from Git |
 | [Application sites](application-sites.md) | Setup, shared layout, documents, review, deployment, and retirement workflow |
 | [Job search preferences and shortlist](job-search.md) | Carl's selection criteria and the dated employer discussion |
-| [Case studies](case-studies.md) | Writing sources, structure, confirmed project evidence, and review checkpoints |
+| [Case studies](case-studies.md) | Writing sources, structure, confirmed project evidence, review checkpoints, and portfolio comparisons with hiring evidence |
 | [The Drawing Board](drawing-board.md) | Writing conventions, article behavior, source evidence, and figure guidance |
 | [Application tailoring evidence guide](application-tailoring-evidence-guide.md) | Additional research and our method for connecting job requirements to verified experience |
 
 Keep durable context and guidelines here. Update an existing relevant file before creating another. Application writing lives in Confluence; employer-specific records stay in `src/sites/<application>/`. Keep shared technical guidance and useful editorial evidence in the relevant guide here; do not recreate `docs/` or add separate files for routine save/build logs. Dated notes describe the state when recorded and must not be treated as current approvals or instructions without checking.
 
 ## Application working context and continuity
+
+The main website is Carl's generalist portfolio. Its homepage copy and markup live directly in [src/pages/index.astro](../src/pages/index.astro). Keep it straightforward to edit there. Application homepages use their own [template](../src/components/Applications/ApplicationHomePage.astro) and each employer's `site.json`; their setup must not force the main homepage through an application template or copy lookup. Project and article cards continue to use their corresponding MDX sources.
+
+Carl confirmed on September 27, 2026 that he has **20+ years of experience**. He requested “15+ years of experience” for the homepage pill while discussing age bias in hiring. Treat that as a presentation choice, not a shortened career history; keep actual roles and dates accurate. The homepage pills also show “Based in New York” and an easily editable role, initially “Senior Product Designer.”
 
 Carl is preparing a custom application for each job he pursues. Reuse the approved case studies and tailor their wording and emphasis to the specific role; a new application does not require rewriting every case study. Carry this context into new conversations; read the saved guidance and relevant application records before asking Carl to repeat established information.
 

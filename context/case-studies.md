@@ -8,6 +8,7 @@ For custom applications, [reuse the approved foundation and tailor the emphasis]
 
 - [Writing sources](#writing-sources)
 - [Approved structure](#approved-structure)
+- [Portfolio comparisons](#portfolio-comparisons)
 - [Recorded editorial state](#recorded-editorial-state)
 - [Portfolio review checkpoints](#portfolio-review-checkpoints)
 - [Visionlearning research and confirmed account](#visionlearning-research-and-confirmed-account)
@@ -36,6 +37,40 @@ For approved changes, synchronize Confluence and the relevant local copy and ver
 Use the revised Phoenix structure as the pattern for future case-study edits: Challenge, Solution, My role, and Results at the beginning; supporting process and figures afterward; Looking back at the end. Results do not require statistic cards when quantitative evidence is unavailable. Preserve each project's intentional colors and figure backgrounds. Apply the pattern individually with verified project facts rather than rewriting all cases at once.
 
 Use a plain paragraph under “My role” to state Carl's contribution and the organization through which he worked. Keep project context in Challenge. Preserve related Drawing Board articles; the shared site component shows up to three published matches, newest first. Animated examples need pause/play controls and must respect reduced-motion preferences.
+
+## Portfolio comparisons
+
+Researched September 27, 2026 at Carl's request for three strong senior UX designer or UX director portfolio references with evidence of effectiveness. Carl confirmed that the main website is his generalist portfolio; custom applications remain separate. These are research findings for discussion, not approved changes to his site.
+
+The shortlist contains two portfolio websites and one management portfolio presentation. Public hiring accounts support their selection, but cannot isolate a portfolio's contribution from experience, referrals, interviews, or the rest of an application. A successful historical portfolio also does not prove that every element of its current version is effective. No director-level hiring outcome was verified; the leadership example below concerns a move from senior designer into design management.
+
+### Kate Kalento — senior product designer and team lead
+
+- **Portfolio:** [Kate Kalento](https://katekalento.framer.website/).
+- **Hiring evidence:** [Recruiter Lena Kul's account](https://www.linkedin.com/posts/lena-kul_after-the-last-weeks-session-someone-told-activity-7478406190834831360-TaFQ) explicitly connects discovering Kate's portfolio to the team's interest and a subsequent signed offer after interviews and a task. This is firsthand evidence from the recruiter who placed her, with a promotional context: the post advertises a portfolio workshop. The [event page](https://luma.com/bnht7k8e) identifies Kate as Nevis's founding product designer.
+- **Inspect:** [Scheduling case study](https://katekalento.framer.website/case-study-scheduling). It states her role and the two teams involved, then explains why a simple calendar dropdown gave users too little context. The alternative exposes the full schedule and acknowledges greater implementation effort. [Task-card case study](https://katekalento.framer.website/case-study-task-card) also compares layout options and explains the selected approach.
+- **Our assessment:** The specific decisions and tradeoffs make this a useful benchmark for senior design judgment. For Carl, select similarly concrete moments within existing projects and explain the reasoning beside the relevant figure. Preserve project names and verified outcomes.
+- **Limits:** Project metrics are the designer's published claims, not independently audited results. The large introduction and long pages are not requirements to copy. Browser inspection covered the homepage and scheduling page; this was not an accessibility or performance audit.
+
+### Emanuel Serbanoiu — lead product designer
+
+- **Portfolio:** [Emanuel Serbanoiu](https://emanuelsfolio.framer.website/).
+- **Hiring evidence:** In his [firsthand account](https://www.linkedin.com/posts/eserbanoiu_i-built-a-system-to-create-my-portfolio-activity-7468293043889164289-VBNF), Emanuel attributes multiple interviews and an offer at Mistral to his portfolio. The account also promotes a workshop. His prior Meta experience and the rest of the hiring process remain relevant factors.
+- **Inspect:** [Events Studio preview](https://emanuelsfolio.framer.website/studio) and [Fitbit Premium preview](https://emanuelsfolio.framer.website/premium). The homepage connects project cards to role, scope, and reported results. Studio describes coordination across designers and collaboration with product management on priorities. Fitbit connects design to experimentation and product growth.
+- **Our assessment:** Useful for making each project's relevance apparent before someone opens it. For Carl, a short description can identify the problem, his contribution, and a supported result; use qualitative evidence where numbers are unavailable. This can be a focused wording change.
+- **Limits:** Both reviewed case studies offer public previews; their full presentations require contacting the designer. We did not inspect that private material or independently verify the project metrics. The visually expressive homepage is not an accessibility benchmark: the browser exposed many separate headings for pieces of its animated headline. Its live homepage showed August 2026 updates, while the search index still described an earlier version.
+
+### Femke van Schoonhoven — senior designer to design manager
+
+- **Portfolio presentation:** [The portfolio presentation that got me hired as a design manager](https://www.youtube.com/watch?v=TxBrcdiNqcM), published December 7, 2022. This is a slide portfolio walkthrough, not a generalist portfolio website.
+- **Hiring evidence:** Femke's own description explicitly says this portfolio supported her move into a design-manager role. Her [newsletter](https://ck.femke.design/posts/is-it-time-to-update-your-portfolio) links it alongside other successful portfolio walkthroughs. This is a self-reported historical outcome; it does not establish director-level qualification.
+- **Inspect:** The coaching section begins at 7:33. At 8:06, the visible slide supports leadership with mentoring, education, speaking, and workshop examples. The chapter list distinguishes individual design influence, coaching, principles, project work, and the final pitch.
+- **Our assessment:** Useful for explaining how Carl helps other people and teams succeed, alongside hands-on work. Keep mentoring, technical guidance, project leadership, and formal people management accurately distinguished.
+- **Review scope:** Read the published description and chapter list and inspected selected video frames. Transcript export was unavailable; the entire spoken presentation was not reviewed.
+
+### How to use these comparisons
+
+Start with Kate for decision narratives, Emanuel for concise project summaries, and Femke for leadership evidence. This selection follows the saved Jared Spool guidance: help a hiring reader recognize relevant contribution and judgment. It does not prescribe a project count, visual style, platform change, or full rewrite. Maintain Carl's accessibility standards and plain language, and test any proposed changes with actual readers before calling them effective for his portfolio.
 
 ## Recorded editorial state
 

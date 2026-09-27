@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
 import Button from '../Button.astro';
 import ProjectListView from '../ProjectListView.astro';
 import PostList from '../DrawingBoard/PostList.astro';
@@ -8,55 +7,40 @@ import { getFeaturedProjects } from '../../lib/projects.js';
 import { getDrawingBoardPosts } from '../../lib/drawing-board.js';
 
 import { getSiteId } from '../../lib/site-paths.js';
-import { getSiteCopy } from '../../lib/sites.js';
+import { getApplicationCopy } from '../../lib/sites.js';
 
 const siteId = getSiteId(Astro.url.pathname);
-const isApplicationSite = siteId !== 'main';
-const { home: copy, drawingBoard } = getSiteCopy(Astro.url.pathname);
+const { home: copy } = getApplicationCopy(siteId);
 const projects = getFeaturedProjects(siteId);
-const posts = getDrawingBoardPosts(siteId);
-const homepagePosts = isApplicationSite
-  ? posts.filter((post) => post.frontmatter.isFeatured === true)
-    .sort((a, b) => (a.frontmatter.sortOrder ?? Infinity) - (b.frontmatter.sortOrder ?? Infinity))
-  : posts.slice(0, 3);
+const homepagePosts = getDrawingBoardPosts(siteId)
+  .filter((post) => post.frontmatter.isFeatured === true)
+  .sort((a, b) => (a.frontmatter.sortOrder ?? Infinity) - (b.frontmatter.sortOrder ?? Infinity));
 const { title, description } = copy;
-const hasHero = Astro.slots.has('hero');
 ---
 
 <Layout title={title} description={description}>
 
-  <slot name="hero"><GlobalHeader /></slot>
+  <slot name="hero" />
 
   <main id="skip-header-target">
 
-    <section id={isApplicationSite ? 'projects' : undefined} class={isApplicationSite ? 'margin-bottom-5' : 'margin-y-5'}>
+    <section id="projects" class="margin-bottom-5">
 
-      {!hasHero && <header class="container wide">
-        <div class="width-80--xxl">
-          <h1 class="banner-headline">
-            {copy.headline}
-          </h1>
-        </div>
-      </header>}
-
-      {isApplicationSite && <header class="container wide">
+      <header class="container wide">
         <hr class="margin-bottom-4 margin-bottom-5--lg" />
         <h2 class="margin-bottom-3">Curated case studies</h2>
-        {'projectsIntroduction' in copy && <p class="medium margin-bottom-0">{copy.projectsIntroduction}</p>}
-      </header>}
+        <p class="medium margin-bottom-0">{copy.projectsIntroduction}</p>
+      </header>
 
       <div class="container--md wide--md">
         <ProjectListView
           projects={projects}
-          headingLevel={isApplicationSite ? 3 : 2}
-          headingClass={isApplicationSite ? 'h2' : undefined}
-          margin={isApplicationSite ? 'margin-top-4 margin-top-5--lg margin-bottom-5' : undefined}
+          headingLevel={3}
+          headingClass="h2"
+          margin="margin-top-4 margin-top-5--lg margin-bottom-5"
         />
       </div>
 
-      {!isApplicationSite && <div class="container wide margin-y-5">
-        <Button href="/portfolio" utilities="theme-primary" title={copy.workButton} />
-      </div>}
     </section>
 
     <div class="container wide margin-y-5">
@@ -96,7 +80,7 @@ const hasHero = Astro.slots.has('hero');
 
     {homepagePosts.length > 0 && <section id="drawing-board" class="container wide margin-y-5">
       <header class="margin-bottom-4">
-        <h2 class="margin-bottom-0">{isApplicationSite ? 'From the Drawing Board' : drawingBoard.headline}</h2>
+        <h2 class="margin-bottom-0">From the Drawing Board</h2>
       </header>
 
       <PostList posts={homepagePosts} compact />

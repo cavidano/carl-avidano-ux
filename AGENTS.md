@@ -4,6 +4,8 @@ At the start of a new conversation in this project, read [the context index](con
 
 Save durable background and reusable guidelines in `context/`, updating the relevant existing file and its index. Keep employer-specific records with their application. When Carl is only establishing context or says no work is needed yet, confirm the requested information without starting production or pressing for the next role.
 
+Keep the main homepage's copy and markup directly editable in `src/pages/index.astro`. Carl asked for simple, readable source. Share reusable components where useful, but do not route the main homepage through the application homepage template or move its prose into application configuration.
+
 # Writing and editorial sources
 
 Before drafting or revising any audience-facing copy for this website, read the current relevant Confluence pages in the **Carl Avidano UX (CAU)** space. This applies to Drawing Board articles, case studies, listing descriptions, and other website copy.

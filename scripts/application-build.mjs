@@ -8,7 +8,11 @@ export function validateApplicationFiles(root) {
   const sitesRoot = join(root, 'src/sites');
   const folders = readdirSync(sitesRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory()).map(({ name }) => name);
   assert.deepEqual(folders.sort(), [...applicationSites].sort(), 'Every src/sites directory must be registered in src/lib/application-sites.js.');
-  const mainCopy = JSON.parse(readFileSync(join(root, 'src/content/pages/site.json'), 'utf8'));
+  const requiredCopy = {
+    home: ['title', 'description', 'headline', 'introduction', 'projectsIntroduction', 'workButton', 'aboutHeading', 'whoHeading', 'who', 'whatHeading', 'what', 'aboutButton', 'storiesButton'],
+    portfolio: ['title', 'description', 'headline', 'introduction'],
+    drawingBoard: ['headline', 'title', 'introduction']
+  };
 
   for (const site of retiredApplicationSites) {
     for (const path of [`src/pages/${site}.astro`, `src/sites/${site}`, `public/${site}`]) {
@@ -26,13 +30,10 @@ export function validateApplicationFiles(root) {
     const copy = JSON.parse(readFileSync(join(directory, 'site.json'), 'utf8'));
     assert.ok(/^images\/[\w-]+\.(png|jpe?g|webp|avif)$/.test(copy.backgroundImage ?? ''), `${site}: backgroundImage must name an image in this application's images directory.`);
     assert.ok(existsSync(join(directory, copy.backgroundImage)), `${site}: missing background image ${copy.backgroundImage}`);
-    for (const [section, fields] of Object.entries(mainCopy)) {
-      for (const field of Object.keys(fields)) {
+    for (const [section, fields] of Object.entries(requiredCopy)) {
+      for (const field of fields) {
         assert.ok(typeof copy[section]?.[field] === 'string' && copy[section][field].trim(), `${site}: missing text at site.json → ${section}.${field}`);
       }
-    }
-    for (const field of ['introduction', 'projectsIntroduction']) {
-      assert.ok(typeof copy.home[field] === 'string' && copy.home[field].trim(), `${site}: missing text at site.json → home.${field}`);
     }
   }
 }

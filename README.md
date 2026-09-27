@@ -28,15 +28,18 @@ The development server includes all registered applications. The current applica
 
 ## Where things live
 
+**Edit the main homepage in [src/pages/index.astro](src/pages/index.astro).** Its headline, About Me text, button labels, and page metadata are written directly in that file. Project-card titles and descriptions come from each case study in `src/content/portfolio/`; article summaries come from `src/content/drawing-board/`.
+
 | Location | Responsibility |
 | --- | --- |
 | [context/](context/README.md) | Project background, working preferences, Confluence writing directory, and application guidance |
-| `src/content/` | Main-site homepage copy, About page, case studies, and Drawing Board posts |
+| [src/pages/index.astro](src/pages/index.astro) | Main homepage copy and markup |
+| `src/content/` | Main-site About page, case studies, Drawing Board posts, and listing-page copy |
 | `src/sites/<application>/` | Application copy, selected projects/articles, decorative artwork, and working records |
 | `public/<application>/` | That application's résumé, employer SVG logos, and server rules |
 | `src/images/`, `public/media/` | Shared project illustrations, photographs, and videos |
 | `src/components/`, `src/layouts/` | Shared page composition, navigation, theme, and interactions |
-| `src/components/Applications/` | Components and SCSS shared specifically by applicant sites |
+| `src/components/Applications/` | Application homepage template, hero, background, and SCSS |
 | `src/pages/[site]/[...path].astro` | Routes for every registered application |
 | `src/pages/[site]/background.css.ts` | Optimized decorative background assets for each application |
 | `src/lib/application-sites.js` | Application IDs and website publication status |
