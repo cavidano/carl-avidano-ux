@@ -40,6 +40,8 @@ Use a plain paragraph under “My role” to state Carl's contribution and the o
 
 ## Portfolio comparisons
 
+On September 27, Carl requested Kate's card hierarchy for the main homepage: the project name in smaller, normally styled text, then a larger headline explaining the immediate impact of his work, followed by the description and a “View Case Study” button. Omit years and date separators. The first three working headlines are stored as `cardHeadline` beside each project's existing `title` and `description`; the matched Confluence working copies record the headline and button label. Preserve application-specific cards unless Carl requests the same change there.
+
 Researched September 27, 2026 at Carl's request for three strong senior UX designer or UX director portfolio references with evidence of effectiveness. Carl confirmed that the main website is his generalist portfolio; custom applications remain separate. These are research findings for discussion, not approved changes to his site.
 
 The shortlist contains two portfolio websites and one management portfolio presentation. Public hiring accounts support their selection, but cannot isolate a portfolio's contribution from experience, referrals, interviews, or the rest of an application. A successful historical portfolio also does not prove that every element of its current version is effective. No director-level hiring outcome was verified; the leadership example below concerns a move from senior designer into design management.

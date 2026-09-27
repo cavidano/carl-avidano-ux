@@ -28,7 +28,7 @@ The development server includes all registered applications. The current applica
 
 ## Where things live
 
-**Edit the main homepage in [src/pages/index.astro](src/pages/index.astro).** Its headline, About Me text, button labels, and page metadata are written directly in that file. Project-card titles and descriptions come from each case study in `src/content/portfolio/`; article summaries come from `src/content/drawing-board/`.
+**Edit the main homepage in [src/pages/index.astro](src/pages/index.astro).** Its headline, About Me text, button labels, and page metadata are written directly in that file. Project-card names (`title`), headlines (`cardHeadline`), descriptions, and button labels come from each case study in `src/content/portfolio/`; article summaries come from `src/content/drawing-board/`.
 
 | Location | Responsibility |
 | --- | --- |
