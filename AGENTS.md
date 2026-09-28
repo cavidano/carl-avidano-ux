@@ -6,6 +6,8 @@ Save durable background and reusable guidelines in `context/`, updating the rele
 
 Keep the main homepage's copy and markup directly editable in `src/pages/index.astro`. Carl asked for simple, readable source. Share reusable components where useful, but do not route the main homepage through the application homepage template or move its prose into application configuration.
 
+Keep the main Case Studies index's copy, metadata, and page markup directly editable in `src/pages/case-studies/index.astro` too. Do not recreate a `CaseStudiesPage` wrapper or move this page's prose into `site.json`. Reuse the shared project-card renderer and individual case-study MDX sources.
+
 # Writing and editorial sources
 
 Before drafting or revising any audience-facing copy for this website, read the current relevant Confluence pages in the **Carl Avidano UX (CAU)** space. This applies to Drawing Board articles, case studies, listing descriptions, and other website copy.

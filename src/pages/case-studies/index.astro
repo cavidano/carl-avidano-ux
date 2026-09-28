@@ -1,4 +1,38 @@
 ---
-import CaseStudiesPage from '../../components/Pages/CaseStudiesPage.astro';
+import Layout from '../../layouts/Layout.astro';
+import GlobalHeader from '../../components/GlobalHeader/GlobalHeader.astro';
+import ProjectListView from '../../components/ProjectListView.astro';
+import { getMainProjects } from '../../lib/projects.js';
+
+const projects = getMainProjects();
 ---
-<CaseStudiesPage />
+
+<Layout
+  title="Case Studies • Carl Avidano • UX Manager"
+  description="Explore case studies in UX research, accessibility, design systems, and front-end development for government, nonprofits, education, and civic technology."
+>
+  <GlobalHeader />
+
+  <main id="skip-header-target">
+
+    <section class="margin-y-6">
+
+      <header class="container wide">
+        <h1 class="banner-headline margin-bottom-3">
+          Case studies
+        </h1>
+        <div class="narrow">
+          <p>
+            I've led and collaborated on digital projects for government agencies, global nonprofits, and intergovernmental organizations.
+          </p>
+        </div>
+      </header>
+
+      <div class="container--md wide--md">
+        <ProjectListView projects={projects} margin="margin-top-3 margin-top-5--lg margin-bottom-5" />
+      </div>
+
+    </section>
+
+  </main>
+</Layout>

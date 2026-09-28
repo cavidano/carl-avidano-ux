@@ -11,7 +11,7 @@ This folder holds the specific background, source material, and reusable guideli
 | [Jared's original workshop PDF](Job-Search-2026-What-Makes-a-Great-UX-Portfolio.pdf) | Original source supplied by Carl; retained locally and excluded from Git |
 | [Application sites](application-sites.md) | Setup, shared layout, documents, review, deployment, and retirement workflow |
 | [Job search preferences and shortlist](job-search.md) | Carl's selection criteria and the dated employer discussion |
-| [Case studies](case-studies.md) | Writing sources, structure, confirmed project evidence, review checkpoints, and portfolio comparisons with hiring evidence |
+| [Case studies](case-studies.md) | Writing sources, September 28 main-site synchronization, structure, confirmed project evidence, review checkpoints, and portfolio comparisons with hiring evidence |
 | [The Drawing Board](drawing-board.md) | Writing conventions, article behavior, source evidence, and figure guidance |
 | [Application tailoring evidence guide](application-tailoring-evidence-guide.md) | Additional research and our method for connecting job requirements to verified experience |
 
@@ -20,6 +20,10 @@ Keep durable context and guidelines here. Update an existing relevant file befor
 ## Application working context and continuity
 
 The main website is Carl's generalist portfolio. Its homepage copy and markup live directly in [src/pages/index.astro](../src/pages/index.astro). Keep it straightforward to edit there. Application homepages use their own [template](../src/components/Applications/ApplicationHomePage.astro) and each employer's `site.json`; their setup must not force the main homepage through an application template or copy lookup. Project and article cards continue to use their corresponding MDX sources.
+
+The main [Case Studies index](../src/pages/case-studies/index.astro) also owns its copy, metadata, and page markup directly. Carl requested this simplification on September 28, 2026, following the homepage change. Keep it directly editable; do not restore the removed `CaseStudiesPage` component or a separate JSON copy lookup. The shared card renderer reads the individual case-study MDX files.
+
+**Current order of work, confirmed September 28, 2026:** Finish the regular website and its main case studies first, keeping their Confluence pages aligned with the current website source. Move to the individual application sites afterward, tailoring the approved main-site work to each employer. Do not propagate main-site revisions into application copies during this first phase. All eight main Confluence case studies were synchronized on September 28; see the [editorial state](case-studies.md#recorded-editorial-state) for scope and verification. Later local headline and listing edits have not all been resynchronized; consult the dated checkpoints before claiming the copies match. Synchronization does not mean every narrative has received a full rewrite or that the website has been published.
 
 Carl confirmed on September 27, 2026 that he has **20+ years of experience**. He requested “15+ years of experience” for the homepage pill while discussing age bias in hiring. Treat that as a presentation choice, not a shortened career history; keep actual roles and dates accurate. The homepage pills also show “Based in New York” and an easily editable role, initially “Senior Product Designer.”
 
