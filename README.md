@@ -47,9 +47,9 @@ The development server includes all registered applications. The current applica
 | `scripts/application-build.mjs` | Validate application files and exclude draft public assets from production output |
 | `scripts/check-site-links.mjs` | Check built links, assets, responsive images, metadata, and application isolation |
 
-Application content copies are deliberate snapshots. A change to the main case study or a shared image does not automatically approve new wording for an already submitted application. Keep application text independently editable. If an image must differ for one application, give it a separate source file and import it from that application's MDX or hero.
+Application content currently uses independent snapshots. Carl’s September 28 direction is to reuse approved main-site case studies and tailor application landing pages and project selection; that migration follows this main-site launch. Until that update, a change to the main case study or a shared image does not automatically approve new wording for an already submitted application. Keep application text independently editable. If an image must differ for one application, give it a separate source file and import it from that application's MDX or hero.
 
-The main Case Studies listing is at `/case-studies`, with individual pages at `/case-studies/<slug>`. Application case studies use `/<application>/case-studies/<slug>`; their overview is the application's homepage `#projects` section. The editable MDX files remain in the existing `portfolio/` source folders. Listing copy and metadata use the `caseStudies` section of `site.json`.
+The main Case Studies listing is at `/case-studies`, with individual pages at `/case-studies/<slug>`. Application case studies use `/<application>/case-studies/<slug>`; their overview is the application's homepage `#projects` section. The editable MDX files remain in the existing `portfolio/` source folders. The main listing’s copy, metadata, and markup are directly editable in `src/pages/case-studies/index.astro`.
 
 ## Application workflow
 
@@ -59,7 +59,7 @@ The registry's `published` status means the website is approved for production b
 
 ## Build and deployment
 
-The Cloudways workflow is manually dispatched. It checks a review build, then produces and audits `dist/`; only that production output is uploaded as the deployment artifact. Deployment happens only when the workflow's `deploy` input is enabled. A local build never publishes anything.
+The Cloudways workflow is manually dispatched. It checks a review build, then produces and audits `dist/`; only that production output is uploaded as the deployment artifact. Deployment happens only when the workflow's `deploy` input is enabled. A local build never publishes anything. Deployment removes old `portfolio/` directories only for the main site and published applications with a built `case-studies/` replacement; Carl requested this route migration without redirects.
 
 Production builds exclude draft application routes and the corresponding `public/<application>/` directory, including PDFs and logos. Approved application pages remain `noindex, follow` and excluded from the sitemap. Indexing controls are not access controls.
 

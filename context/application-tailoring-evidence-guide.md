@@ -17,6 +17,8 @@ The following is our synthesis and implementation, not a formula prescribed by a
 
 ### Reuse the foundation and tailor the emphasis
 
+**Latest direction, September 28, 2026:** Tailor the application landing page and featured case-study selection. Reuse approved case-study narratives rather than revising them for every employer. This supersedes the earlier default of tailoring passages described below; retain that option only when Carl explicitly requests it. Publish the current main website first, then improve its case studies and update the application sites.
+
 Carl clarified this approach on September 27, 2026: prepare a custom application for each job pursued, using the approved case studies as the foundation. Most of a case study can remain the same across applications. Keep wording that already explains the relevant experience clearly.
 
 Tailoring can mean adjusting an introduction or card description, highlighting a different responsibility or decision, or revising a passage to make its relevance to the role clearer. For example, the same project may support an emphasis on research for one role and implementation for another, when the evidence supports both. Choose edits because they help answer that employer's questions; do not rewrite whole case studies merely to make each version different.

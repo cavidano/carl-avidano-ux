@@ -9,6 +9,7 @@ On September 27, 2026, Carl chose **Case Studies** for the section name, navigat
 Carl confirmed on September 28, 2026 that the current priority is the regular website and its main case studies. Finish that work and keep its Confluence copies aligned before moving into individual application sites. For those later custom applications, [reuse the approved foundation and tailor the emphasis](application-tailoring-evidence-guide.md#reuse-the-foundation-and-tailor-the-emphasis). Keep useful wording intact and highlight the evidence relevant to each role; a new application does not call for a complete case-study rewrite.
 
 - [Writing sources](#writing-sources)
+- [Nielsen Norman Group portfolio reference](#nielsen-norman-group-portfolio-reference)
 - [Approved structure](#approved-structure)
 - [Portfolio comparisons](#portfolio-comparisons)
 - [Recorded editorial state](#recorded-editorial-state)
@@ -34,9 +35,41 @@ The September 21 import used commit `7174f95` and was checked for text, headings
 
 For approved changes, synchronize Confluence and the relevant local copy and verify the saved content. Preserve project colors, figures, captions, and original proportions. Keep research and Rovo transcripts separate from audience-facing case-study copy.
 
+## Nielsen Norman Group portfolio reference
+
+On September 28, 2026, Carl asked to retain [5 Steps to Creating a UX-Design Portfolio](https://www.nngroup.com/articles/ux-design-portfolios/) by Rachel Krause, published August 4, 2019. He particularly values its case-study structure. The article was read directly on September 28. The guidance below is a paraphrased reference, not a reproduction of the article.
+
+### Article guidance
+
+Make relevant strengths easy for hiring readers to recognize. Show reasoning, collaboration, and intermediate work alongside final designs. Select projects for the work you want to do; the suggested three-to-five projects is guidance, not a rigid limit. Use a consistent, scannable presentation, respect confidentiality, and improve the portfolio through reader feedback. When time is limited, deepen one or two substantial projects.
+
+### Seven-part case-study checklist
+
+1. **Problem or hypothesis:** What needed solving, or what proposition did the work investigate?
+2. **Contribution and collaboration:** What did you own, and how did you work with others?
+3. **Reasoning:** What evidence and decisions led to the approach?
+4. **Effectiveness:** What shows whether the solution addressed the problem?
+5. **Constraints and alternatives:** What obstacles or rejected approaches shaped the work?
+6. **Impact:** What changed for users and the organization?
+7. **Learning:** What did the experience teach you?
+
+### Application to this portfolio
+
+Use this checklist alongside [Jared Spool's September 2026 guidance](jared-spool-ux-portfolio-2026.md), the current Confluence copy, verified project evidence, and Carl's latest instructions. Jared's emphasis on relevance to a particular position remains central when tailoring application sites.
+
+Keep Carl's approved Challenge, Solution, and Results opening, compact project summary, supporting work, and reflection. The checklist helps assess the substance within that structure; it does not require seven new headings on every page. NYC's multi-project format can remain a collection with selected deeper examples.
+
+Describe an actual problem when no explicit hypothesis was used. Do not invent hypotheses, abandoned concepts, testing, causal claims, or measured outcomes to complete the checklist. Distinguish Carl's contribution from team results and observed findings from recommendations.
+
+Carl prefers focused improvements with a clear benefit. Use existing artifacts and short explanations before proposing new graphics or larger narratives. Retaining this reference does not authorize a new rewrite, changes to application sites, or publication.
+
+NN/g's [January 31, 2025 job-search article](https://www.nngroup.com/articles/apply-secure-ux-job/) still directs readers to this portfolio article. Preserve the original 2019 date; that later recommendation does not make the underlying research new.
+
 ## Approved structure
 
 On September 28, Carl requested a preview of all main-site case-study headers without the subtitle beneath the project title. Omit the subtitle on the regular website; retain the source tagline for now and preserve application-site headers until that phase of work.
+
+Later on September 28, Carl asked to try the existing case-study **card headline** beneath the main project title. He requested a checkpoint first; commit `722920f` saves the state without subtitles, including the compact summaries and fixed five-column results grid. The updated header reuses `cardHeadline` directly on main-site detail pages. Application-site taglines retain their existing behavior. Carl subsequently requested publication of all current website improvements, including these headers, before further case-study enhancements. This supersedes the earlier subtitle omission; no new headline wording is introduced.
 
 Later that day, Carl replaced the proposed full-width information band with a compact summary in the right column where the role paragraph used to be. His latest layout is a vertical list of two-column rows: label on the left, value on the right, with no borders and larger, readable type. The requested order is **Domain, Timeline, My role, Team size, Website**. Phoenix currently reads **Government; 2024–2025; UX strategy lead; 13+ people; phoenix.gov**. Website is a linked final row that replaces the separate View project button on Phoenix; its text and URL remain directly editable in that metadata entry. Carl’s latest choice is Domain, using broad categories: Government for Phoenix and NYC, Education for Visionlearning, Conservation for Cheetah, Legal services for LADRC, Ecommerce for Mr. Ellie Pooh, Design systems for Natura11y, and Intergovernmental organization for UNICEF. This supersedes the earlier Project type label and narrower values. My role names his role on the project, rather than listing activities or giving his employer job title. He removed Scope and long team descriptions. After initially omitting team size, he explicitly requested it again in this ordered list. Use clear alignment and space. All eight main case studies keep the entries directly editable in `caseStudy.metadata` in their MDX files; the existing `CaseStudyOverview` displays them. Carl subsequently approved applying the finished summary pattern to all eight main-site case studies. Each uses Domain, Timeline, My role, Team size, and Website in that order where supported; omit unconfirmed dates or team sizes and unavailable project links. Each public project URL is now a Website row instead of a separate button. No new component or dependency was added. Application copies retain their role paragraphs and existing layout.
 
@@ -160,7 +193,7 @@ Keep the wireframes central to the account of Carl's work. Label live captures w
 
 **Explain one research finding in the prose.** The existing `PHX-tree-testing-ppt.png` records 92 participants. Its homelessness-assistance task shows 68% overall success and recommends moving Homeless Solutions into Housing or cross-linking the sections. This is more informative than the current general statement that testing helped refine the sitemap. It supports a finding and recommendation; it does not establish a later improvement in task success. Confirm the actual subsequent decision before describing it as implemented because of that test.
 
-**Clarify outcome evidence.** The 37% to 57% download statement needs a definition of the percentage, comparison period, and source. The WCAG AA claim needs its version, scope, and assessment basis. The sentence saying mobile prototypes “confirmed” effectiveness needs the relevant validation evidence or more limited wording. These are requests for context, not findings that the claims are false.
+**Outcome evidence, updated September 28.** The [Reingold Phoenix.gov case study](https://www.reingold.com/featuredprojects/phoenix-gov/), read directly September 28, reports an increase in visitors downloading materials from 37% to 57%. The published wording identifies a visitor metric, not the percentage of available files downloaded. Carl initially recalled visitors, then considered whether the percentage referred to materials; use the source’s visitor wording and do not preserve that later guess as fact. The local result description had dropped “visitors,” creating the ambiguity. The source resolves the missing metric label and source; it does not specify comparison dates or analytics methodology. Carl approved correcting the label to “Visitors downloading materials, up from 37%.” beneath the 57% figure. The main website and Confluence were updated with this wording on September 28. Stop treating the metric’s identity as an unresolved issue. Carl also approved adding a fourth Phoenix result from the same Reingold source: **48%** — “Visits with clicks to external resources, such as payment and trash collection services, up from 13%.” This describes click-throughs, not completed payments or service transactions. The main website and Confluence include it after the download result, using the fixed five-column grid. The same source attributes its AA/AAA figures to SiteImprove scores; it does not by itself establish a complete manual conformance assessment. The WCAG AA claim still needs its version, scope, and assessment basis. The sentence saying mobile prototypes “confirmed” effectiveness needs the relevant validation evidence or more limited wording. These are requests for context, not findings that the claims are false.
 
 The City's [March 19, 2025 employee newsletter](https://www.phoenix.gov/content/dam/phoenix/commsite/documents/phx-connect/PHXConnect-March-19-2025.pdf) announced the March 24 launch, consistent with the case study. A City overview report also surfaced in search, but its full PDF could not be fetched by the web tool; this review does not treat it as verification of all portfolio metrics.
 

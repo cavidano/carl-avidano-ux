@@ -149,6 +149,39 @@ jobs:
               "${CLOUDWAYS_USERNAME}@${CLOUDWAYS_HOST}:${CLOUDWAYS_DEPLOY_PATH}/${section}/"
           done
 
+      - name: Remove old portfolio routes
+        env:
+          CLOUDWAYS_HOST: ${{ secrets.CLOUDWAYS_HOST }}
+          CLOUDWAYS_USERNAME: ${{ secrets.CLOUDWAYS_USERNAME }}
+          CLOUDWAYS_DEPLOY_PATH: ${{ vars.CLOUDWAYS_DEPLOY_PATH }}
+        run: |
+          set -euo pipefail
+
+          # Only retire portfolio directories whose case-studies replacement is built.
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const roots = ['.', ...fs.readdirSync('site', { withFileTypes: true })
+            .filter(entry => entry.isDirectory() && /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/.test(entry.name))
+            .map(entry => entry.name)]
+            .filter(root => fs.existsSync(path.join('site', root, 'case-studies')));
+          if (roots.some(root => fs.existsSync(path.join('site', root, 'portfolio')))) {
+            throw new Error('Refusing to remove a portfolio route that is still in the build.');
+          }
+          fs.writeFileSync(path.join(process.env.RUNNER_TEMP, 'old-portfolio-routes.txt'),
+            roots.map(root => `${root}/portfolio\n`).join(''));
+          NODE
+
+          printf -v quoted_deploy_path '%q' "$CLOUDWAYS_DEPLOY_PATH"
+          while IFS= read -r old_route; do
+            replacement="${old_route%/portfolio}/case-studies"
+            ssh \
+              -i ~/.ssh/cloudways \
+              -p 22 \
+              "${CLOUDWAYS_USERNAME}@${CLOUDWAYS_HOST}" \
+              "cd ${quoted_deploy_path} && test -f index.html && test -d '${replacement}' && rm -rf -- '${old_route}'"
+          done < "${RUNNER_TEMP}/old-portfolio-routes.txt"
+
       - name: Remove retired applicant sites
         env:
           CLOUDWAYS_HOST: ${{ secrets.CLOUDWAYS_HOST }}

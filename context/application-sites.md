@@ -1,5 +1,9 @@
 # Application sites
 
+## Current direction
+
+On September 28, 2026, Carl chose a simpler approach: tailor each application landing page and select the relevant case studies, while reusing the approved main-site case studies. Do not rewrite complete case studies for each employer by default. He requested that the current website go live first, followed by case-study improvements and the application-site update. The existing independent MDX copies and employer-specific Confluence pages have not yet been migrated; the instructions below describe that current implementation. Preserve them during this launch, along with each application’s publication state and résumé.
+
 ## Start an application
 
 1. Confirm the employer, exact role, requisition, and official posting. Read the entire posting and assess it as a whole before recommending the role or beginning production, following the [evidence guide](application-tailoring-evidence-guide.md). Include qualifications, employer flexibility, location/pay conditions, and application instructions; report any inaccessible sections. Once proceeding is justified, create a new `codex/<application>-microsite` branch from the appropriate current base. Preserve existing uncommitted work before switching branches.
