@@ -175,7 +175,7 @@ jobs:
           printf -v quoted_deploy_path '%q' "$CLOUDWAYS_DEPLOY_PATH"
           while IFS= read -r old_route; do
             replacement="${old_route%/portfolio}/case-studies"
-            ssh \
+            ssh -n \
               -i ~/.ssh/cloudways \
               -p 22 \
               "${CLOUDWAYS_USERNAME}@${CLOUDWAYS_HOST}" \
@@ -206,7 +206,7 @@ jobs:
           # The JSON manifest remains in the build artifact, not on the public server.
           printf -v quoted_deploy_path '%q' "$CLOUDWAYS_DEPLOY_PATH"
           while IFS= read -r application; do
-            ssh \
+            ssh -n \
               -i ~/.ssh/cloudways \
               -p 22 \
               "${CLOUDWAYS_USERNAME}@${CLOUDWAYS_HOST}" \
