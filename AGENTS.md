@@ -8,6 +8,8 @@ Keep the main homepage's copy and markup directly editable in `src/pages/index.a
 
 Keep the main Case Studies index's copy, metadata, and page markup directly editable in `src/pages/case-studies/index.astro` too. Do not recreate a `CaseStudiesPage` wrapper or move this page's prose into `site.json`. Reuse the shared project-card renderer and individual case-study MDX sources.
 
+The main About page and Drawing Board listing follow the same rule: edit `src/pages/about.astro` and `src/pages/drawing-board/index.astro` directly. Main Drawing Board topic routes reuse that index with filtered posts. Keep application About and Drawing Board templates in `src/components/Applications/`; do not restore the removed main About MDX or main `site.json` copy lookup.
+
 # Writing and editorial sources
 
 Before drafting or revising any audience-facing copy for this website, read the current relevant Confluence pages in the **Carl Avidano UX (CAU)** space. This applies to Drawing Board articles, case studies, listing descriptions, and other website copy.

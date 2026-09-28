@@ -1,9 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getSiteCopy } from '../../lib/sites.js';
+import { getApplicationCopy } from '../../lib/sites.js';
+import { getSiteId } from '../../lib/site-paths.js';
 import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
-import PostList from './PostList.astro';
-import TagNav from './TagNav.astro';
+import PostList from '../DrawingBoard/PostList.astro';
+import TagNav from '../DrawingBoard/TagNav.astro';
 import type { getDrawingBoardPosts } from '../../lib/drawing-board.js';
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const { posts, currentTag } = Astro.props;
-const copy = getSiteCopy(Astro.url.pathname).drawingBoard;
+const copy = getApplicationCopy(getSiteId(Astro.url.pathname)).drawingBoard;
 const { introduction } = copy;
 const title = `${currentTag ? `${currentTag.name} • ` : ''}${copy.title}`;
 const description = currentTag ? `${currentTag.name} articles from The Drawing Board.` : introduction;

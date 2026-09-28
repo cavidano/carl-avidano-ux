@@ -1,10 +1,10 @@
 ---
 import ApplicationHomePage from '../../components/Applications/ApplicationHomePage.astro';
-import AboutPage from '../../components/Pages/AboutPage.astro';
+import ApplicationAboutPage from '../../components/Applications/ApplicationAboutPage.astro';
 import ProjectPage from '../../components/Pages/ProjectPage.astro';
 import PostPage from '../../components/Pages/PostPage.astro';
 import NotFoundPage from '../../components/Pages/NotFoundPage.astro';
-import ListingPage from '../../components/DrawingBoard/ListingPage.astro';
+import ApplicationDrawingBoardPage from '../../components/Applications/ApplicationDrawingBoardPage.astro';
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import { getApplicationSites } from '../../lib/application-sites.js';
 import { getAllProjects } from '../../lib/projects.js';
@@ -35,8 +35,8 @@ if (!Hero) throw new Error(`Application ${Astro.params.site}: missing Hero.astro
 const { kind, project, post, posts, tag } = Astro.props;
 ---
 {kind === 'home' && <ApplicationHomePage><Hero slot="hero" /></ApplicationHomePage>}
-{kind === 'about' && <AboutPage />}
+{kind === 'about' && <ApplicationAboutPage />}
 {kind === 'project' && project && <ProjectPage project={project} />}
 {kind === 'post' && post && <PostPage post={post} />}
-{kind === 'articles' && <ListingPage posts={posts ?? []} currentTag={tag} />}
+{kind === 'articles' && <ApplicationDrawingBoardPage posts={posts ?? []} currentTag={tag} />}
 {kind === 'notFound' && <NotFoundPage />}

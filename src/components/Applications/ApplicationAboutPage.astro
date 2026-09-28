@@ -4,13 +4,13 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
 
-import { getAboutPage } from '../../lib/about.js';
+import { getApplicationAboutPage } from '../../lib/about.js';
 import { getSiteId } from '../../lib/site-paths.js';
 import SiteLink from '../SiteLink.astro';
 
-const { default: AboutContent, frontmatter } = getAboutPage(getSiteId(Astro.url.pathname));
+const { default: AboutContent, frontmatter } = getApplicationAboutPage(getSiteId(Astro.url.pathname));
 
-import AboutHeading from '../AboutHeading.astro';
+import AboutHeading from './AboutHeading.astro';
 
 import portrait from '../../images/carl-avidano-16x9.jpg';
 

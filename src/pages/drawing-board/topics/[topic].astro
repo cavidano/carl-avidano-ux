@@ -1,5 +1,5 @@
 ---
-import ListingPage from '../../../components/DrawingBoard/ListingPage.astro';
+import DrawingBoardPage from '../index.astro';
 import { getDrawingBoardTags } from '../../../lib/drawing-board.js';
 
 export function getStaticPaths() {
@@ -12,4 +12,4 @@ export function getStaticPaths() {
 const { tag } = Astro.props;
 ---
 
-<ListingPage posts={tag.posts} currentTag={tag} />
+<DrawingBoardPage posts={tag.posts} currentTag={tag} />

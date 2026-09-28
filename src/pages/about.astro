@@ -1,4 +1,96 @@
 ---
-import AboutPage from '../components/Pages/AboutPage.astro';
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import GlobalHeader from '../components/GlobalHeader/GlobalHeader.astro';
+import SiteLink from '../components/SiteLink.astro';
+import portrait from '../images/carl-avidano-16x9.jpg';
 ---
-<AboutPage />
+
+<Layout
+  title="About • Carl Avidano • UX Manager"
+  description="Carl Avidano is a UX leader and inclusive design advocate who helps organizations create accessible, equitable, human-centered digital products."
+  image={portrait}
+  imageAlt="Black and white portrait of Carl Avidano"
+>
+  <GlobalHeader />
+
+  <main class="container wide" id="skip-header-target">
+
+    <div class="margin-y-3 margin-y-5--lg position-relative">
+      <Image
+        class="project-image"
+        src={portrait}
+        alt="Black and white portrait of Carl Avidano"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+
+    <article class="grid grid--column-4--xl gap-3 border-top padding-y-4">
+      <div>
+        <p class="h6">Carl Avidano</p>
+        <p>(he/him)</p>
+      </div>
+
+      <div class="grid grid__colspan-3--xl gap-4">
+        <section class="grid grid--column-3--lg gap-3">
+          <p class="font-size-md margin-bottom-0">Location:<br />New York</p>
+
+          <div class="grid__colspan-2--lg">
+            <h1 class="margin-bottom-4">I’m a UX leader and inclusive design advocate</h1>
+
+            <p>As a seasoned UX professional, I’ve never been more excited about this work. Digital products shape how people access information, services, and opportunities. And as designers, we have a responsibility to make those experiences useful and inclusive.</p>
+
+            <p>That’s why my approach remains grounded in human-centered design.</p>
+
+            <p>As a UX researcher, I know the value of gathering evidence and testing with real users. As a manager, I believe it’s just as important to listen as it is to lead. As a disabled person, I know what it feels like to be left out.</p>
+
+            <p>Technologies come and go, but the principles and practices behind effective design remain the same. That’s why I work to keep everything I do grounded in empathy and inclusion.</p>
+
+            <p>I’ve worked across federal, state, and city government, national and international nonprofits, education, and healthcare. Whether I’m mentoring teams, leading research, or building design systems, my goal is to leave things better than I found them.</p>
+          </div>
+        </section>
+
+        <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-expertise">
+          <h2 class="h5 margin-bottom-0">Skills and experience</h2>
+
+          <ul class="grid grid__colspan-2--lg gap-2 font-size-md margin-bottom-0">
+            <li>UX research and strategy</li>
+            <li>Information architecture</li>
+            <li>Lo-fi and hi-fi interaction design</li>
+            <li>Art direction, graphic design, and illustration</li>
+            <li>Design systems (architecture, maintenance, and docs)</li>
+            <li>AI-assisted design and development</li>
+            <li>Front-end development (HTML, CSS, JavaScript)</li>
+            <li>Digital accessibility and inclusive design</li>
+            <li>Management and mentorship</li>
+          </ul>
+        </section>
+
+        <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="get-in-touch">
+          <h2 class="h5 margin-bottom-0">Get in touch</h2>
+
+          <div class="grid__colspan-2--lg font-size-md">
+            <ul class="nav gap-2 margin-bottom-4">
+              <li>
+                <SiteLink href="mailto:cavidano@gmail.com">cavidano@gmail.com</SiteLink>
+              </li>
+              <li>
+                <SiteLink href="https://www.linkedin.com/in/carlavidano/" target="_blank" rel="noreferrer">LinkedIn</SiteLink>
+              </li>
+              <li>
+                <SiteLink href="tel:7187378545">718-737-8545</SiteLink>
+              </li>
+            </ul>
+
+            <SiteLink class="button button--has-icon button--outline font-size-md" href="/resume-carl-avidano.pdf" download>
+              <span class="icon icon-file-download" aria-hidden="true"></span>
+              <span class="button__text">Download Resume (PDF)</span>
+            </SiteLink>
+          </div>
+        </section>
+      </div>
+    </article>
+
+  </main>
+</Layout>

@@ -1,8 +1,14 @@
-import { contentRoot } from './sites.js';
+/** @type {Record<string, import('astro').MDXInstance<{
+ * title: string,
+ * description: string,
+ * portraitAlt: string,
+ * profile: { name: string, pronouns: string, location: string, email: string, phone: string },
+ * skills: string[]
+ * }>>} */
+const pages = import.meta.glob('/src/sites/*/pages/about.mdx', { eager: true });
 
-/** @type {Record<string, typeof import('../content/pages/about.mdx')>} */
-const pages = import.meta.glob(['/src/content/pages/about.mdx', '/src/sites/*/pages/about.mdx'], { eager: true });
-
-export function getAboutPage(siteId = 'main') {
-  return pages[`${contentRoot(siteId)}/pages/about.mdx`];
+export function getApplicationAboutPage(siteId) {
+  const page = pages[`/src/sites/${siteId}/pages/about.mdx`];
+  if (!page) throw new Error(`Application ${siteId}: missing pages/about.mdx.`);
+  return page;
 }
