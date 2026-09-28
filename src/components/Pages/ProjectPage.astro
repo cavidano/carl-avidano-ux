@@ -82,9 +82,11 @@ const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-te
                 <h1 class="banner-headline">
                   {frontmatter.title}
                 </h1>
-                <p>
-                  {frontmatter.tagline || frontmatter.description}
-                </p>
+                {applicationSite && (
+                  <p>
+                    {frontmatter.tagline || frontmatter.description}
+                  </p>
+                )}
               </div>
 
             </div>

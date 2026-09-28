@@ -11,7 +11,7 @@ This folder holds the specific background, source material, and reusable guideli
 | [Jared's original workshop PDF](Job-Search-2026-What-Makes-a-Great-UX-Portfolio.pdf) | Original source supplied by Carl; retained locally and excluded from Git |
 | [Application sites](application-sites.md) | Setup, shared layout, documents, review, deployment, and retirement workflow |
 | [Job search preferences and shortlist](job-search.md) | Carl's selection criteria and the dated employer discussion |
-| [Case studies](case-studies.md) | Writing sources, September 28 main-site synchronization, structure, confirmed project evidence, review checkpoints, and portfolio comparisons with hiring evidence |
+| [Case studies](case-studies.md) | Writing sources, main-site synchronization, compact project summaries, confirmed project evidence, review checkpoints, and portfolio comparisons with hiring evidence |
 | [The Drawing Board](drawing-board.md) | Writing conventions, article behavior, source evidence, and figure guidance |
 | [Application tailoring evidence guide](application-tailoring-evidence-guide.md) | Additional research and our method for connecting job requirements to verified experience |
 

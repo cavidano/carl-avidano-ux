@@ -1,5 +1,6 @@
 ---
 import Button from './Button.astro';
+import LinkOpenNew from './LinkOpenNew.astro';
 import KeyResults from './KeyResults/KeyResults.astro';
 
 interface KeyResult {
@@ -9,6 +10,7 @@ interface KeyResult {
 
 interface CaseStudy {
   myRole?: string;
+  metadata?: { label: string; value: string; href?: string }[];
   projectUrl?: string | null;
   projectButtonLabel?: string;
   keyResults?: KeyResult[];
@@ -24,6 +26,7 @@ const {
 
 const {
   myRole = '',
+  metadata = [],
   projectUrl = null,
   projectButtonLabel = 'View project',
   keyResults = []
@@ -35,12 +38,13 @@ const hasOverview = Astro.slots.has('default');
 const hasRole = Boolean(myRole);
 const hasProjectLink = Boolean(projectUrl);
 const hasKeyResults = keyResultItems.length > 0;
+const hasMetadata = metadata.length > 0;
 ---
 
-{(hasOverview || hasRole || hasProjectLink || hasKeyResults) && (
+{(hasOverview || hasRole || hasProjectLink || hasKeyResults || hasMetadata) && (
   
   <div class="container wide">
-    {(hasOverview || hasRole || hasProjectLink) && (
+    {(hasOverview || hasRole || hasProjectLink || hasMetadata) && (
       <div
         class="grid-sidebar--right gap-5 margin-y-5"
         style="--grid-sidebar-width: min(35rem, 35%);"
@@ -51,9 +55,24 @@ const hasKeyResults = keyResultItems.length > 0;
           </div>
         )}
 
-        {(hasRole || hasProjectLink) && (
+        {(hasRole || hasProjectLink || hasMetadata) && (
           <div class="grid-sidebar__minor">
             <aside>
+              {hasMetadata && (
+                <dl class="case-study-metadata">
+                  {metadata.map(({ label, value, href }) => (
+                    <Fragment>
+                      <dt>{label}</dt>
+                      <dd>
+                        {href ? (
+                          <LinkOpenNew LinkText={value} LinkUrl={href} utilities="link gap-1 font-weight-normal" />
+                        ) : value}
+                      </dd>
+                    </Fragment>
+                  ))}
+                </dl>
+              )}
+
               {hasRole && (
                 <>
                   <h2 class="h5">My role</h2>
@@ -62,7 +81,7 @@ const hasKeyResults = keyResultItems.length > 0;
               )}
 
               {hasProjectLink && (
-                <div class="margin-top-3">
+                <div class={hasMetadata ? 'margin-top-4' : 'margin-top-3'}>
                   <Button
                     href={projectUrl}
                     title={projectButtonLabel}
@@ -86,3 +105,30 @@ const hasKeyResults = keyResultItems.length > 0;
     <hr class="margin-y-5" />
   </div>
 )}
+
+<style>
+  .case-study-metadata {
+    --link-color: currentColor;
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: var(--spacer-2) calc(var(--spacer-3) + var(--spacer-1));
+    align-items: baseline;
+    margin: 0;
+  }
+
+  .case-study-metadata dt {
+    margin: 0;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    opacity: 0.7;
+    white-space: nowrap;
+  }
+
+  .case-study-metadata dd {
+    margin: 0;
+    font-size: var(--font-size-md);
+    line-height: var(--body-line-height);
+    overflow-wrap: anywhere;
+  }
+
+</style>
