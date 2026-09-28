@@ -10,7 +10,6 @@ interface Props {
   currentTag?: { name: string; slug: string };
 }
 
-// Topic routes reuse this page so its wording and layout stay in one place.
 const { posts = getDrawingBoardPosts(), currentTag } = Astro.props;
 const introduction = 'Quick reads on my creative process, collaborations, and what I’m learning as I build accessible interfaces and design systems. I also share the smaller details that don’t always fit into a case study.';
 const title = `${currentTag ? `${currentTag.name} • ` : ''}The Drawing Board • Carl Avidano`;

@@ -2,6 +2,8 @@
 
 Use this guide for writing conventions, implementation contracts, and article evidence. Read current Confluence and local copies before revising. Publication and synchronization checks recorded here are dated history, not fresh verification.
 
+**Main-site synchronization check, September 28, 2026:** All seven published article bodies matched their current website copies. The Confluence pages were missing their current website card/SEO descriptions; those descriptions and source metadata were added in an expansion. Five article pages, including the existing Malar Stripe draft, still linked to `/portfolio/` case-study URLs; those links now use `/case-studies/`. The Drawing Board parent now records its current listing metadata and direct Astro source. All changed pages were read back: text matched the planned updates, media references and dimensions were preserved, and published articles' body copy, captions, and useful links matched the website. Publication settings were not changed. Verified versions: parent **6**, ESR **10**, contrast themes **11**, social graphics **15**, presentation **4**, monorepo **10**, Gatsby-to-Astro **7**, navigation **5**, and Malar Stripe draft **5**. The separate unapproved logo sample remains a local draft, outside this published-copy synchronization.
+
 - [Writing standard](#writing-standard)
 - [Editing in Confluence](#editing-in-confluence)
 - [Layout and body components](#layout)
