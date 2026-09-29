@@ -629,3 +629,8 @@ This is a local first-pass review branch, not a website release or an approved r
 ### September 29 Looking back figure removed
 
 Carl requested removing the large homepage-evolution figure from Looking back because the new narrative already shows the design iterations. Removed VL-10 and its caption from `visionlearning-case-study`, leaving all reflection prose unchanged in one TextBlock. The source image and legacy branch are preserved. This supersedes the earlier instruction to retain the entire reflection section including its figure.
+
+
+### September 29 public-site wireframes consolidated
+
+Carl requested one six-screen grid with a brief introduction, allowing the clear images to carry the sequence as in Phoenix. Pushed `visionlearning-case-study` at `c4e4d85` and `visionlearning-legacy` at `5220624` to GitHub before editing. Consolidated Homepage, Browsing a discipline, Glossary, Reading, Quiz, and Quiz results into one three-column, two-row CaseStudyScreens group, retaining the existing blue theme, screen labels, source images, descriptions, and full-image lightboxes. Replaced the two explanatory blocks with one short paragraph and one shared caption. All copy and figures outside that public-site section remain unchanged.

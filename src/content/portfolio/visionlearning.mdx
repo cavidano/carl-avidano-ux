@@ -113,9 +113,7 @@ I worked directly with the backend developer on these relationships. The annotat
 
 ## Turning the structure into page layouts
 
-I used wireframes to work through the public website and the administration tools. On the public side, the homepage introduced the available subjects, discipline pages organized the modules, and the shared navigation kept Library, Glossary, and Classroom available throughout the site.
-
-The glossary needed to work as a reference in its own right. An accordion let readers expand a definition within the list, with pronunciation and related-module links alongside the term.
+I created wireframes to work through how people would find content and move through a learning module. Shared navigation connects the main areas of the site, while a consistent module layout carries through reading, answering questions, and reviewing feedback.
 
 </TextBlock>
 
@@ -124,31 +122,14 @@ The glossary needed to work as a reference in its own right. An accordion let re
   screens={[
     { src: homeWireframe, label: 'Homepage', alt: 'Homepage wireframe with a purpose statement, discipline grid, and introductions to learning resources.' },
     { src: disciplineWireframe, label: 'Browsing a discipline', alt: 'Earth Science wireframe with discipline navigation, an introduction, and grouped module links.' },
-    { src: glossaryWireframe, label: 'Glossary', alt: 'Glossary wireframe with alphabetical browsing and an expanded definition inside the list of terms.' }
-  ]}
-  caption="Public-site wireframes showing the routes into learning content and reference material."
-/>
-</ThemeWrapper>
-
-<TextBlock>
-
-### Keeping the module connected
-
-Within a module, Reading, Quiz, and Resources sit beneath the title and byline. The page keeps its identity as someone moves between those tasks, and the open sidebar provides a route back to the surrounding library.
-
-The reading layout makes room for key concepts, a table of contents, and scientific figures. Quiz screens carry that same structure through answering questions and reviewing results. The results page shows the overall score, the selected answers, and explanations beside individual responses, including the correct answer when a reader gets one wrong.
-
-</TextBlock>
-
-<CaseStudyScreens
-  ratio="0.56"
-  screens={[
+    { src: glossaryWireframe, label: 'Glossary', alt: 'Glossary wireframe with alphabetical browsing and an expanded definition inside the list of terms.' },
     { src: readingWireframe, label: 'Reading', alt: 'Module reading wireframe with the title, byline, Reading, Quiz, and Resources tabs, an open library sidebar, key concepts, figures, and a comprehension checkpoint.' },
     { src: quizWireframe, label: 'Quiz', alt: 'Quiz wireframe retaining the module navigation and sidebar, with lettered circles identifying the multiple-choice answers.' },
     { src: resultsWireframe, label: 'Quiz results', alt: 'Quiz results wireframe with a score summary, selected answers, correct and incorrect states, and answer explanations.' }
   ]}
-  caption="The module layout carries through reading, answering questions, and reviewing feedback."
+  caption="Public-site wireframes connect browsing, reading, and reviewing quiz results."
 />
+</ThemeWrapper>
 
 <Divider />
 
