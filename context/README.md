@@ -30,6 +30,10 @@ Keep durable context and guidelines here. Update an existing relevant file befor
 
 ## Application working context and continuity
 
+**Latest save, September 29, 2026:** All current portfolio work is checkpointed on `codex/case-study-enhancements`. Phoenix’s main Confluence page is synchronized at v66, with its full text, figure sequence, captions, links, and image descriptions verified against the latest source. See the [GitHub checkpoint and synchronization record](case-studies.md#september-29-github-checkpoint-and-phoenix-synchronization).
+
+**Latest release, September 29, 2026:** The reviewed Phoenix case study is live from `3d54f33`; the release also includes the shared figure-image markup fix. Visionlearning is next for editorial review. Its administration content map now has a narrow local preview with a lightbox; that adjustment and other unfinished case-study work remain unpublished. See the [release and next-session record](case-studies.md#september-29-phoenix-release-and-next-visionlearning-session).
+
 The main website is Carl's generalist portfolio. Its homepage copy and markup live directly in [src/pages/index.astro](../src/pages/index.astro). Keep it straightforward to edit there. Application homepages use their own [template](../src/components/Applications/ApplicationHomePage.astro) and each employer's `site.json`; their setup must not force the main homepage through an application template or copy lookup. Project and article cards continue to use their corresponding MDX sources.
 
 The main [Case Studies index](../src/pages/case-studies/index.astro) also owns its copy, metadata, and page markup directly. Carl requested this simplification on September 28, 2026, following the homepage change. Keep it directly editable; do not restore the removed `CaseStudiesPage` component or a separate JSON copy lookup. The shared card renderer reads the individual case-study MDX files.

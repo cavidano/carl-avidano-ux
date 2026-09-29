@@ -28,6 +28,8 @@ caseStudy:
 ---
 
 import AnimatedImage from '../../components/AnimatedImage.astro';
+import LightboxImage from '../../components/LightboxImage.astro';
+import administrationContentMap from '../../images/visionlearning/visionlearning-administration-content-map.png';
 import interactiveTools from '../../images/visionlearning/visionlearning-interactive-learning-tools.png';
 
 {/* Current Confluence copy: 23429129. Graphic decisions: context/case-study-graphics.md. */}
@@ -216,9 +218,13 @@ I also supported the backend experience for authoring learning modules. The cont
 
 {/* Graphic VL-08 — existing draft visual; review before replacing. */}
 <div id="graphic-vl-08">
-<FigureSingle width="wide" caption={"Working content map for the administration experience. Annotations capture decisions and questions for development."}>
+<FigureSingle width="narrow" caption={"Working content map for the administration experience. Annotations capture decisions and questions for development."}>
 
-![Working administration content map showing the Library, Glossary, Classroom, and supporting areas. The Library separates modules from shared media; module editing includes Module Info, Reading, Quiz, and Resources. Annotations identify maintenance decisions and open questions.](../../images/visionlearning/visionlearning-administration-content-map.png)
+<LightboxImage
+  src={administrationContentMap}
+  alt="Working administration content map showing the Library, Glossary, Classroom, and supporting areas. The Library separates modules from shared media; module editing includes Module Info, Reading, Quiz, and Resources. Annotations identify maintenance decisions and open questions."
+  caption="Visionlearning administration content map"
+/>
 
 </FigureSingle>
 </div>
