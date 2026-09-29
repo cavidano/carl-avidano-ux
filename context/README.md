@@ -1,6 +1,8 @@
 # Project context
 
-**Visionlearning first-pass branches, September 29:** `visionlearning-legacy` at `5220624` preserves the full pre-rewrite state; `visionlearning-case-study` contains the new narrative and screen groups. Looking back retains its original prose; its repeated homepage-evolution figure was removed at Carl’s request. This branch draft is unpublished and awaits review before replacing the main Confluence working copy. [Draft and asset record](case-studies.md#september-29-visionlearning-first-pass-rewrite-on-separate-branches).
+**Latest review and publication, September 29:** Visionlearning is live from `8695890`, with the final wide periodic-table demo and updated role. Main Confluence copies are reviewed and synchronized: Visionlearning v24 and Phoenix.gov v67. Next is Natura11y, grounded in years of client-project use, Carl’s design and maintenance decisions, and preparation for agentic design and development. [Release and next-task record](case-studies.md#september-29--visionlearning-published-and-review-completed).
+
+**Visionlearning first-pass branches, September 29:** `visionlearning-legacy` at `5220624` preserves the full pre-rewrite state; `visionlearning-case-study` contains the new narrative and screen groups. Looking back retains its original prose; its repeated homepage-evolution figure was removed at Carl’s request. The reviewed rewrite is now published and synchronized with the main Confluence page, as recorded above. [Draft and asset record](case-studies.md#september-29-visionlearning-first-pass-rewrite-on-separate-branches).
 
 Keep case-study figure markup simple: use the existing components directly and existing heading anchors for review links; do not add numbered graphic divs or comments.
 
