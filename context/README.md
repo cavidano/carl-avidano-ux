@@ -30,6 +30,8 @@ Keep durable context and guidelines here. Update an existing relevant file befor
 
 ## Application working context and continuity
 
+**Latest Visionlearning figure update, September 29, 2026:** The approved periodic-table composition replaces VL-07. Its text and graphic now occupy a distinct section below the blue illustration area, followed by a divider before module authoring. The latest local graphic includes Carl’s further top-row revision. Confluence page v21 and its graphic attachment v2 match this latest revision. The website update remains unpublished. See the [figure and section record](case-studies.md#september-29-visionlearning-periodic-table-composition-and-section).
+
 **Latest save, September 29, 2026:** All current portfolio work is checkpointed on `codex/case-study-enhancements`. Phoenix’s main Confluence page is synchronized at v66, with its full text, figure sequence, captions, links, and image descriptions verified against the latest source. See the [GitHub checkpoint and synchronization record](case-studies.md#september-29-github-checkpoint-and-phoenix-synchronization).
 
 **Latest release, September 29, 2026:** The reviewed Phoenix case study is live from `3d54f33`; the release also includes the shared figure-image markup fix. Visionlearning is next for editorial review. Its administration content map now has a narrow local preview with a lightbox; that adjustment and other unfinished case-study work remain unpublished. See the [release and next-session record](case-studies.md#september-29-phoenix-release-and-next-visionlearning-session).
