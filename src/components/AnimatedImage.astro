@@ -4,12 +4,13 @@ import { Image, type LocalImageProps } from 'astro:assets';
 type Props = LocalImageProps & {
   animatedSrc?: string;
   animatedType?: string;
+  autoplay?: boolean;
 };
 
-const { animatedSrc, animatedType = 'image/gif', ...imageProps } = Astro.props;
+const { animatedSrc, animatedType = 'image/gif', autoplay = true, ...imageProps } = Astro.props;
 ---
 
-<div class="position-relative" data-animated-image={animatedSrc}>
+<div class="position-relative" data-animated-image={animatedSrc} data-autoplay={autoplay}>
   <picture class="display-block">
     {animatedSrc && <source type={animatedType} />}
     <Image {...imageProps} />
@@ -44,10 +45,11 @@ const { animatedSrc, animatedType = 'image/gif', ...imageProps } = Astro.props;
       icon.classList.toggle('icon-play', !playing);
     };
 
-    setPlaying(!reducedMotion.matches);
+    const autoplay = image.dataset.autoplay !== 'false';
+    setPlaying(autoplay && !reducedMotion.matches);
     button.hidden = false;
     button.addEventListener('click', () => setPlaying(!playing));
-    reducedMotion.addEventListener('change', (event) => setPlaying(!event.matches));
+    reducedMotion.addEventListener('change', (event) => setPlaying(autoplay && !event.matches));
   });
 </script>
 

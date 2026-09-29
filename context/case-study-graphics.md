@@ -6,6 +6,10 @@ The current case studies are in the local website layout and synchronized to the
 
 Checkpoint before this pass: [`f471d9b`](https://github.com/cavidano/carl-avidano-ux/commit/f471d9b), pushed to `codex/case-study-enhancements`. The preview changes below have not been deployed.
 
+## Section separation
+
+Use dividers to separate distinct sections that share a background. A background-color change already provides that separation; do not add a redundant divider at that boundary. Carl confirmed this preference on September 29, 2026.
+
 ## Review a few at a time
 
 PHX-02 (user stories) now uses Carl’s supplied composition. VL-09 (authoring wireframes) remains a review priority because its detail is difficult to read when reduced. This is a proposed priority, not an instruction to rebuild it.
@@ -56,7 +60,7 @@ Four active additions, copied from the existing draft package without redrawing,
 | --- | --- | --- | --- |
 | VL-03 · Classroom (removed) | Archived Classroom introduction and free-registration benefits. | [2017 Classroom design](../src/images/visionlearning/visionlearning-classroom-2017.jpg), retained as a source asset only. | **Removed September 28, 2026.** Carl rejected a dedicated section and old screenshot that did not establish enough hiring value. Removed the heading, paragraph, figure, caption, and image description from the local preview and Confluence draft v13. Retain the broader research narrative; do not restore this section without a new request. |
 | [VL-07 · Adapting graphics to the lesson](http://localhost:4321/case-studies/visionlearning#adapting-graphics-to-the-lesson) | Different uses of the same scientific subject: element families, electron blocks, atomic radius, and electron structure, including Spanish. | [Periodic-table lesson adaptations](../src/images/visionlearning/visionlearning-periodic-table-lesson-adaptations.png). | **Replaced September 29, 2026, at Carl’s request.** Original 2× PNG export of [Figma frame 1335:3121](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1335-3121), named `visionlearning-periodic-table-lesson-adaptations`; 3814 × 3566 after Carl’s further top-row revision, with transparency preserved. Its heading, text, and figure now form a separate section below the blue scientific-illustration area, with a divider before module authoring. The latest local export includes electron-block and orbital-label diagrams in the top row. Confluence page v21 and attachment att33390638 v2 now match the latest export and image description. Website changes remain unpublished. |
-| [VL-08 · Supporting the people authoring modules](http://localhost:4321/case-studies/visionlearning#mapping-the-website-and-its-content) | Relationships among disciplines, modules, glossary entries, and shared media, with authentic development questions. | [Administration content map](../src/images/visionlearning/visionlearning-administration-content-map.png). | **In preview; review.** Preserve working annotations and unresolved questions; do not present the map as proof every proposed feature shipped. |
+| [VL-08 · Supporting the people authoring modules](http://localhost:4321/case-studies/visionlearning#site-structure-and-content-management-outline) | Relationships among disciplines, modules, glossary entries, and shared media, with authentic development questions. | [Administration content map](../src/images/visionlearning/visionlearning-administration-content-map.png). | **In preview; review.** Preserve working annotations and unresolved questions; do not present the map as proof every proposed feature shipped. |
 | [VL-09 · Supporting the people authoring modules](http://localhost:4321/case-studies/visionlearning#designing-the-authoring-workflow) | How the content structure became authoring screens, including reading, quizzes, and resource groups. | [Authoring wireframe overview](../src/images/visionlearning/visionlearning-authoring-wireframe-overview.png). | **In preview; review first.** The wide overview conveys breadth, but individual controls are small. Carl can choose a more focused composition using his existing PNGs. No new Balsamiq export is needed. |
 | [VL-10 · Looking back](http://localhost:4321/case-studies/visionlearning#looking-back) | Continuity and change across the long engagement. | [Homepage evolution](../src/images/visionlearning/visionlearning-homepage-evolution.png). | **In preview; review.** Keep the 2012/2016 archive dates distinct from the September 2026 site capture; that capture does not extend the stated 2012–2025 engagement. |
 
@@ -88,3 +92,19 @@ The newer Solution paragraph from main Confluence v10 is retained. The original 
 | [LADRC-04 · Disaster information](http://localhost:4321/case-studies/ladrc#making-disaster-information-easier-to-use) | [Disaster-page and resource-card collage](../src/images/ladrc/ladrc-masonry-wireframes-disaster-pages.jpg) | Wide, inside its matching navy ThemeWrapper. |
 
 Retired preview placements LADRC-01, LADRC-03, and LADRC-05 are no longer used. Their exported PNGs remain working source assets; their presence does not authorize reintroducing them. The deferred testing-script screenshot and incorrect legal-professional results table stay excluded.
+
+
+## September 29 — reading-tool animations and periodic-table placement
+
+The local Visionlearning branch now uses `visionlearning-module-enhancements.png` and `.webp`: a transparent 4000 × 1227 pair retaining the native chrome, proportions, and 112 px gap from Figma frames `1359:3148` and `1359:3151` (1088 × 702 each). Live Chrome captures show Contents → tool opened → highlighting on → definition/annotation selected → off. Both sides use the same 16-second sequence (2.5, 2.5, 3, 5, 3 seconds) and the existing shared AnimatedImage play/pause control. The current live glossary example is bacteria; the NGSS example is Science and Engineering Practices, SEP.4.
+
+The previous periodic-table demonstration was extracted at its original resolution into `visionlearning-periodic-table-demo.png` and `.webp` (888 × 574, 14 frames). It renders in a narrow figure after the periodic-table lesson graphics and immediately before Looking back. The original combined assets remain available. Added the requested divider above Building tools around the reading and shortened that section. Looking back wording remains unchanged.
+
+Verified desktop/mobile fit and the combined control; reduced-motion fallback remains in the existing AnimatedImage component. These are captures of live UI states assembled into animations, using native exported Figma chrome. This branch remains unpublished; no full Confluence draft replacement.
+
+
+### Separate controls and grid refinement
+
+Carl preferred two independent graphics in the existing FigureSideBySide grid with the standard gap and stacking below the medium breakpoint. Each now has a caption describing the toggle and detail panel. The original browser framing remains. Both poster images and animation first frames show highlighting on with the definition or annotation open. Playback runs for 16 seconds. Glossary autoplay respects prefers-reduced-motion; NGSS starts paused (`autoplay={false}`). Both have their own play/pause control. The periodic-table figure now uses medium width. This supersedes the combined playback choice above; the combined files remain available.
+
+The live periodic-table link was removed at Carl’s request because the external tool has unresolved accessibility issues. Keep the portfolio demonstration; do not imply those issues have been fixed.

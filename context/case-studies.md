@@ -694,3 +694,36 @@ Carl requested removing unnecessary review scaffolding from Visionlearning. Remo
 ### September 29 case-study image markup audit
 
 Saved all current work in commit a2699cf before cleanup, as Carl requested. Audited all 40 case-study MDX sources: eight main cases and 32 application-specific copies. Removed seven remaining review-only graphic divs (two Phoenix, five LADRC) and seven bookkeeping comments across Phoenix, LADRC, and Visionlearning. All 40 sources are now free of those raw divs and comments. Figure, grid, theme, lightbox, and animation components retain their functional layout and behavior. Source review links use existing headings. Root instructions record the requirement to keep review notes out of page markup. No content, image files, or publication settings changed in this cleanup.
+
+
+### September 29 Visionlearning brand-guideline source and attribution
+
+Carl supplied VL-StyleGuide-03.pdf from the client archive Brand-Guidelines/VL-StyleGuide-03 Folder and asked for separate page images in Figma to choose possible case-study excerpts. All 16 pages were rendered intact at 288 dpi (3168 × 2448) and placed as individually selectable 800-pixel-wide images, in original order, in a four-column area named Visionlearning — Brand guidelines on Portfolio’s Case Studies page. Figma frame: https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1361-1072 . Page image IDs: 1361:1073 through 1361:1088. The website was not changed.
+
+Carl clarified that he hired someone to produce the guide; it should be presented as team work, not solely his own design of this artifact. His precise direction/review responsibilities and the designer’s name have not been specified. Preserve that distinction in future copy; the current “We also developed” wording already uses team attribution.
+
+
+### September 29 brand-guidelines figure added
+
+Carl selected logo use, color, and imagery pages in Figma frame 1360:3560, named Visionlearning — Brand guidelines, and requested the figure immediately after its existing paragraph. Added the original transparent composition as a wide FigureSingle with a short team-attributed caption and descriptive image alternative. No extra div, graphic ID, or bookkeeping comment was added. Asset: visionlearning-brand-guidelines.png, 4096 × 1255. A native export from a temporarily doubled Figma copy avoided the download tool’s unchanged 1× render; the temporary copy was removed after download. Original composition and paragraph are preserved. Confluence v22 was read as reference; the broader branch remains a local review draft.
+
+
+The initial download had an opaque canvas background despite being RGBA; replaced it with the actual native Figma PNG export at 4000 × 1225, retrieved as original image bytes. Verified alpha values span 0–255, with fully transparent corners and over 100,000 fully transparent pixels. The temporary transfer node was removed. Carl identified Janet Guertin as the guideline designer and requested historical context. The paragraph now identifies this as the earlier, subsequently updated guide; its caption credits Janet specifically for guideline design without a website link.
+
+Carl subsequently confirmed that he oversaw Janet Guertin’s work and asked for both roles in the paragraph. Revised the paragraph to state that he hired Janet to design the guidelines and oversaw the work, retaining its scope and historical context. This supersedes the earlier note that his oversight role was unconfirmed.
+
+Carl requested collaborative wording rather than emphasizing hiring or oversight: the work was done through his company, Avidano Digital, with Janet Guertin coming on board to support the brand guidelines. Updated the paragraph accordingly; use this framing in future revisions. Her verified surname remains Guertin, as supplied with her website.
+
+Carl rejected “Mapping the website and its content” as the heading. Replaced it with “Giving the content a clear structure,” preserving the section’s paragraphs and graphic. Its review link uses the new heading anchor.
+
+Carl rejected the replacement as another marketing headline. The heading is now simply “Site structure.” Prefer plain, descriptive case-study headings; do not turn each section into a benefit statement or slogan.
+
+Carl supplied the final heading: “Site structure and content management outline.” Use his wording; the section covers both the public site and the management of its content.
+
+Carl flagged repeated wording across headings, captions, and surrounding prose. Removed the redundant map caption and shortened its lightbox label to “Content map”; the full phrase now appears only in the heading in the MDX. Avoid captions that restate a heading or repeat the adjacent explanation. Keep future edits concise and scoped rather than rewriting the whole case study.
+
+At Carl’s request, condensed the map section’s three paragraphs into one short paragraph before the graphic, retaining Library/Glossary/Classroom, the backend collaboration, content management, and recorded publishing decisions/open questions. This supersedes the earlier sandwich arrangement; the narrow graphic and enlargement behavior remain.
+
+Carl requested a plain replacement for “Turning the structure into page layouts” and placement of its whole text block in the blue area. Renamed it “Front-end wireframes” and moved the existing TextBlock inside the existing ThemeWrapper, immediately above the six-screen group. Paragraph, image order, and interactions remain unchanged.
+
+Carl rejected instructional captions such as “Select the map to enlarge it.” The map caption is now “Working outline with development notes.” He also flagged the oversized enlarged image: the default lightbox filled the available width with no height limit, making the square map 1248 pixels tall in a 720-pixel-high viewport. Added image-only sizing overrides in the portfolio theme to preserve proportions and fit the viewport height with room for controls and captions. Existing Natura11y behavior remains responsible for opening, navigation, closing, and focus. No changes were made to the canonical Natura11y monorepo.

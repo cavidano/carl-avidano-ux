@@ -1,7 +1,8 @@
 ---
 const {
   margin = 'margin-y-5',
-  width = 'wide'
+  width = 'wide',
+  stackOnMobile = false
 } = Astro.props;
 
 const groupWidth = width === 'medium' ? 'medium' : 'wide';
@@ -11,7 +12,7 @@ const groupClasses = [groupWidth, margin].filter(Boolean).join(' ');
 <div class="container wide">
   
   <div class={groupClasses}>
-    <div class="grid grid--column-2 gap-3">
+    <div class:list={["grid gap-3", stackOnMobile ? "grid--column-1 grid--column-2--md" : "grid--column-2"]}>
       <slot />
     </div>
   </div>

@@ -43,7 +43,9 @@ import redesign2017 from '../../images/visionlearning/visionlearning-2017-redesi
 
 import AnimatedImage from '../../components/AnimatedImage.astro';
 import LightboxImage from '../../components/LightboxImage.astro';
-import interactiveTools from '../../images/visionlearning/visionlearning-interactive-learning-tools.png';
+import glossaryDemo from '../../images/visionlearning/visionlearning-glossary-demo.png';
+import ngssDemo from '../../images/visionlearning/visionlearning-ngss-demo.png';
+import periodicTableDemo from '../../images/visionlearning/visionlearning-periodic-table-demo.png';
 
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
@@ -87,47 +89,45 @@ The engagement began with the logo redesign. I created a mark to suggest both a 
 
 <TextBlock>
 
-We also developed comprehensive brand guidelines covering logo use, typography, color, imagery, and scientific illustration. The guidelines connected that identity to the website’s navigation, reading layouts, and quiz states, giving the team shared guidance as the platform evolved.
+This work was done through my company, Avidano Digital, with Janet Guertin coming on board to support the brand guidelines. The guide covered logo use, typography, color, imagery, and scientific illustration, connecting the identity to the website’s navigation, reading layouts, and quiz states. The excerpts below show that earlier guide, which has since been updated.
 
 </TextBlock>
+
+<FigureSingle width="wide" caption="Earlier brand guidelines designed by Janet Guertin, covering logo use, color, and imagery.">
+
+![Three overlapping pages from Visionlearning’s brand guidelines showing logo variations and clear space, the color palette, and photography examples for the homepage and module readings.](../../images/visionlearning/visionlearning-brand-guidelines.png)
+
+</FigureSingle>
 
 <Divider />
 
 <TextBlock>
 
-## Mapping the website and its content
+## Site structure and content management outline
 
-We organized Visionlearning around Library, Glossary, and Classroom, giving each area a distinct purpose. The Library brought together learning modules, interactive animations, and research videos. Modules could be searched or browsed by discipline, while the Glossary provided a direct route to scientific definitions.
+We organized the site around Library, Glossary, and Classroom. I worked with the backend developer to map how modules, quizzes, glossary entries, and shared media would be managed, recording publishing decisions and open questions in the outline.
 
 </TextBlock>
 
-<FigureSingle width="narrow" caption="Site structure and content management, connecting the public website with the tools used to maintain it.">
+<FigureSingle width="narrow" caption="Working outline with development notes.">
 
 <LightboxImage
   src={siteMap}
   alt="Visionlearning map connecting Library, Glossary, and Classroom with disciplines, modules, shared figures, glossary entries, courses, and users. Module editing branches into Module Info, Reading, Quiz, and Resources. Notes identify publishing decisions and open questions for development."
-  caption="Visionlearning site structure and content management"
+  caption="Content map"
 />
 
 </FigureSingle>
 
+<ThemeWrapper>
 <TextBlock>
 
-The map also considers how that content would be managed. A module brings together reading, figures, quiz questions, and supporting resources. Glossary entries and shared media have their own editing paths because they can appear in more than one module.
-
-I worked directly with the backend developer on these relationships. The annotations record decisions about publishing and maintaining content, alongside questions we still needed to resolve.
-
-</TextBlock>
-
-<TextBlock>
-
-## Turning the structure into page layouts
+## Front-end wireframes
 
 I created wireframes to work through how people would find content and move through a learning module. Shared navigation connects the main areas of the site, while a consistent module layout carries through reading, answering questions, and reviewing feedback.
 
 </TextBlock>
 
-<ThemeWrapper>
 <CaseStudyScreens
   screens={[
     { src: homeWireframe, label: 'Homepage', alt: 'Homepage wireframe with a purpose statement, discipline grid, and introductions to learning resources.' },
@@ -141,8 +141,6 @@ I created wireframes to work through how people would find content and move thro
 />
 </ThemeWrapper>
 
-<Divider />
-
 <TextBlock>
 
 ## Designing the authoring workflow
@@ -151,7 +149,6 @@ I designed administration wireframes for managing disciplines and modules, with 
 
 </TextBlock>
 
-<ThemeWrapper>
 <CaseStudyScreens
   columns={2}
   ratio="0.9"
@@ -163,7 +160,8 @@ I designed administration wireframes for managing disciplines and modules, with 
   ]}
   caption="Administration wireframes connect the content structure to the fields and controls authors need."
 />
-</ThemeWrapper>
+
+<Divider />
 
 <TextBlock>
 
@@ -193,19 +191,17 @@ We clarified the homepage message, reorganized courses, and made registration mo
 
 </TextBlock>
 
-<Divider />
-
+<ThemeWrapper>
 <TextBlock>
 
 ## The latest redesign
 
-The latest redesign combined new module features with a modernization of the underlying JavaScript and CSS. I moved the front end onto Natura11y, the accessible design system I developed. This helped improve accessibility and gave us a more consistent way to build and extend the learning modules.
+The latest redesign focused on Next Generation Science Standards (NGSS) alignment and accessibility. Supporting those changes meant updating the site's aging JavaScript and CSS. I moved the front end onto Natura11y, the accessible design system I developed.
 
-Alignment with the Next Generation Science Standards (NGSS) was a major focus. Working with the backend developer, I updated the module interface to make standards-related teaching information available alongside the reading. We also improved equation rendering and the accessibility of mathematical content throughout the modules. Alongside that work, we reviewed hundreds of supporting images, improving their accessibility and creating bilingual versions of selected graphics.
+Working with the backend developer, I added teaching information alongside module readings. We also improved equation and image accessibility, cleaned up hundreds of supporting images, and made selected graphics bilingual.
 
 </TextBlock>
 
-<ThemeWrapper>
 <FigureSingle width="wide" caption="The latest redesign connects the homepage and discipline browsing with the module reading experience.">
 
 ![Visionlearning homepage and a Biology discipline panel beside a Periodic Table learning module with scientific figures, reading tools, and a comprehension checkpoint.](../../images/visionlearning/visionlearning-masonry-key-pages.jpg)
@@ -215,7 +211,7 @@ Alignment with the Next Generation Science Standards (NGSS) was a major focus. W
 
 <TextBlock>
 
-### Keeping learning tools available on mobile
+### Mobile experience
 
 On mobile, module contents and reading tools collapse into tabs to leave room for the lesson. The Spanish screens show how navigation, quizzes, and glossary entries adapt to smaller screens.
 
@@ -227,51 +223,59 @@ On mobile, module contents and reading tools collapse into tabs to leave room fo
 
 </FigureSingle>
 
+<Divider />
+
 <TextBlock>
 
 ## Building tools around the reading
 
-The client requested glossary highlighting and NGSS annotations within the learning modules. I designed the interfaces and wrote the front-end behavior for these reading and teaching tasks.
+The client requested glossary highlighting and NGSS annotations within the learning modules. I designed the interfaces and wrote the front-end behavior.
 
-With glossary highlighting enabled, readers can select a term and see its definition without leaving the module. The NGSS mode highlights passages connected to science standards and displays the relevant information for educators. Only one highlighting mode is active at a time, keeping the two kinds of annotation distinct.
-
-The annotated Earth Structure source connects passages to practices such as analyzing data and constructing explanations. The NGSS interface makes that teaching context available beside the reading.
-
-### Exploring the periodic table
-
-I also designed and built an interactive periodic table. Readers can select an element to open its details while keeping the table available as a reference. The table view preserves the relationships between elements; Search and List provides another way to find and filter them.
-
-The demonstration below shows keyboard navigation, Carbon's details, and a search filtered to noble gases.
+Readers can turn on glossary highlighting to open definitions beside the lesson. Educators can use NGSS mode to see the standards associated with a passage. Only one mode is active at a time, keeping the two kinds of highlighting distinct.
 
 </TextBlock>
 
-<FigureSingle>
+<FigureSideBySide stackOnMobile>
+
+<FigureSingle isContained={false} margin="margin-y-0" caption="Glossary highlighting opens definitions beside the lesson. The animation shows highlighting turning on and off and a reader opening a definition.">
 
 <AnimatedImage
-  src={interactiveTools}
-  animatedSrc="/media/visionlearning/visionlearning-interactive-learning-tools.webp"
+  src={glossaryDemo}
+  animatedSrc="/media/visionlearning/visionlearning-glossary-demo.webp"
   animatedType="image/webp"
   class="display-block width-100"
-  alt="Glossary highlighting and NGSS annotations, with a periodic-table demonstration in the center browser: navigating by keyboard, opening Carbon's details, and filtering Search and List to show noble gases."
-  widths={[720, 1200, 1800]}
-  sizes="(min-width: 1600px) 1440px, 90vw"
+  alt="Glossary highlighting enabled with the definition of bacteria open beside the module reading."
+  widths={[540, 720, 1200, 1902]}
+  sizes="(min-width: 1600px) 700px, (min-width: 768px) 45vw, 90vw"
   loading="lazy"
 />
 
-<p slot="caption"><em>Glossary and NGSS annotations support the reading, while the interactive periodic table lets people explore element details. <LinkOpenNew LinkUrl="https://www.visionlearning.com/library/animations/periodic-table/" LinkText="Explore the interactive periodic table" utilities="link" /></em></p>
+</FigureSingle>
+
+<FigureSingle isContained={false} margin="margin-y-0" caption="NGSS annotations connect passages to science standards. The animation shows annotations turning on and off and the standard linked to a selected passage.">
+
+<AnimatedImage
+  src={ngssDemo}
+  animatedSrc="/media/visionlearning/visionlearning-ngss-demo.webp"
+  animatedType="image/webp"
+  autoplay={false}
+  class="display-block width-100"
+  alt="NGSS annotations enabled with a highlighted passage and its Science and Engineering Practices standard open beside the reading."
+  widths={[540, 720, 1200, 1902]}
+  sizes="(min-width: 1600px) 700px, (min-width: 768px) 45vw, 90vw"
+  loading="lazy"
+/>
 
 </FigureSingle>
+
+</FigureSideBySide>
 
 <ThemeWrapper>
 <TextBlock>
 
 ## Explaining science through imagery
 
-I created scientific illustrations in Adobe Illustrator and Photoshop, ranging from small supporting diagrams to detailed cell anatomy, molecular structures, and experimental setups. The figures needed to work within the reading layouts as well as explain the science.
-
-Plant and animal cell illustrations use labels and a consistent visual treatment to identify structures. Other figures show relationships or sequences, such as the stages of an experiment or the differences between RNA and DNA.
-
-Some visuals were entirely custom. Others combined selected high-resolution imagery with labels and scientific concepts. During the latest redesign, we also revisited hundreds of images used in the readings to clean them up, improve accessibility, and make selected graphics bilingual.
+I created scientific illustrations in Illustrator and Photoshop, including cell anatomy, molecular structures, and experimental setups. Some were drawn from scratch; others combined selected imagery with labels and diagrams to explain the science within the reading.
 
 </TextBlock>
 
@@ -295,6 +299,29 @@ Each view directs attention to a different relationship: a highlighted family re
 <FigureSingle width="wide" caption="Periodic-table graphics adapted for different lessons, including element families, electron blocks, atomic radius, and electron structure.">
 
 ![A collage of periodic-table lesson graphics: electron blocks and orbital labels, a Spanish reference table, highlighted transition metals, atomic-radius trends, and electron-shell diagrams for chlorine and lithium.](../../images/visionlearning/visionlearning-periodic-table-lesson-adaptations.png)
+
+</FigureSingle>
+
+<TextBlock>
+
+### Exploring the periodic table
+
+I also designed and built an interactive periodic table. Readers can open an element's details while keeping the table in view, or use Search and List to find and filter elements. The demonstration shows keyboard navigation, Carbon's details, and a search filtered to noble gases.
+
+</TextBlock>
+
+<FigureSingle width="medium">
+
+<AnimatedImage
+  src={periodicTableDemo}
+  animatedSrc="/media/visionlearning/visionlearning-periodic-table-demo.webp"
+  animatedType="image/webp"
+  class="display-block width-100"
+  alt="Interactive periodic table demonstration showing keyboard navigation, Carbon's details, and Search and List filtered to noble gases."
+  widths={[540, 720, 888]}
+  sizes="(min-width: 1400px) 1200px, 90vw"
+  loading="lazy"
+/>
 
 </FigureSingle>
 
