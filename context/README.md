@@ -79,6 +79,10 @@ Access and the following direct child pages were verified on **September 27, 202
 | Accenture / Work & Co | [Accenture / Work & Co — Application website copy](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28344323) |
 | Datadog | [Datadog — Application website copy](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28213264) |
 
+## Site icons
+
+Carl’s approved artwork lives in the Portfolio Figma file on the Brand page, in [Site icons](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1377-29). The six named frames have PNG export presets: 16, 32, 48, 180, 192 and 512px. Use those original exports; keep their colors and edge-to-edge square composition. The root `public/` files are referenced from the shared `Layout.astro`, including the multi-size ICO, Apple touch icon and `site.webmanifest`. The manifest uses browser display mode. Carl requested installation, verification and production publication on September 29, 2026.
+
 ## Deferred site improvement
 
 On September 21, Carl discussed a compact global-footer contact area with email, LinkedIn, and the résumé download, using a shared source for About/footer contact details. Preserve copyright and Back to Top, and review the design on mobile and desktop before any authorized publication. This remains deferred; the September 27 source check found the existing copyright/Back to Top footer. Recording it here does not start that work.
