@@ -689,3 +689,8 @@ Carl requested the same old/new logo comparison used in the Cheetah Conservation
 ### September 29 figure markup simplified
 
 Carl requested removing unnecessary review scaffolding from Visionlearning. Removed the seven plain div wrappers with graphic-vl IDs and the remaining graphic-number comment. Existing figure components, content, and assets remain unchanged. Review links now use the existing heading anchors. Keep case-study markup directly editable; do not add numbered graphic wrappers or comments solely for internal review navigation.
+
+
+### September 29 case-study image markup audit
+
+Saved all current work in commit a2699cf before cleanup, as Carl requested. Audited all 40 case-study MDX sources: eight main cases and 32 application-specific copies. Removed seven remaining review-only graphic divs (two Phoenix, five LADRC) and seven bookkeeping comments across Phoenix, LADRC, and Visionlearning. All 40 sources are now free of those raw divs and comments. Figure, grid, theme, lightbox, and animation components retain their functional layout and behavior. Source review links use existing headings. Root instructions record the requirement to keep review notes out of page markup. No content, image files, or publication settings changed in this cleanup.

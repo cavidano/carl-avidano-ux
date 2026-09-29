@@ -14,6 +14,7 @@ The main About page and Drawing Board listing follow the same rule: edit `src/pa
 
 ## Case-study editing and Figma exports
 
+- Keep case-study figure markup simple. Use the shared figure and theme components directly; do not add review-only divs, graphic IDs, or bookkeeping comments. Put source and review notes in `context/` and link to existing heading anchors. Retain containers required for layout, backgrounds, or behavior.
 - Preserve approved section structure, research-method lists, and wording outside the requested edit. Shortening an example does not authorize removing a list or narrowing the project's story to that example. Identify the exact edits instead of silently expanding scope.
 - Figma previews and screenshots are for inspection only. Never use them as website graphics. Export the original frame as a production asset at sufficient resolution for its rendered size and high-density displays; preserve its composition, transparency, backgrounds, and proportions. Verify the exported file dimensions and the browser's selected responsive image before reporting completion.
 - In `FigureSingle`, standalone images must render directly inside `<figure>`. The native Astro MDX processor applies `scripts/figure-images.mjs` before image optimization to remove image-only Markdown paragraph wrappers. Keep ordinary text paragraphs and caption paragraphs; fix figure structure at the compiler stage rather than hiding an image wrapper with CSS. The generated-site check guards this behavior.
