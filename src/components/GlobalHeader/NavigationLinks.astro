@@ -25,7 +25,7 @@ const getCurrent = (path: string) => {
 
 {links.map(({ href, label }) => (
   <li>
-    <SiteLink href={href} aria-current={getCurrent(href)}>
+    <SiteLink href={href} aria-label={label} aria-current={getCurrent(href)}>
       <span class="nav__text">{label}</span>
     </SiteLink>
   </li>
