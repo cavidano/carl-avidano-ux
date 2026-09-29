@@ -74,6 +74,13 @@ for (const file of pages) {
     assert.ok(/<title>[^<]*Case Stud(?:y|ies)[^<]*<\/title>/.test(html), `${path}: case-study page title`);
   }
 
+  for (const [figure] of html.matchAll(/<figure\b[^>]*>[\s\S]*?<\/figure>/g)) {
+    assert.ok(
+      !/<p\b[^>]*>\s*(?:<img\b[^>]*>|<a\b[^>]*>\s*<img\b[^>]*>\s*<\/a>)\s*<\/p>/.test(figure),
+      `${path}: a figure image has an unnecessary paragraph wrapper`
+    );
+  }
+
   for (const tag of tags) {
     const values = tag.element === 'a' ? [tag.href] : [
       tag.src, tag.poster, tag.rel === 'stylesheet' ? tag.href : undefined,
