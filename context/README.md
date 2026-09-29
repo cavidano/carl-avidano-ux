@@ -21,6 +21,7 @@ This folder holds the specific background, source material, and reusable guideli
 | [Phoenix service-page section restored](case-studies.md#september-29-phoenix-service-page-section-restored) | User-supplied original heading and paragraph restored; payment-assistance journey removed; original wireframe collage retained |
 | [Phoenix user stories and team alignment](case-studies.md#september-29-phoenix-user-stories-and-team-alignment) | User-story purpose clarified: shared understanding of users and coverage of needs by department |
 | [One current Confluence copy per case study](case-studies.md#september-29-single-current-confluence-copy) | All eight main pages synchronized with current local work; four duplicate draft pages archived; revise main pages in place |
+| [Phoenix wireframes and visual design](case-studies.md#september-29-wireframes-and-visual-design) | Approved section headings, department collage, original screenshot comparisons, and final launch-video placement |
 | [Case-study graphic review list](case-study-graphics.md) | Phoenix, Visionlearning, and LADRC: exact preview locations, current graphics, source files, replacement candidates, and Carl’s review decisions |
 | [The Drawing Board](drawing-board.md) | Writing conventions, article behavior, source evidence, and figure guidance |
 | [Application tailoring evidence guide](application-tailoring-evidence-guide.md) | Additional research and our method for connecting job requirements to verified experience |
