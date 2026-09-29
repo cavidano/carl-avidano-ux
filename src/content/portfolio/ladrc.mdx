@@ -27,6 +27,8 @@ caseStudy:
       href: 'https://ladrc.org/'
 ---
 
+{/* Current Confluence copy: 24543233. Preserve original compositions and matching ThemeWrapper backgrounds. Graphic decisions: context/case-study-graphics.md. */}
+
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
 ## Challenge
@@ -35,11 +37,11 @@ The Legal Aid Disaster Resource Center (LADRC), part of the Legal Services Corpo
 
 ## Solution
 
-As part of Reingold's UX and analytics team, I helped conduct remote user interviews, usability testing, and tree testing to understand where users struggled with the existing navigation. I translated those findings into recommendations and low-fidelity wireframes focused on clearer search, navigation, and resource access.
+As UX Director at Reingold, I planned and conducted remote user interviews, usability testing, and tree testing to understand where users struggled with the existing navigation. I translated those findings into recommendations and low-fidelity wireframes focused on clearer search, navigation, and resource access.
 
 ## Results
 
-The recommendations helped clarify how disaster survivors could find timely legal resources, especially on mobile. The work emphasized simpler scanning, stronger search findability, and more accessible resource patterns for people navigating urgent recovery needs.
+The research gave LADRC specific recommendations for helping people find and use legal resources. I translated those recommendations into wireframes for the homepage, audience landing pages, mobile navigation, and disaster pages, with clearer search access and resource labels.
 
 </CaseStudyOverview>
 
@@ -47,74 +49,95 @@ The recommendations helped clarify how disaster survivors could find timely lega
 
 ## Research and discovery
 
-This was my first project at Reingold, and the discovery phase had already begun. I collaborated with my team to design and conduct remote user testing and interviews over Zoom.
+This was my first project at Reingold, and discovery was already underway. I worked with the team to understand how people found legal help and where the existing site made that difficult.
 
-We also conducted four days of in-person user testing at an LSC conference in Des Moines, Iowa.
-
-Additionally, we developed and executed a tree test (using <LinkOpenNew LinkUrl='https://www.optimalworkshop.com' LinkText='Optimal Workshop' />) to identify where users were encountering difficulties with the current navigation.
+- **Remote interviews and usability testing:** I planned and conducted Zoom sessions with disaster survivors, combining interviews with tasks on the existing site.
+- **In-person usability testing:** We conducted four days of testing at an LSC conference in Des Moines, Iowa.
+- **Tree testing:** We used <LinkOpenNew LinkUrl='https://www.optimalworkshop.com' LinkText='Optimal Workshop' /> to test whether people could find resources through the navigation labels and groupings, without the page design influencing their choices.
 
 </TextBlock>
 
+{/* Original research graphic; preserve its medium width and transparent background. */}
+<div id="graphic-ladrc-tree-test">
 <FigureSingle width='medium'>
 
-![](../../images/ladrc/ladrc-tree-testing.png)
-    
+![LADRC tree-test task asking where to find FEMA services for people with disabilities, with a text-only navigation hierarchy.](../../images/ladrc/ladrc-tree-testing.png)
+
 </FigureSingle>
+</div>
 
 <TextBlock>
 
 ### Findings and recommendations
 
-The findings and recommendations presentation was a collaborative effort between the UX and analytics teams. I was responsible for creating the presentation deck and wireframes.
+I worked with the UX and analytics teams to develop the recommendations. We combined what people said and did in testing with analytics showing how visitors used the site. The content and technical leads contributed an audit of 100 resources, keyword research, and an evaluation of search.
+
+Together, these findings shaped recommendations for navigation, content, and resource access. I created the findings and recommendations presentation and translated our recommendations into low-fidelity wireframes.
 
 </TextBlock>
 
+<div id="graphic-ladrc-recommendations">
 <FigureSingle width='wide'>
 
-![](../../images/ladrc/LADRC-recommendations-ppt.png)
-    
-</FigureSingle>
+![Selections from the LADRC findings and recommendations presentation, including the discovery methods, analytics, navigation, homepage, Help Center, and resource cards.](../../images/ladrc/LADRC-recommendations-ppt.png)
 
+</FigureSingle>
+</div>
+
+{/* The navy section background matches the background built into this original wireframe composition. */}
 <ThemeWrapper>
 <TextBlock>
 
 ### Low-fidelity wireframes
 
-The wireframes reflected the changes suggested in our discovery phase recommendations. They emphasized new features and pages, streamlined navigation, and enhanced accessibility. 
+Usability and tree testing revealed confusion about navigation categories. In the wireframes, I clarified the labels to emphasize each section's audience and grouped related categories together. New landing pages explained the resources within each section, while the homepage gave Recent Disasters and resources for survivors and legal advocates more prominent entry points.
 
 </TextBlock>
 
+<div id="graphic-ladrc-key-pages">
 <FigureSingle width='wide'>
 
-![](../../images/ladrc/ladrc-masonry-wireframes-key-pages.jpg)
-    
+![Grouped wireframes for the LADRC homepage, disaster-survivor landing page, and annotated navigation, arranged on the original navy background.](../../images/ladrc/ladrc-masonry-wireframes-key-pages.jpg)
+
 </FigureSingle>
+</div>
 </ThemeWrapper>
 
 <TextBlock>
 
-Remote user testing revealed that the disaster survivor audience had difficulty locating the search function on mobile devices. Consequently, we recommended separating the search and menu experiences to improve search findability.
+### Making search visible on mobile
+
+Remote testing revealed that disaster survivors had difficulty locating search on mobile, where it was hidden within the menu. I separated Search and Menu into distinct controls. The proposed interaction gave people direct access to search without first opening and exploring the navigation.
 
 </TextBlock>
 
+<div id="graphic-ladrc-02">
 <FigureSingle width='wide'>
 
-![](../../images/ladrc/ladrc-grid-mobile-wireframes.png)
-    
-</FigureSingle>
+![Three mobile wireframes showing separate Search and Menu controls, an expanded navigation category, and the open search field.](../../images/ladrc/ladrc-grid-mobile-wireframes.png)
 
+</FigureSingle>
+</div>
+
+{/* Keep this original disaster-page and resource-card composition on its matching navy section background. */}
 <ThemeWrapper>
 <TextBlock>
 
-We enhanced the *Recent Disaster* pages with a focus on ease of scanning, allowing users to swiftly find the information they need during critical times. Additionally, we've enhanced the accessibility of the resource items, ensuring that users can quickly identify and utilize the support available to them.
+### Making disaster information easier to use
+
+Analytics showed that many visitors arrived directly on Recent Disasters pages and did not explore elsewhere. I organized these pages around affected locations, deadlines, and available help, retaining the On This Page links that legal professionals found useful.
+
+Testing also revealed unexpected behavior when people opened resource links. I added format labels and icons so people could anticipate whether a link opened a PDF, webpage, or another resource. The wireframes show these changes alongside language options on resource cards.
 
 </TextBlock>
 
+<div id="graphic-ladrc-04">
 <FigureSingle width='wide'>
 
-![](../../images/ladrc/ladrc-masonry-wireframes-disaster-pages.jpg)
-    
+![Grouped wireframes for the Recent Disasters listing and a disaster detail page, with On This Page links, deadlines, and resource cards labeled by format and language, on the original navy background.](../../images/ladrc/ladrc-masonry-wireframes-disaster-pages.jpg)
+
 </FigureSingle>
+</div>
 </ThemeWrapper>
 
 <TextBlock>

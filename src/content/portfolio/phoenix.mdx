@@ -40,13 +40,19 @@ caseStudy:
 
 ## Challenge
 
-Phoenix is America’s fifth-largest city, with more than 1.5 million residents. Its official website, Phoenix.gov, was cluttered and hard to navigate, with dense content organized around individual departments. Search often returned irrelevant or outdated information. Visitors needed clear paths to services and information without having to understand the city’s internal structure.
+Phoenix is America’s fifth-largest city, with more than 1.5 million residents. Its official website, Phoenix.gov, was hard to navigate and lacked wayfinding. Pages were cluttered and organized around individual city departments, which wasn’t intuitive and required visitors to understand the city’s internal structure. Search often returned irrelevant or outdated information.
+
+The website itself was hard to maintain for first city staff, with more than 5,500 pages across more than 40 departments.
 
 ## Solution
 
-We organized the site around how residents and businesses look for services, with paths to services and topics that did not require choosing a department. I guided the information architecture and developed shared navigation and page patterns to keep that approach consistent across the site.
+Reingold and the City of Phoenix had a shared vision for the redesign: *one city, one site*. This meant providing a more intuitive and consistent experience for visitors, while empowering city staff to maintain that consistency overtime.
 
-Through iterative wireframing and stakeholder review, we refined how people would move between services and related information, including from department pages. This work gained stakeholder buy-in, established the beginnings of the design system, and helped the visual design team move faster.
+The new site was built on Adobe Experience Manager, which allowed departments to intuitively manage their own content. AEM gave us the ability to create an accessible design system with shared  UI patterns, templates, and advanced search features.
+
+The redesign focused on consolidating content and elevating essential city services. We paid special attention to homelessness assistance, disability resources, and services in Spanish.
+
+I led the overall UX strategy, information architecture, and stakeholder alignment, collaborating with content strategists, designers, developers, and city staff.
 
 ## Results
 
@@ -56,56 +62,61 @@ The redesigned site launched on March 24, 2025, three months ahead of schedule. 
 
 <TextBlock>
 
-## Understanding service needs
+## Discovery before design
 
-I led the creation of much of the discovery material, with contributions and review from the team. Our discovery and validation work included:
+There's a lot at stake when redesigning a city website. People rely on Phoenix.gov to find essential services. We established the project's direction by identifying the questions we needed to answer and choosing research methods to address them.
 
-- Stakeholder interviews tailored to individual departments
+Our discovery and validation work included:
+
 - Peer analysis of seven government websites
+- Stakeholder interviews tailored to individual departments
 - Content audits, analytics, and search-intent analysis
-- User stories and content prioritization
-- Preliminary personas and draft journey maps
+- User stories, personas and journey maps
 - Tree testing of the proposed sitemap
 
-I developed department-specific stakeholder interview questions to understand the services each department provided and where people might have difficulty using the website.
-
-For Water Services, the questions covered starting or transferring service, online bill payments, and assistance for people struggling to pay. They also asked how the department maintained educational content and handled reading level and Spanish translation.
-
 </TextBlock>
 
-<FigureSingle width="medium" caption={"The Water Services interview guide connected service questions with content and language needs. Excerpt from the stakeholder-question document, page 4."}>
+{/* Graphic PHX-01 — review tracked in context/case-study-graphics.md. */}
+<div id="graphic-phx-01">
+<FigureSingle caption={"Stakeholder questions, draft journey maps, proto-personas, and peer analysis informed the research and planning."}>
 
-![Water Services interview questions covering bill payments, payment assistance, educational content, reading level, and Spanish translation.](../../images/phoenix/phoenix-water-services-interview.png)
+![Research overview showing department-specific stakeholder questions, a draft bill-payer journey, demographic context and proto-personas, and peer-review slides about design, priority services, and search.](../../images/phoenix/phoenix-research-overview.png)
 
 </FigureSingle>
+</div>
 
 <TextBlock>
 
-## Turning user stories into content priorities
+### Creating and validating user stories
 
-I wrote many of the user stories, working with content strategists who also contributed to them. The stories helped define the content strategy by describing what someone needed to do and why. They covered needs such as finding rental assistance, paying a city services bill, and locating a swimming pool with accessible accommodations.
-
-The team analyzed existing content and search intent, collected the stories in Airtable, and grouped them into broader themes, or epics. We prioritized those themes by user value, giving the content and design work a shared set of needs to address.
+Collaborating with the content strategists, we wrote **a ton** of user stories. This helped us align on who we were designing for, and what they needed from the site. We used AI to speed things up and validated them with city staff. We grouped user stories by department to keep them organized. This also made overlapping responsibilities visible. For example, paying a city services bill appeared under both Public Works and Water Services.
 
 </TextBlock>
 
-<FigureSingle caption={"User stories made specific service needs visible, including finding an accessible swimming pool. Selected stories from the user-story document, page 3."}>
+{/* Graphic PHX-02 — review tracked in context/case-study-graphics.md. */}
+<div id="graphic-phx-02">
+<FigureSingle caption={"User stories made specific service needs visible across departments"}>
 
-![Parks and Recreation user stories for swimming, field reservations, events, and accessible pools.](../../images/phoenix/phoenix-parks-user-stories.png)
+![Parks and Recreation, Public Works, and Police user-story boards covering recreation, accessible facilities, trash and recycling, victim support, and public safety information.](../../images/phoenix/phoenix-department-user-stories.png)
 
 </FigureSingle>
+</div>
 
 <TextBlock>
 
-Preliminary personas and draft journey maps explored different circumstances, including housing insecurity, disability access, and language needs. The journeys worked through the steps involved in a task, such as finding help with a bill, to consider where support or clearer information might be needed.
+### What we learned
 
-## Organizing the site around services
+Peer sites put common tasks front and center. Our audit found related information scattered across departments, outdated pages, and unclear content ownership. We needed clearer paths to services and a plan for keeping information current. The user stories helped us prioritize what the new site needed to support.
 
-The user stories made overlapping responsibilities visible. Paying a city services bill appeared under both Public Works and Water Services. Someone seeking that service should not have to decide which department owns it before finding a way to pay.
+</TextBlock>
 
-I also compared seven government websites, examining navigation, search, access to popular services, accessibility, and content clarity. The sitemap strategy brought those comparisons together with stakeholder insights, analytics, and search intent. It proposed direct routes to essential services while retaining access to city departments.
+<Divider />
 
-We rebuilt the citywide sitemap alongside individual department sitemaps across more than 40 departments. Services and topics had their own paths, while department navigation remained available for people who already knew where to look. The department sitemaps also needed to work for people entering those sections directly. Connecting local department structures to the wider site was a substantial part of my information architecture work.
+<TextBlock>
+
+## Creating the sitemaps
+
+We rebuilt the citywide sitemap alongside individual sitemaps for more than 40 departments. People could browse by service or topic, or go directly to a department if they knew which one they needed. Each department’s section also needed clear navigation of its own, since visitors wouldn’t always arrive through the homepage.
 
 </TextBlock>
 
@@ -117,11 +128,9 @@ We rebuilt the citywide sitemap alongside individual department sitemaps across 
 
 <TextBlock>
 
-## Testing where people looked
+### Tree testing
 
-We tested the proposed sitemap with 92 participants using Optimal Workshop. Across 13 tasks, we examined where people started, whether they reached a suitable destination, and whether they found it directly or backtracked. We used those findings, together with a content audit and SEO analysis, to refine the sitemap.
-
-One task asked participants to find help for someone experiencing homelessness. Overall success was 68%, and some people looked under Housing. The report recommended moving Homeless Solutions into that category or linking the sections so people could find related support.
+We used tree testing in Optimal Workshop to evaluate the proposed sitemap with 92 participants. Across 13 tasks, we examined where people started and whether they found what they needed without backtracking. The top-level categories worked well overall, but some labels and links between sections needed refinement. We used these findings alongside the content audit and SEO analysis to refine the sitemap.
 
 </TextBlock>
 
@@ -131,15 +140,19 @@ One task asked participants to find help for someone experiencing homelessness. 
 
 </FigureSingle>
 
+<TextBlock>
+
+One task asked participants to find help for someone experiencing homelessness. Overall success was 68%, and some people looked under Housing. The report recommended moving Homeless Solutions into that category or linking the sections so people could find related support.
+
+</TextBlock>
+
 <ThemeWrapper>
 
 <TextBlock>
 
-## Working through navigation in wireframes
+## Connecting the sitemap to the global navigation
 
-I started with the global header and footer because they would be available throughout the site. People might arrive directly at a department or service page, so the navigation needed to help them understand where to go next from any entry point.
-
-I developed the wireframes through repeated review and refinement with stakeholders. We used Miro to bring the sitemap, navigation states, and key pages together, making their relationships visible during review. This was the most extensive wireframing effort I had undertaken, allowing us to work through the navigation and page structure before moving into visual design.
+With the sitemap in place, we created initial wireframes of the header and footer to explore the navigation system. This helped us check whether the sitemap made sense in practice and where the structure needed adjustment.
 
 </TextBlock>
 
@@ -167,23 +180,9 @@ On mobile, I kept Menu, Search, and Language as separate controls. The mobile me
 
 <TextBlock>
 
-## Keeping payment assistance close to payment options
+## Connecting services and related information
 
-Paying a bill and finding help with a bill are closely related needs. The stakeholder questions addressed payment difficulties, the Human Services user stories included utility assistance, and the draft bill-payer journey explored seeking financial support.
-
-</TextBlock>
-
-<FigureSingle width="narrow" caption={"The draft journey explored the need to find payment assistance. The thoughts shown are modeled scenarios. Excerpt from the journey document, page 1."}>
-
-![Draft payment-assistance journey showing a resident recognizing they cannot pay a bill and looking for financial assistance or an extension.](../../images/phoenix/phoenix-payment-assistance-journey.png)
-
-</FigureSingle>
-
-<TextBlock>
-
-I designed the Make a Payment wireframe to bring payment options, assistance, and related topics together. Someone arriving at that page could see routes for both making a payment and finding support. The design focused on access to services and information; the underlying account and payment systems were outside this scope.
-
-The All Resident Topics page offered another route into these services, grouping links under headings such as Water & Sewer and Trash & Recycling.
+Service pages needed to help people take the next step and find other relevant information. The Make a Payment wireframe, for example, brought payment options, payment assistance, and related topics together. It gave someone arriving at that page a useful starting point within the wider site. The All Resident Topics page offered another route into these services, grouping links under headings such as Water & Sewer and Trash & Recycling.
 
 </TextBlock>
 
