@@ -624,3 +624,8 @@ New assets: `src/images/visionlearning/wireframes/` contains 11 unmodified nativ
 `CaseStudyScreens.astro` arranges the original screenshots in responsive groups with short labels. CSS crops the thumbnail view without modifying the source images; each uses the existing LightboxImage/Natura11y behavior to open the full layout. No new packages or framework behavior were introduced. Desktop and 390-pixel mobile checks verified no horizontal overflow, image resolution, full-image opening, Escape dismissal, and focus return. The production build passed all 23 tests, Astro diagnostics, and the 54-page site audit.
 
 This is a local first-pass review branch, not a website release or an approved replacement for Confluence. The existing Confluence page remains v22; synchronize that same main page after the branch draft is reviewed rather than creating a duplicate draft page. Application-specific case studies are untouched. A frozen legacy build is available in the chat's `work/visionlearning-legacy-dist`, served locally on port 4331. The new branch uses the existing repository dev server on port 4321. Both are local comparison previews.
+
+
+### September 29 Looking back figure removed
+
+Carl requested removing the large homepage-evolution figure from Looking back because the new narrative already shows the design iterations. Removed VL-10 and its caption from `visionlearning-case-study`, leaving all reflection prose unchanged in one TextBlock. The source image and legacy branch are preserved. This supersedes the earlier instruction to retain the entire reflection section including its figure.

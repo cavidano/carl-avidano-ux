@@ -1,6 +1,6 @@
 # Project context
 
-**Visionlearning first-pass branches, September 29:** `visionlearning-legacy` at `5220624` preserves the full pre-rewrite state; `visionlearning-case-study` contains the new narrative and screen groups. Looking back is unchanged. This branch draft is unpublished and awaits review before replacing the main Confluence working copy. [Draft and asset record](case-studies.md#september-29-visionlearning-first-pass-rewrite-on-separate-branches).
+**Visionlearning first-pass branches, September 29:** `visionlearning-legacy` at `5220624` preserves the full pre-rewrite state; `visionlearning-case-study` contains the new narrative and screen groups. Looking back retains its original prose; its repeated homepage-evolution figure was removed at Carl’s request. This branch draft is unpublished and awaits review before replacing the main Confluence working copy. [Draft and asset record](case-studies.md#september-29-visionlearning-first-pass-rewrite-on-separate-branches).
 
 This folder holds the specific background, source material, and reusable guidelines for work in this project. Read this page at the start of a new conversation, then read the references relevant to Carl's request.
 
