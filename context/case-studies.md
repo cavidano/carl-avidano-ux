@@ -641,3 +641,51 @@ Carl requested one six-screen grid with a brief introduction, allowing the clear
 Refreshed the site/content map from Carl’s padded Figma frame `1352:3131` in Portfolio (`RELqPD0MlE9xfVLxRMGJTR`). The original frame is 1500 × 1500; its 2× PNG export is 3000 × 3000. It replaces `src/images/visionlearning/wireframes/site-map.png`, preserving the frame’s white padding and proportions. Set a 2× PNG export preset on the frame for later updates. Page width, caption, description, and lightbox behavior are unchanged.
 
 Carl rejected the separate “Carrying the work into Natura11y” section as confusing and excessive. Removed that entire section and its case-study link. Scientific imagery now leads directly to Looking back, with all reflection prose unchanged. Do not restore a separate Natura11y section based on the earlier outline.
+
+
+### September 29 site-map size and placement
+
+Carl requested a narrow site-structure figure with the existing full-size lightbox. The Mapping section now places its first paragraph above the graphic and its two remaining paragraphs below. All wording and the wireframe grids remain unchanged.
+
+
+### September 29 2017 homepage and discipline pairing
+
+Carl replaced the 2016-to-2017 homepage comparison with two pages from the 2017 design round. He clarified that the second image should be the discipline landing page, not About Our Library. The two-column group now shows the 2017 homepage followed by the Biology discipline landing page with the frog hero image. The discipline image is the unmodified saved composite exported with sips from `Layout&Design/Website/2017/discipline.psd` in the client archive, stored as `src/images/visionlearning/visionlearning-discipline-2017.png`. The original PSD remains unchanged. Updated the shared caption and image description; retained the existing preview framing and full-image lightboxes. The unused earlier images remain available in the repository.
+
+### September 29 transition into the latest redesign
+
+Carl requested a visible separator and more explanation between the 2017 layouts and the latest design work. Added the existing Divider component after the archive pair and replaced “Bringing the later interface together” with “The latest redesign.” Three paragraphs distinguish the earlier artifact from the continued engagement through 2025, explain the later module layout and homepage, and connect the front-end work to the mobile, reading-tool, and scientific-imagery examples that follow. The copy does not assign an unverified launch date or claim every illustrated feature first appeared in one release. Current Confluence Visionlearning v22 and Phoenix v66 were read as source references; this local branch remains a review draft and was not synchronized or deployed.
+
+Carl plans another day of refinement. He will repair the archived discipline screenshot later. Further graphics should explain specific latest-round changes; no additional graphics were created in this pass. Keep Looking back unchanged and do not restore the standalone Natura11y section.
+
+### September 29 mobile copy shortened
+
+Carl found the mobile explanation too long. Condensed the two paragraphs to one focused on collapsible contents and reading tools, followed by what the Spanish examples show. The heading, graphic, caption, and other sections remain unchanged.
+
+### September 29 authoring and feedback copy tightened
+
+Carl requested shorter explanations for Designing the authoring workflow and Refining the designs through feedback. Condensed authoring to one paragraph covering management, the four module tabs, and answer-specific learner feedback. Removed the repeated engagement-length introduction from the research section and shortened its findings and response. Preserved the three research-method bullets, Kim Krause Berg’s attribution, the 2015/2016 distinction, and the remaining audit priorities. Graphics, captions, headings, and surrounding sections are unchanged. Read current Confluence Visionlearning v22 as the reference; the local review branch remains unpublished.
+
+### September 29 latest-redesign modernization and image review confirmed
+
+Carl clarified that the latest redesign moved Visionlearning onto Natura11y. Modernizing the aging JavaScript and CSS supported accessibility improvements and enabled further module enhancements, with a particular focus on Next Generation Science Standards alignment. He also confirmed that the team reviewed hundreds of images supporting module readings, cleaned them up, improved accessibility, and made some bilingual. This is his firsthand account; do not attribute all images or all review work solely to Carl, infer a specific accessibility treatment, or claim measured conformance.
+
+Replaced the generic latest-redesign introduction with two concise paragraphs explaining modernization, Natura11y, NGSS, and the image review. Included the cleanup and selected bilingual graphics in the existing imagery narrative and removed the repeated expansion of NGSS from the reading-tools introduction. No standalone Natura11y section or new graphics were added. Current Confluence v22 was read; this remains the local review branch.
+
+Carl also confirmed that the latest redesign improved the math experience for accessibility and equations across the platform. Added equation rendering and mathematical-content accessibility to the latest-redesign summary. No conformance level, test result, or particular implementation technique is claimed.
+
+### September 29 single 2017 redesign composition
+
+Carl supplied Portfolio Figma frame 1356:3147 and requested naming it and replacing the two separate 2017 layouts with one wide image. Renamed Frame 5 to “Visionlearning — 2017 redesign.” The original 2000 × 480.769 frame contains four archived 2017 website views: homepage, Library, Origins of Life I reading, and Glossary. Added a native PNG 2× export preset to the previously unconfigured frame and downloaded the original exported composition at 4000 × 962. Stored as `src/images/visionlearning/visionlearning-2017-redesign.png`. Preserved the composition and transparency.
+
+Replaced only the two-image 2017 CaseStudyScreens group with one FigureSingle at wide content width, keeping click-to-enlarge through LightboxImage. Updated its shared caption and alternative text to match the four screens. The source Photoshop exports remain on disk but are no longer imported here. The separator and latest-redesign narrative remain in place.
+
+
+### September 29 old and new logo comparison
+
+Carl requested the same old/new logo comparison used in the Cheetah Conservation Fund case study. Replaced the standalone VL-01 logo with the existing FigureSideBySide pattern and two separately captioned figures. Used his complete Portfolio Figma frames 1359:3446 (old eye-under-V logo) and 1359:3495 (current eye/student/book logo), exported with their existing JPEG 2× presets at 1600 × 900 each. Stored as visionlearning-logo-old.jpg and visionlearning-logo-new.jpg, preserving their white and dark backgrounds, whitespace, and proportions. The original standalone asset remains available. Surrounding prose is unchanged; this remains the local unpublished review branch.
+
+
+### September 29 figure markup simplified
+
+Carl requested removing unnecessary review scaffolding from Visionlearning. Removed the seven plain div wrappers with graphic-vl IDs and the remaining graphic-number comment. Existing figure components, content, and assets remain unchanged. Review links now use the existing heading anchors. Keep case-study markup directly editable; do not add numbered graphic wrappers or comments solely for internal review navigation.
