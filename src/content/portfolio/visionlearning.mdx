@@ -27,12 +27,26 @@ caseStudy:
       href: 'https://visionlearning.com/'
 ---
 
+import CaseStudyScreens from '../../components/CaseStudyScreens.astro';
+import siteMap from '../../images/visionlearning/wireframes/site-map.png';
+import homeWireframe from '../../images/visionlearning/wireframes/homepage.png';
+import disciplineWireframe from '../../images/visionlearning/wireframes/discipline.png';
+import readingWireframe from '../../images/visionlearning/wireframes/reading.png';
+import quizWireframe from '../../images/visionlearning/wireframes/quiz.png';
+import resultsWireframe from '../../images/visionlearning/wireframes/quiz-results.png';
+import glossaryWireframe from '../../images/visionlearning/wireframes/glossary.png';
+import moduleAdmin from '../../images/visionlearning/wireframes/admin-module.png';
+import readingAdmin from '../../images/visionlearning/wireframes/admin-reading.png';
+import quizAdmin from '../../images/visionlearning/wireframes/admin-quiz-question.png';
+import resourcesAdmin from '../../images/visionlearning/wireframes/admin-resources.png';
+import home2016 from '../../images/visionlearning/visionlearning-home-2016.jpg';
+import home2017 from '../../images/visionlearning/visionlearning-home-2017.png';
+
 import AnimatedImage from '../../components/AnimatedImage.astro';
 import LightboxImage from '../../components/LightboxImage.astro';
-import administrationContentMap from '../../images/visionlearning/visionlearning-administration-content-map.png';
 import interactiveTools from '../../images/visionlearning/visionlearning-interactive-learning-tools.png';
 
-{/* Current Confluence copy: 23429129. Graphic decisions: context/case-study-graphics.md. */}
+{/* First-pass rewrite on visionlearning-case-study. Legacy state: 5220624. Source and figure records: context/case-studies.md. */}
 
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
@@ -73,22 +87,23 @@ We also developed comprehensive brand guidelines covering logo use, typography, 
 
 <TextBlock>
 
-## Wireframing the website and authoring tools
+## Mapping the website and its content
 
-I used wireframes to design the front end for learners and the backend tools for module authors. The examples below show the authoring side of that work.
+We organized Visionlearning around Library, Glossary, and Classroom, giving each area a distinct purpose. The Library brought together learning modules, interactive animations, and research videos. Modules could be searched or browsed by discipline, while the Glossary provided a direct route to scientific definitions.
 
-The content map connects disciplines and modules with glossary entries and shared media. It gives figures, tables, and animations a dedicated place for maintenance, while the annotations record questions to resolve with the developer.
+The map also considers how that content would be managed. A module brings together reading, figures, quiz questions, and supporting resources. Glossary entries and shared media have their own editing paths because they can appear in more than one module.
+
+I worked directly with the backend developer on these relationships. The annotations record decisions about publishing and maintaining content, alongside questions we still needed to resolve.
 
 </TextBlock>
 
-{/* Graphic VL-08 — existing draft visual; review before replacing. */}
 <div id="graphic-vl-08">
-<FigureSingle width="narrow" caption={"Working content map for the administration experience. Annotations capture decisions and questions for development."}>
+<FigureSingle width="medium" caption="Site structure and content management, connecting the public website with the tools used to maintain it.">
 
 <LightboxImage
-  src={administrationContentMap}
-  alt="Working administration content map showing the Library, Glossary, Classroom, and supporting areas. The Library separates modules from shared media; module editing includes Module Info, Reading, Quiz, and Resources. Annotations identify maintenance decisions and open questions."
-  caption="Visionlearning administration content map"
+  src={siteMap}
+  alt="Visionlearning map connecting Library, Glossary, and Classroom with disciplines, modules, shared figures, glossary entries, courses, and users. Module editing branches into Module Info, Reading, Quiz, and Resources. Notes identify publishing decisions and open questions for development."
+  caption="Visionlearning site structure and content management"
 />
 
 </FigureSingle>
@@ -96,55 +111,80 @@ The content map connects disciplines and modules with glossary entries and share
 
 <TextBlock>
 
-The wireframes organize module editing into Module Info, Reading, Quiz, and Resources. The reading editor provides structured sections alongside English and Spanish audio, references, and further reading. Authors can also add and rearrange resource groups as a module develops.
+## Turning the structure into page layouts
 
-For quizzes, authors can mark the correct answer and write a separate explanation for each answer choice. That puts the explanation in the same workflow as the question and answers.
+I used wireframes to work through the public website and the administration tools. On the public side, the homepage introduced the available subjects, discipline pages organized the modules, and the shared navigation kept Library, Glossary, and Classroom available throughout the site.
 
-</TextBlock>
-
-{/* Graphic VL-09 — existing draft visual; review before replacing. */}
-<div id="graphic-vl-09">
-<FigureSingle width="wide" caption={"Authoring wireframes showing how the content structure becomes screens for organizing and building learning modules."}>
-
-![Overview of nine administration wireframes covering discipline organization, module lists and setup, reading content, quizzes, and supporting resources.](../../images/visionlearning/visionlearning-authoring-wireframe-overview.png)
-
-</FigureSingle>
-</div>
-
-<TextBlock>
-
-In later work, the backend developer adopted Natura11y for the teacher-facing CMS interface, extending the design system used on the public website.
-
-</TextBlock>
-
-<TextBlock>
-
-## Giving the library a clear structure
-
-Within the Library, we grouped content into Learning Modules, Interactive Animations, and Research Videos. These labels made the type of resource visible before someone opened it.
-
-Learning Modules made up most of the content. We organized them by discipline, including biology, chemistry, earth science, and physics, with browsing available from both the homepage and Library. Search provided another route for someone who already had a topic in mind.
-
-Short descriptions in the main navigation explained the purpose of Library, Glossary, and Classroom. Someone arriving at a module or glossary entry could see what else the platform offered without returning to the homepage.
+The glossary needed to work as a reference in its own right. An accordion let readers expand a definition within the list, with pronunciation and related-module links alongside the term.
 
 </TextBlock>
 
 <ThemeWrapper>
-{/* Graphic VL-02. */}
-<div id="graphic-vl-02">
-<FigureSingle width="wide" caption={"The homepage, Library, and learning pages share navigation and page patterns."}>
-
-![Depiction of several Visionlearning website layouts](../../images/visionlearning/visionlearning-masonry-key-pages.jpg)
-
-</FigureSingle>
-</div>
+<CaseStudyScreens
+  screens={[
+    { src: homeWireframe, label: 'Homepage', alt: 'Homepage wireframe with a purpose statement, discipline grid, and introductions to learning resources.' },
+    { src: disciplineWireframe, label: 'Browsing a discipline', alt: 'Earth Science wireframe with discipline navigation, an introduction, and grouped module links.' },
+    { src: glossaryWireframe, label: 'Glossary', alt: 'Glossary wireframe with alphabetical browsing and an expanded definition inside the list of terms.' }
+  ]}
+  caption="Public-site wireframes showing the routes into learning content and reference material."
+/>
 </ThemeWrapper>
 
 <TextBlock>
 
-## Acting on user feedback
+### Keeping the module connected
 
-As the platform evolved, Kim Krause Berg of Creative Vision Web Consulting conducted usability research and audits. The 2015 testing showed that people could struggle to understand what Visionlearning offered, where to begin, and how to use Classroom. Participants asked for clearer lesson organization and instructions; registration and mobile use also presented barriers.
+Within a module, Reading, Quiz, and Resources sit beneath the title and byline. The page keeps its identity as someone moves between those tasks, and the open sidebar provides a route back to the surrounding library.
+
+The reading layout makes room for key concepts, a table of contents, and scientific figures. Quiz screens carry that same structure through answering questions and reviewing results. The results page shows the overall score, the selected answers, and explanations beside individual responses, including the correct answer when a reader gets one wrong.
+
+</TextBlock>
+
+<CaseStudyScreens
+  ratio="0.56"
+  screens={[
+    { src: readingWireframe, label: 'Reading', alt: 'Module reading wireframe with the title, byline, Reading, Quiz, and Resources tabs, an open library sidebar, key concepts, figures, and a comprehension checkpoint.' },
+    { src: quizWireframe, label: 'Quiz', alt: 'Quiz wireframe retaining the module navigation and sidebar, with lettered circles identifying the multiple-choice answers.' },
+    { src: resultsWireframe, label: 'Quiz results', alt: 'Quiz results wireframe with a score summary, selected answers, correct and incorrect states, and answer explanations.' }
+  ]}
+  caption="The module layout carries through reading, answering questions, and reviewing feedback."
+/>
+
+<Divider />
+
+<TextBlock>
+
+## Designing the authoring workflow
+
+Those learning experiences also needed a practical way to create and maintain the content. I designed administration wireframes for organizing disciplines and modules, then editing each module through Module Info, Reading, Quiz, and Resources.
+
+The reading editor accommodates structured sections, figures, English and Spanish audio, references, and further reading. Resource groups can be added and rearranged as a module develops.
+
+The quiz editor connects directly to the feedback shown to readers. Authors can mark the correct answer and write a separate explanation for each answer choice. Keeping the explanations with the question makes them part of authoring the quiz.
+
+</TextBlock>
+
+<ThemeWrapper>
+<CaseStudyScreens
+  columns={2}
+  ratio="0.9"
+  screens={[
+    { src: moduleAdmin, label: 'Module information', alt: 'Module authoring wireframe with Module Info selected and publishing status, discipline and category, authors, a feature quote, and metadata fields.' },
+    { src: readingAdmin, label: 'Reading content', alt: 'Reading editor wireframe with English and Spanish audio, a pre-reader, and structured content sections.' },
+    { src: quizAdmin, label: 'Questions and answer feedback', alt: 'Quiz question editor with multiple answer choices, a correct-answer control, and a feedback field for each choice.' },
+    { src: resourcesAdmin, label: 'Supporting resources', alt: 'Resources editor wireframe with controls to add and rearrange resource groups.' }
+  ]}
+  caption="Administration wireframes connect the content structure to the fields and controls authors need."
+/>
+</ThemeWrapper>
+
+<TextBlock>
+
+## Refining the designs through feedback
+
+The work continued through multiple redesigns over more than a decade. I presented and refined layouts as the organization’s needs evolved, using research findings to guide subsequent changes.
+
+Kim Krause Berg of Creative Vision Web Consulting conducted usability research and audits. The 2015 testing found that people could struggle to understand what Visionlearning offered, where to begin, and how to use Classroom. Participants asked for clearer lesson organization and instructions; registration and mobile use also presented barriers.
 
 The research combined:
 
@@ -152,15 +192,43 @@ The research combined:
 - Expert review of navigation, content, mobile behavior, and accessibility.
 - A follow-up audit checking the redesign against the earlier recommendations.
 
-I used those findings to guide the design work. We added a clear purpose statement to the homepage, refined course organization, and made registration more visible. These changes addressed the first questions a visitor needed answered: what can I learn here, where should I go, and how do I get started?
-
-The 2016 follow-up confirmed the homepage purpose statement and documented improvements in course organization, registration visibility, and interface consistency. Getting-started guidance, accessibility, and performance still needed work, giving the next design round specific problems to address.
+We added a clear purpose statement to the homepage, refined course organization, and made registration more visible. The 2016 follow-up confirmed the purpose statement and documented improvements in course organization, registration visibility, and interface consistency. Getting-started guidance, accessibility, and performance still needed work.
 
 </TextBlock>
 
+<CaseStudyScreens
+  columns={2}
+  ratio="0.85"
+  screens={[
+    { src: home2016, label: '2016 homepage design', alt: 'Archived homepage design introducing Visionlearning and organizing science content by discipline.' },
+    { src: home2017, label: '2017 homepage design', alt: 'Archived homepage design with the statement Free, award-winning resources for teaching and learning science, a discipline grid, NGSS information, and featured learning content.' }
+  ]}
+  caption="Homepage design iterations preserved in the 2016 and 2017 archive folders."
+/>
+
 <TextBlock>
 
-## Keeping learning tools available on mobile
+## Bringing the later interface together
+
+The later designs retain Library, Glossary, and Classroom as the main routes into the platform. The homepage pairs visual subject browsing with descriptions of what each area offers. Within a module, the reading column brings together text, scientific figures, and comprehension checkpoints, with contents and reading tools beside it.
+
+I designed the layouts and built the front end, working with the backend developer to connect the interface to the content. Scientific imagery was part of that work throughout: it introduced subjects, supported explanations, and gave readers something concrete to examine alongside the text.
+
+</TextBlock>
+
+<ThemeWrapper>
+<div id="graphic-vl-02">
+<FigureSingle width="wide" caption="Later homepage, discipline browsing, and module layouts bring the content structure, visual design, and scientific imagery together.">
+
+![Visionlearning homepage and a Biology discipline panel beside a Periodic Table learning module with scientific figures, reading tools, and a comprehension checkpoint.](../../images/visionlearning/visionlearning-masonry-key-pages.jpg)
+
+</FigureSingle>
+</div>
+</ThemeWrapper>
+
+<TextBlock>
+
+### Keeping learning tools available on mobile
 
 I designed and built responsive templates for English and Spanish content. The layouts needed to accommodate long readings, scientific figures, quizzes, and reference tools within the same experience.
 
@@ -168,9 +236,8 @@ On larger screens, a module's contents and reading tools sit beside the text. On
 
 </TextBlock>
 
-{/* Graphic VL-04. */}
 <div id="graphic-vl-04">
-<FigureSingle width="medium" caption={"Spanish-language mobile screens showing the homepage, a module quiz, and a glossary entry."}>
+<FigureSingle width="medium" caption="Spanish-language mobile screens showing the homepage, a module quiz, and a glossary entry.">
 
 ![Visionlearning on mobile in Spanish, showing library navigation, a quiz, and a glossary definition with pronunciation and mathematical notation.](../../images/visionlearning/visionlearning-mobile-spanish.png)
 
@@ -179,21 +246,22 @@ On larger screens, a module's contents and reading tools sit beside the text. On
 
 <TextBlock>
 
-## Interactive learning tools
+## Building tools around the reading
 
-The client requested two tools for the learning modules: glossary highlighting for looking up science terms, and annotations connecting the content to the Next Generation Science Standards (NGSS). I designed the interfaces and wrote the front-end behavior for these different reading and teaching tasks.
+The client requested glossary highlighting and annotations connecting the content to the Next Generation Science Standards (NGSS). I designed the interfaces and wrote the front-end behavior for these different reading and teaching tasks.
 
-With glossary highlighting enabled, readers can select a term and see its definition without leaving the module. The NGSS mode highlights passages connected to science standards and displays the relevant information for educators. Both are optional, and only one highlighting mode is active at a time, keeping the two kinds of annotation distinct.
+With glossary highlighting enabled, readers can select a term and see its definition without leaving the module. The NGSS mode highlights passages connected to science standards and displays the relevant information for educators. Only one highlighting mode is active at a time, keeping the two kinds of annotation distinct.
 
-In the annotated Earth Structure source, comments connect passages to practices such as analyzing data and constructing explanations. That teaching context is what the NGSS interface makes available beside the reading.
+The annotated Earth Structure source connects passages to practices such as analyzing data and constructing explanations. The NGSS interface makes that teaching context available beside the reading.
 
-I also designed and built an interactive periodic table. Readers can select an element to open its details, keeping the table itself available as a reference. The interface includes a table view and a search-and-list view, offering different ways to explore the same information.
+### Exploring the periodic table
 
-The table view preserves the relationships between elements, while the detail view provides room for an individual element's properties. Search gives readers a direct route when they already know which element they need.
+I also designed and built an interactive periodic table. Readers can select an element to open its details while keeping the table available as a reference. The table view preserves the relationships between elements; Search and List provides another way to find and filter them.
+
+The demonstration below shows keyboard navigation, Carbon's details, and a search filtered to noble gases.
 
 </TextBlock>
 
-{/* Graphic VL-05. */}
 <div id="graphic-vl-05">
 <FigureSingle>
 
@@ -216,21 +284,20 @@ The table view preserves the relationships between elements, while the detail vi
 <ThemeWrapper>
 <TextBlock>
 
-## Custom scientific illustrations
+## Explaining science through imagery
 
-I created scientific illustrations in Adobe Illustrator and Photoshop to explain ideas that are difficult to describe through text alone. The work ranged from small supporting diagrams to detailed plant and animal cells, molecular structures, and experimental setups.
+I created scientific illustrations in Adobe Illustrator and Photoshop, ranging from small supporting diagrams to detailed cell anatomy, molecular structures, and experimental setups. The figures needed to work within the reading layouts as well as explain the science.
 
-The plant and animal cell illustrations, for example, use labels and a consistent visual treatment to identify structures within each cell. Other figures show relationships or sequences, such as the stages of an experiment or the differences between RNA and DNA.
+Plant and animal cell illustrations use labels and a consistent visual treatment to identify structures. Other figures show relationships or sequences, such as the stages of an experiment or the differences between RNA and DNA.
 
-Some visuals were entirely custom. Others combined carefully selected, high-resolution imagery with labels and scientific concepts. I adapted the approach to what each module needed to explain; the collection below represents part of a much larger body of visual work across the site.
+Some visuals were entirely custom. Others combined carefully selected, high-resolution imagery with labels and scientific concepts. I adapted the approach to what each module needed to explain; the collection below represents part of a much larger body of work across the site.
 
 </TextBlock>
 
-{/* Graphic VL-06. */}
 <div id="graphic-vl-06">
-<FigureSingle width="wide" caption={"Scientific illustrations showing cell anatomy, molecular structures, and experiments."}>
+<FigureSingle width="wide" caption="Scientific illustrations showing cell anatomy, molecular structures, and experiments.">
 
-![A collection of scientific illustrations covering biology and chemistry concepts. The images include labeled animal and plant cells, the Miller-Urey experiment on the origin of life, a diagram showing the evolution of eukaryotic cells through endosymbiosis, laboratory experiments with flasks and bacterial cultures, the four levels of protein structure, a comparison of RNA and DNA, and the periodic table of elements. The illustrations use bright colors, clear labeling, and simplified visual forms to explain complex scientific concepts.](../../images/visionlearning/visionlearning-scientific-illustrations.jpg)
+![Scientific illustrations including labeled animal and plant cells, the Miller-Urey experiment, endosymbiosis, laboratory experiments, protein structure, RNA and DNA, and the periodic table.](../../images/visionlearning/visionlearning-scientific-illustrations.jpg)
 
 </FigureSingle>
 </div>
@@ -238,7 +305,7 @@ Some visuals were entirely custom. Others combined carefully selected, high-reso
 
 <TextBlock>
 
-## Adapting graphics to the lesson
+### Adapting graphics to the lesson
 
 The periodic-table lessons required a connected set of graphics. I adapted the table to emphasize element families, electron blocks, and patterns such as atomic radius, with supporting diagrams explaining electron structure and notation.
 
@@ -246,14 +313,29 @@ Each view directs attention to a different relationship: a highlighted family re
 
 </TextBlock>
 
-{/* Graphic VL-07 — Figma 1335:3121, periodic-table lesson adaptations. */}
 <div id="graphic-vl-07">
-<FigureSingle width="wide" caption={"Periodic-table graphics adapted for different lessons, including element families, electron blocks, atomic radius, and electron structure."}>
+<FigureSingle width="wide" caption="Periodic-table graphics adapted for different lessons, including element families, electron blocks, atomic radius, and electron structure.">
 
 ![A collage of periodic-table lesson graphics: electron blocks and orbital labels, a Spanish reference table, highlighted transition metals, atomic-radius trends, and electron-shell diagrams for chlorine and lithium.](../../images/visionlearning/visionlearning-periodic-table-lesson-adaptations.png)
 
 </FigureSingle>
 </div>
+
+<Divider />
+
+<TextBlock>
+
+## Carrying the work into Natura11y
+
+In later redesigns, I built the public-site front end on Natura11y, the design system I created. Shared components supported the page layouts and interface behavior, while Visionlearning’s reading tools and scientific content addressed the needs of this particular platform.
+
+The backend developer subsequently adopted Natura11y for the teacher-facing CMS interface. That extended the same design system into another part of the platform, maintained by another developer.
+
+Visionlearning is one of the client projects where I put Natura11y into practice. The next case study explains how that work sits within the broader design ecosystem, including its components, design libraries, and documentation.
+
+[Read the Natura11y case study](/case-studies/natura11y)
+
+</TextBlock>
 
 <TextBlock>
 

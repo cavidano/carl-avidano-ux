@@ -1,0 +1,53 @@
+---
+import type { ImageMetadata } from 'astro';
+import LightboxImage from './LightboxImage.astro';
+
+interface Props {
+  screens: { src: ImageMetadata; label: string; alt: string }[];
+  caption: string;
+  columns?: 2 | 3;
+  ratio?: string;
+}
+
+const { screens, caption, columns = 3, ratio = '0.72' } = Astro.props;
+---
+
+<div class="container wide margin-y-5">
+  <figure class="wide">
+    <div class="screens" style={`--screen-columns: ${columns}; --screen-ratio: ${ratio}`}>
+      {screens.map((screen) => (
+        <div class="screen">
+          <p class="screen-label">{screen.label}</p>
+          <LightboxImage src={screen.src} alt={screen.alt} caption={screen.label} />
+        </div>
+      ))}
+    </div>
+    <figcaption class="font-size-md">
+      <p><em>{caption} Select a screen to view the full layout.</em></p>
+    </figcaption>
+  </figure>
+</div>
+
+<style>
+  .screens {
+    display: grid;
+    grid-template-columns: repeat(var(--screen-columns), minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 2rem);
+    align-items: start;
+  }
+  .screen { min-width: 0; }
+  .screen-label { font-weight: 700; margin: 0 0 0.75rem; }
+  .screen :global(.lightbox-thumbnail) {
+    display: block;
+    width: 100%;
+    aspect-ratio: var(--screen-ratio);
+    overflow: hidden;
+    background: white;
+    border: 1px solid #b9b9b9;
+    border-radius: 0;
+  }
+  .screen :global(img) { width: 100%; height: auto; max-width: 100%; }
+  @media (max-width: 767px) {
+    .screens { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  }
+</style>
