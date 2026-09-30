@@ -1,5 +1,9 @@
 # Project context
 
+**Visionlearning copy publication, September 30:** Carl approved publishing the current copy review, including the introduction, evidence-based callouts, brand credit, and section refinements. Confluence is synchronized at v39. [Release scope and verification](case-studies.md#september-30--visionlearning-reviewed-copy-release).
+
+**Visionlearning Results research, September 30:** The 2024 Image Database export set contains 208 distinct graphic groups after deduplication, supporting the conservative “200+” images callout alongside “NGSS.” Live library counts: 167 unique modules, 43 listed as NGSS-enhanced. Keep platform scale and image-work scope distinct. [Counts, sources, and scope](case-studies.md#september-30--live-visionlearning-module-counts-for-results).
+
 **Latest review and publication, September 29:** Visionlearning is live from `8695890`, with the final wide periodic-table demo and updated role. Visionlearning’s structure and graphics are complete, but Carl’s detailed text review is next. Its main Confluence copy is synchronized at v25 with Copy review pending; Phoenix.gov remains reviewed at v67. Natura11y follows that editorial pass, grounded in years of client-project use, design and maintenance decisions, and preparation for agentic design and development. [Release and next-task record](case-studies.md#september-29--visionlearning-published-and-review-completed).
 
 **Visionlearning first-pass branches, September 29:** `visionlearning-legacy` at `5220624` preserves the full pre-rewrite state; `visionlearning-case-study` contains the new narrative and screen groups. Looking back retains its original prose; its repeated homepage-evolution figure was removed at Carl’s request. The reviewed rewrite is now published and synchronized with the main Confluence page, as recorded above. [Draft and asset record](case-studies.md#september-29-visionlearning-first-pass-rewrite-on-separate-branches).
