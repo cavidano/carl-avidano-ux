@@ -1,6 +1,6 @@
 # Project context
 
-**Visionlearning copy publication, September 30:** Carl approved publishing the current copy review, including the introduction, evidence-based callouts, brand credit, and section refinements. Confluence is synchronized at v39. [Release scope and verification](case-studies.md#september-30--visionlearning-reviewed-copy-release).
+**Visionlearning copy publication, September 30:** The reviewed introduction, evidence-based callouts, brand credit, and section refinements are live from `7beb533`; deployment run 36698144028 succeeded, and all 80 rendered copy items match the local preview. Confluence is synchronized at v40. Further detailed body review can continue. [Release scope and verification](case-studies.md#september-30--visionlearning-reviewed-copy-release).
 
 **Visionlearning Results research, September 30:** The 2024 Image Database export set contains 208 distinct graphic groups after deduplication, supporting the conservative “200+” images callout alongside “NGSS.” Live library counts: 167 unique modules, 43 listed as NGSS-enhanced. Keep platform scale and image-work scope distinct. [Counts, sources, and scope](case-studies.md#september-30--live-visionlearning-module-counts-for-results).
 
