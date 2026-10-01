@@ -50,13 +50,25 @@ The Funding Marketplace gave National Committees and Country Offices a centraliz
 
 ## Phase 1: Donor Toolkits
 
-The first phase focused on creating a centralized repository for fundraising resources, donor materials, financial reports, and country-specific content.
-
-Users could browse materials by strategic outcome, region, keyword, or country, making it easier to discover and compare fundraising opportunities across UNICEF's global network.
+The first phase focused on creating a centralized repository for donor toolkits. Each toolkit brought together programme information, budgets, financial reports, and supporting materials used to discuss funding opportunities.
 
 </TextBlock>
 
+<FigureSingle caption="Browsing and toolkit layouts, reconstructed from the original designs.">
+
+![Five donor-toolkit wireframes showing browsing by focus area and country, a toolkit document with selectable sections, a results matrix, and supporting materials connected through shared navigation.](../../images/unicef/unicef-toolkit-wireframes.png)
+
+</FigureSingle>
+
 <ThemeWrapper>
+
+<TextBlock>
+
+Users could browse materials by strategic outcome, region, keyword, or country, making it easier to discover and compare fundraising opportunities across UNICEF's global network.
+
+I used shared tabs within each toolkit to connect the programme document with its results matrix, financial reports, and supporting materials.
+
+</TextBlock>
 
 <FigureSingle>
 
@@ -77,13 +89,13 @@ As the platform evolved, UNICEF required administrative tools that would allow C
 
 ### Dublin workshop
 
-To define requirements for the next phase of the platform, project team members, UNICEF stakeholders, and Quark developers collaborated in a multi-day workshop to map workflows, discuss content management needs, and establish priorities for the dashboard experience.
+At a multi-day workshop in Dublin, I worked with UNICEF stakeholders, project team members, and Quark developers to map the screens and responsibilities for the Country Office Dashboard. We worked through how content would move between offices and which actions each role needed to create, review, and publish it.
 
 </TextBlock>
 
-<FigureSingle caption="Whiteboards from Dublin workshop">
+<FigureSingle caption="Whiteboards from the Dublin workshop.">
 
-![Depiction of UNICEF Funding Marketplace wireframes and flows](../../images/unicef/dublin-workshop.png)
+![Dublin workshop whiteboards mapping dashboard screens, toolkit management, and administrative responsibilities.](../../images/unicef/dublin-workshop.png)
 
 </FigureSingle>
 
@@ -91,31 +103,81 @@ To define requirements for the next phase of the platform, project team members,
 
 ### Wireframes
 
-I translated those discussions into wireframes that explored dashboard functionality, approval workflows, reporting tools, and content management experiences before development began.
+I used wireframes to work through assignments, toolkit documents, and supporting materials. Each content type needed its own controls while remaining part of a consistent dashboard.
+
+During later refinements, I removed unnecessary subpages and brought available actions into the selected table row. The options depended on the user's role, the document's state, and whether editing, comments, or approval had been requested.
 
 </TextBlock>
 
-<FigureSingle caption="Wireframes and User Flow Documentation">
+<FigureSingle caption="Wireframes and user flow documentation.">
 
-![Depiction of UNICEF Funding Marketplace wireframes and flows](../../images/unicef/unicef-wireframe-flows.png)
+![Dashboard wireframes showing assignments, toolkit management, supporting materials, and comment requests.](../../images/unicef/unicef-wireframe-flows.png)
 
 </FigureSingle>
+
+<TextBlock>
+
+### Reviewing content across offices
+
+The comment workflow needed to show who had been asked to review a document and whose response was still pending. I designed the sequence for choosing reviewers, tracking their responses, and incorporating comments into the document.
+
+The wireframes also covered less straightforward situations. If the sender incorporated comments before every reviewer responded, the remaining reviewer's assignment displayed a warning. Confirmation messages appeared within the selected row, keeping the feedback close to the document being managed.
+
+</TextBlock>
+
+<FigureSideBySide stackOnMobile={true}>
+<FigureSingle isContained={false} margin="" caption="Choosing reviewers and documenting the controls available to each role.">
+
+![Original developer documentation showing the Send for Comment dialog and how reviewer selection differs by user role. Names have been anonymized.](../../images/unicef/unicef-review-flow-13.png)
+
+</FigureSingle>
+<FigureSingle isContained={false} margin="" caption="Tracking returned comments and pending responses.">
+
+![Annotated wireframe showing returned and pending comment counts, with a tooltip identifying the reviewers still expected to respond. Names have been anonymized.](../../images/unicef/unicef-review-flow-18.png)
+
+</FigureSingle>
+<FigureSingle isContained={false} margin="" caption="Confirming the action within the selected document row.">
+
+![Developer documentation showing a confirmation message in the selected toolkit row after comments are incorporated.](../../images/unicef/unicef-review-flow-21.png)
+
+</FigureSingle>
+<FigureSingle isContained={false} margin="" caption="Handling an outstanding review after comments have been incorporated.">
+
+![Annotated assignment screen showing the warning displayed when a comment request is cancelled before its reviewer responds.](../../images/unicef/unicef-review-flow-22.png)
+
+</FigureSingle>
+</FigureSideBySide>
 
 <ThemeWrapper>
 <FigureSingle>
 
-![Funding Marketplace Toolkit map screen](../../images/unicef/unicef-masonry-pfp-dashboard.jpg)
+![Funding Marketplace dashboard screens showing assignments, toolkit management, document creation, and routing.](../../images/unicef/unicef-masonry-pfp-dashboard.jpg)
 
 </FigureSingle>
 </ThemeWrapper>
 
 <TextBlock>
 
-## Looking back
+### Working with developers
 
+I supplied HTML, CSS, and JavaScript templates and worked with Quark developers during implementation. I compared the implemented screens with those templates and documented differences in layout and behavior.
+
+For example, a dropdown's longer lists extended beyond the visible page. My review compared the live behavior with the supplied template, giving developers a specific reference for how the control was expected to work.
+
+</TextBlock>
+
+<FigureSingle width="narrow" caption="Implementation review comparing the live dropdown with the supplied template. Names have been anonymized.">
+
+![Annotated implementation comparison showing a live dropdown whose long list extends beyond the visible page, alongside the control in the supplied front-end template.](../../images/unicef/unicef-implementation-review.png)
+
+</FigureSingle>
+
+<TextBlock>
+
+## Looking back
 
 Being part of UNICEF's Funding Marketplace marked a turning point in my career. This was my first large-scale systems design project and my first opportunity to collaborate with stakeholders and developers internationally.
 
-I'm proud of what we accomplished together. This experience shaped me into a systems thinker long before design systems became a common industry buzzword. It's the reason I started Avidano Digital, where I continue to collaborate with mission-driven  organizations.
+I'm proud of what we accomplished together. The project taught me to think beyond individual screens and consider how roles, content, and publishing fit together. It led me to start Avidano Digital, where I continue to collaborate with mission-driven organizations.
 
 </TextBlock>

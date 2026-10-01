@@ -32,17 +32,21 @@ import designSystemArchitecture from '../../images/natura11y/design-system-archi
 
 ## Challenge
 
-I created Natura11y to make it easier to build highly customized and accessible interfaces, because existing frameworks made that process unnecessarily difficult or restrictive. At the time, my consulting work included projects with complex, highly specific requirements. I was also working with the City of New York, where accessibility and inclusive design were becoming central to my design approach.
+Natura11y began as a series of small experiments I created while taking front-end programming tutorials. I wanted the work to remain useful after each exercise, so I started saving the pieces and exploring how they could fit together.
 
-Frameworks like Bootstrap were fast at first, but imposed their own restrictions and became harder to customize as projects grew. I needed a foundation I could fully control, improve over time, and keep pace with emerging web technologies.
+At work, I was using Bootstrap and often found it restrictive when building interfaces with specific design requirements. Front-end tools and development environments were also becoming more complex. I wanted a foundation I could understand, control, and simplify as my knowledge grew.
 
 ## Solution
 
-Natura11y is an accessibility-first, platform-agnostic design ecosystem. Shared CSS and JavaScript, UI components, icons, Figma libraries, React components, and documentation provide a flexible foundation that teams can adopt at different levels. It can be used to create a website theme, to extend it with custom components, or to serve as the foundation for a complete branded design system.
+As that collection developed, I decided to build my own framework, with accessibility guiding its design. I began using early versions in client projects through Avidano Digital, refining the system as I learned more about UX and front-end development.
+
+Natura11y expanded into an ecosystem connecting reusable components, Figma libraries, icons, and production code. I designed it to support different visual identities while sharing interface patterns and accessibility behavior. Documentation became an important part of the work, explaining how components should be used and making those decisions available alongside the code.
 
 ## Result
 
-Natura11y has reduced work that once took months to days while giving me more freedom to create highly customized, accessible interfaces. I have used it across client projects, including Visionlearning, and I am now using it to redesign the Cheetah Conservation Fund’s global web presence.
+Natura11y is now an open-source ecosystem that I maintain and use in client work, including Visionlearning’s latest redesign and the ongoing redesign of Cheetah Conservation Fund’s website. It gives me established patterns to build on while leaving room for each project’s requirements.
+
+I designed and developed the original core before generative AI became part of my workflow. Today, I use AI to help maintain and update the system, drawing on its working components, documentation, and the design decisions I’ve made along the way.
 
 </CaseStudyOverview>
 
@@ -82,9 +86,7 @@ Natura11y’s codebase is designed to be minimal and easy to maintain. Core serv
 
 ### Components (vanilla and React)
 
-I designed Natura11y’s component library to work across both semantic HTML and React. The HTML examples pair accessible markup with focused vanilla JavaScript, while the React components handle behavior through props, state, refs, and hooks. Both use the same Core styles, utilities, and accessibility patterns.
-
-This allows teams to work in either technology stack without creating a separate design system for each one. Components can stay visually and behaviorally aligned while still feeling native to the environment where they are used.
+I designed HTML and React components around the same Core styles and accessibility patterns. React manages its own state and interactions while reusing Core utilities. Storybook brings both implementations together for development and testing.
 
 </TextBlock>
 
@@ -126,7 +128,7 @@ Natura11y includes its own icon library. The icon package is versioned alongside
 
 ## Figma UI kits
 
-The Figma UI Kit provides a collection of components and layouts that align perfectly with the front-end framework, giving interaction designers essential tools to create their own design systems.
+I created separate lo-fi and hi-fi Figma libraries that support different stages of a project. The lo-fi kit provides reusable patterns for exploring content, hierarchy, and flow. The hi-fi kit can then be customized into a project’s own design system, with its typography, colors, and component details.
 
 </TextBlock>
 
@@ -146,12 +148,22 @@ The Figma UI Kit provides a collection of components and layouts that align perf
 
 </FigureSideBySide>
 
+<TextBlock>
+
+Keeping the lo-fi kit separate lets me reuse it across projects and update it independently of their visual identities. It remains a shared tool for early design work, while each project’s hi-fi system develops around its specific needs.
+
+The hi-fi kit’s foundation variables correspond to Natura11y’s CSS variables. Theme modes represent the color system without requiring duplicate component variants, giving designers and developers a shared set of values to work from.
+
+</TextBlock>
+
 <ThemeWrapper>
 <TextBlock>
 
 ## Public documentation
 
-I built the documentation website using Astro, allowing me to mix framework examples with MDX for comprehensive documentation. Because Natura11y is inspired by the natural world, I associated each component and page with nature-themed images, all carefully selected from Unsplash with proper photographer credits. This was one of the most enjoyable parts of the project and gives the documentation a warm, welcoming feel that reflects the spirit of the system.
+I built the documentation with Astro and MDX, pairing working examples with implementation and accessibility guidance.
+
+Nature photography, selected from Unsplash with photographer credits, gives the documentation a warm, welcoming feel. Choosing those images was one of the most enjoyable parts of the project.
 
 </TextBlock>
 
