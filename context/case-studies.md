@@ -1124,3 +1124,5 @@ During that release, Carl began a new card-copy review. Those edits were separat
 - **Mr. Ellie Pooh:** How a custom Shopify store and original photography showcased a fair-trade brand’s products and the artisans who make them.
 
 The other four descriptions already follow the approved “How” opening. Card headlines, project names, and case-study bodies are unchanged.
+
+Published from `8c11ec0` on `main` in successful [run 36911627625](https://github.com/cavidano/carl-avidano-ux/actions/runs/36911627625). Both builds passed all 23 tests and generated-page checks, with no Astro errors or warnings. The live homepage, Case Studies listing, and all four affected case-study pages match the tested copy and metadata. Confluence read-back verified Visionlearning v42, NYC OTI v13, Cheetah.org v18, and Mr. Ellie Pooh v15, with the case-study bodies unchanged.
