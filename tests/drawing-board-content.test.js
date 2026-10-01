@@ -1,11 +1,34 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { prepareDrawingBoardPosts, groupDrawingBoardTags } from '../src/lib/drawing-board-content.js';
+import { prepareDrawingBoardPosts, groupDrawingBoardTags, featureApplicationArticles } from '../src/lib/drawing-board-content.js';
 
 const article = (title, tags, options = {}) => ({
   frontmatter: { title, tags, date: '2026-09-01', status: 'published', ...options }
 });
 const index = (modules) => groupDrawingBoardTags(prepareDrawingBoardPosts(modules));
+
+test('applications receive edited and newly published articles regardless of homepage selection', () => {
+  const modules = [
+    { id: 'chosen', default: () => 'Original article', ...article('Chosen article', ['Accessibility'], { date: '2026-09-01' }) },
+    { id: 'upcoming', default: () => 'Upcoming article', ...article('Upcoming article', ['Design Systems'], { date: '2026-10-01', status: 'draft' }) }
+  ];
+  const selected = () => prepareDrawingBoardPosts(featureApplicationArticles(modules, ['chosen'], 'example'));
+  assert.deepEqual(selected().map(({ slug }) => slug), ['chosen-article']);
+  modules[0].frontmatter.title = 'Updated article';
+  modules[0].default = () => 'Updated body';
+  modules[1].frontmatter.status = 'published';
+  const posts = selected();
+  assert.deepEqual(posts.map(({ slug }) => slug), ['upcoming-article', 'updated-article']);
+  assert.equal(posts[1].Content(), 'Updated body');
+  assert.equal(posts[1].frontmatter.isFeatured, true, 'Featuring follows the source file when the headline changes');
+  assert.equal(posts[0].frontmatter.isFeatured, false, 'A new article appears in the collection without changing the curated homepage');
+  assert.equal(modules[0].frontmatter.isFeatured, undefined, 'Application curation must not mutate shared metadata');
+  modules[1].frontmatter.status = 'draft';
+  assert.deepEqual(selected().map(({ slug }) => slug), ['updated-article']);
+  for (const featured of [undefined, ['missing'], ['chosen', 'chosen']]) {
+    assert.throws(() => featureApplicationArticles(modules, featured, 'example'), /unique, existing/);
+  }
+});
 
 test('only published articles contribute tags and archive entries', () => {
   const tags = index([

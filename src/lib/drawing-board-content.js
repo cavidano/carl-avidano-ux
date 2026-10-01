@@ -1,3 +1,28 @@
+export function validateFeaturedArticles(featured, ids, siteId) {
+  if (!Array.isArray(featured) || featured.some((id) => !ids.includes(id)) || new Set(featured).size !== featured.length) {
+    throw new Error(`${siteId}: articles.json featured must contain unique, existing article filenames without .mdx.`);
+  }
+}
+
+/**
+ * Homepage selection does not limit the shared article collection or change its copy.
+ * @template {{ id: string, frontmatter: Record<string, any> }} T
+ * @param {T[]} modules
+ * @param {string[]} featured
+ * @param {string} siteId
+ */
+export function featureApplicationArticles(modules, featured, siteId) {
+  validateFeaturedArticles(featured, modules.map(({ id }) => id), siteId);
+  return modules.map((module) => ({
+    ...module,
+    frontmatter: {
+      ...module.frontmatter,
+      isFeatured: featured.includes(module.id),
+      sortOrder: featured.indexOf(module.id)
+    }
+  }));
+}
+
 function createSlug(value) {
   return value
     .normalize('NFKD')

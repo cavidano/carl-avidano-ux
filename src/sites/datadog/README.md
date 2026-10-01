@@ -1,5 +1,7 @@
 # Datadog application site
 
+**Current architecture — October 1, 2026:** Case studies now render directly from the shared `src/content/portfolio/*.mdx` sources. Edit them once for every site. `projects.json` contains only featured project IDs and their order. `articles.json` does the same for homepage articles; every site’s full Drawing Board reads the shared main collection. Complete cards, headers, case studies, and articles use the same sources/templates everywhere. Landing/About copy, artwork, selections, and résumé stay application-specific. The historical independent-copy instructions below are superseded. Current case-study writing belongs on the main Confluence pages linked in `context/case-studies.md`.
+
 Local draft on `codex/datadog-microsite`, created September 26, 2026. **Accessibility-led positioning under review; see [positioning-draft.md](positioning-draft.md).** Preview remains at `/datadog`; not published or submitted. See [job-evidence-map.md](job-evidence-map.md) for the central experience gap and exact claim sources.
 
 Target: **Senior Design Manager – Design Systems**, requisition **R21400**, New York. See [application-brief.md](application-brief.md) for the role and evidence decisions.

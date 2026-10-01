@@ -1,5 +1,7 @@
 # Chromatic application site
 
+**Current architecture — October 1, 2026:** Case studies now render directly from the shared `src/content/portfolio/*.mdx` sources. Edit them once for every site. `projects.json` contains only featured project IDs and their order. `articles.json` does the same for homepage articles; every site’s full Drawing Board reads the shared main collection. Complete cards, headers, case studies, and articles use the same sources/templates everywhere. Landing/About copy, artwork, selections, and résumé stay application-specific. The historical independent-copy instructions below are superseded. Current case-study writing belongs on the main Confluence pages linked in `context/case-studies.md`.
+
 Local draft at `/chromatic`, branch `codex/chromatic-microsite`, September 26, 2026. Not published or submitted. Datadog's checkpoint is preserved at commit `4556e83` on its own branch and carried forward unchanged as part of this branch's base.
 
 Read [application-brief.md](application-brief.md) and [job-evidence-map.md](job-evidence-map.md) for the complete-posting review, evidence, and open questions.

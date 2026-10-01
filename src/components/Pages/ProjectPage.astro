@@ -20,7 +20,6 @@ interface ProjectFrontmatter {
   title: string;
   cardHeadline?: string;
   description: string;
-  tagline?: string;
   primaryColor: string;
   primaryTextColor: string;
   secondaryColor: string;
@@ -38,7 +37,6 @@ const { project } = Astro.props as { project: Project };
 
 const { Content, frontmatter } = project;
 const siteId = getSiteId(Astro.url.pathname);
-const applicationSite = siteId !== 'main';
 const relatedPosts = getDrawingBoardPosts(siteId)
   .filter((post) => post.frontmatter.projectUrl?.replace(/\/+$/, '') === `/case-studies/${project.slug}`)
   .slice(0, 3);
@@ -64,12 +62,11 @@ const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-te
   image={project.marqueeImage}
   imageAlt={`${frontmatter.title} case study`}
 >
-  {applicationSite && <GlobalHeader />}
   <div class="theme-primary overflow-hidden" style={projectThemeStyles}>
 
     <div>
 
-      {!applicationSite && <GlobalHeader />}
+      <GlobalHeader />
 
       <header class="marquee">
 
@@ -83,12 +80,7 @@ const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-te
                 <h1 class="banner-headline">
                   {frontmatter.title}
                 </h1>
-                {applicationSite && (
-                  <p class="narrow">
-                    {frontmatter.tagline || frontmatter.description}
-                  </p>
-                )}
-                {!applicationSite && frontmatter.cardHeadline && (
+                {frontmatter.cardHeadline && (
                   <p class="narrow">{frontmatter.cardHeadline}</p>
                 )}
               </div>

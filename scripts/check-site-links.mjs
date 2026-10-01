@@ -3,7 +3,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { applicationSites, getApplicationSites, retiredApplicationSites } from '../src/lib/application-sites.js';
-import { getSiteId } from '../src/lib/site-paths.js';
+import { getSiteId, siteHref } from '../src/lib/site-paths.js';
 
 assert.ok(process.argv.slice(2).every((arg) => arg === '--review'), 'Usage: node scripts/check-site-links.mjs [--review]');
 const includeDrafts = process.argv.includes('--review');
@@ -46,7 +46,17 @@ for (const site of applicationSites) {
   }
 }
 const pages = walk(dist).filter((path) => path.endsWith('.html'));
+const caseStudyListing = readFileSync(join(dist, 'case-studies/index.html'), 'utf8');
+const projectCards = (html) => [...html.matchAll(/<section\b[^>]*aria-labelledby="project-([^"]+)"[^>]*>[\s\S]*?<\/section>/g)];
+const sharedCards = new Map(projectCards(caseStudyListing).map(([html, slug]) => [slug, html]));
+// Heading depth and image loading priority follow placement; card content and layout stay shared.
+const normalizeCard = (html) => html
+  .replace(/<h[23]\b[^>]*id="project-([^"]+)"[^>]*>/g, '<h2 id="project-$1">')
+  .replace(/<\/h[23]>/g, '</h2>')
+  .replace(/ (?:loading|fetchpriority)="[^"]*"/g, '');
 let applicationPages = 0;
+let sharedCaseStudies = 0;
+let sharedArticles = 0;
 
 for (const file of pages) {
   const html = readFileSync(file, 'utf8');
@@ -54,6 +64,16 @@ for (const file of pages) {
   const site = getSiteId(path);
   const base = `/${site}`;
   if (site !== 'main') applicationPages++;
+  if (path === base && site !== 'main') {
+    const selection = JSON.parse(readFileSync(new URL(`../src/sites/${site}/projects.json`, import.meta.url), 'utf8'));
+    const cards = projectCards(html);
+    const publishedSelection = selection.featured.filter((slug) => sharedCards.has(slug));
+    assert.deepEqual(cards.map(([, slug]) => slug), publishedSelection, `${site}: curated case-study order`);
+    for (const [card, slug] of cards) {
+      const expected = sharedCards.get(slug).replace(/href="([^"]*)"/g, (_, href) => `href="${siteHref(href, path)}"`);
+      assert.ok(normalizeCard(card) === normalizeCard(expected), `${site}/${slug}: card title, headline, description, image, theme, or button differs from the shared card`);
+    }
+  }
   const tags = [...html.matchAll(/<(?:a|img|source|video|script|link|meta)\b[^>]*>/g)].map(([tag]) => ({
     element: tag.match(/^<(\w+)/)[1], ...attributes(tag)
   }));
@@ -72,6 +92,35 @@ for (const file of pages) {
     assert.ok(tags.some((tag) => tag.rel === 'canonical' && tag.href === origin + path), `${path}: case-study canonical`);
     assert.ok(tags.some((tag) => tag.property === 'og:url' && tag.content === origin + path), `${path}: case-study sharing URL`);
     assert.ok(/<title>[^<]*Case Stud(?:y|ies)[^<]*<\/title>/.test(html), `${path}: case-study page title`);
+    if (site !== 'main' && path.startsWith(`${caseStudyBase}/`)) {
+      const mainPath = path.slice(base.length);
+      const shared = readFileSync(join(dist, mainPath, 'index.html'), 'utf8');
+      for (const [label, pattern] of [
+        ['header', /<header class="marquee">[\s\S]*?<\/header>/],
+        ['body and figures', /<article class="margin-y-5">[\s\S]*?<\/article>/]
+      ]) {
+        const expected = shared.match(pattern)?.[0];
+        assert.ok(expected, `${mainPath}: missing case-study ${label}`);
+        const scoped = expected.replace(/href="([^"]*)"/g, (_, href) => `href="${siteHref(href, path)}"`);
+        assert.ok(html.match(pattern)?.[0] === scoped, `${path}: case-study ${label} differs from the shared main source`);
+      }
+      const description = tags.find((tag) => tag.name === 'description')?.content;
+      assert.equal(description, attributes(shared.match(/<meta name="description"[^>]*>/)?.[0] ?? '').content, `${path}: stale case-study description`);
+      sharedCaseStudies++;
+      assert.ok(/<div class="theme-primary overflow-hidden"[^>]*>\s*<div>\s*<div class="global-header-surface">/.test(html), `${path}: the case-study theme must include the global header`);
+    }
+  }
+
+  if (site !== 'main' && path.startsWith(`${base}/drawing-board/`) && !path.startsWith(`${base}/drawing-board/topics/`)) {
+    const mainPath = path.slice(base.length);
+    const shared = readFileSync(join(dist, mainPath, 'index.html'), 'utf8');
+    const pattern = /<article class="margin-y-6"[^>]*>[\s\S]*?<\/article>/;
+    const expected = shared.match(pattern)?.[0];
+    assert.ok(expected, `${mainPath}: missing shared article`);
+    const scoped = expected.replace(/href="([^"]*)"/g, (_, href) => `href="${siteHref(href, path)}"`);
+    assert.ok(html.match(pattern)?.[0] === scoped, `${path}: article header, body, images or links differ from the shared main source`);
+    assert.equal(tags.find((tag) => tag.name === 'description')?.content, attributes(shared.match(/<meta name="description"[^>]*>/)?.[0] ?? '').content, `${path}: stale article description`);
+    sharedArticles++;
   }
 
   for (const [figure] of html.matchAll(/<figure\b[^>]*>[\s\S]*?<\/figure>/g)) {
@@ -110,10 +159,18 @@ for (const file of pages) {
   }
 }
 
+const mainArticleRoutes = walk(join(dist, 'drawing-board'))
+  .filter((path) => path.endsWith('.html') && !/<meta http-equiv="refresh"/i.test(readFileSync(path, 'utf8')))
+  .map((path) => relative(join(dist, 'drawing-board'), path)).sort();
+for (const site of includedSites) {
+  const articleRoutes = walk(join(dist, site, 'drawing-board')).filter((path) => path.endsWith('.html')).map((path) => relative(join(dist, site, 'drawing-board'), path)).sort();
+  assert.deepEqual(articleRoutes, mainArticleRoutes, `${site}: Drawing Board articles and topic routes must match the shared collection`);
+}
+
 for (const file of readdirSync(dist).filter((name) => /^sitemap.*\.xml$/.test(name))) {
   assert.ok(!readFileSync(join(dist, file), 'utf8').includes(`${origin}/portfolio`), 'Sitemaps must use case-study URLs.');
   for (const site of applicationSites) {
     assert.ok(!readFileSync(join(dist, file), 'utf8').includes(`${origin}/${site}`), `${site} is excluded from the sitemap`);
   }
 }
-console.log(`Verified ${pages.length} pages, including ${applicationPages} application pages (${includedSites.join(', ') || 'none'}): links, responsive images, metadata, publication status, and site isolation.`);
+console.log(`Verified ${pages.length} pages, including ${applicationPages} application pages (${includedSites.join(', ') || 'none'}), ${sharedCaseStudies} shared case studies and ${sharedArticles} shared articles: matching headers, bodies, figures and article collections; links, responsive images, metadata, publication status, and site isolation.`);

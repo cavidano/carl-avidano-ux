@@ -3,6 +3,8 @@ import { existsSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'no
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { applicationSites, getApplicationSites, retiredApplicationSites } from '../src/lib/application-sites.js';
+import { validateFeaturedProjects } from '../src/lib/application-projects.js';
+import { validateFeaturedArticles } from '../src/lib/drawing-board-content.js';
 
 export function validateApplicationFiles(root) {
   const sitesRoot = join(root, 'src/sites');
@@ -22,10 +24,20 @@ export function validateApplicationFiles(root) {
 
   for (const site of applicationSites) {
     const directory = join(sitesRoot, site);
-    for (const file of ['site.json', 'Hero.astro', 'pages/about.mdx', 'portfolio', 'drawing-board', 'README.md', 'application-brief.md']) {
+    for (const file of ['site.json', 'Hero.astro', 'projects.json', 'articles.json', 'README.md', 'application-brief.md']) {
       assert.ok(existsSync(join(directory, file)), `${site}: missing src/sites/${site}/${file}`);
     }
     assert.ok(existsSync(join(root, 'public', site, 'resume-carl-avidano.pdf')), `${site}: missing its independent résumé asset.`);
+    assert.ok(!existsSync(join(directory, 'portfolio')), `${site}: case studies must use the shared src/content/portfolio source, not application copies.`);
+    const selection = JSON.parse(readFileSync(join(directory, 'projects.json'), 'utf8'));
+    assert.deepEqual(Object.keys(selection), ['featured'], `${site}: projects.json only curates projects; keep case-study copy in the shared MDX.`);
+    const projectSlugs = readdirSync(join(root, 'src/content/portfolio')).filter((file) => file.endsWith('.mdx')).map((file) => file.slice(0, -4));
+    validateFeaturedProjects(selection.featured, projectSlugs, site);
+    assert.ok(!existsSync(join(directory, 'drawing-board')), `${site}: articles must use the shared src/content/drawing-board source, not application copies.`);
+    const articles = JSON.parse(readFileSync(join(directory, 'articles.json'), 'utf8'));
+    assert.deepEqual(Object.keys(articles), ['featured'], `${site}: articles.json only curates articles; keep copy in the shared MDX.`);
+    const articleIds = readdirSync(join(root, 'src/content/drawing-board')).filter((file) => file.endsWith('.mdx')).map((file) => file.slice(0, -4));
+    validateFeaturedArticles(articles.featured, articleIds, site);
 
     const copy = JSON.parse(readFileSync(join(directory, 'site.json'), 'utf8'));
     assert.ok(/^images\/[\w-]+\.(png|jpe?g|webp|avif)$/.test(copy.backgroundImage ?? ''), `${site}: backgroundImage must name an image in this application's images directory.`);

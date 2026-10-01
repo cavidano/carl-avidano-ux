@@ -1,12 +1,14 @@
 # Accenture / Work & Co copy review
 
+**Current architecture — October 1, 2026:** Case studies now render directly from the shared `src/content/portfolio/*.mdx` sources. Edit them once for every site. `projects.json` contains only featured project IDs and their order. `articles.json` does the same for homepage articles; every site’s full Drawing Board reads the shared main collection. Complete cards, headers, case studies, and articles use the same sources/templates everywhere. Landing/About copy, artwork, selections, and résumé stay application-specific. The historical independent-copy instructions below are superseded. Current case-study writing belongs on the main Confluence pages linked in `context/case-studies.md`.
+
 Updated September 27, 2026. Branch: `codex/application-copy-review`.
 
 ## Current editable copy
 
 [Accenture / Work & Co — Application website copy](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28344323), under [Custom Applications](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28442625).
 
-The page contains the full landing and About copy, featured project descriptions, all eight complete case studies, role statements, results, captions, and image descriptions. A separate editorial table connects job requirements to the evidence. Approved Drawing Board article bodies remain in their existing collection; application selections are recorded on the application page.
+The page contains the landing and About copy, featured project descriptions, and links to the eight shared main case studies. The main pages own the narrative, role, results, captions, and image descriptions. A separate editorial table connects job requirements to the evidence. Approved Drawing Board article bodies remain in their existing collection; application selections are recorded on the application page.
 
 The Confluence copy was exported from the rendered local review build and read back after saving. All prose, heading text, captions, image descriptions, and links were checked against the export. Formatting whitespace differs; substantive text matches. Read the current Confluence page before future edits because Carl may revise it there. Synchronization is explicit, not automatic.
 
@@ -14,11 +16,11 @@ The Confluence copy was exported from the rendered local review build and read b
 
 - Open conversationally with the specific role and a credible connection to Carl's experience.
 - Keep the greeting in the paragraph, with a capability-focused main headline.
-- Introduce the curated work once. Use each project’s name as the card heading; keep its tailored description below. Do not replace the project name with a capability/problem headline.
+- Introduce the curated work once. Use the same complete card as the main site, with the project name, shared headline, description, image, and button.
 - Give each card a contribution and supported outcome. Preserve the landing page’s Who I am and What I do sections, with their About Me button, before the Drawing Board.
 - Avoid repeating the disability story and framework names throughout the opening. The Datadog About page contains one relevant disability statement; the other introductions do not use it.
 - Preserve detailed project evidence and credit collaborators. Distinguish research recommendations from shipped results and client-reported metrics from individual causal claims.
-- Preserve the existing featured project order. All eight cases remain independently editable in this application.
+- Preserve the existing featured project order. All cases render from the shared main MDX; `projects.json` controls the featured selection.
 
 ## September 27 restoration
 
@@ -42,7 +44,7 @@ Both review and production builds passed the existing 23 tests, Astro checks, an
 
 - `site.json`: introduction, curated-work introduction, metadata, and navigation labels.
 - `pages/about.mdx`: background, skills, and contact details.
-- `portfolio/*.mdx`: project names, tailored card descriptions, case-study headings, narrative, role, and results.
+- `projects.json` and `articles.json`: ordered homepage selections. The canonical `src/content/` collections hold all case-study and article copy.
 - `job-evidence-map.md`: requirement mapping and known limitations.
 
 Current shared components keep all links in this application's URL space. These copy edits do not authorize a deployment.

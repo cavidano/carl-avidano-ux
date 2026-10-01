@@ -1,6 +1,6 @@
 # Carl Avidano UX portfolio
 
-One Astro website with a general portfolio and independently editable application portfolios. Layouts, components, Natura11y behavior, and URL handling are shared. Each employer has its own copy and résumé.
+One Astro website with a general portfolio and tailored application landing pages. Every site renders the same case-study cards and pages and the same Drawing Board article collection. Each employer keeps its own introduction, project selection, About copy, and résumé.
 
 ## Local development
 
@@ -47,11 +47,11 @@ Edit the main [About page](src/pages/about.astro) and [Drawing Board listing](sr
 | `src/lib/application-sites.js` | Application IDs and website publication status |
 | `src/lib/site-paths.js`, `SiteLink.astro` | Scope links to the current application |
 | `scripts/application-build.mjs` | Validate application files and exclude draft public assets from production output |
-| `scripts/check-site-links.mjs` | Check built links, assets, responsive images, metadata, and application isolation |
+| `scripts/check-site-links.mjs` | Check matching case-study headers/bodies/figures, links, assets, metadata, and application isolation |
 
-Application content currently uses independent snapshots. Carl’s September 28 direction is to reuse approved main-site case studies and tailor application landing pages and project selection; that migration follows this main-site launch. Until that update, a change to the main case study or a shared image does not automatically approve new wording for an already submitted application. Keep application text independently editable. If an image must differ for one application, give it a separate source file and import it from that application's MDX or hero.
+Case studies have one source: `src/content/portfolio/*.mdx`. Every main and application route reads these files at build time, so an edit is included everywhere on the next deployment. Each application’s `projects.json` lists its featured project slugs in display order; it contains no copied case-study text. All published case studies remain available within each application’s URL space. Do not create application `portfolio/` copies. Drawing Board articles also have one source, `src/content/drawing-board/*.mdx`: updates and new published articles appear on every site. Each application’s `articles.json` controls only its featured homepage articles. Homepage introductions, Who I am/What I do, selections, artwork, and résumés stay independently editable. About defaults to the main page; an optional `pages/about.mdx` supplies application-specific copy.
 
-The main Case Studies listing is at `/case-studies`, with individual pages at `/case-studies/<slug>`. Application case studies use `/<application>/case-studies/<slug>`; their overview is the application's homepage `#projects` section. The editable MDX files remain in the existing `portfolio/` source folders. The main listing’s copy, metadata, and markup are directly editable in `src/pages/case-studies/index.astro`.
+The main Case Studies listing is at `/case-studies`, with individual pages at `/case-studies/<slug>`. Application case studies use `/<application>/case-studies/<slug>`; their overview is the application's homepage `#projects` section. The editable case-study MDX files live only in `src/content/portfolio/`. The main listing’s copy, metadata, and markup are directly editable in `src/pages/case-studies/index.astro`.
 
 ## Application workflow
 

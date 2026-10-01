@@ -1,5 +1,7 @@
 # BNY application site
 
+**Current architecture — October 1, 2026:** Case studies now render directly from the shared `src/content/portfolio/*.mdx` sources. Edit them once for every site. `projects.json` contains only featured project IDs and their order. `articles.json` does the same for homepage articles; every site’s full Drawing Board reads the shared main collection. Complete cards, headers, case studies, and articles use the same sources/templates everywhere. Landing/About copy, artwork, selections, and résumé stay application-specific. The historical independent-copy instructions below are superseded. Current case-study writing belongs on the main Confluence pages linked in `context/case-studies.md`.
+
 Preview: http://127.0.0.1:4321/bny
 
 This is an independently editable content copy of the public portfolio. The homepage has a BNY-branded NYC backdrop and an introduction connecting the role to Carl’s approach to product design and systems thinking. There is no separate Case Studies navigation item or listing step; the curated case studies are at `/bny#projects`. Changes in this folder do not change the main site's content.

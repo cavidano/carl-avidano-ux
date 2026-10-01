@@ -1,8 +1,9 @@
 import { resolveImage } from './projects.js';
-import { prepareDrawingBoardPosts, groupDrawingBoardTags } from './drawing-board-content.js';
-import { contentRoot } from './sites.js';
+import { prepareDrawingBoardPosts, groupDrawingBoardTags, featureApplicationArticles } from './drawing-board-content.js';
+import { applicationSites } from './application-sites.js';
 
-const postModules = import.meta.glob(['/src/content/drawing-board/*.mdx', '/src/sites/*/drawing-board/*.mdx'], { eager: true });
+const postModules = import.meta.glob('/src/content/drawing-board/*.mdx', { eager: true });
+const selections = import.meta.glob('/src/sites/*/articles.json', { eager: true, import: 'default' });
 
 export function getDrawingBoardImageOptions(image) {
   // Match the project marquees' 2:1 ratio without enlarging the source image.
@@ -15,10 +16,15 @@ export function getDrawingBoardTags(siteId = 'main') {
 }
 
 export function getDrawingBoardPosts(siteId = 'main') {
-  const modules = Object.entries(postModules)
-    .filter(([path]) => path.startsWith(`${contentRoot(siteId)}/drawing-board/`))
-    .map(([, module]) => module);
-  return prepareDrawingBoardPosts(modules, {
+  const modules = Object.entries(postModules).map(([path, module]) => ({
+    ...module,
+    id: path.split('/').at(-1).replace(/\.mdx$/, '')
+  }));
+  if (siteId !== 'main' && !applicationSites.includes(siteId)) throw new Error(`Unknown portfolio site: ${siteId}`);
+  const selected = siteId === 'main' ? modules : featureApplicationArticles(
+    modules, selections[`/src/sites/${siteId}/articles.json`]?.featured, siteId
+  );
+  return prepareDrawingBoardPosts(selected, {
     includePreviews: import.meta.env.DEV
   }).map((post) => ({ ...post, image: resolveImage(post.frontmatter.image) }));
 }

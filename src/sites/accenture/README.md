@@ -1,5 +1,7 @@
 # Accenture / Work & Co application site
 
+**Current architecture — October 1, 2026:** Case studies now render directly from the shared `src/content/portfolio/*.mdx` sources. Edit them once for every site. `projects.json` contains only featured project IDs and their order. `articles.json` does the same for homepage articles; every site’s full Drawing Board reads the shared main collection. Complete cards, headers, case studies, and articles use the same sources/templates everywhere. Landing/About copy, artwork, selections, and résumé stay application-specific. The historical independent-copy instructions below are superseded. Current case-study writing belongs on the main Confluence pages linked in `context/case-studies.md`.
+
 Local preview: http://127.0.0.1:4321/accenture
 
 Branch: `codex/accenture-microsite`. Created September 23, 2026, from the approved BNY microsite structure. Carl selected **Senior Design Lead at Work & Co, part of Accenture Song**, requisition **R00334614**, on September 23, superseding the initial Design Lead target. It is a local draft, not a submitted application or deployed website.
