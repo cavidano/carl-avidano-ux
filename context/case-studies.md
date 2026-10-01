@@ -2,6 +2,8 @@
 
 ## October 1 — Natura11y color, customization, and AI review draft
 
+**Published and verified:** Release `48a4426` was fast-forwarded onto main, pushed, and published successfully in [Cloudways run 36932453349](https://github.com/cavidano/carl-avidano-ux/actions/runs/36932453349). Production and review builds passed all 23 tests, zero-error/zero-warning Astro checks, and the 54/117-page generated-site audits. The live Natura11y page matches the tested production build; 18 image URLs load, “In the wild” follows the AI section, and the medium color figure serves the 3856px original with a working keyboard lightbox. Main Confluence is synchronized at **v36**, including the verified release note. Evidence is in `output/natura11y-case-study-draft-2026-10-01/release-verification.json`. Carl’s new “In the wild” image is deferred until tomorrow. The previously noted printed palette-label cleanup remains a separate open item; this release preserves the reviewed Figma composition. Earlier pending-publication notes below are historical.
+
 **Release authorized; image refresh deferred:** Carl requested publishing this approved revision and bringing all completed work back to main. He plans to replace the “In the wild” graphic himself tomorrow to show more of the available project screenshots; preserve the current image for this release. No reminder or image redesign was requested.
 
 **Section order follow-up:** At Carl’s request, “In the wild,” including its project image, now follows “Preparing for an agentic future” and precedes “Reflection.” The local MDX and main Confluence page v35 match; section contents are unchanged. Astro checks passed with zero errors or warnings.
