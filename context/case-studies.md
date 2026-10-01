@@ -4,6 +4,8 @@ Use this file for case-study structure, source locations, Carl's confirmed accou
 
 Apply the shared [plain-language standard](plain-language.md) to each revision while preserving approved facts and structure.
 
+**Card wording preference, October 1, 2026:** Keep the action-led wording in the headline (for example, “Simplifying,” “Increasing,” or “Uncovering”). Carl explicitly likes beginning each description with “How”; this introduces the work behind the headline without a second participle opening such as “Combining” or “Designing.” Vary the rest of the sentence instead of repeatedly using “to support.” He prefers “telecom GIS platform” for NYC OTI. Preserve project names and approved headlines; when he asks for feedback on one sentence, answer only that question and propose changes before applying them.
+
 On September 27, 2026, Carl chose **Case Studies** for the section name, navigation, page metadata, and URLs. The main listing uses `/case-studies`, and individual pages use `/case-studies/<slug>` or `/<application>/case-studies/<slug>`. He described this as a new start and explicitly requested no redirects from the old portfolio URLs. The route change was published on September 28, 2026; the old main and BNY portfolio URLs now return 404, without redirects. Source MDX folders remain named `portfolio`. On September 28, Carl requested that the main listing's copy, metadata, and markup live directly in `src/pages/case-studies/index.astro`, matching the homepage's editing approach. The separate `CaseStudiesPage` wrapper and the main `site.json` listing-copy block were removed; the shared card renderer still reads the individual MDX files. The Case Studies landing section uses `margin-y-6`, matching the homepage. Carl initially chose **Key projects and organizations** because entries such as NYC OTI group several projects under one organization; his later local edit changed the H1 to **Case studies**. Preserve the latest wording. The introduction is “I've led and collaborated on digital projects for government agencies, global nonprofits, and intergovernmental organizations.” Keep the organization categories parallel; Carl explicitly rejected naming UNICEF alongside the other broad categories. Navigation, metadata, and URLs retain Case Studies.
 
 Carl confirmed on September 28, 2026 that the current priority is the regular website and its main case studies. Finish that work and keep its Confluence copies aligned before moving into individual application sites. For those later custom applications, [reuse the approved foundation and tailor the emphasis](application-tailoring-evidence-guide.md#reuse-the-foundation-and-tailor-the-emphasis). Keep useful wording intact and highlight the evidence relevant to each role; a new application does not call for a complete case-study rewrite.
@@ -1089,3 +1091,36 @@ The earlier broad shortening was a mistake: Carl said it removed meaningful cont
 Carl also asked for a Core/Bootstrap size comparison. Measurements of published Core 5.2.6 and Bootstrap 5.3.8 are saved in `output/natura11y-core-comparison/measurements.json`, with the reproducible script and downloaded files. No comparison claim has been added to the case study. That discussion was interrupted by the copy-restoration requests. Carl identified reducing technical debt as an aim of the codebase; retain it as background, but do not reinsert the rejected lead without discussing it. No deployment.
 
 At **v30**, Carl requested a layout-only adjustment to Figma UI kits: first paragraph, then the lo-fi and hi-fi figures, then the other two paragraphs. Applied in the MDX and Confluence, with all three paragraphs and figure captions unchanged. Verified the saved sequence.
+
+### October 1 — all case studies synchronized and published
+
+Carl explicitly requested synchronizing every main case study in Confluence, publishing all latest completed website work, returning it to `main`, and starting subsequent work on fresh branches. The existing branch histories were already ancestors of the release branch; `main` was fast-forwarded without rewriting history.
+
+The UNICEF and Natura11y updates, their saved source assets, and the accumulated context were committed as `279a3fc` and published successfully in [run 36907936562](https://github.com/cavidano/carl-avidano-ux/actions/runs/36907936562). Carl continued editing NYC OTI's card description during publication. The final saved wording for this release is “How I collaborated with city agencies to support a creative reuse center, emergency alerts, vital records requests, and a GIS platform.” It is committed as `6a2632e` and live from successful [run 36908977912](https://github.com/cavidano/carl-avidano-ux/actions/runs/36908977912).
+
+All eight existing main Confluence pages were updated in place and read back. The saved headings, 374 ordered content blocks, project details, external links, 73 body images, captions, and card metadata match this published release. UNICEF's Results paragraph had been incorporated into its heading in Confluence; it is now a separate paragraph with unchanged text. Confluence omits the alt attributes on three existing external Visionlearning images even when supplied through the update tool; their full matching descriptions remain in the existing adjacent “Image description” paragraphs. Website alt attributes remain intact.
+
+| Confluence page | Verified version |
+| --- | --- |
+| Case Studies index | 9 |
+| Phoenix.gov | 68 |
+| Visionlearning | 41 |
+| Natura11y | 31 |
+| Cheetah.org | 16 |
+| NYC OTI | 12 |
+| LADRC | 13 |
+| Mr. Ellie Pooh | 13 |
+| UNICEF | 15 |
+
+Both production and review builds passed all 23 tests, with no Astro errors or warnings. Generated-site checks covered 54 production pages and 117 review pages. After the final deployment, all 54 live pages matched the tested production build; 84 live image URLs, including the external Confluence references, returned valid images. Browser inspection confirmed the published UNICEF review figures loaded at their original 2400 × 1698 proportions with no mobile overflow; Natura11y's approved Figma paragraph/figure sequence was also checked. Verification scripts, snapshots, and logs are saved locally under `output/release-2026-10-01/`.
+
+During that release, Carl began a new card-copy review. Those edits were separate from release `6a2632e`. He subsequently approved the four descriptions below and explicitly requested making them live. The work uses `codex/case-study-card-copy`, branched from current `main`.
+
+### October 1 — approved card descriptions
+
+- **Visionlearning:** How I combined design, development, and scientific illustration for a bilingual STEM learning platform.
+- **NYC OTI:** How I collaborated with city agencies to support a creative reuse center, emergency alerts, vital records requests, and a telecom GIS platform.
+- **Cheetah.org:** How a WordPress Multisite redesign led to a 38% increase in online campaign revenue.
+- **Mr. Ellie Pooh:** How a custom Shopify store and original photography showcased a fair-trade brand’s products and the artisans who make them.
+
+The other four descriptions already follow the approved “How” opening. Card headlines, project names, and case-study bodies are unchanged.

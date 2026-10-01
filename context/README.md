@@ -1,5 +1,9 @@
 # Project context
 
+**Case-study release completed, October 1, 2026:** All eight main case studies and the Confluence index were synchronized with published release `6a2632e`, including the latest UNICEF and Natura11y revisions. Carl subsequently approved four card-description refinements, following the “How” pattern, and requested publishing them. [Initial release and subsequent card-copy record](case-studies.md#october-1--all-case-studies-synchronized-and-published).
+
+**Branching direction, October 1, 2026:** Carl requested bringing all completed website work back to `main` and publishing the latest changes. Start subsequent work on fresh `codex/` branches from the updated `main`, rather than continuing the previous case-study branches.
+
 **UNICEF Phase 1 figure added to MDX, September 30:** Carl's selected five-screen Figma composition now sits after the toolkit introduction and before the existing hi-fi image. Native 4519 × 3378 transparent PNG export; one added sentence connects the shared toolkit tabs. Caption identifies reconstructed layouts. Carl explicitly requested a direct image with no lightbox because the figure is already large. The local page is verified; no publication. [Figure source and scope](case-studies.md#september-30--unicef-phase-1-wireframe-figure-in-mdx).
 
 **UNICEF wireframe crop correction, September 30:** Figma images now match Visionlearning's outer browser-edge crop. Removed outside padding on nine exports and cropped screen 57's loose off-browser controls, using reversible image crops on existing nodes. Keep browser chrome and internal margins. Original PNGs and Balsamiq master are unchanged. [Details](case-studies.md#september-30--additional-cropped-unicef-hi-fi-screens).
