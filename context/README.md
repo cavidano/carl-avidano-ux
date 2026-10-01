@@ -55,7 +55,7 @@ This folder holds the specific background, source material, and reusable guideli
 | [One current Confluence copy per case study](case-studies.md#september-29-single-current-confluence-copy) | All eight main pages synchronized with current local work; four duplicate draft pages archived; revise main pages in place |
 | [Phoenix wireframes and visual design](case-studies.md#september-29-wireframes-and-visual-design) | Approved section headings, department collage, original screenshot comparisons, and final launch-video placement |
 | [Case-study graphic review list](case-study-graphics.md) | Phoenix, Visionlearning, and LADRC: exact preview locations, current graphics, source files, replacement candidates, and Carl’s review decisions |
-| [The Drawing Board](drawing-board.md) | Writing conventions, article behavior, source evidence, and figure guidance |
+| [The Drawing Board](drawing-board.md) | Writing conventions, article behavior, source evidence, and figure guidance, including fresh Astro article screenshots |
 | [Application tailoring evidence guide](application-tailoring-evidence-guide.md) | Additional research and our method for connecting job requirements to verified experience |
 
 Keep durable context and guidelines here. Update an existing relevant file before creating another. Application writing lives in Confluence; employer-specific records stay in `src/sites/<application>/`. Keep shared technical guidance and useful editorial evidence in the relevant guide here; do not recreate `docs/` or add separate files for routine save/build logs. Dated notes describe the state when recorded and must not be treated as current approvals or instructions without checking.
