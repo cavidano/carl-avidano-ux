@@ -1,5 +1,7 @@
 # Project context
 
+**Astro article image published, October 1, 2026:** Fresh Backdrop and Color screenshots with transparent spacing are live in “Goodbye Gatsby, hello Astro” from `6f719f4`. Deployment and live transparency were verified; the article’s Confluence page is synchronized at v8. [Image source and release record](drawing-board.md#goodbye-gatsby-hello-astro).
+
 **Card descriptions published, October 1, 2026:** The approved Visionlearning, NYC OTI, Cheetah.org, and Mr. Ellie Pooh descriptions are live from `8c11ec0` and synchronized with Confluence. Every main card description now begins with “How,” as Carl requested. Main is the completed release baseline; use fresh branches for subsequent work. [Approved wording and verification](case-studies.md#october-1--approved-card-descriptions).
 
 **Case-study release completed, October 1, 2026:** All eight main case studies and the Confluence index were synchronized with published release `6a2632e`, including the latest UNICEF and Natura11y revisions. Carl subsequently approved four card-description refinements, following the “How” pattern, and requested publishing them. [Initial release and subsequent card-copy record](case-studies.md#october-1--all-case-studies-synchronized-and-published).
