@@ -1,6 +1,6 @@
 # Project context
 
-**NYC OTI final PoleTop edits, October 1, 2026:** Carl approved the clearer pole-reservation introduction, the “over $100 million” program revenue sentence for FY2023–2025 with sources, and “Natura11y design system” in the reflection. Local source and Confluence v17 are synchronized and verified. Publication is authorized and in progress; Carl requested moving on after this release. [Evidence and scope](case-studies.md#october-1--poletop-program-revenue-and-final-copy).
+**NYC OTI final PoleTop edits published, October 1, 2026:** The clearer pole-reservation introduction, sourced “over $100 million” program revenue sentence for FY2023–2025, and “Natura11y design system” wording are live from `33c47e8` on main. Both builds and Cloudways run `36927428741` passed; the live page’s three edits and two source links were verified. Confluence v17 matches. Carl requested moving on after this release. [Evidence and scope](case-studies.md#october-1--poletop-program-revenue-and-final-copy).
 
 **NYC OTI refinements published, October 1, 2026:** Approved MFTA, Notify NYC, and vital records closing sentences, plus LADRC’s updated research description, are live from `b1898eb` on `main`. Both builds passed; Cloudways run `36926009064` succeeded and the live detail pages and listing were verified. Confluence remains synchronized at NYC OTI v16 and LADRC v14. Carl called the review complete for now; start subsequent work on a fresh branch. [Copy and evidence](case-studies.md).
 
