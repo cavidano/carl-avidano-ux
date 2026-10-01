@@ -1,5 +1,9 @@
 # Project context
 
+**NYC OTI outcome refinements, October 1, 2026:** Approved MFTA, Notify NYC, and vital records closing sentences are synchronized between the local source and Confluence v16, with saved copy verified. Carl called the review complete for now and requested publication, including the pending LADRC description. Deployment verification is in progress. [Copy and evidence](case-studies.md).
+
+**Current Confluence check, October 1, 2026:** All eight main case studies match the current local source. LADRC’s newest “remote interviews and in-person usability testing” description was synchronized to Confluence v14; that refinement remains uncommitted and unpublished. [Verification and scope](case-studies.md).
+
 **Astro article image published, October 1, 2026:** Fresh Backdrop and Color screenshots with transparent spacing are live in “Goodbye Gatsby, hello Astro” from `6f719f4`. Deployment and live transparency were verified; the article’s Confluence page is synchronized at v8. [Image source and release record](drawing-board.md#goodbye-gatsby-hello-astro).
 
 **Card descriptions published, October 1, 2026:** The approved Visionlearning, NYC OTI, Cheetah.org, and Mr. Ellie Pooh descriptions are live from `8c11ec0` and synchronized with Confluence. Every main card description now begins with “How,” as Carl requested. Main is the completed release baseline; use fresh branches for subsequent work. [Approved wording and verification](case-studies.md#october-1--approved-card-descriptions).
