@@ -1,8 +1,8 @@
 # Project context
 
-**NYC OTI outcome refinements, October 1, 2026:** Approved MFTA, Notify NYC, and vital records closing sentences are synchronized between the local source and Confluence v16, with saved copy verified. Carl called the review complete for now and requested publication, including the pending LADRC description. Deployment verification is in progress. [Copy and evidence](case-studies.md).
+**NYC OTI refinements published, October 1, 2026:** Approved MFTA, Notify NYC, and vital records closing sentences, plus LADRC’s updated research description, are live from `b1898eb` on `main`. Both builds passed; Cloudways run `36926009064` succeeded and the live detail pages and listing were verified. Confluence remains synchronized at NYC OTI v16 and LADRC v14. Carl called the review complete for now; start subsequent work on a fresh branch. [Copy and evidence](case-studies.md).
 
-**Current Confluence check, October 1, 2026:** All eight main case studies match the current local source. LADRC’s newest “remote interviews and in-person usability testing” description was synchronized to Confluence v14; that refinement remains uncommitted and unpublished. [Verification and scope](case-studies.md).
+**Current Confluence check, October 1, 2026:** All eight main case studies match the current local source. LADRC’s newest “remote interviews and in-person usability testing” description was synchronized to Confluence v14 and subsequently published with `b1898eb`, as recorded above. [Verification and scope](case-studies.md).
 
 **Astro article image published, October 1, 2026:** Fresh Backdrop and Color screenshots with transparent spacing are live in “Goodbye Gatsby, hello Astro” from `6f719f4`. Deployment and live transparency were verified; the article’s Confluence page is synchronized at v8. [Image source and release record](drawing-board.md#goodbye-gatsby-hello-astro).
 
