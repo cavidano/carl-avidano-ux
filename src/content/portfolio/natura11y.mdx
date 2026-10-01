@@ -27,6 +27,7 @@ caseStudy:
 
 import LightboxImage from '../../components/LightboxImage.astro';
 import designSystemArchitecture from '../../images/natura11y/design-system-architecture.jpg';
+import colorSystem from '../../images/natura11y/natura11y-figma-color-system.png';
 
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
@@ -34,7 +35,7 @@ import designSystemArchitecture from '../../images/natura11y/design-system-archi
 
 Natura11y began as a series of small experiments I created while taking front-end programming tutorials. I wanted the work to remain useful after each exercise, so I started saving the pieces and exploring how they could fit together.
 
-At work, I was using Bootstrap and often found it restrictive when building interfaces with specific design requirements. Front-end tools and development environments were also becoming more complex. I wanted a foundation I could understand, control, and simplify as my knowledge grew.
+At work, I often found other frameworks restrictive when building interfaces with specific design requirements. Front-end tools and development environments were also becoming more complex. I wanted a foundation I could understand, control, and simplify as my knowledge grew.
 
 ## Solution
 
@@ -76,12 +77,6 @@ Natura11y’s codebase is designed to be minimal and easy to maintain. Core serv
 
 </TextBlock>
 
-<FigureSingle>
-
-![Natura11y code example in IDE](../../images/natura11y/natura11y-code-ide-example.png)
-
-</FigureSingle>
-
 <TextBlock>
 
 ### Components (vanilla and React)
@@ -101,6 +96,50 @@ I designed HTML and React components around the same Core styles and accessibili
 <FigureSingle caption="Form component in Storybook" isContained={false} margin='margin-y-0'>
 
 ![Natura11y HTML and React Form component stories with accessibility testing in Storybook](../../images/natura11y/storybook-form.png)
+
+</FigureSingle>
+
+</FigureSideBySide>
+
+<Divider />
+
+<TextBlock>
+
+## A color system built around relationships
+
+I designed Natura11y’s color system around five themes: Primary, Secondary, Dark, Light, and Canvas. Each theme pairs its background with related text, border, link, confirmation, and warning colors. Applying a theme to a page, section, or component keeps those relationships together.
+
+Themes can be changed without changing a component’s structure. Themes can also be nested, so a light card can sit within a dark section and retain its own color relationships. Custom palettes still need contrast checks; the system provides a consistent way to define and apply them.
+
+</TextBlock>
+
+<FigureSingle width='medium' caption="Natura11y’s principal palette and correlated colors in the Figma library.">
+
+<LightboxImage
+  src={colorSystem}
+  alt="Natura11y Color overview in Figma, showing the five principal theme colors and their related text, border, link, confirmation, and warning colors."
+  caption="Natura11y’s principal palette and correlated colors in the Figma library."
+/>
+
+</FigureSingle>
+
+<TextBlock>
+
+Those relationships also let the same interface adapt to light and dark mode. In the [Oceanic Pulse example](https://natura11y.github.io/root/packages/core/dist/html/examples/oceanic-pulse-newsroom/), backgrounds, text, borders, and links change together with the viewer’s system preference, while the layout stays the same.
+
+</TextBlock>
+
+<FigureSideBySide stackOnMobile={true}>
+
+<FigureSingle caption="Light mode" isContained={false} margin='margin-y-0'>
+
+![The Oceanic Pulse Newsroom example in light mode, showing the same navigation, ocean banner, and article layout with a pale background and dark text.](../../images/natura11y/natura11y-oceanic-pulse-light.png)
+
+</FigureSingle>
+
+<FigureSingle caption="Dark mode" isContained={false} margin='margin-y-0'>
+
+![The Oceanic Pulse Newsroom example in dark mode, showing the same navigation, ocean banner, and article layout with a black background and light text.](../../images/natura11y/natura11y-oceanic-pulse-dark.png)
 
 </FigureSingle>
 
@@ -156,6 +195,18 @@ The hi-fi kit’s foundation variables correspond to Natura11y’s CSS variables
 
 </TextBlock>
 
+<Divider />
+
+<TextBlock>
+
+## A foundation for custom design systems
+
+Natura11y can become a project’s own design system. Colors, typography, spacing, and component details can be customized through CSS variables, while the hi-fi Figma library provides a corresponding design foundation.
+
+A project stylesheet loads after Core and defines its own visual identity. The shared components and interaction patterns remain available, giving each project a starting point that can be extended around its needs.
+
+</TextBlock>
+
 <ThemeWrapper>
 <TextBlock>
 
@@ -198,6 +249,26 @@ Templates offer unbranded, full-page layouts for common page types, providing ac
 
 <TextBlock>
 
+## Preparing for an agentic future
+
+I’ve been preparing Natura11y for AI-assisted work by making its design decisions explicit. Figma component descriptions explain intended use, accessibility, and responsive behavior. Variables point to Core’s CSS names, and documented rules establish which source to follow when design and code differ. Alongside working examples, this gives AI tools context to build with the system and gives me a reference for reviewing their output.
+
+</TextBlock>
+
+<FigureSingle width='narrow' caption="Figma component guidance distinguishes visual layout variants from responsive behavior in Core.">
+
+![Figma Backdrop component guidance explaining Overlay and Stack variants and the responsive breakpoint controlled by Core.](../../images/natura11y/monorepo-figma-context.png)
+
+</FigureSingle>
+
+<TextBlock>
+
+I describe this work in more detail in [Moving the Natura11y design system into an AI-ready monorepo](/drawing-board/moving-the-natura11y-design-system-into-an-ai-ready-monorepo).
+
+</TextBlock>
+
+<TextBlock>
+
 ## In the wild
 
 Natura11y is not just a personal framework or design exercise. I use it on real client projects to move from early design ideas to accessible, production-ready interfaces with a shared foundation for design and code.
@@ -215,8 +286,6 @@ Natura11y is not just a personal framework or design exercise. I use it on real 
 ## Reflection
 
 Natura11y did not begin as a complete design ecosystem. It grew through years of client work, experimentation, and iteration. As accessibility and design systems became part of my daily practice, Natura11y gave me a way to deepen those skills while building a reusable foundation shaped by the needs of real projects.
-
-Natura11y was created long before generative AI became part of my workflow, but its clear architecture, reusable patterns, and shared design and code foundations make it especially well suited to working with AI. Today, I use it to put AI to work across the full design-system lifecycle, accelerating prototyping, implementation, testing, documentation, and maintenance, while I continue to guide the system's accessibility and overall direction.
 
 </TextBlock>
 
