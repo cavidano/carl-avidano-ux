@@ -2,6 +2,10 @@
 
 Working review list · Updated October 2, 2026
 
+## Final refinements — lightbox previews
+
+On `codex/final-refinements`, Carl chose consistent circular controls for zoom, play, and pause, with a light background and dark icon. `MediaControl/index.astro` and its adjacent Sass now share Natura11y's icon-button geometry, theme, and `spacer-2` (16px) bottom/right inset. `AnimatedImage` uses it as a native button; `LightboxImage` uses its visual treatment inside the existing thumbnail button, preserving the entire image as a single accessible target. This applies to standalone and grid lightboxes. Non-lightbox images are unchanged. Carl rejected the gradient and repeated Enlarge text; do not reinstate them. The earlier 8px square-icon treatment is superseded. Build, shared-site checks, matching control dimensions, lightbox opening/focus return, and animation play/pause checks passed. Local and unpublished.
+
 ## Follow-up checklist
 
 These are refinements to revisit after publishing the approved image grids, not blockers for this release.

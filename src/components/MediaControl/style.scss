@@ -1,0 +1,10 @@
+.media-control {
+  position: absolute;
+  inset-block-end: var(--spacer-2);
+  inset-inline-end: var(--spacer-2);
+  z-index: 1;
+}
+
+.lightbox-thumbnail:has(> .media-control)::after {
+  content: none;
+}

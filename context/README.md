@@ -1,5 +1,7 @@
 # Project context
 
+**October 2 — final refinements:** New work is on `codex/final-refinements`. Zoom, play, and pause now share `MediaControl`: a light circular icon button with a dark icon and consistent size and 16px bottom/right spacing. Carl rejected the gradient and repeated Enlarge text. [Presentation and scope](case-study-graphics.md#final-refinements--lightbox-previews). Local and unpublished. The proposed Selected clients section was discussed and left out; no About copy was changed.
+
 **October 2 — image-grid release and follow-ups:** Carl approved publication and cleanup of unused website images. The [follow-up checklist](case-study-graphics.md#follow-up-checklist) records NYC screenshot refinements, the deferred Visionlearning illustration grid, Natura11y’s In the wild image, and Mr. Ellie Pooh’s story. Unused files are being archived and removed from the website; [archive and restoration instructions](case-study-graphics.md#october-2-image-cleanup-and-release) supersede earlier notes about retaining unused assets locally.
 
 **Caption preference, October 2:** Shared figure captions use the `narrow` class. Carl rejected automatic enlargement instructions and public anonymization notes; these have been removed. Keep captions about the images, and keep production notes in context files.

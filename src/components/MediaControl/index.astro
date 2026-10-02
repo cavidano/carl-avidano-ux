@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import './style.scss';
+
+interface Props extends HTMLAttributes<'button'> {
+  as?: 'button' | 'span';
+  icon: string;
+}
+
+const { as: Tag = 'button', icon, class: className, ...attributes } = Astro.props;
+---
+
+<Tag
+  type={Tag === 'button' ? 'button' : undefined}
+  class:list={['media-control button button--icon-only border-radius-circle font-size-sm theme-light', className]}
+  {...attributes}
+>
+  <span class={`icon icon-${icon}`} aria-hidden="true"></span>
+</Tag>

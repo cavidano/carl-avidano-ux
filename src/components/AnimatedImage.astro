@@ -1,5 +1,6 @@
 ---
 import { Image, type LocalImageProps } from 'astro:assets';
+import MediaControl from './MediaControl/index.astro';
 
 type Props = LocalImageProps & {
   animatedSrc?: string;
@@ -16,14 +17,12 @@ const { animatedSrc, animatedType = 'image/gif', autoplay = true, ...imageProps 
     <Image {...imageProps} />
   </picture>
   {animatedSrc && (
-    <button
-      class="motion-toggle button button--icon-only border-radius-circle font-size-sm theme-light"
-      type="button"
+    <MediaControl
+      class="motion-toggle"
+      icon="pause"
       aria-label="Pause animation"
       hidden
-    >
-      <span class="icon icon-pause" aria-hidden="true"></span>
-    </button>
+    />
   )}
 </div>
 
@@ -52,12 +51,3 @@ const { animatedSrc, animatedType = 'image/gif', autoplay = true, ...imageProps 
     reducedMotion.addEventListener('change', (event) => setPlaying(autoplay && !event.matches));
   });
 </script>
-
-<style>
-  .motion-toggle {
-    position: absolute;
-    inset-block-end: var(--spacer-2);
-    inset-inline-end: var(--spacer-2);
-    z-index: 1;
-  }
-</style>

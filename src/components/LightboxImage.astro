@@ -1,5 +1,6 @@
 ---
 import { Image, getImage } from 'astro:assets';
+import MediaControl from './MediaControl/index.astro';
 
 const {
   src,
@@ -25,6 +26,7 @@ const fullImage = await getImage({ src, quality });
   aria-label={`Enlarge ${caption || 'image'}`}
 >
   <Image class="display-block width-100" src={src} alt={alt} width={width} widths={widths} sizes={sizes} quality={quality} />
+  <MediaControl as="span" icon="zoom-in" aria-hidden="true" />
 </button>
 
 <script>
