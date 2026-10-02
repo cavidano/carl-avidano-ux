@@ -32,19 +32,25 @@ caseStudy:
       description: Scientific images prepared and refined across 70+ learning modules.
 ---
 
-import CaseStudyScreens from '../../components/CaseStudyScreens.astro';
-import siteMap from '../../images/visionlearning/wireframes/site-map.png';
-import homeWireframe from '../../images/visionlearning/wireframes/homepage.png';
-import disciplineWireframe from '../../images/visionlearning/wireframes/discipline.png';
-import readingWireframe from '../../images/visionlearning/wireframes/reading.png';
-import quizWireframe from '../../images/visionlearning/wireframes/quiz.png';
-import resultsWireframe from '../../images/visionlearning/wireframes/quiz-results.png';
-import glossaryWireframe from '../../images/visionlearning/wireframes/glossary.png';
-import moduleAdmin from '../../images/visionlearning/wireframes/admin-module.png';
-import readingAdmin from '../../images/visionlearning/wireframes/admin-reading.png';
-import quizAdmin from '../../images/visionlearning/wireframes/admin-quiz-question.png';
-import resourcesAdmin from '../../images/visionlearning/wireframes/admin-resources.png';
-import redesign2017 from '../../images/visionlearning/visionlearning-2017-redesign.png';
+import CaseStudyScreens from '../../components/CaseStudyScreens/index.astro';
+import siteMap from '../../images/visionlearning/wireframes/visionlearning-content-map.png';
+import homeWireframe from '../../images/visionlearning/wireframes/visionlearning-wireframe-homepage.png';
+import disciplineWireframe from '../../images/visionlearning/wireframes/visionlearning-wireframe-discipline.png';
+import readingWireframe from '../../images/visionlearning/wireframes/visionlearning-wireframe-reading.png';
+import quizWireframe from '../../images/visionlearning/wireframes/visionlearning-wireframe-quiz.png';
+import resultsWireframe from '../../images/visionlearning/wireframes/visionlearning-wireframe-quiz-results.png';
+import glossaryWireframe from '../../images/visionlearning/wireframes/visionlearning-wireframe-glossary.png';
+import moduleAdmin from '../../images/visionlearning/wireframes/visionlearning-wireframe-admin-module-information.png';
+import readingAdmin from '../../images/visionlearning/wireframes/visionlearning-wireframe-admin-reading.png';
+import quizAdmin from '../../images/visionlearning/wireframes/visionlearning-wireframe-admin-quiz-question.png';
+import resourcesAdmin from '../../images/visionlearning/wireframes/visionlearning-wireframe-admin-resources.png';
+import homepage2017 from '../../images/visionlearning/screens/visionlearning-screen-2017-homepage.png';
+import library2017 from '../../images/visionlearning/screens/visionlearning-screen-2017-library.png';
+import reading2017 from '../../images/visionlearning/screens/visionlearning-screen-2017-origins-of-life-reading.png';
+import glossary2017 from '../../images/visionlearning/screens/visionlearning-screen-2017-glossary.png';
+import homepageDesign from '../../images/visionlearning/screens/visionlearning-screen-homepage.webp';
+import biologyPanel from '../../images/visionlearning/screens/visionlearning-screen-biology-panel.webp';
+import periodicTableReading from '../../images/visionlearning/screens/visionlearning-screen-periodic-table-reading.webp';
 
 import AnimatedImage from '../../components/AnimatedImage.astro';
 import LightboxImage from '../../components/LightboxImage.astro';
@@ -164,7 +170,6 @@ I designed administration wireframes for managing disciplines and modules, with 
 
 <CaseStudyScreens
   columns={2}
-  ratio="0.9"
   screens={[
     { src: moduleAdmin, label: 'Module information', alt: 'Module authoring wireframe with Module Info selected and publishing status, discipline and category, authors, a feature quote, and metadata fields.' },
     { src: readingAdmin, label: 'Reading content', alt: 'Reading editor wireframe with English and Spanish audio, a pre-reader, and structured content sections.' },
@@ -190,13 +195,18 @@ The research combined:
 
 </TextBlock>
 
-<FigureSingle width="wide" caption="The 2017 website: homepage, Library, module reading, and Glossary.">
-  <LightboxImage
-    src={redesign2017}
-    alt="Four 2017 Visionlearning screens: the homepage with discipline tiles, the Library with modules grouped by discipline, the Origins of Life I reading page, and the Glossary with an expanded definition."
-    caption="Visionlearning — 2017 redesign"
-  />
-</FigureSingle>
+<CaseStudyScreens
+  columns={4}
+  lightbox={false}
+  showLabels={false}
+  screens={[
+    { src: homepage2017, label: '2017 homepage', alt: 'The 2017 Visionlearning homepage with discipline tiles.' },
+    { src: library2017, label: '2017 Library', alt: 'The 2017 Library with learning modules grouped by discipline.' },
+    { src: reading2017, label: '2017 module reading', alt: 'The 2017 Origins of Life I reading page.' },
+    { src: glossary2017, label: '2017 Glossary', alt: 'The 2017 Glossary with an expanded definition.' }
+  ]}
+  caption="The 2017 website: homepage, Library, module reading, and Glossary."
+/>
 
 <TextBlock>
 
@@ -215,11 +225,16 @@ Working with the backend developer, I added teaching information alongside modul
 
 </TextBlock>
 
-<FigureSingle width="wide" caption="The latest redesign connects the homepage and discipline browsing with the module reading experience.">
-
-![Visionlearning homepage and a Biology discipline panel beside a Periodic Table learning module with scientific figures, reading tools, and a comprehension checkpoint.](../../images/visionlearning/visionlearning-masonry-01-experiment.png)
-
-</FigureSingle>
+<CaseStudyScreens
+  columns={3}
+  showLabels={false}
+  screens={[
+    { src: homepageDesign, label: 'Homepage', alt: 'Visionlearning homepage with illustrated discipline tiles, an introduction to NGSS, and links to learning modules, science terms, and custom courses.' },
+    { src: biologyPanel, label: 'Biology discipline panel', alt: 'Biology discipline panel open over the homepage, with an introduction and learning modules grouped by topic.' },
+    { src: periodicTableReading, label: 'Periodic Table reading', alt: 'Periodic Table learning module with reading tools, key terms, scientific figures, explanatory text, and comprehension checkpoints.' }
+  ]}
+  caption="The latest redesign connects the homepage and discipline browsing with the module reading experience."
+/>
 </ThemeWrapper>
 
 <TextBlock>

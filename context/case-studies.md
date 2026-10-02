@@ -10,6 +10,8 @@ At Carl's request, Natura11y's documentation link now uses `Button` directly, wi
 
 ## Deferred — Visionlearning wireframe compositions
 
+**Superseded later on October 2:** Carl now wants to explore individual screenshot grids and has requested a reversible branch. Keep the existing component and wireframes; do not carry out the removal described below. See [image-grid exploration](case-study-graphics.md#reversible-image-grid-exploration).
+
 On October 2, Carl requested flagging this for later: replace the two `CaseStudyScreens` groups in `visionlearning.mdx` with Figma compositions using the same six public-site and four administration wireframes. Each group should become a single exported graphic in the standard figure markup, consistent with the other case-study figures, without individual screen captions or enlargement controls. Preserve the shared captions and surrounding narrative. Export original Figma frames as production assets, following the existing image requirements. After replacing both uses, remove `src/components/CaseStudyScreens.astro` and its import. Carl explicitly deferred implementation; no Figma, website, or Confluence changes have been made for this item.
 
 ## October 2 — overview component and Sass

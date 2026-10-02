@@ -1,23 +1,30 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 
 const {
   src,
   alt,
   caption = null,
-  className = ''
+  className = '',
+  width,
+  widths,
+  sizes,
+  quality
 } = Astro.props;
+
+const fullImage = await getImage({ src, quality });
 ---
 
 <button
   type="button"
   class:list={['lightbox-thumbnail', className]}
   data-lightbox="image"
+  data-lightbox-src={fullImage.src}
   data-lightbox-caption={caption}
   data-lightbox-alt={alt}
   aria-label={`Enlarge ${caption || 'image'}`}
 >
-  <Image class="display-block width-100" src={src} alt={alt} />
+  <Image class="display-block width-100" src={src} alt={alt} width={width} widths={widths} sizes={sizes} quality={quality} />
 </button>
 
 <script>

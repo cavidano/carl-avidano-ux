@@ -36,6 +36,28 @@ caseStudy:
       description: Visits with clicks to external resources, such as payment and trash collection services, up from 13%.
 ---
 
+import CaseStudyScreens from '../../components/CaseStudyScreens/index.astro';
+import headerFooter from '../../images/phoenix/wireframes/phoenix-wireframe-header-footer.png';
+import residentsMenu from '../../images/phoenix/wireframes/phoenix-wireframe-residents-menu.png';
+import exploreMenu from '../../images/phoenix/wireframes/phoenix-wireframe-explore-menu.png';
+import searchSuggestions from '../../images/phoenix/wireframes/phoenix-wireframe-search-suggestions.png';
+import mobileMenuClosed from '../../images/phoenix/wireframes/phoenix-wireframe-mobile-menu-closed.png';
+import mobileMenuMain from '../../images/phoenix/wireframes/phoenix-wireframe-mobile-menu-main.png';
+import mobileMenuResidents from '../../images/phoenix/wireframes/phoenix-wireframe-mobile-menu-residents.png';
+import mobileMenuPayments from '../../images/phoenix/wireframes/phoenix-wireframe-mobile-menu-payments.png';
+import homepage from '../../images/phoenix/wireframes/phoenix-wireframe-homepage.png';
+import makeAPayment from '../../images/phoenix/wireframes/phoenix-wireframe-make-a-payment.png';
+import residentTopics from '../../images/phoenix/wireframes/phoenix-wireframe-resident-topics.png';
+import cityCalendar from '../../images/phoenix/wireframes/phoenix-wireframe-city-calendar.png';
+import explorePhoenix from '../../images/phoenix/wireframes/phoenix-wireframe-explore-phoenix.png';
+import artsCultureHeritage from '../../images/phoenix/wireframes/phoenix-wireframe-arts-culture-heritage.png';
+import planningDevelopment from '../../images/phoenix/wireframes/phoenix-wireframe-planning-development.png';
+import municipalCourt from '../../images/phoenix/wireframes/phoenix-wireframe-municipal-court.png';
+import humanServices from '../../images/phoenix/wireframes/phoenix-wireframe-human-services.png';
+import cityParksWireframe from '../../images/phoenix/wireframes/phoenix-wireframe-city-parks.png';
+import homepageDesign from '../../images/phoenix/screens/phoenix-screen-homepage.webp';
+import cityParksDesign from '../../images/phoenix/screens/phoenix-screen-city-parks.webp';
+
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
 ## Challenge
@@ -150,11 +172,18 @@ With the sitemap in place, we created initial wireframes of the header and foote
 
 </TextBlock>
 
-<FigureSingle caption={"The shared header, footer, and menus provided access to services throughout the site."}>
-
-![Header and footer wireframes, Residents and Explore Phoenix menus, and search suggestions labeled Department, Event, Service, Document, and Form.](../../images/phoenix/phx-masonry-header-footer-01.jpg)
-
-</FigureSingle>
+<CaseStudyScreens
+  columns={2}
+  lightbox={false}
+  showLabels={false}
+  screens={[
+    { src: headerFooter, label: 'Header and footer', alt: 'Phoenix.gov header and footer wireframe with centered search, language and contrast controls, citywide navigation, contact information, and accessibility links.' },
+    { src: residentsMenu, label: 'Residents menu', alt: 'Residents menu wireframe with Water & Sewer selected, related service links in the center, and featured links on the right.' },
+    { src: exploreMenu, label: 'Explore Phoenix menu', alt: 'Explore Phoenix menu wireframe with cards for parks, golf, swimming, events, community centers, and arts, alongside visitor and relocation links.' },
+    { src: searchSuggestions, label: 'Search suggestions', alt: 'Search suggestions wireframe for Counc, with five results labeled Department, Event, Service, Document, and Form, and notes explaining the result labels.' }
+  ]}
+  caption="The shared header, footer, and menus provided access to services throughout the site."
+/>
 
 <TextBlock>
 
@@ -164,11 +193,18 @@ On mobile, I kept Menu, Search, and Language as separate controls. The mobile me
 
 </TextBlock>
 
-<FigureSingle caption={"The mobile prototype showed how people could move through navigation levels to reach a service."}>
-
-![Four mobile wireframes showing separate Menu, Search, and Language controls and the path through Residents to Make a Payment.](../../images/phoenix/phx-masonry-mobile-menu.jpg)
-
-</FigureSingle>
+<CaseStudyScreens
+  columns={4}
+  lightbox={false}
+  showLabels={false}
+  screens={[
+    { src: mobileMenuClosed, label: 'Mobile menu closed', alt: 'Phoenix.gov mobile header with separate Menu, Search, and Language controls and a note introducing the mobile menu.' },
+    { src: mobileMenuMain, label: 'Main mobile menu', alt: 'Open mobile menu listing Residents, Businesses, Explore Phoenix, Government, News, and Events, with common service links below.' },
+    { src: mobileMenuResidents, label: 'Residents mobile menu', alt: 'Residents submenu with a Back control and service categories including Make a Payment, Water & Sewer, and Trash & Recycling.' },
+    { src: mobileMenuPayments, label: 'Mobile payment links', alt: 'Make a Payment submenu with links for city service bills, traffic and parking, municipal court charges, tax and licenses, and payment arrangements.' }
+  ]}
+  caption="The mobile prototype showed how people could move through navigation levels to reach a service."
+/>
 
 </ThemeWrapper>
 
@@ -184,11 +220,19 @@ These wireframes helped us work out the paths between broad topics and more spec
 
 <ThemeWrapper>
 
-<FigureSingle caption={"Citywide wireframes showing connections between the homepage, services, topics, events, and Explore Phoenix."}>
-
-![Desktop wireframes for the Phoenix.gov homepage, Make a Payment, All Resident Topics, City Calendar, Explore Phoenix, and Arts, Culture, and Heritage.](../../images/phoenix/phx-masonry-wireframes-desktop-key-pages.jpg)
-
-</FigureSingle>
+<CaseStudyScreens
+  columns={3}
+  showLabels={false}
+  screens={[
+    { src: homepage, label: 'Homepage', alt: 'Phoenix.gov homepage wireframe with service shortcuts, city news, resident and business resources, attractions, and upcoming events.' },
+    { src: makeAPayment, label: 'Make a Payment', alt: 'Make a Payment wireframe bringing together city payment services, payment assistance, and related topics.' },
+    { src: residentTopics, label: 'All Resident Topics', alt: 'All Resident Topics wireframe grouping city services into categories, including water, waste collection, housing, and public safety.' },
+    { src: cityCalendar, label: 'City Calendar', alt: 'City Calendar wireframe with event search, filters, and a calendar of city events.' },
+    { src: explorePhoenix, label: 'Explore Phoenix', alt: 'Explore Phoenix wireframe with activity categories, featured attractions, and a map.' },
+    { src: artsCultureHeritage, label: 'Arts, Culture, and Heritage', alt: 'Arts, Culture, and Heritage wireframe featuring museums, cultural attractions, historic places, and related links.' }
+  ]}
+  caption="Citywide wireframes showing connections between the homepage, services, topics, events, and Explore Phoenix."
+/>
 
 </ThemeWrapper>
 
@@ -202,11 +246,16 @@ I created wireframes for department landing pages and the pages beneath them. Th
 
 <ThemeWrapper>
 
-<FigureSingle caption={"Department landing-page wireframes showing a shared structure adapted to different services and content."}>
-
-![Department landing-page wireframes for Planning and Development, City Clerk, Municipal Court, Human Services, and Arts and Culture.](../../images/phoenix/phx-masonry-wireframes-desktop-dept-landing-pages.jpg)
-
-</FigureSingle>
+<CaseStudyScreens
+  columns={3}
+  showLabels={false}
+  screens={[
+    { src: planningDevelopment, label: 'Planning and Development', alt: 'Planning and Development department wireframe with local navigation, an overview, popular topics, and residential and commercial services.' },
+    { src: municipalCourt, label: 'Municipal Court', alt: 'Municipal Court department wireframe with local navigation, an overview, court services, a video feature, news, and events.' },
+    { src: humanServices, label: 'Human Services', alt: 'Human Services department wireframe with local navigation, an overview, service links, family programs, and information about the department’s work.' }
+  ]}
+  caption="Department landing-page wireframes showing a shared structure adapted to different services and content."
+/>
 
 </ThemeWrapper>
 
@@ -220,11 +269,17 @@ The visual designs closely followed the layouts and navigation established in th
 
 <ThemeWrapper>
 
-<FigureSingle caption="Homepage and City Parks wireframes alongside the finished designs, showing how the page structure and navigation carried through.">
-
-![Wireframes beside finished pages. The homepage retains service shortcuts and a news spotlight. City Parks retains department navigation and amenity cards.](../../images/phoenix/phx-masonry-wireframes-to-visual-design.png)
-
-</FigureSingle>
+<CaseStudyScreens
+  columns={2}
+  showLabels={false}
+  screens={[
+    { src: homepage, label: 'Homepage wireframe', alt: 'Homepage wireframe with a welcome banner, service shortcuts, a city news spotlight, and resident resources.' },
+    { src: homepageDesign, label: 'Homepage finished design', alt: 'Finished Phoenix.gov homepage retaining the wireframe’s welcome banner, service shortcuts, news spotlight, and resident resources, with photography and the city’s visual design.' },
+    { src: cityParksWireframe, label: 'City Parks wireframe', alt: 'City Parks wireframe with department navigation, a page introduction, park-finding links, and cards for special amenities.' },
+    { src: cityParksDesign, label: 'City Parks finished design', alt: 'Finished City Parks page retaining department navigation and amenity cards, with a Find a Park link and photographs of parks and activities.' }
+  ]}
+  caption="Homepage and City Parks wireframes alongside the finished designs, showing how the page structure and navigation carried through."
+/>
 
 </ThemeWrapper>
 

@@ -10,6 +10,18 @@ Checkpoint before this pass: [`f471d9b`](https://github.com/cavidano/carl-avidan
 
 Use dividers to separate distinct sections that share a background. A background-color change already provides that separation; do not add a redundant divider at that boundary. Carl confirmed this preference on September 29, 2026.
 
+## Reversible image-grid exploration
+
+**Tool preference:** Carl asked to avoid Figma for this exercise. Organize existing image files and source exports directly, and assemble/review responsive grids in the website. The four Phoenix originals retrieved earlier are already saved as standalone PNGs; no further Figma step is needed for that group. If a matching source export is missing, identify the gap instead of automatically returning to Figma. Carl subsequently supplied the original Phoenix Figma file and authorized exporting its six citywide screens. This is source export only; no Figma organization or composition was added.
+
+On October 2, Carl requested a new branch to explore individual screenshot grids and help organizing the images. He explicitly wants the ability to abandon the experiment if it becomes overwhelming. Current branch: `codex/case-study-image-grids`. The complete pre-experiment website state is checkpointed at `a57b783` on `codex/visionlearning-figma-images`, including the earlier Figma export comparison and Carl's Drawing Board edits. Main and production are unchanged. Five Phoenix groups are implemented locally: desktop navigation, mobile navigation, six citywide screens, three department screens, and the wireframe-to-finished-design comparison.
+
+`CaseStudyScreens/index.astro` and adjacent `style.scss` now provide two-, three-, and four-column options through Natura11y grid utilities. Two and three stack below the medium breakpoint. **Four columns must stay two across on mobile**, per Carl's correction; four starts at the large breakpoint. `lightbox` and `showLabels` are independent options, defaulting to true for existing Visionlearning groups. Phoenix's first two groups set both false. Without a lightbox, images display in full proportions. Lightbox groups retain the desktop preview crops and use full proportions on phones. The existing shared lightbox loads the full-size asset when opened; thumbnails use responsive Astro WebP images. Review a group at a time, preserving the old compositions. The earlier plan to remove the wireframe component is superseded.
+
+Carl selected the existing archive-drive Case Studies folder as the shared collection, organized by project, and requested a folder name that clearly separates final used images from general project screen grabs. Use `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/<Project>/Final Used Images/`. Store only selected portfolio assets there. Keep matching versioned website copies in `src/images/<project>/`, using `wireframes/` for wireframes and `screens/` for other individual interface screenshots as needed. Use the same descriptive kebab-case filenames in both locations; the MDX controls display order. Copy selected originals rather than moving them. Keep editable masters and general archival material in their current locations. Record source and usage here; a folder name does not establish that a website replacement has been implemented or published.
+
+Earlier Figma organization work is paused: the Visionlearning section has two source-label wrappers (`1439:999`, `1439:1003`), and its existing scientific-illustration rectangle (`1346:1015`) was reused. The new redesign rectangle (`1439:1001`) has not received the Photoshop export; do not report that import as complete. This external Figma state is not covered by the Git checkpoint.
+
 ## Review a few at a time
 
 PHX-02 (user stories) now uses Carl’s supplied composition. VL-09 (authoring wireframes) remains a review priority because its detail is difficult to read when reduced. This is a proposed priority, not an instruction to rebuild it.
@@ -19,6 +31,68 @@ For each graphic, record Carl's decision in this file: **keep**, **replacement r
 The location links open the exact graphic in the running local preview. IDs also appear beside the images in each MDX source. Other case studies are outside this first batch.
 
 ## Phoenix
+
+**October 2 — first final-image group prepared:** Carl selected the four-screen header/navigation/search composition as the first example. Saved its original PNG image fills from [Figma frame 1145:1332](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1145-1332), preserving full dimensions and all annotations, to `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/Phoenix/Final Used Images/` and `src/images/phoenix/wireframes/`. Verified the PNGs visually against Carl's supplied composition, matched their SHA-1 hashes to the active Figma image hashes, and verified both copies byte-for-byte. These are the original uploaded images, not Figma previews or resized frame exports. The existing `_Screens/phx-wireframes-global-header-footer-*.png` files under `Reingold/Phoenix.gov` show earlier revisions and remain untouched.
+
+| Display order | Final filename | Dimensions | Original Figma image node |
+| --- | --- | --- | --- |
+| 1 | `phoenix-wireframe-header-footer.png` | 3600 × 2132 | `1145:1333` |
+| 2 | `phoenix-wireframe-residents-menu.png` | 1800 × 1066 | `1145:1334` |
+| 3 | `phoenix-wireframe-explore-menu.png` | 1800 × 1066 | `1145:1335` |
+| 4 | `phoenix-wireframe-search-suggestions.png` | 1800 × 1066 | `1145:1336` |
+
+These four images now appear individually in a two-column grid under “Connecting the sitemap to the global navigation.” The original `phx-masonry-header-footer-01.jpg` is retained. Narrative and shared caption are unchanged; each screen has its own alt text.
+
+**October 2 — mobile-menu group implemented:** Four columns on desktop, two on phones, with no labels or lightboxes. The archive PDF `_Screens/grid-mobile-phoenix-wireframes-02@2x.pdf` contains an older design, including Transportation in the main menu and no contrast control. To preserve the selected design, the current 3280 × 1638 website image `phx-masonry-mobile-menu.jpg` was split at its screen boundaries into four 760 × 1637 PNGs. Only the gutters and one top background row were excluded; the original composite is retained. These are lossless pixel crops from that JPEG, **not original standalone exports**. Carl was informed of and accepted this source distinction. Files are copied and verified byte-for-byte in the final-image archive and `src/images/phoenix/wireframes/`:
+
+1. `phoenix-wireframe-mobile-menu-closed.png`
+2. `phoenix-wireframe-mobile-menu-main.png`
+3. `phoenix-wireframe-mobile-menu-residents.png`
+4. `phoenix-wireframe-mobile-menu-payments.png`
+
+**Verification:** The review build passed 26 tests, zero-error/zero-warning Astro checks, and the 117-page audit, including shared figures across all application sites. Browser checks at 1440 and 390 pixels confirmed the desktop group uses two/one columns and the mobile-menu group uses four/two, with full images, no labels/buttons, and no horizontal overflow. Existing Visionlearning lightboxes open by keyboard and return focus on Escape; their labels and desktop crop ratios remain. The eight image variants selected at 1440 pixels total 143,054 bytes; larger responsive variants remain available. Changes are local and uncommitted; Confluence still has the prior compositions pending review.
+
+**October 2 — six citywide wireframes implemented:** Carl supplied the [original PHX Wireframes + Prototypes file](https://www.figma.com/design/KgIm7QXAECMLOUvFoOw59A/PHX-Wireframes---Prototypes?node-id=3745-41478). All six matching frames were exported directly as native 1× PNGs, preserving full dimensions, proportions, backgrounds, and annotations. No preview screenshots or crops of the old website collage were used. No Figma canvas edits were made. Matching filenames and identical bytes are saved in the final-image archive and `src/images/phoenix/wireframes/`.
+
+| Display order | Final filename | Dimensions | Original Figma frame |
+| --- | --- | --- | --- |
+| 1 | `phoenix-wireframe-homepage.png` | 1800 × 8216 | `3745:41661` |
+| 2 | `phoenix-wireframe-make-a-payment.png` | 1800 × 2742 | `39:3721` |
+| 3 | `phoenix-wireframe-resident-topics.png` | 1800 × 3384 | `1345:89997` |
+| 4 | `phoenix-wireframe-city-calendar.png` | 1800 × 3806 | `3594:19857` |
+| 5 | `phoenix-wireframe-explore-phoenix.png` | 1800 × 4985 | `3773:61892` |
+| 6 | `phoenix-wireframe-arts-culture-heritage.png` | 1800 × 6024 | `3773:61743` |
+
+Under [Connecting the citywide pages](http://localhost:4321/case-studies/phoenix#connecting-the-citywide-pages), these use three desktop columns in two rows, with visible labels off and individual lightboxes on. The shared caption and narrative are preserved, with the component's enlargement instruction appended. Each image has its own description and accessible enlargement name. The source's yellow annotations remain. The old `phx-masonry-wireframes-desktop-key-pages.jpg` is retained for rollback. The archive's older PDF and Miro-board Photoshop compositions remain untouched.
+
+**Six-screen verification:** Native exports were visually inspected and archive/website copies verified byte-for-byte. The review build passed 26 tests, zero Astro errors/warnings, and the 117-page shared-site audit. At 1440 pixels, six loaded responsive WebP images form three 408px columns and two rows, with 18:25 desktop crops and no overflow. The browser selected 480px-wide thumbnails at its tested pixel density; larger variants are available. Keyboard activation opened the complete 1800 × 8216 homepage, and Escape returned focus to its button. At 390 pixels, images stack at their full proportions without overflow. The temporary viewport override was reset. All 14 selected Phoenix images are now accounted for in both locations. This remains an uncommitted local experiment; no publication or Confluence figure replacement has occurred.
+
+
+**October 2 — department group reduced to three:** Carl initially identified six panels, then requested avoiding repetition or cutting the group to three. The prior composition repeats Planning and Development; comparison of its first and sixth panels confirmed they use the same screen. Keep three distinct examples in one desktop row: Planning and Development, Municipal Court, and Human Services. Each uses a native 1× PNG exported from the original Phoenix file, a responsive WebP preview, optional lightbox enabled, and visible labels disabled. The existing section heading, narrative, and shared caption are preserved.
+
+| Display order | Final filename | Dimensions | Original Figma frame |
+| --- | --- | --- | --- |
+| 1 | `phoenix-wireframe-planning-development.png` | 1800 × 6681 | `3725:663` on page `3725:611` |
+| 2 | `phoenix-wireframe-municipal-court.png` | 1800 × 5065 | `1571:42292` on page `1571:42291` |
+| 3 | `phoenix-wireframe-human-services.png` | 1800 × 6857 | `1571:40190` on page `1268:13411` |
+
+The three selected PNGs are saved with matching names and verified identical bytes in `Final Used Images/` and the website's `wireframes/` folder. Seventeen selected Phoenix assets now exist in both locations. City Clerk and Arts and Culture exports inspected during selection are not retained in either final-used collection; their Figma originals are untouched. The archived Planning and Development alternative (`3734:63909`) differs from the supplied composition and is not used. The old department collage is retained for rollback.
+
+The review build passed 26 tests, zero Astro errors/warnings, and the 117-page audit, including shared case-study figures. The browser shows exactly three distinct screens, no labels, three working full-image targets, responsive 800px WebP previews at the normal tested desktop pixel density, and no horizontal overflow. The component itself is unchanged from the earlier desktop/mobile and keyboard verification. All edits remain local on `codex/case-study-image-grids`; production and Confluence figures remain unchanged pending experiment review.
+
+
+**October 2 — wireframe-to-finished-design comparison:** Carl selected the next four-panel composition for the same treatment. The original archive files were already available in `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Reingold/Phoenix.gov/_Screens/`; no Figma export or canvas work was needed. The shared `CaseStudyScreens` now shows two columns and two rows: homepage wireframe/design, then City Parks wireframe/design. Visible labels are off and individual lightboxes are on. Existing two-column preview proportions apply; phones stack the full images in that same paired order. Section copy and shared caption are unchanged.
+
+| Display order | Final filename | Dimensions | Source |
+| --- | --- | --- | --- |
+| 1 | `phoenix-wireframe-homepage.png` | 1800 × 8216 | Reused existing selected export from original Phoenix Figma frame `3745:41661`; same layout as archived `phx-homepage.png`. |
+| 2 | `phoenix-screen-homepage.webp` | 1800 × 7696 | Archived `phoenix-hi-fi-homepage.png` (4000 × 17102); resized proportionally and encoded as quality-90 WebP, 1,315,656 bytes. |
+| 3 | `phoenix-wireframe-city-parks.png` | 1800 × 4087 | Original `Dept_ Parks and Recreation -  Level 3.png`, copied without resizing or altering its pixels. |
+| 4 | `phoenix-screen-city-parks.webp` | 1800 × 5777 | Archived `phoenix-hi-fi-parks.png` (4000 × 12838); resized proportionally and encoded as quality-90 WebP, 694,808 bytes. |
+
+Archive masters remain untouched. The three new selected assets are saved in `Final Used Images/` and the website with matching filenames and verified identical bytes. Wireframes live under `src/images/phoenix/wireframes/`; finished-page captures live under `src/images/phoenix/screens/`. This brings the selected Phoenix collection to 20 unique files, with the homepage wireframe reused in two sections. Astro generates responsive WebP thumbnails and full-image lightbox assets. The old `phx-masonry-wireframes-to-visual-design.png` is retained for rollback; the former requirement to edit its Figma composition is superseded for this experiment. These are existing archived finished-page captures, not new captures or proof of the exact launch-day appearance.
+
+**Comparison verification:** The review build passed 26 tests, zero Astro errors/warnings, and the 117-page shared-site audit. Browser review confirmed two columns, all four responsive images loaded, hidden labels, and no overflow. At the normal desktop viewport and pixel density, it selected 1200px WebP thumbnails. The finished City Parks lightbox loaded its complete 1800 × 5777 image; Escape returned focus to its enlargement button. Existing shared mobile stacking behavior is unchanged. Changes remain local and unpublished.
 
 [Website draft](http://localhost:4321/case-studies/phoenix) · [Confluence main page](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/23789570), v41 · [Website source](../src/content/portfolio/phoenix.mdx)
 
@@ -51,6 +125,23 @@ Carl supplied the [research overview composition](https://www.figma.com/design/R
 **Peer-review presentation:** [All 41 slides in Figma](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1322-362), on **Interwoven Presentations**, below the proto-personas. Source: `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Reingold/Phoenix.gov/Resources/_PPT-Decks/Peer Landscape Analysis/phx-peer-website-landscape-09-20-23.pdf`, matching the 41-slide PowerPoint of the same name. The `_JPGs` folder contained only 27 slides, so the complete PDF was rendered instead. Imported all 41 full slides as separate raster image layers in original order, arranged in five columns. **Carl requested 800 pixels wide per slide**; all are now 800 × approximately 450, with proportional high-resolution image fills retained for cropping. The earlier presentation-strip composition remains untouched. This is a source-selection workspace, not authorization to restore the removed peer-review figure to the website.
 
 ## Visionlearning
+
+**October 2 — individual-image experiment:** Continue on `codex/case-study-image-grids`, without publishing. Only important examples need enlargement. Labels and lightboxes remain optional; images without a lightbox use their natural proportions. No square-specific component logic was added.
+
+The latest-redesign composition is replaced locally with three screens, using the existing three-column lightbox grid without labels. Source JPEGs remain in `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Visionlearning/_original/`: `desktop-homepage-3up.jpg`, `desktop-homepage-modal.jpg`, and `desktop-module-reading.jpg`. Selected quality-90 WebP exports are `visionlearning-screen-homepage.webp` (1800 × 2485), `visionlearning-screen-biology-panel.webp` (1800 × 2524), and `visionlearning-screen-periodic-table-reading.webp` (1800 × 7151). Preserve the prior composition for rollback.
+
+Existing wireframes and the content map were renamed descriptively without changing their bytes, with MDX imports updated: `visionlearning-content-map.png`; `visionlearning-wireframe-homepage.png`, `-discipline.png`, `-reading.png`, `-quiz.png`, `-quiz-results.png`, `-glossary.png`, `-admin-module-information.png`, `-admin-reading.png`, `-admin-quiz-question.png`, and `-admin-resources.png`. The abbreviated entries in this list share the `visionlearning-wireframe` prefix. Their layouts remain unchanged.
+
+**2017 group:** Four columns on desktop, two on mobile, no labels or lightbox. The four original 2880 × 2880 captures were located in Portfolio Figma nodes `1356:3145`, `1356:3144`, `1356:3143`, and `1356:3142`, but source transfer was incomplete. After Carl requested completion, used the existing full-resolution website production asset `visionlearning-2017-redesign.png` (4000 × 962) instead. Each screen was extracted as a 962 × 962 lossless PNG, removing the composition gutters. These are crops of the existing production composition, **not original standalone exports**. No Figma canvas edits were made. The source composition remains intact.
+
+| Order | Final filename | Crop left position |
+| --- | --- | --- |
+| 1 | `visionlearning-screen-2017-homepage.png` | 0 |
+| 2 | `visionlearning-screen-2017-library.png` | 1013 |
+| 3 | `visionlearning-screen-2017-origins-of-life-reading.png` | 2026 |
+| 4 | `visionlearning-screen-2017-glossary.png` | 3038 |
+
+All 18 selected Visionlearning files are saved in `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/Visionlearning/Final Used Images/` and matching `src/images/visionlearning/screens/` or `wireframes/` locations; all archive copies were verified byte-for-byte. Astro serves responsive quality-85 WebP images. The review build passed all 26 tests, Astro checks, and the 117-page shared-site audit. Main, production, and Confluence remain unchanged pending review.
 
 **Photoshop artboard naming, October 2:** At Carl's request, renamed `visionlearning-masonry-01` to `visionlearning-latest-redesign` in the open Photoshop master. Kept the already descriptive `visionlearning-scientific-illustrations` name. Saved the document in its existing `masonry.psd` location and verified that Photoshop's saving indicator and unsaved-change marker cleared. No relocation, PSD filename change, or website export was made. Use these descriptive artboard names when discussing the current Photoshop master; the Figma comparison frame still has its original name.
 

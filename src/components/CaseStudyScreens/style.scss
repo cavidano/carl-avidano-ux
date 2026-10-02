@@ -1,0 +1,29 @@
+@use '@natura11y/core/src/scss/breakpoint';
+
+.case-study-screens {
+  &__item {
+    min-width: 0;
+  }
+
+  &__preview {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #b9b9b9;
+    border-radius: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include breakpoint.breakpoint-up(md) {
+    .lightbox-thumbnail {
+      aspect-ratio: var(--screen-ratio);
+    }
+  }
+}

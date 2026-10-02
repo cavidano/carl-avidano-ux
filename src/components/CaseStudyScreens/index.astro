@@ -1,0 +1,55 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import FigureSingle from '../FigureSingle.astro';
+import LightboxImage from '../LightboxImage.astro';
+import './style.scss';
+
+interface Props {
+  screens: { src: ImageMetadata; label: string; alt: string }[];
+  caption: string;
+  columns?: 2 | 3 | 4;
+  ratio?: string;
+  lightbox?: boolean;
+  showLabels?: boolean;
+}
+
+const { screens, caption, columns = 3, ratio, lightbox = true, showLabels = true } = Astro.props;
+const cropRatio = ratio ?? ({ 2: '9 / 10', 3: '18 / 25', 4: '1 / 2' }[columns]);
+const sizes = columns === 4
+  ? '(min-width: 992px) 22.5vw, 45vw'
+  : `(min-width: 768px) ${90 / columns}vw, 90vw`;
+const gridColumns = columns === 4
+  ? 'grid--column-2 grid--column-4--lg'
+  : `grid--column-1 grid--column-${columns}--md`;
+const figureCaption = lightbox ? `${caption} Select a screen to view the full layout.` : caption;
+---
+
+<FigureSingle className="case-study-screens" caption={figureCaption}>
+  <div
+    class={`grid ${gridColumns} gap-3`}
+    style={lightbox ? `--screen-ratio: ${cropRatio}` : undefined}
+  >
+    {screens.map(({ src, label, alt }) => {
+      const imageProps = {
+        src,
+        alt,
+        width: Math.min(src.width, 800),
+        widths: [...[480, 800, 1200, 1800].filter((width) => width < src.width), src.width],
+        sizes,
+        quality: 85
+      };
+
+      return (
+        <div class="case-study-screens__item">
+          {showLabels && <p class="font-weight-bold margin-bottom-2">{label}</p>}
+          {lightbox ? (
+            <LightboxImage {...imageProps} caption={label} className="case-study-screens__preview" />
+          ) : (
+            <Image {...imageProps} class="case-study-screens__preview" format="webp" />
+          )}
+        </div>
+      );
+    })}
+  </div>
+</FigureSingle>
