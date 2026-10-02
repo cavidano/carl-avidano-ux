@@ -5,6 +5,7 @@ import figureImages from './scripts/figure-images.mjs';
 import sitemap from '@astrojs/sitemap';
 import { getSiteId } from './src/lib/applications/paths.js';
 import applicationBuild from './scripts/application-build.mjs';
+import imageBuild from './scripts/image-build.mjs';
 
 export default defineConfig({
   site: 'https://carlavidano.com',
@@ -23,6 +24,7 @@ export default defineConfig({
   },
   integrations: [
     applicationBuild({ includeDrafts: process.env.APPLICATION_PREVIEW === 'true' }),
+    imageBuild(),
     mdx(),
     sitemap({
       // Index the articles and main listing, excluding duplicate topic-filter views.

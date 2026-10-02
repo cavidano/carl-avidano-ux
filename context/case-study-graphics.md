@@ -1,6 +1,25 @@
 # Case-study graphics
 
-Working review list · Updated September 29, 2026
+Working review list · Updated October 2, 2026
+
+## Follow-up checklist
+
+These are refinements to revisit after publishing the approved image grids, not blockers for this release.
+
+- [ ] **NYC OTI:** reconsider the Vital Records and PoleTop screen selections and preview crops. Carl may prepare more purposeful vertical captures; keep the current grids for now, without the cart summary or phase table.
+- [ ] **Visionlearning scientific illustrations:** revisit the custom grid's gutters and alignment. Keep the original composition in use. The [saved experiment patch](experiments/visionlearning-illustration-grid.patch) preserves the implementation.
+- [ ] **Natura11y — In the wild:** replace the older composition with the newer project examples.
+- [ ] **Mr. Ellie Pooh:** refine the story and decide whether it belongs in the portfolio. Retain the case study until Carl decides; removal is not approved.
+
+## October 2 image cleanup and release
+
+Carl authorized publishing the reviewed galleries, merging the work into main, and removing unused website images. Earlier “local only” and rollback notes below describe checkpoints before this release.
+
+81 unused website image and media files (82,454,217 bytes, about 79 MB) were SHA-256 verified and removed. Their copies are archived outside the repository at `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/Retired Website Images/2026-10-02/`, organized by project and original website path. The archive manifest records SHA-256 hashes; each file is verified before its website copy is removed. Current selected images stay in each project's `Final Used Images` folder. Editable masters are untouched.
+
+To restore the deferred Visionlearning experiment, copy the nine archived files from `Visionlearning/src/images/visionlearning/illustrations/` back to the same repository paths, then run `git apply --check context/experiments/visionlearning-illustration-grid.patch` before applying it. They are not part of the current website build.
+
+The static build removes unreferenced generated raster images through `scripts/image-build.mjs`, after application-draft cleanup. It preserves all images referenced by generated HTML (including responsive variants and lightbox targets), CSS, JavaScript, JSON, XML, SVG, and web manifests. Public assets and source images are never deleted by this build step. The existing frontmatter image lookup continues to accept images from any project folder. Both release builds passed 27 tests, zero Astro errors or warnings, and 117 review / 54 production page checks. The production build removed 98 unreferenced generated copies (49.7 MB); all responsive images and lightbox targets remain.
 
 The current case studies are in the local website layout and synchronized to their main Confluence pages. Separate enhanced draft pages are archived. **No new graphic is required to review these pages.** Each addition already has a working visual. Carl chooses which to keep, replace, or refine; placement in the preview does not mean final graphic approval.
 
@@ -126,6 +145,28 @@ Carl supplied the [research overview composition](https://www.figma.com/design/R
 
 ## Visionlearning
 
+**Deferred after review, October 2:** Carl found the illustration-grid gutters/alignment visually off and asked to restore the original image, save the experiment, and move on. Restored the original `FigureSingle` and `visionlearning-scientific-illustrations.jpg` exactly. The experimental component is removed from active source; its complete component, adjacent Sass, and MDX integration are saved in [experiments/visionlearning-illustration-grid.patch](experiments/visionlearning-illustration-grid.patch). All nine extracted WebP assets remain in the website image directory and server archive. To revisit, inspect the patch and use `git apply --check context/experiments/visionlearning-illustration-grid.patch` before applying it. Do not resume this experiment without Carl's request. The implementation and verification notes below describe the reverted experiment.
+
+**October 2 — nine scientific illustrations prepared and implemented:** Carl proposed a dedicated illustration-grid component with adjacent Sass, reusing the shared grid utilities and gutters. After the image extraction, he authorized building it. `VisionlearningIllustrations/index.astro` now replaces the flattened scientific-illustration image locally. Its adjacent `style.scss` controls grid alignment and natural image proportions. The outer `gap-3` utility supplies the inherited gutter for every nested grid. The cell illustrations come first together; the lower composition uses two independent columns on desktop. Large images stack below 768px, and the small experiment pair stays two across. No new JavaScript, image crop ratios, visible labels, or lightboxes were added. The former composition remains available for rollback.
+
+Read current Confluence Visionlearning v42 before splitting the figure's description into individual image descriptions. The approved section prose, caption, theme, and surrounding figures are preserved. Review build passed all 26 tests, zero Astro errors/warnings, and the 117-page audit including shared application case studies. Desktop review at 1280px confirmed all nine responsive WebP images load; primary images selected 1200px variants and the small pair selected 800px variants at the browser's pixel density. Phone review at 390px confirmed one main column, two images in the nested pair, consistent 24px gutters, and no horizontal overflow. Browser viewport was restored. Changes remain local and uncommitted; Confluence and production still use the prior composition pending review.
+
+Inspected the open, saved `masonry.psd` in Photoshop, then read `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Visionlearning/masonry.psd` without modifying it. All nine illustrations are embedded smart objects in its `visionlearning-scientific-illustrations` artboard. Seven embedded JPEGs were extracted directly; the two cell PSBs used their saved merged images, retaining their labels. Converted using each source's embedded color profile to sRGB and encoded as quality-92 WebP without resizing. This color conversion is important for the three CMYK experiment sources. Native proportions are retained; these are full embedded images, not the artboard's masked/cropped frame bounds. Compare frame proportions when implementing the grid rather than assuming exact bottom alignment for every gutter.
+
+All final names start with `visionlearning-illustration-` and end with `.webp`. Matching files are saved in `src/images/visionlearning/illustrations/` and `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/Visionlearning/Final Used Images/`, verified byte-for-byte. The nine web assets total 2,206,830 bytes; the PSD remains the source master. The contact sheet used for inspection is not a website asset.
+
+| Filename stem | Embedded source | Dimensions |
+| --- | --- | --- |
+| `animal-cell` | `64-e.psb` | 2000 × 1334 |
+| `plant-cell` | `64-f.psb` | 2000 × 1334 |
+| `miller-urey-experiment` | `226-7-LG.jpg` | 1368 × 1944 |
+| `endosymbiosis` | `64-9.jpg` | 1200 × 434 |
+| `redi-experiment` | `226-3-LG.jpg` | 1440 × 792 |
+| `sealed-flask-experiment` | `226-4b-LG.jpg` | 1440 × 756 |
+| `protein-structure` | `62-4-LG.jpg` | 1200 × 1200 |
+| `rna-dna` | `64-7-LG.jpg` | 1200 × 1200 |
+| `periodic-table` | `periodic-table-I-1-LG.jpg` | 1512 × 972 |
+
 **October 2 — individual-image experiment:** Continue on `codex/case-study-image-grids`, without publishing. Only important examples need enlargement. Labels and lightboxes remain optional; images without a lightbox use their natural proportions. No square-specific component logic was added.
 
 The latest-redesign composition is replaced locally with three screens, using the existing three-column lightbox grid without labels. Source JPEGs remain in `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Visionlearning/_original/`: `desktop-homepage-3up.jpg`, `desktop-homepage-modal.jpg`, and `desktop-module-reading.jpg`. Selected quality-90 WebP exports are `visionlearning-screen-homepage.webp` (1800 × 2485), `visionlearning-screen-biology-panel.webp` (1800 × 2524), and `visionlearning-screen-periodic-table-reading.webp` (1800 × 7151). Preserve the prior composition for rollback.
@@ -176,7 +217,128 @@ Existing editable compositions and originals:
 
 Retained figures: VL-01 logo, VL-02 page layouts, VL-04 Spanish mobile screens, VL-05 interactive-tools animation, VL-06 scientific illustrations. The animation and its controls are unchanged. The confidential research reports, removed NGSS source figure, and illustration-review figures remain reference material, not new website graphics.
 
+## Natura11y
+
+**October 2 — Templates and Examples:** Carl chose all five screens in each gallery, three across, with lightboxes and no visible labels. Both now use the existing `CaseStudyScreens` component: three images in the first row and two in the second, with no custom component or styling. The original compositions remain available for rollback. Approved section prose and caption wording are preserved, with the shared enlargement instruction appended. This supersedes the brief deferral and proposed reduction to four.
+
+All ten matching originals were located and visually compared with the compositions in `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Natura11y/Screens/2026/`. Each original is 4000px wide. Complete screenshots were resized proportionally to 1800px wide and encoded as quality-90 WebP. Matching files in `src/images/natura11y/screens/` and `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/Natura11y/Final Used Images/` were verified byte-for-byte. Final filenames below share the prefix `natura11y-screen-` and suffix `.webp`.
+
+| Original filename | Final filename stem | Dimensions | Bytes |
+| --- | --- | --- | ---: |
+| `a11y-template-landing.png` | `template-landing` | 1800 × 4782 | 212,566 |
+| `a11y-template-two-column.png` | `template-two-column` | 1800 × 4315 | 493,486 |
+| `a11y-form.png` | `template-contact-form` | 1800 × 2707 | 103,312 |
+| `a11y-template-three-column.png` | `template-three-column` | 1800 × 4352 | 496,928 |
+| `a11y-search-results.png` | `template-search-results` | 1800 × 2858 | 264,538 |
+| `a11y-example-peak-performance.png` | `example-peak-performance` | 1800 × 3954 | 549,350 |
+| `a11y-example-avian-elegance.png` | `example-avian-elegance` | 1800 × 3825 | 450,026 |
+| `a11y-example-majestic-lion.png` | `example-majestic-lion` | 1800 × 3988 | 375,624 |
+| `a11y-example-verdant-trails.png` | `example-verdant-trails` | 1800 × 6179 | 729,022 |
+| `a11y-example-oceanic-pulse.png` | `example-oceanic-pulse` | 1800 × 3439 | 739,198 |
+
+The review build passed 26 tests, zero Astro errors/warnings, and the 117-page shared-site audit. Browser checks confirmed all ten thumbnails load as responsive 800px images at the desktop viewport, three columns at 1280px, one at 390px, no visible labels, and no horizontal overflow. Contact Form and Oceanic Pulse lightboxes load their complete 1800px-wide images; Enter opens and Escape restores button focus. Viewport restored after testing. Proof: `/tmp/natura11y-examples-grid-desktop.png`. Carl subsequently requested removing the gray border across these grids. Removed the decorative border from `CaseStudyScreens/style.scss`; browser computed styles confirm zero-width borders. Standard keyboard focus styling remains intact. Borderless proof: `/tmp/natura11y-galleries-borderless.png`.
+
+**October 2 — Public documentation:** Replaced the flattened Backdrop/Color composition with `CaseStudyScreens`, two desktop columns, individual lightboxes, and no visible labels. Mobile retains the shared component's stacked, natural-proportion images. The original `natura11y-docs-masonry.jpg` is retained. Current Confluence page 23855116 v36 was read; approved section prose and other figures are unchanged. This remains a local experiment, with publication and Confluence figure synchronization pending review.
+
+Sources are in `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Natura11y/Screens/2026/`: `screencapture-gonatura11y-docs-backdrop-2026-07-16-08_08_28.png` and `screencapture-gonatura11y-docs-color-2026-07-16-08_21_45.png`. Both are 4000 × 28800 and show version 5.2.3, matching Carl's reference. The named `natura11y-backdrop.png` / `natura11y-color.png` files and Photoshop embeds show older 5.1.0 content and were not used in the final grid.
+
+Exports preserve each complete screenshot, resized proportionally to 1800 × 12960 and encoded as quality-90 WebP. Matching copies in `src/images/natura11y/screens/` and `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/Natura11y/Final Used Images/` are byte-identical:
+
+| Final filename | Bytes |
+| --- | ---: |
+| `natura11y-screen-documentation-backdrop.webp` | 1,112,712 |
+| `natura11y-screen-documentation-color.webp` | 865,860 |
+
+The review build passed 26 tests, zero Astro errors/warnings, and the 117-page shared-site audit. Browser verification confirmed two columns at 1280px, one at 390px, no horizontal overflow, and responsive 1200px thumbnail sources on desktop. Both lightboxes load the complete 1800 × 12960 image; Enter opens and Escape restores focus to the originating button. The local dev server needed a configuration reload after the asset filenames changed. Final proof: `/tmp/natura11y-docs-grid-desktop.png`.
+
+## Cheetah.org
+
+**October 2 — desktop galleries:** Converted the main-site and CCF Kids masonry images into two `CaseStudyScreens` grids, each with three columns, individual lightboxes, and no visible labels. Both reuse the shared borderless styling. Read current Confluence page 24182787 v18 first; narrative, results, logos, font example, section order, and the phone mockup strip remain unchanged. The two original masonry files remain available for rollback. Changes are local, with Confluence figure synchronization and publication pending review.
+
+Sources are in `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Cheetah.org/`. Used the full desktop screenshots rather than the separately shortened variants so enlargement reveals each complete source. The Kids screenshots match the existing composition; some visible content dates are later than the 2019 launch, and these image changes do not alter the stated engagement dates or attribute later content to that launch.
+
+Final exports use quality-90 WebP at their native widths (no enlargement), preserving full proportions. They are saved in `src/images/cheetah-conservation-fund/screens/` and `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/Cheetah.org/Final Used Images/`, verified byte-for-byte. All final names below share the prefix `cheetah-conservation-fund-screen-` and suffix `.webp`.
+
+| Original filename | Final filename stem | Dimensions | Bytes |
+| --- | --- | --- | ---: |
+| `ccf-desktop-home.jpg` | `homepage` | 1800 × 6954 | 1,232,944 |
+| `ccf-desktop-what-we-conservation.jpg` | `conservation` | 1800 × 10921 | 1,703,624 |
+| `ccf-desktop-who-we-are-marker.jpg` | `laurie-marker` | 1800 × 10426 | 1,735,304 |
+| `ccf-kids-landing.jpg` | `kids-cheetah-facts` | 1682 × 12265 | 1,818,042 |
+| `ccf-kids-art-page.jpg` | `kids-artists` | 1682 × 5780 | 1,042,976 |
+| `ccf-kids-blog.jpg` | `kids-art-competition` | 1682 × 11448 | 2,528,650 |
+
+The review build passed 26 tests, zero Astro errors/warnings, and the 117-page audit. Browser checks confirmed six loaded 800px desktop thumbnail variants, three columns at 1280px, one at 390px, no labels or decorative borders, and no horizontal overflow. Homepage and Kids article lightboxes loaded their complete source dimensions; keyboard opening, Escape closing, and returned focus passed. Viewport restored. Proofs: `/tmp/cheetah-main-gallery.png` and `/tmp/cheetah-kids-gallery.png`.
+
+Mobile source candidates were also located in the same source folder: `ccf-mobile-home-shortened.jpg`, `ccf-mobile-home-map-shortened.jpg`, and `ccf-mobile-marker-shortened.jpg` (each 414 × 1400), plus the full `ccf-mobile-home.jpg` (414 × 9844). These have not been exported or substituted for the existing phone mockups. Carl later clarified that his instruction about clean full-screen lightboxes referred to NYC, not to these mobile captures. The six Cheetah desktop sources are complete and clean. Direct inspection of the mobile candidates shows they are only 414px wide, with the map and biography crops cutting into adjacent paragraphs/sections. Keep the existing phone mockup strip for now rather than enlarging those partial crops. The NYC conversion is recorded below.
+
+## NYC OTI
+
+**PoleTop follow-up:** Carl requested two columns, initially keeping all five screens. He then found the new layout less impressive than the masonry composition and explicitly requested removing the phase table. The current grid contains four screens in two columns: location check, dashboard, reservation, and map reference. Retained the existing landscape preview ratio, lightboxes, and hidden labels. The unused phase-table export remains saved for recovery. Twelve screens now appear across NYC’s four galleries. Further presentation review remains open; no restoration or additional redesign was requested.
+
+**DoRIS follow-up:** Carl found the landscape previews too short. Removed the cart summary from the gallery and its import, retaining the request form and shopping cart in two columns with the standard `9 / 10` preview ratio, lightboxes, and no labels. The earlier cart-summary export remains saved but is no longer displayed. This initially left thirteen screens across NYC’s four galleries; the later PoleTop removal brings the count to twelve. This supersedes the initial DoRIS layout below.
+
+**October 2 — four individual-image galleries:** Carl clarified that NYC can use individual lightboxes if the complete source screenshots are clean. Inspected all 14 matching originals through their footers. MFTA, Notify NYC, DoRIS, and PoleTop Manager now use the existing borderless `CaseStudyScreens` component with three desktop columns, optional enlargement enabled, and visible labels disabled. PoleTop has five screens arranged three then two. Mobile stacks the complete images at natural proportions.
+
+MFTA and Notify use the default portrait preview. DoRIS and PoleTop use the existing `ratio="3 / 2"` option because several original screens are shorter; landscape previews avoid adding empty space beneath those images. No custom component or new layout CSS was added. All original compositions remain available for rollback.
+
+Current Confluence page 24510466 v17 was read before the change. Narrative, heading order, outcomes, revenue sources, and theme backgrounds are preserved. New image descriptions accurately identify the MFTA and Notify public website screens; they do not claim to show the administrative platforms. Work remains local and unpublished, with Confluence figure synchronization pending review.
+
+Originals remain under `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/NYC OTI/`. Complete sources were resized proportionally to a maximum width of 1800px, without enlargement, and encoded as quality-90 WebP. The MFTA homepage retains its native 1660px width. Matching exports in `src/images/nyc-oti/screens/` and `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/NYC OTI/Final Used Images/` were verified byte-for-byte.
+
+| Original relative path | Final filename | Dimensions | Bytes |
+| --- | --- | --- | ---: |
+| `MFTA/MFTA-homepage.jpg` | `nyc-oti-screen-mfta-homepage.webp` | 1660 × 4972 | 623,078 |
+| `MFTA/MFTA-donating-materials.png` | `nyc-oti-screen-mfta-donating-materials.webp` | 1800 × 3798 | 375,596 |
+| `MFTA/MFTA-receiving-materials.png` | `nyc-oti-screen-mfta-receiving-materials.webp` | 1800 × 4404 | 500,004 |
+| `Notify NYC/notify-nyc-homepage.png` | `nyc-oti-screen-notify-homepage.webp` | 1800 × 3534 | 495,508 |
+| `Notify NYC/notify-nyc-enroll.png` | `nyc-oti-screen-notify-enrollment.webp` | 1800 × 2430 | 206,420 |
+| `Notify NYC/notify-nyc-about.png` | `nyc-oti-screen-notify-about.webp` | 1800 × 4959 | 650,074 |
+| `DORIS/order-vital-records.png` | `nyc-oti-screen-doris-order-vital-records.webp` | 1800 × 5101 | 244,738 |
+| `DORIS/order-vital-records-shopping-cart.png` | `nyc-oti-screen-doris-shopping-cart.webp` | 1800 × 2586 | 121,482 |
+| `DORIS/order-vital-records-order-summary.png` | `nyc-oti-screen-doris-cart-summary.webp` | 1800 × 1638 | 80,726 |
+| `Poletop Manager/nyc-poletop-check-pole-location.jpg` | `nyc-oti-screen-poletop-check-location.webp` | 1800 × 1273 | 83,312 |
+| `Poletop Manager/nyc-poletop-edit-phase.jpg` | `nyc-oti-screen-poletop-edit-phase.webp` | 1800 × 1632 | 109,056 |
+| `Poletop Manager/nyc-poletop-admin-dashboard.jpg` | `nyc-oti-screen-poletop-dashboard.webp` | 1800 × 2593 | 208,868 |
+| `Poletop Manager/nyc-poletop-reservation.jpg` | `nyc-oti-screen-poletop-reservation.webp` | 1800 × 1783 | 188,826 |
+| `Poletop Manager/nyc-poletop-tearsheet.jpg` | `nyc-oti-screen-poletop-map-reference.webp` | 1800 × 4028 | 441,702 |
+
+The review build passed 26 tests, zero Astro errors/warnings, and the 117-page shared-site audit. Browser checks confirmed all 14 responsive thumbnails load, three columns at 1280px, one at 390px, no visible labels or decorative borders, and no horizontal overflow. A complete source in each group was opened by keyboard; Escape closed each viewer and restored focus. Verified full dimensions: MFTA homepage 1660 × 4972, Notify enrollment 1800 × 2430, DoRIS request 1800 × 5101, and PoleTop map reference 1800 × 4028. Viewport restored. Proofs: `/tmp/nyc-mfta-gallery.png`, `/tmp/nyc-doris-gallery.png`, and `/tmp/nyc-poletop-gallery.png`.
+
+## Mr. Ellie Pooh
+
+**October 2 — individual storefront screens:** Carl requested trying the shared grid while considering whether to retain this case study. Keep it on the general portfolio for now; he expects it would rarely be selected for a custom application. No application selection or publication setting was changed. Its commerce, photography, artisan visit, and fair trade story remain under review, with no narrative rewrite authorized in this pass.
+
+Replaced only `mr-ellie-pooh-masonry-key-pages.jpg` with four individual screens: homepage, product category, product detail, and Papermakers and Artisans. Uses the existing `CaseStudyScreens` component, two columns, square desktop previews through `ratio="1 / 1"`, individual lightboxes, and no visible labels. Square previews accommodate the shorter product page without an empty band beneath it. Mobile shows the full images stacked. Original composition retained for comparison; mobile mockups, factory photos, carousel feature, product-photo composition, prose, and results remain unchanged. Current Confluence page 24576001 v15 was read before editing. Local only; Confluence figure synchronization remains pending review.
+
+All four original desktop JPEGs were located in `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Mr. Ellie Pooh/` and inspected through their footers. Complete originals were encoded as quality-90 WebP at their native 1600px width without resizing or cropping. Matching copies in `src/images/mr-ellie-pooh/screens/` and `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/Mr. Ellie Pooh/Final Used Images/` were verified byte-for-byte.
+
+| Original filename | Final filename | Dimensions | Bytes |
+| --- | --- | --- | ---: |
+| `mep-desktop-home.jpg` | `mr-ellie-pooh-screen-homepage.webp` | 1600 × 2958 | 1,049,366 |
+| `mep-desktop-product-category.jpg` | `mr-ellie-pooh-screen-product-category.webp` | 1600 × 2584 | 585,248 |
+| `mep-desktop-product.jpg` | `mr-ellie-pooh-screen-product-detail.webp` | 1600 × 1668 | 399,702 |
+| `mep-desktop-papermakers.jpg` | `mr-ellie-pooh-screen-papermakers-and-artisans.webp` | 1600 × 2870 | 981,068 |
+
+The review build passed 26 tests, zero Astro errors/warnings, and the 117-page shared-site audit. A source comparison confirmed that narrative and all unrelated figures are unchanged. Browser checks confirmed four loaded responsive 1200px desktop previews, two columns at 1280px, one natural-proportion column at 390px, no labels, and no horizontal overflow. Homepage and Papermakers and Artisans lightboxes loaded their complete 1600px-wide sources; keyboard opening, Escape closing, and focus restoration passed. The viewport was reset. Preview: `/tmp/ellie-pooh-review/desktop-grid.png`.
+
 ## LADRC
+
+**October 2 — responsive grid preview:** Carl explicitly requested replacing the three wireframe compositions, superseding the September 28 preservation instruction below for this local experiment. The first group contains only the homepage and survivor-resource screens, two across with lightboxes and no labels. Carl removed the separate navigation/footer detail. The mobile menu, expanded menu, and search screens appear three across without labels or lightboxes. The disaster listing and detail page appear two across with lightboxes, followed by the unchanged paragraph about resource labels and then the narrow resource-card detail with its own lightbox. This ordering follows Carl’s explicit correction: keep the resource-card image; remove the third image from the first group.
+
+The nine complete originals came from `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Reingold/LADRC/_Screens/`. Compressed WebP copies (quality 90, at most 1800px wide, no enlargement or cropping) are in `src/images/ladrc/wireframes/` and `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/LADRC/Final Used Images/`, verified byte-identical. Eight are displayed; the navigation/footer export is retained as an unused alternative. The original compositions remain available. Research methods, headings, and prose are preserved; only the resource-label paragraph moved. Confluence v14 was read before editing and is unchanged pending visual review. Local only.
+
+| Original export | Final filename | Dimensions |
+| --- | --- | --- |
+| `Homepage.png` | `ladrc-wireframe-homepage.webp` | 1800 × 5263 |
+| `ResourcesForDisasterSurvivors.png` | `ladrc-wireframe-survivor-resources.webp` | 1800 × 3600 |
+| `GlobalHeaderFooter.png` | `ladrc-wireframe-global-header-footer.webp` | 1800 × 1291 |
+| `MobileMenu.png` | `ladrc-wireframe-mobile-menu.webp` | 768 × 1792 |
+| `MobileMenuNavOpen.png` | `ladrc-wireframe-mobile-menu-expanded.webp` | 768 × 1792 |
+| `MobileMenuSearch.png` | `ladrc-wireframe-mobile-search.webp` | 768 × 1792 |
+| `RecentDisasterLanding.png` | `ladrc-wireframe-recent-disasters.webp` | 1800 × 3600 |
+| `RecentDisastersDetail.png` | `ladrc-wireframe-disaster-detail.webp` | 1800 × 4628 |
+| `ResourceItems.png` | `ladrc-wireframe-resource-cards.webp` | 1800 × 926 |
 
 [Website draft](http://localhost:4321/case-studies/ladrc) · [Current Confluence page](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/24543233), v11; duplicate draft archived · [Website source](../src/content/portfolio/ladrc.mdx)
 
@@ -194,6 +356,34 @@ The newer Solution paragraph from main Confluence v10 is retained. The original 
 
 Retired preview placements LADRC-01, LADRC-03, and LADRC-05 are no longer used. Their exported PNGs remain working source assets; their presence does not authorize reintroducing them. The deferred testing-script screenshot and incorrect legal-professional results table stay excluded.
 
+
+## UNICEF
+
+**Caption direction, October 2:** Carl requested the existing `narrow` utility on both caption branches in `FigureSingle`, keeping full-width galleries with shorter reading lines. Removed the automatic “Select a screen to view the full layout” addition from `CaseStudyScreens` everywhere. Do not add click/enlarge instructions or production notes such as anonymization to public captions. Meaningful accessible button names remain necessary and unchanged.
+
+[Website preview](http://localhost:4321/case-studies/unicef) · [Current Confluence page](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/24444947), v15 · [Website source](../src/content/portfolio/unicef.mdx)
+
+**October 2 — full-color gallery preview:** Replaced the two hi-fi masonry compositions with the shared `CaseStudyScreens`: four toolkit screens in two columns, and five dashboard screens in three columns. Both use the existing `6 / 5` ratio option, individual lightboxes, and no visible labels. These short landscape previews suit the mix of short and tall application screens; the lightboxes retain each complete image. Carl explicitly retained the second wireframe montage for now. Both wireframe compositions, the whiteboards, four annotated review-flow pages, implementation-review image, and all narrative remain unchanged. Carl subsequently removed anonymity notices from its caption and from image descriptions.
+
+All nine matching original screenshots were found under `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/UNICEF/2025 Screens/`. The folder date is an export date, not the date of the project. Exported at 1800px wide with their full proportions and WebP quality 90. Three derivatives replace staff names or contact details with neutral examples, consistent with the existing UNICEF anonymization preference; originals are unchanged. The assignments derivative also replaces the identifiable story title with “Human Interest Material.” These edits affect the toolkit document, assignments, and toolkit-management screens; the other six are unaltered apart from resizing/compression. Anonymization is recorded only in working notes. Carl explicitly rejected public anonymity notices, so captions and alt descriptions focus on what each image shows.
+
+Final files are in `src/images/unicef/screens/` and `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Case Studies/UNICEF/Final Used Images/`, with all nine archive copies verified byte-identical. Original website compositions are retained for reversal. Export source mapping and exact derivative edits are recorded in `output/unicef-grid-review/exports.json` and `export.mjs`. Confluence v15 was read and is unchanged pending visual review. Local only; no publication or commit.
+
+| Original export relative to `2025 Screens/` | Final filename | Dimensions | Bytes |
+| --- | --- | --- | ---: |
+| `Toolkits/donor-toolkit-home.jpg` | `unicef-screen-toolkit-home.webp` | 1800 × 1562 | 277,060 |
+| `Toolkits/donor-toolkit-document.jpg` | `unicef-screen-toolkit-document.webp` | 1800 × 4349 | 426,512 |
+| `Toolkits/donor-toolkit-all-pcr.jpg` | `unicef-screen-toolkit-financial-reports.webp` | 1800 × 3119 | 276,274 |
+| `Toolkits/donor-toolkit-compare-countries.jpg` | `unicef-screen-toolkit-compare-countries.webp` | 1800 × 1490 | 136,412 |
+| `dashboard/dashboard-landing.jpg` | `unicef-screen-dashboard-home.webp` | 1800 × 1696 | 225,998 |
+| `dashboard/dashboard-assignments.jpg` | `unicef-screen-dashboard-assignments.webp` | 1800 × 1831 | 160,512 |
+| `dashboard/dashboard-pfp-toolkit-manager-all-toolkits.jpg` | `unicef-screen-dashboard-all-toolkits.webp` | 1800 × 3305 | 161,220 |
+| `dashboard/dashboard-toolkit-manager-create-toolkit-document.jpg` | `unicef-screen-dashboard-create-document.webp` | 1800 × 1768 | 85,074 |
+| `dashboard/dashboard-pfp-toolkit-manager-assign-new-toolkit.jpg` | `unicef-screen-dashboard-assign-toolkit.webp` | 1800 × 1807 | 95,162 |
+
+UNICEF verification: the review build passed all 26 tests, zero Astro errors/warnings, and the 117-page shared-site audit. All nine responsive previews loaded (1200px toolkit sources and 800px dashboard sources at the reviewed desktop size). Desktop grids render two and three columns; both stack at natural proportions on a 390px phone with no horizontal overflow. Dashboard and full-length toolkit-document lightboxes loaded complete 1800px sources; keyboard opening, Escape, and focus restoration passed. The viewport was reset. Shared caption width is 800px inside a 1120px gallery at the reviewed desktop size. Browser readback confirms enlargement instructions and anonymity notices are absent. Final preview: `/tmp/unicef-grid-review/dashboard-final.png`.
+
+**Remaining combined artwork after this pass:** 24 `CaseStudyScreens` galleries now cover all eight case studies. The first UNICEF five-wireframe composition still remains, alongside the second dashboard wireframe montage that Carl explicitly chose to keep. Visionlearning’s scientific-illustration composition is intentionally deferred; its periodic-table lesson collage also remains. Purpose-made mobile/device mockups, research/presentation strips, photography compositions, and Natura11y’s In the wild image remain combined artwork. Do not claim that every composite image has been converted or deleted. Current gallery changes are local; original source compositions are retained for reversal.
 
 ## September 29 — reading-tool animations and periodic-table placement
 

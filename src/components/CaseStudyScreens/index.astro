@@ -22,10 +22,9 @@ const sizes = columns === 4
 const gridColumns = columns === 4
   ? 'grid--column-2 grid--column-4--lg'
   : `grid--column-1 grid--column-${columns}--md`;
-const figureCaption = lightbox ? `${caption} Select a screen to view the full layout.` : caption;
 ---
 
-<FigureSingle className="case-study-screens" caption={figureCaption}>
+<FigureSingle className="case-study-screens" caption={caption}>
   <div
     class={`grid ${gridColumns} gap-3`}
     style={lightbox ? `--screen-ratio: ${cropRatio}` : undefined}

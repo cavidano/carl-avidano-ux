@@ -29,6 +29,17 @@ caseStudy:
       description: Toolkit revenue supported by the platform (2010-2016)
 ---
 
+import CaseStudyScreens from '../../components/CaseStudyScreens/index.astro';
+import toolkitHome from '../../images/unicef/screens/unicef-screen-toolkit-home.webp';
+import toolkitDocument from '../../images/unicef/screens/unicef-screen-toolkit-document.webp';
+import toolkitFinancialReports from '../../images/unicef/screens/unicef-screen-toolkit-financial-reports.webp';
+import toolkitCompareCountries from '../../images/unicef/screens/unicef-screen-toolkit-compare-countries.webp';
+import dashboardHome from '../../images/unicef/screens/unicef-screen-dashboard-home.webp';
+import dashboardAssignments from '../../images/unicef/screens/unicef-screen-dashboard-assignments.webp';
+import dashboardAllToolkits from '../../images/unicef/screens/unicef-screen-dashboard-all-toolkits.webp';
+import dashboardCreateDocument from '../../images/unicef/screens/unicef-screen-dashboard-create-document.webp';
+import dashboardAssignToolkit from '../../images/unicef/screens/unicef-screen-dashboard-assign-toolkit.webp';
+
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
 ## Challenge
@@ -70,11 +81,19 @@ I used shared tabs within each toolkit to connect the programme document with it
 
 </TextBlock>
 
-<FigureSingle>
-
-![Depiction of UNICEF Funding Marketplace application](../../images/unicef/unicef-masonry-toolkits.jpg)
-
-</FigureSingle>
+<CaseStudyScreens
+  columns={2}
+  ratio="6 / 5"
+  lightbox={true}
+  showLabels={false}
+  caption="Donor Toolkit browsing, programme documents, financial reports, and country comparison."
+  screens={[
+    { src: toolkitHome, label: 'Donor Toolkits homepage', alt: 'Donor Toolkits homepage with strategic outcome, region, keyword, and country navigation, plus recently updated materials.' },
+    { src: toolkitDocument, label: 'Toolkit document', alt: 'Toolkit document with selectable sections, shared tabs, and a programme summary.' },
+    { src: toolkitFinancialReports, label: 'Toolkit financial reports', alt: 'Financial Reports tab with contribution and expenditure columns grouped by National Committee.' },
+    { src: toolkitCompareCountries, label: 'Country comparison', alt: 'Compare Countries workflow showing strategic outcome selection before choosing countries and publishing a custom toolkit.' }
+  ]}
+/>
 </ThemeWrapper>
 
 <TextBlock>
@@ -128,12 +147,12 @@ The wireframes also covered less straightforward situations. If the sender incor
 <FigureSideBySide stackOnMobile={true}>
 <FigureSingle isContained={false} margin="" caption="Choosing reviewers and documenting the controls available to each role.">
 
-![Original developer documentation showing the Send for Comment dialog and how reviewer selection differs by user role. Names have been anonymized.](../../images/unicef/unicef-review-flow-13.png)
+![Original developer documentation showing the Send for Comment dialog and how reviewer selection differs by user role.](../../images/unicef/unicef-review-flow-13.png)
 
 </FigureSingle>
 <FigureSingle isContained={false} margin="" caption="Tracking returned comments and pending responses.">
 
-![Annotated wireframe showing returned and pending comment counts, with a tooltip identifying the reviewers still expected to respond. Names have been anonymized.](../../images/unicef/unicef-review-flow-18.png)
+![Annotated wireframe showing returned and pending comment counts, with a tooltip identifying the reviewers still expected to respond.](../../images/unicef/unicef-review-flow-18.png)
 
 </FigureSingle>
 <FigureSingle isContained={false} margin="" caption="Confirming the action within the selected document row.">
@@ -149,11 +168,20 @@ The wireframes also covered less straightforward situations. If the sender incor
 </FigureSideBySide>
 
 <ThemeWrapper>
-<FigureSingle>
-
-![Funding Marketplace dashboard screens showing assignments, toolkit management, document creation, and routing.](../../images/unicef/unicef-masonry-pfp-dashboard.jpg)
-
-</FigureSingle>
+<CaseStudyScreens
+  columns={3}
+  ratio="6 / 5"
+  lightbox={true}
+  showLabels={false}
+  caption="Funding Marketplace dashboard, assignments, toolkit management, document creation, and routing."
+  screens={[
+    { src: dashboardHome, label: 'Funding Marketplace dashboard', alt: 'Dashboard homepage with Toolkit Manager, Feedback Requests, National Committee activity, and administration navigation.' },
+    { src: dashboardAssignments, label: 'Dashboard assignments', alt: 'Assignments table with editing, sending, returning, publishing, delegation, and deletion controls in the selected document row.' },
+    { src: dashboardAllToolkits, label: 'Toolkit management', alt: 'All Toolkits view organized by country and strategic outcome, with document owners, dates, and status indicators.' },
+    { src: dashboardCreateDocument, label: 'Create Toolkit Document', alt: 'Create Toolkit Document dialog with strategic outcome choices, a budget field, and programme cycle dates.' },
+    { src: dashboardAssignToolkit, label: 'Assign New Toolkit', alt: 'Assign New Toolkit form with strategic outcome, region, country, recipient office, individual, and comment fields.' }
+  ]}
+/>
 </ThemeWrapper>
 
 <TextBlock>
@@ -166,7 +194,7 @@ For example, a dropdown's longer lists extended beyond the visible page. My revi
 
 </TextBlock>
 
-<FigureSingle width="narrow" caption="Implementation review comparing the live dropdown with the supplied template. Names have been anonymized.">
+<FigureSingle width="narrow" caption="Implementation review comparing the live dropdown with the supplied template.">
 
 ![Annotated implementation comparison showing a live dropdown whose long list extends beyond the visible page, alongside the control in the supplied front-end template.](../../images/unicef/unicef-implementation-review.png)
 

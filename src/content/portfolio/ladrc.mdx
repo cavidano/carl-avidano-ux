@@ -27,6 +27,17 @@ caseStudy:
       href: 'https://ladrc.org/'
 ---
 
+import CaseStudyScreens from '../../components/CaseStudyScreens/index.astro';
+import LightboxImage from '../../components/LightboxImage.astro';
+import homepage from '../../images/ladrc/wireframes/ladrc-wireframe-homepage.webp';
+import survivorResources from '../../images/ladrc/wireframes/ladrc-wireframe-survivor-resources.webp';
+import mobileMenu from '../../images/ladrc/wireframes/ladrc-wireframe-mobile-menu.webp';
+import mobileMenuExpanded from '../../images/ladrc/wireframes/ladrc-wireframe-mobile-menu-expanded.webp';
+import mobileSearch from '../../images/ladrc/wireframes/ladrc-wireframe-mobile-search.webp';
+import recentDisasters from '../../images/ladrc/wireframes/ladrc-wireframe-recent-disasters.webp';
+import disasterDetail from '../../images/ladrc/wireframes/ladrc-wireframe-disaster-detail.webp';
+import resourceCards from '../../images/ladrc/wireframes/ladrc-wireframe-resource-cards.webp';
+
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
 ## Challenge
@@ -86,11 +97,17 @@ Usability and tree testing revealed confusion about navigation categories. In th
 
 </TextBlock>
 
-<FigureSingle width='wide'>
+<CaseStudyScreens
+  columns={2}
+  lightbox={true}
+  showLabels={false}
+  caption="Homepage and disaster-survivor landing page wireframes."
+  screens={[
+    { src: homepage, label: 'LADRC homepage wireframe', alt: 'Homepage wireframe with prominent entry points for recent disasters, disaster survivors, and legal advocates, followed by topics grouped by audience.' },
+    { src: survivorResources, label: 'Disaster-survivor landing page', alt: 'Disaster-survivor landing page wireframe grouping resources such as food assistance, housing, FEMA assistance, and disability rights.' }
+  ]}
+/>
 
-![Grouped wireframes for the LADRC homepage, disaster-survivor landing page, and annotated navigation, arranged on the original navy background.](../../images/ladrc/ladrc-masonry-wireframes-key-pages.jpg)
-
-</FigureSingle>
 </ThemeWrapper>
 
 <TextBlock>
@@ -101,11 +118,17 @@ Remote testing revealed that disaster survivors had difficulty locating search o
 
 </TextBlock>
 
-<FigureSingle width='wide'>
-
-![Three mobile wireframes showing separate Search and Menu controls, an expanded navigation category, and the open search field.](../../images/ladrc/ladrc-grid-mobile-wireframes.png)
-
-</FigureSingle>
+<CaseStudyScreens
+  columns={3}
+  lightbox={false}
+  showLabels={false}
+  caption="Separate Search and Menu controls, expanded navigation, and the open search field."
+  screens={[
+    { src: mobileMenu, label: 'Mobile menu', alt: 'Mobile navigation wireframe with separate Search and Menu controls and audience-based navigation categories.' },
+    { src: mobileMenuExpanded, label: 'Expanded mobile menu', alt: 'Mobile menu with Resources for Disaster Survivors expanded to show its resource categories.' },
+    { src: mobileSearch, label: 'Mobile search', alt: 'Mobile search field open beneath the header, with an annotation explaining that search and menu are separate controls.' }
+  ]}
+/>
 
 <ThemeWrapper>
 <TextBlock>
@@ -114,14 +137,35 @@ Remote testing revealed that disaster survivors had difficulty locating search o
 
 Analytics showed that many visitors arrived directly on Recent Disasters pages and did not explore elsewhere. I organized these pages around affected locations, deadlines, and available help, retaining the On This Page links that legal professionals found useful.
 
+</TextBlock>
+
+<CaseStudyScreens
+  columns={2}
+  lightbox={true}
+  showLabels={false}
+  caption="Recent Disasters listing and disaster detail page wireframes."
+  screens={[
+    { src: recentDisasters, label: 'Recent Disasters listing', alt: 'Recent Disasters wireframe with disaster cards, common questions, and a link to resources for disaster survivors.' },
+    { src: disasterDetail, label: 'Disaster detail page', alt: 'Disaster detail wireframe with On This Page links, affected counties, deadlines, and resource cards with format and language labels.' }
+  ]}
+/>
+
+<TextBlock>
+
 Testing also revealed unexpected behavior when people opened resource links. I added format labels and icons so people could anticipate whether a link opened a PDF, webpage, or another resource. The wireframes show these changes alongside language options on resource cards.
 
 </TextBlock>
 
-<FigureSingle width='wide'>
-
-![Grouped wireframes for the Recent Disasters listing and a disaster detail page, with On This Page links, deadlines, and resource cards labeled by format and language, on the original navy background.](../../images/ladrc/ladrc-masonry-wireframes-disaster-pages.jpg)
-
+<FigureSingle width="narrow" caption="Resource cards with format labels and language options.">
+  <LightboxImage
+    src={resourceCards}
+    alt="Annotated resource cards showing PDF and website labels, language options, and a key for document and media icons."
+    caption="Resource cards and format labels"
+    width={800}
+    widths={[480, 800, 1200, 1800]}
+    sizes="(min-width: 768px) 48rem, 90vw"
+    quality={85}
+  />
 </FigureSingle>
 </ThemeWrapper>
 

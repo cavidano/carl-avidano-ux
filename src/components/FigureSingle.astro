@@ -20,7 +20,7 @@ const figureClasses = [
     <figure class={figureClasses}>
       <slot />
       {hasCaption && (
-        <figcaption class="font-size-md">
+        <figcaption class="narrow font-size-md">
           <slot name="caption"><p><em>{caption}</em></p></slot>
         </figcaption>
       )}
@@ -30,7 +30,7 @@ const figureClasses = [
   <figure class={figureClasses}>
     <slot />
     {hasCaption && (
-      <figcaption class="font-size-md">
+      <figcaption class="narrow font-size-md">
         <slot name="caption"><p><em>{caption}</em></p></slot>
       </figcaption>
     )}

@@ -1,0 +1,103 @@
+diff --git a/src/content/portfolio/visionlearning.mdx b/src/content/portfolio/visionlearning.mdx
+index 2ac4ae2..5c8975a 100644
+--- a/src/content/portfolio/visionlearning.mdx
++++ b/src/content/portfolio/visionlearning.mdx
+@@ -33,6 +33,7 @@ caseStudy:
+ ---
+ 
+ import CaseStudyScreens from '../../components/CaseStudyScreens/index.astro';
++import VisionlearningIllustrations from '../../components/VisionlearningIllustrations/index.astro';
+ import siteMap from '../../images/visionlearning/wireframes/visionlearning-content-map.png';
+ import homeWireframe from '../../images/visionlearning/wireframes/visionlearning-wireframe-homepage.png';
+ import disciplineWireframe from '../../images/visionlearning/wireframes/visionlearning-wireframe-discipline.png';
+@@ -307,11 +308,7 @@ I created scientific illustrations in Illustrator and Photoshop, including cell
+ 
+ </TextBlock>
+ 
+-<FigureSingle width="wide" caption="Scientific illustrations showing cell anatomy, molecular structures, and experiments.">
+-
+-![Scientific illustrations including labeled animal and plant cells, the Miller-Urey experiment, endosymbiosis, laboratory experiments, protein structure, RNA and DNA, and the periodic table.](../../images/visionlearning/visionlearning-scientific-illustrations.jpg)
+-
+-</FigureSingle>
++<VisionlearningIllustrations />
+ </ThemeWrapper>
+ 
+ <TextBlock>
+diff --git a/src/components/VisionlearningIllustrations/index.astro b/src/components/VisionlearningIllustrations/index.astro
+new file mode 100644
+index 0000000..ca0769c
+--- /dev/null
++++ b/src/components/VisionlearningIllustrations/index.astro
+@@ -0,0 +1,54 @@
++---
++import { Image } from 'astro:assets';
++import FigureSingle from '../FigureSingle.astro';
++import animalCell from '../../images/visionlearning/illustrations/visionlearning-illustration-animal-cell.webp';
++import plantCell from '../../images/visionlearning/illustrations/visionlearning-illustration-plant-cell.webp';
++import millerUrey from '../../images/visionlearning/illustrations/visionlearning-illustration-miller-urey-experiment.webp';
++import endosymbiosis from '../../images/visionlearning/illustrations/visionlearning-illustration-endosymbiosis.webp';
++import redi from '../../images/visionlearning/illustrations/visionlearning-illustration-redi-experiment.webp';
++import sealedFlask from '../../images/visionlearning/illustrations/visionlearning-illustration-sealed-flask-experiment.webp';
++import proteinStructure from '../../images/visionlearning/illustrations/visionlearning-illustration-protein-structure.webp';
++import rnaDna from '../../images/visionlearning/illustrations/visionlearning-illustration-rna-dna.webp';
++import periodicTable from '../../images/visionlearning/illustrations/visionlearning-illustration-periodic-table.webp';
++import './style.scss';
++
++const imageOptions = {
++  width: 800,
++  widths: [480, 800, 1200],
++  sizes: '(min-width: 768px) 45vw, 90vw',
++  format: 'webp' as const,
++  quality: 90
++};
++const pairSizes = '(min-width: 768px) 22.5vw, 45vw';
++---
++
++<FigureSingle
++  className="visionlearning-illustrations"
++  caption="Scientific illustrations showing cell anatomy, molecular structures, and experiments."
++>
++  <div class="grid gap-3">
++    <div class="grid grid--column-1 grid--column-2--md">
++      <Image {...imageOptions} src={animalCell} widths={[480, 800, 1200, 1600, 2000]} alt="Animal cell with numbered labels identifying its internal structures." />
++      <Image {...imageOptions} src={plantCell} widths={[480, 800, 1200, 1600, 2000]} alt="Plant cell with numbered labels identifying its internal structures." />
++    </div>
++
++    <div class="grid grid--column-1 grid--column-2--md">
++      <div class="grid">
++        <Image {...imageOptions} src={millerUrey} alt="Miller–Urey experiment with labeled apparatus and arrows showing how gases and water circulate." />
++        <Image {...imageOptions} src={rnaDna} alt="RNA and DNA compared side by side, with their structures and chemical bases labeled." />
++      </div>
++
++      <div class="grid">
++        <Image {...imageOptions} src={endosymbiosis} alt="Cell diagrams showing membrane infolding and endosymbiosis in a four-stage sequence." />
++
++        <div class="grid grid--column-2">
++          <Image {...imageOptions} src={redi} sizes={pairSizes} alt="Redi’s experiment comparing meat in sealed, gauze-covered, and open flasks." />
++          <Image {...imageOptions} src={sealedFlask} sizes={pairSizes} alt="Laboratory experiment showing broth being heated, sealed, and left to stand, with no growth." />
++        </div>
++
++        <Image {...imageOptions} src={proteinStructure} alt="Primary, secondary, tertiary, and quaternary protein structures shown in four labeled diagrams." />
++        <Image {...imageOptions} src={periodicTable} alt="Periodic table with color-coded element families and a key to atomic number, symbol, and atomic mass." />
++      </div>
++    </div>
++  </div>
++</FigureSingle>
+diff --git a/src/components/VisionlearningIllustrations/style.scss b/src/components/VisionlearningIllustrations/style.scss
+new file mode 100644
+index 0000000..0a18694
+--- /dev/null
++++ b/src/components/VisionlearningIllustrations/style.scss
+@@ -0,0 +1,12 @@
++.visionlearning-illustrations {
++  .grid {
++    align-items: start;
++    gap: var(--gap-size);
++  }
++
++  img {
++    display: block;
++    width: 100%;
++    height: auto;
++  }
++}

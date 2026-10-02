@@ -21,6 +21,20 @@ caseStudy:
       value: Senior UX designer
 ---
 
+import CaseStudyScreens from '../../components/CaseStudyScreens/index.astro';
+import mftaHomepage from '../../images/nyc-oti/screens/nyc-oti-screen-mfta-homepage.webp';
+import mftaDonating from '../../images/nyc-oti/screens/nyc-oti-screen-mfta-donating-materials.webp';
+import mftaReceiving from '../../images/nyc-oti/screens/nyc-oti-screen-mfta-receiving-materials.webp';
+import notifyHomepage from '../../images/nyc-oti/screens/nyc-oti-screen-notify-homepage.webp';
+import notifyEnrollment from '../../images/nyc-oti/screens/nyc-oti-screen-notify-enrollment.webp';
+import notifyAbout from '../../images/nyc-oti/screens/nyc-oti-screen-notify-about.webp';
+import dorisOrder from '../../images/nyc-oti/screens/nyc-oti-screen-doris-order-vital-records.webp';
+import dorisCart from '../../images/nyc-oti/screens/nyc-oti-screen-doris-shopping-cart.webp';
+import poletopLocation from '../../images/nyc-oti/screens/nyc-oti-screen-poletop-check-location.webp';
+import poletopDashboard from '../../images/nyc-oti/screens/nyc-oti-screen-poletop-dashboard.webp';
+import poletopReservation from '../../images/nyc-oti/screens/nyc-oti-screen-poletop-reservation.webp';
+import poletopMapReference from '../../images/nyc-oti/screens/nyc-oti-screen-poletop-map-reference.webp';
+
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
 ## NYC Office of Technology and Innovation
@@ -51,11 +65,17 @@ I led UX strategy, design, and front-end development for a new city-branded webs
 
 <ThemeWrapper backgroundColor='#003129' textColor='#fff'>
 
-<FigureSingle>
-
-![MFTA website and donation portal layouts](../../images/nyc-oti/nyc-masonry-mfta.jpg)
-    
-</FigureSingle>
+<CaseStudyScreens
+  columns={3}
+  lightbox={true}
+  showLabels={false}
+  caption="Materials for the Arts: homepage, donating materials, and receiving materials."
+  screens={[
+    { src: mftaHomepage, label: 'Materials for the Arts homepage', alt: 'Materials for the Arts homepage with donation and recipient links, programs, news, and signup form.' },
+    { src: mftaDonating, label: 'Donating materials', alt: 'MFTA donation page with drop-off and pickup options, giving guidelines, and donor registration.' },
+    { src: mftaReceiving, label: 'Receiving materials', alt: 'MFTA recipient page with eligibility requirements, application guidelines, and registration.' }
+  ]}
+/>
 
 <TextBlock>
 
@@ -80,11 +100,17 @@ I led UX design and front-end development for both the public-facing website and
 
 <ThemeWrapper backgroundColor='#6B0009' textColor='#fff'>
 
-<FigureSingle>
-
-![Notify NYC public interface](../../images/nyc-oti/nyc-masonry-notify.jpg)
-    
-</FigureSingle>
+<CaseStudyScreens
+  columns={3}
+  lightbox={true}
+  showLabels={false}
+  caption="Notify NYC's public website: homepage, enrollment, and program information."
+  screens={[
+    { src: notifyHomepage, label: 'Notify NYC homepage', alt: 'Notify NYC homepage with enrollment links, mobile app information, and recent emergency notifications.' },
+    { src: notifyEnrollment, label: 'Notify NYC enrollment', alt: 'First step of Notify NYC enrollment, with name and email fields and an account creation button.' },
+    { src: notifyAbout, label: 'About Notify NYC', alt: 'About Notify NYC page explaining the program, alert types, and ways to provide feedback.' }
+  ]}
+/>
 
 <TextBlock>
 
@@ -114,11 +140,16 @@ The project focused on forms that changed based on the user's needs, helping peo
 </TextBlock>
 
 <ThemeWrapper backgroundColor='#341E50' textColor='#fff'>
-<FigureSingle>
-
-![Vital records ordering system interface](../../images/nyc-oti/nyc-masonry-doris.jpg)
-    
-</FigureSingle>
+<CaseStudyScreens
+  columns={2}
+  lightbox={true}
+  showLabels={false}
+  caption="Order Vital Records: request form and shopping cart."
+  screens={[
+    { src: dorisOrder, label: 'Order Vital Records request form', alt: 'Vital records request form with record types, search criteria, delivery options, and a document upload field.' },
+    { src: dorisCart, label: 'Vital records shopping cart', alt: 'Vital records shopping cart with shipping options, requested items, order total, and checkout button.' }
+  ]}
+/>
 
 <TextBlock>
 
@@ -143,17 +174,23 @@ I led UX strategy and front-end development, working closely with OTI stakeholde
 
 
 <ThemeWrapper backgroundColor='#ffcb48'>
-<FigureSingle>
-
-![PoleTop Manager infrastructure management interface](../../images/nyc-oti/nyc-poletop-manager-masonry.jpg)
-    
-</FigureSingle>
+<CaseStudyScreens
+  columns={2}
+  ratio="3 / 2"
+  lightbox={true}
+  showLabels={false}
+  caption="PoleTop Manager: location checks, dashboard, reservations, and map reference."
+  screens={[
+    { src: poletopLocation, label: 'PoleTop location check', alt: 'PoleTop Manager form for checking a pole location using geographic coordinates.' },
+    { src: poletopDashboard, label: 'PoleTop dashboard', alt: 'PoleTop dashboard showing reservation totals by status, recent activity, and current reservations.' },
+    { src: poletopReservation, label: 'PoleTop reservation', alt: 'PoleTop reservation screen with a location map, reservation details, and activity history.' },
+    { src: poletopMapReference, label: 'PoleTop map reference', alt: 'PoleTop map reference showing status filters, map icons, zone maps, and an attribute popup.' }
+  ]}
+/>
 
 <TextBlock>
 
 PoleTop Manager helped city staff manage a telecom franchise program with over $100 million in revenue across fiscal years 2023–2025.
-
-Sources: NYC Council budget reports for [FY2026 (PDF, p. 18)](https://council.nyc.gov/budget/wp-content/uploads/sites/54/2025/03/Office-of-Technology-Innovation-1.pdf#page=18) and [FY2027 (PDF, p. 10)](https://council.nyc.gov/budget/wp-content/uploads/sites/54/2026/03/Office-of-Technology-and-Innovation.pdf#page=10).
 
 </TextBlock>
 </ThemeWrapper>

@@ -37,6 +37,14 @@ caseStudy:
       description: Accuracy in U.S. volunteer applications, up from 54% before the redesign
 ---
 
+import CaseStudyScreens from '../../components/CaseStudyScreens/index.astro';
+import homepage from '../../images/cheetah-conservation-fund/screens/cheetah-conservation-fund-screen-homepage.webp';
+import conservation from '../../images/cheetah-conservation-fund/screens/cheetah-conservation-fund-screen-conservation.webp';
+import laurieMarker from '../../images/cheetah-conservation-fund/screens/cheetah-conservation-fund-screen-laurie-marker.webp';
+import kidsCheetahFacts from '../../images/cheetah-conservation-fund/screens/cheetah-conservation-fund-screen-kids-cheetah-facts.webp';
+import kidsArtists from '../../images/cheetah-conservation-fund/screens/cheetah-conservation-fund-screen-kids-artists.webp';
+import kidsArtCompetition from '../../images/cheetah-conservation-fund/screens/cheetah-conservation-fund-screen-kids-art-competition.webp';
+
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
 ## Challenge
@@ -86,11 +94,17 @@ The new design features intuitive navigation in the header and footer, with a ho
 
 </TextBlock>
 
-<FigureSingle>
-
-![Depiction of several CCF website layouts](../../images/cheetah-conservation-fund/cheetah-conservation-fund-masonry-01.jpg)
-
-</FigureSingle>
+<CaseStudyScreens
+  columns={3}
+  lightbox={true}
+  showLabels={false}
+  screens={[
+    { src: homepage, label: 'Cheetah.org homepage', alt: 'Cheetah.org homepage with a fundraising feature, news, videos, cheetah facts, and a habitat map.' },
+    { src: conservation, label: 'Conservation page', alt: 'Cheetah.org conservation page with section navigation, livestock guarding dogs, and conservation program information.' },
+    { src: laurieMarker, label: 'Dr. Laurie Marker biography', alt: 'Cheetah.org biography of Dr. Laurie Marker with photographs, a quotation, and the story of her conservation work.' }
+  ]}
+  caption="Cheetah.org homepage, conservation information, and founder biography."
+/>
 </ThemeWrapper>
 
 <TextBlock>
@@ -133,11 +147,17 @@ I created a dedicated area for children and parents to engage with CCF's mission
 </FigureSideBySide>
 
 <ThemeWrapper>
-<FigureSingle width='wide'>
-
-![Depiction of several CCF website layouts](../../images/cheetah-conservation-fund/cheetah-conservation-fund-masonry-02.jpg)
-
-</FigureSingle>
+<CaseStudyScreens
+  columns={3}
+  lightbox={true}
+  showLabels={false}
+  screens={[
+    { src: kidsCheetahFacts, label: 'CCF Kids cheetah facts', alt: 'CCF Kids page explaining cheetah traits through illustrations, photographs, videos, and the Cheetah Tracks font.' },
+    { src: kidsArtists, label: 'CCF Kids artwork and stories', alt: 'CCF Kids page featuring helping-cheetah stories, artists of the month, children’s artwork, and ways to participate.' },
+    { src: kidsArtCompetition, label: 'CCF Kids art competition story', alt: 'CCF Kids article presenting an art competition, young artists’ cheetah drawings, and the winning entries.' }
+  ]}
+  caption="CCF Kids facts, artwork, and an art competition story."
+/>
 </ThemeWrapper>
 
 <TextBlock>

@@ -27,6 +27,12 @@ caseStudy:
       description: New product photos created across the entire catalog
 ---
 
+import CaseStudyScreens from '../../components/CaseStudyScreens/index.astro';
+import homepage from '../../images/mr-ellie-pooh/screens/mr-ellie-pooh-screen-homepage.webp';
+import productCategory from '../../images/mr-ellie-pooh/screens/mr-ellie-pooh-screen-product-category.webp';
+import productDetail from '../../images/mr-ellie-pooh/screens/mr-ellie-pooh-screen-product-detail.webp';
+import papermakers from '../../images/mr-ellie-pooh/screens/mr-ellie-pooh-screen-papermakers-and-artisans.webp';
+
 <CaseStudyOverview caseStudy={frontmatter.caseStudy} showDivider={false}>
 
 ## Challenge
@@ -50,11 +56,19 @@ Mr. Ellie Pooh reported a **10x** increase in sales after launch. Shopify made i
 </CaseStudyOverview>
 
 <ThemeWrapper>
-<FigureSingle>
-
-![Mr. Ellie Pooh website page layouts](../../images/mr-ellie-pooh/mr-ellie-pooh-masonry-key-pages.jpg)
-    
-</FigureSingle>
+<CaseStudyScreens
+  columns={2}
+  ratio="1 / 1"
+  lightbox={true}
+  showLabels={false}
+  caption="Mr. Ellie Pooh's homepage, product collection, product detail, and Papermakers and Artisans page."
+  screens={[
+    { src: homepage, label: 'Mr. Ellie Pooh homepage', alt: 'Mr. Ellie Pooh homepage featuring handmade paper products, shopping categories, and links to its conservation and fair trade work.' },
+    { src: productCategory, label: 'Notebooks and journals', alt: 'Notebooks and Journals collection with product photography, prices, category navigation, and pagination.' },
+    { src: productDetail, label: 'Paper pulp elephant product', alt: 'Paper pulp elephant product page with photography, a description, price, quantity field, and add-to-cart button.' },
+    { src: papermakers, label: 'Papermakers and Artisans', alt: 'Papermakers and Artisans page showing photographs of the Sri Lankan factory and explaining fair trade working conditions.' }
+  ]}
+/>
 </ThemeWrapper>
 
 <TextBlock>

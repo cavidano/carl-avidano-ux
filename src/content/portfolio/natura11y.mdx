@@ -26,6 +26,19 @@ caseStudy:
 ---
 
 import LightboxImage from '../../components/LightboxImage.astro';
+import CaseStudyScreens from '../../components/CaseStudyScreens/index.astro';
+import backdropDocumentation from '../../images/natura11y/screens/natura11y-screen-documentation-backdrop.webp';
+import colorDocumentation from '../../images/natura11y/screens/natura11y-screen-documentation-color.webp';
+import landingTemplate from '../../images/natura11y/screens/natura11y-screen-template-landing.webp';
+import twoColumnTemplate from '../../images/natura11y/screens/natura11y-screen-template-two-column.webp';
+import contactFormTemplate from '../../images/natura11y/screens/natura11y-screen-template-contact-form.webp';
+import threeColumnTemplate from '../../images/natura11y/screens/natura11y-screen-template-three-column.webp';
+import searchResultsTemplate from '../../images/natura11y/screens/natura11y-screen-template-search-results.webp';
+import peakPerformanceExample from '../../images/natura11y/screens/natura11y-screen-example-peak-performance.webp';
+import avianEleganceExample from '../../images/natura11y/screens/natura11y-screen-example-avian-elegance.webp';
+import majesticLionExample from '../../images/natura11y/screens/natura11y-screen-example-majestic-lion.webp';
+import verdantTrailsExample from '../../images/natura11y/screens/natura11y-screen-example-verdant-trails.webp';
+import oceanicPulseExample from '../../images/natura11y/screens/natura11y-screen-example-oceanic-pulse.webp';
 import designSystemArchitecture from '../../images/natura11y/design-system-architecture.jpg';
 import colorSystem from '../../images/natura11y/natura11y-figma-color-system.png';
 
@@ -218,11 +231,16 @@ Nature photography, selected from Unsplash with photographer credits, gives the 
 
 </TextBlock>
 
-<FigureSingle>
-
-![Depiction of several Natura11y documentation layouts](../../images/natura11y/natura11y-docs-masonry.jpg)
-    
-</FigureSingle>
+<CaseStudyScreens
+  columns={2}
+  lightbox={true}
+  showLabels={false}
+  screens={[
+    { src: backdropDocumentation, label: 'Backdrop documentation', alt: 'Natura11y Backdrop documentation with photography, accessibility guidance, working examples, and HTML code.' },
+    { src: colorDocumentation, label: 'Color documentation', alt: 'Natura11y Color documentation showing theme palettes, correlated colors, usage examples, and code.' }
+  ]}
+  caption="Natura11y’s Backdrop and Color documentation."
+/>
 </ThemeWrapper>
 
 <TextBlock>
@@ -234,17 +252,33 @@ Templates offer unbranded, full-page layouts for common page types, providing ac
 </TextBlock>
 
 <ThemeWrapper>
-<FigureSingle caption="Template pages for common interface patterns">
+<CaseStudyScreens
+  columns={3}
+  lightbox={true}
+  showLabels={false}
+  screens={[
+    { src: landingTemplate, label: 'Landing page template', alt: 'Natura11y landing page template with a hero, statistics, cards, alternating content sections, and frequently asked questions.' },
+    { src: twoColumnTemplate, label: 'Two-column template', alt: 'Natura11y two-column page template with nested navigation beside the main content.' },
+    { src: contactFormTemplate, label: 'Contact form template', alt: 'Natura11y contact page template with labeled form fields, contact preferences, and organization details.' },
+    { src: threeColumnTemplate, label: 'Three-column template', alt: 'Natura11y three-column page template with nested navigation, main content, and on-page links.' },
+    { src: searchResultsTemplate, label: 'Search results template', alt: 'Natura11y search results template with a search field, filters, result descriptions, and pagination.' }
+  ]}
+  caption="Template pages for common interface patterns."
+/>
 
-![Natura11y template pages for common interface patterns](../../images/natura11y/natura11y-templates.jpg)
-    
-</FigureSingle>
-
-<FigureSingle caption="Interactive examples showing Natura11y components in use">
-
-![Interactive examples showing Natura11y components in use](../../images/natura11y/natura11y-examples.jpg)
-    
-</FigureSingle>
+<CaseStudyScreens
+  columns={3}
+  lightbox={true}
+  showLabels={false}
+  screens={[
+    { src: peakPerformanceExample, label: 'Peak Performance example', alt: 'Peak Performance example with mountain photography, purple and yellow colors, destination cards, and travel stories.' },
+    { src: avianEleganceExample, label: 'Avian Elegance example', alt: 'Avian Elegance example with bird photography, Spanish text, serif headings, and orange accents.' },
+    { src: majesticLionExample, label: 'Majestic Lion example', alt: 'Majestic Lion example with a dark background, gold accents, angled image borders, and lion photography.' },
+    { src: verdantTrailsExample, label: 'Verdant Trails example', alt: 'Verdant Trails example with a dark background, green accents, landscape photography, and sidebar navigation.' },
+    { src: oceanicPulseExample, label: 'Oceanic Pulse example', alt: 'Oceanic Pulse example with a newspaper-style layout, serif headlines, and marine wildlife stories.' }
+  ]}
+  caption="Interactive examples showing Natura11y components in use."
+/>
 </ThemeWrapper>
 
 <TextBlock>
