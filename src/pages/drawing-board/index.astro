@@ -12,11 +12,11 @@ interface Props {
 
 const { posts = getDrawingBoardPosts(), currentTag } = Astro.props;
 const introduction = 'Quick reads on my creative process, collaborations, and what I’m learning as I build accessible interfaces and design systems. I also share the smaller details that don’t always fit into a neat case study.';
-const title = `${currentTag ? `${currentTag.name} • ` : ''}The Drawing Board • Carl Avidano`;
-const description = currentTag ? `${currentTag.name} articles from The Drawing Board.` : introduction;
+const seoTitle = `${currentTag ? `${currentTag.name} • ` : ''}The Drawing Board • Carl Avidano`;
+const seoDescription = currentTag ? `${currentTag.name} articles from The Drawing Board.` : introduction;
 ---
 
-<Layout title={title} description={description} noindex={Boolean(currentTag)}>
+<Layout title={seoTitle} description={seoDescription} noindex={Boolean(currentTag)}>
   <GlobalHeader />
 
   <main id="skip-header-target" class="container wide margin-y-6">

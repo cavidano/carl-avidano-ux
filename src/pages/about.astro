@@ -4,11 +4,14 @@ import Layout from '../layouts/Layout.astro';
 import GlobalHeader from '../components/GlobalHeader/GlobalHeader.astro';
 import SiteLink from '../components/SiteLink.astro';
 import portrait from '../images/carl-avidano-16x9.jpg';
+
+const seoTitle = 'About • Carl Avidano • UX Manager';
+const seoDescription = 'Carl Avidano is a UX leader and inclusive design advocate who helps organizations create accessible, equitable, human-centered digital products.';
 ---
 
 <Layout
-  title="About • Carl Avidano • UX Manager"
-  description="Carl Avidano is a UX leader and inclusive design advocate who helps organizations create accessible, equitable, human-centered digital products."
+  title={seoTitle}
+  description={seoDescription}
   image={portrait}
   imageAlt="Black and white portrait of Carl Avidano"
 >

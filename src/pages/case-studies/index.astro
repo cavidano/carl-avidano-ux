@@ -5,12 +5,13 @@ import ProjectListView from '../../components/ProjectListView.astro';
 import { getMainProjects } from '../../lib/projects.js';
 
 const projects = getMainProjects();
+
+const seoTitle = 'Case Studies • Carl Avidano • UX Manager';
+const seoDescription = 'Explore case studies in UX research, accessibility, design systems, and front-end development for government, nonprofits, education, and civic technology.';
 ---
 
-<Layout
-  title="Case Studies • Carl Avidano • UX Manager"
-  description="Explore case studies in UX research, accessibility, design systems, and front-end development for government, nonprofits, education, and civic technology."
->
+<Layout title={seoTitle} description={seoDescription}>
+
   <GlobalHeader />
 
   <main id="skip-header-target">
@@ -18,14 +19,17 @@ const projects = getMainProjects();
     <section class="margin-y-6">
 
       <header class="container wide">
+
         <h1 class="banner-headline margin-bottom-3">
           Case studies
         </h1>
+        
         <div class="narrow">
           <p>
             I've led and collaborated on digital projects for government agencies, global nonprofits, and intergovernmental organizations.
           </p>
         </div>
+      
       </header>
 
       <div class="container--md wide--md">
@@ -35,4 +39,5 @@ const projects = getMainProjects();
     </section>
 
   </main>
+
 </Layout>

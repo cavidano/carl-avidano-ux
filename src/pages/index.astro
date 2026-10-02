@@ -9,12 +9,12 @@ import { getDrawingBoardPosts } from '../lib/drawing-board/loader.js';
 
 const projects = getFeaturedProjects();
 const posts = getDrawingBoardPosts().slice(0, 3);
+
+const seoTitle = 'Carl Avidano • User experience, design systems, and accessibility';
+const seoDescription = 'Carl Avidano is a UX leader, researcher, and inclusive design advocate specializing in digital accessibility, design systems, and front-end development.';
 ---
 
-<Layout
-  title="Carl Avidano • User experience, design systems, and accessibility"
-  description="Carl Avidano is a UX leader, researcher, and inclusive design advocate specializing in digital accessibility, design systems, and front-end development."
->
+<Layout title={seoTitle} description={seoDescription}>
   <GlobalHeader />
 
   <main id="skip-header-target">
