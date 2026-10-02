@@ -1,8 +1,12 @@
 # Case studies
 
+## October 2 — Confluence copy verification
+
+At Carl's request, read the current main pages: Phoenix v68, Visionlearning v42, Natura11y v36, Cheetah.org v18, NYC OTI v17, LADRC v14, Mr. Ellie Pooh v15, UNICEF v15, Case Studies index v9, and About v1. All eight case studies' website narrative blocks, headlines, and descriptions are present in the corresponding Confluence pages; comparison normalizes whitespace and typographic quotes and excludes generated new-window announcements. About's introduction, skills, contact details, and SEO wording also match. The website's three Visionlearning image descriptions are missing from Confluence: brand guidelines, the 2017 redesign composition, and periodic-table lesson adaptations. The images themselves are present. Reported the gap without modifying Confluence, since Carl asked for status. Current readback and comparison evidence: `output/final-cleanup-release-2026-10-02/confluence-pages.json` and `confluence-comparison.json`.
+
 ## October 2 — regular Button for the Natura11y documentation link
 
-At Carl's request, Natura11y's documentation link now uses `Button` directly, with its existing container, spacing, outline, external-link icon, label, URL, and new-tab behavior. `ProjectPage` exposes `Button` to MDX, and the single-use `ProjectLinkButton` component is removed. The review build passed 26 tests, Astro checks, and the 117-page audit. The generated button and container markup matches the previous version on main and all four application sites. Local on `codex/portfolio-next`; not published. No narrative or Confluence copy changed.
+At Carl's request, Natura11y's documentation link now uses `Button` directly, with its existing container, spacing, outline, external-link icon, label, URL, and new-tab behavior. `ProjectPage` exposes `Button` to MDX, and the single-use `ProjectLinkButton` component is removed. The review build passed 26 tests, Astro checks, and the 117-page audit. The generated button and container markup matches the previous version on main and all four application sites. Published from main `7b402d8` through successful Cloudways run `37006655968`, with live content and assets verified. No narrative or Confluence copy changed.
 
 ## Deferred — Visionlearning wireframe compositions
 
