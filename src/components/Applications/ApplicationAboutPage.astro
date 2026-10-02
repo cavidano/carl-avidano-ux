@@ -4,20 +4,18 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
 
-import { getApplicationAboutPage } from '../../lib/about.js';
-import { getSiteId } from '../../lib/site-paths.js';
+import { getApplicationAboutPage } from '../../lib/applications/about.js';
+import { getSiteId } from '../../lib/applications/paths.js';
 import SiteLink from '../SiteLink.astro';
+import './style.scss';
 
 const { default: AboutContent, frontmatter } = getApplicationAboutPage(getSiteId(Astro.url.pathname));
-
-import AboutHeading from './AboutHeading.astro';
 
 import portrait from '../../images/carl-avidano-16x9.jpg';
 
 const { title, description, portraitAlt, profile, skills } = frontmatter;
 const phoneHref = `tel:${profile.phone.replace(/[^\d+]/g, '')}`;
 const mdxComponents = {
-  h1: AboutHeading,
   a: SiteLink
 };
 ---
@@ -37,7 +35,7 @@ const mdxComponents = {
       />
     </div>
 
-    <article class="grid grid--column-4--xl gap-3 border-top padding-y-4">
+    <article class="application-about grid grid--column-4--xl gap-3 border-top padding-y-4">
       <div>
         <p class="h6">{profile.name}</p>
         <p>{profile.pronouns}</p>

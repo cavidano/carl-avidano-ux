@@ -1,20 +1,20 @@
-import { applicationSites } from './application-sites.js';
+import { applicationSites } from './registry.js';
 
 const siteOrigin = 'https://carlavidano.com';
 const pagePath = /^\/(?:case-studies|drawing-board|about|404)(?:\/|$)/;
 
-export function getSiteId(pathname) {
+export const getSiteId = (pathname) => {
   const segment = pathname.split('/')[1];
   return applicationSites.includes(segment) ? segment : 'main';
-}
+};
 
-export function getSiteBase(pathname) {
+export const getSiteBase = (pathname) => {
   const siteId = getSiteId(pathname);
   return siteId === 'main' ? '' : `/${siteId}`;
-}
+};
 
 /** Scope page links, leaving shared media, external sites, and local fragments intact. */
-export function siteHref(href, pathname) {
+export const siteHref = (href, pathname) => {
   const base = getSiteBase(pathname);
   if (!base || !href || /^(?:#|\?|mailto:|tel:)/.test(href)) return href;
 
@@ -29,4 +29,4 @@ export function siteHref(href, pathname) {
     return `${base}${url.pathname === '/' ? '' : url.pathname}${url.search}${url.hash}`;
   }
   return href;
-}
+};

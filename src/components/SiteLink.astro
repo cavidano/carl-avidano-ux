@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import { siteHref } from '../lib/site-paths.js';
+import { siteHref } from '../lib/applications/paths.js';
 
 interface Props extends HTMLAttributes<'a'> {}
 const { href, ...attributes } = Astro.props;

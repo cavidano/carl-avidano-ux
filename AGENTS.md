@@ -8,9 +8,19 @@ Keep the main homepage's copy and markup directly editable in `src/pages/index.a
 
 Keep the main Case Studies index's copy, metadata, and page markup directly editable in `src/pages/case-studies/index.astro` too. Do not recreate a `CaseStudiesPage` wrapper or move this page's prose into `site.json`. Reuse the shared project-card renderer and individual case-study MDX sources.
 
-The main About page and Drawing Board listing follow the same rule: edit `src/pages/about.astro` and `src/pages/drawing-board/index.astro` directly. Main Drawing Board topic routes reuse that index with filtered posts. Keep application About and Drawing Board templates in `src/components/Applications/`; do not restore the removed main About MDX or main `site.json` copy lookup.
+The main About page and Drawing Board listing follow the same rule: edit `src/pages/about.astro` and `src/pages/drawing-board/index.astro` directly. Every main and application Drawing Board listing and topic route reuses that index, passing filtered posts when needed. Do not recreate an application Drawing Board template or per-application listing copy. Keep the optional application About template in `src/components/Applications/`, with its heading spacing styled there rather than through a single-heading component. Do not restore the removed main About MDX or main `site.json` copy lookup.
 
 # Writing and editorial sources
+
+## Component organization
+
+- Keep reusable components focused on meaningful layout, content, or behavior. Do not create a component solely to add a spacing class to one element.
+- Going forward, use `ComponentName/index.astro` for the main component in a dedicated component folder, with `style.scss` alongside it when needed. Keep supporting components descriptively named. Use explicit `/index.astro` imports. Apply this when creating or reorganizing a component folder; existing filenames do not require a bulk rename.
+- Keep the Drawing Board's row card and stacked card as separate templates in `DrawingBoard/PostCard/`: `PostCardRow.astro` for listings and `index.astro` for homepage and related-article grids. Both read the same dynamic article data and use Natura11y's responsive utilities. Do not combine their different layouts behind a `compact` flag or another presentation switch.
+- Prefer `const` arrow functions for JavaScript helpers and callbacks where behavior permits, including exported helpers. Retain other function forms when required for dynamic `this`, `arguments`, construction, generators, or necessary hoisting. Check initialization order when converting declarations; preserve readable bodies and existing behavior.
+- Group related helper files by feature within `src/lib/`, with filenames that describe their responsibilities. The Drawing Board helpers live together in `src/lib/drawing-board/` as `loader.js` and `rules.js`. Apply this convention consistently as related code is added or revised; avoid vague pairs such as `drawing-board.js` and `drawing-board-content.js`.
+- Keep application helpers together in `src/lib/applications/`: `registry.js` for registered and retired sites, `paths.js` for scoped links, `copy.js` for landing-page copy loading, `about.js` for optional About overrides, and `project-selection.js` for featured project selection. The shared case-study loader remains in `src/lib/projects.js`.
+- Keep component-specific styling in adjacent Sass files, following the `GlobalHeader`, `KeyResults`, and `CaseStudyOverview` folders. Keep the metadata description list inside `CaseStudyOverview`, with its styles in that component's Sass; it does not need a separate component. Put fixed layout values in Sass; use inline CSS custom properties when values genuinely come from page data, such as each project's theme colors.
 
 ## Case-study editing and Figma exports
 

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { prepareDrawingBoardPosts, groupDrawingBoardTags, featureApplicationArticles } from '../src/lib/drawing-board-content.js';
+import { prepareDrawingBoardPosts, groupDrawingBoardTags, featureApplicationArticles } from '../src/lib/drawing-board/rules.js';
 
 const article = (title, tags, options = {}) => ({
   frontmatter: { title, tags, date: '2026-09-01', status: 'published', ...options }

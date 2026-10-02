@@ -1,5 +1,5 @@
-import { applicationSites } from './application-sites.js';
-import { selectApplicationProjects } from './application-projects.js';
+import { applicationSites } from './applications/registry.js';
+import { selectApplicationProjects } from './applications/project-selection.js';
 
 const projectModules = import.meta.glob('/src/content/portfolio/*.mdx', { eager: true });
 const selections = import.meta.glob('/src/sites/*/projects.json', { eager: true, import: 'default' });
@@ -8,7 +8,7 @@ const imageModules = import.meta.glob('/src/images/**/*.{avif,gif,jpeg,jpg,png,w
   import: 'default'
 });
 
-export function resolveImage(imagePath) {
+export const resolveImage = (imagePath) => {
   if (!imagePath) return '';
 
   const normalizedPath = imagePath
@@ -16,9 +16,10 @@ export function resolveImage(imagePath) {
     .replace(/^\/src\/images\//, '/src/images/');
 
   return imageModules[normalizedPath] || imagePath;
-}
+};
 
-export function getAllProjects(siteId = 'main') {
+export const getAllProjects = (siteId = 'main') => {
+
   const projects = Object.entries(projectModules)
     .flatMap(([path, module]) => {
       const slug = path.match(/\/portfolio\/([^/]+)\.mdx$/)?.[1];
@@ -40,16 +41,16 @@ export function getAllProjects(siteId = 'main') {
   const selection = selections[`/src/sites/${siteId}/projects.json`];
   return selectApplicationProjects(projects, selection?.featured, siteId)
     .filter((project) => project.frontmatter.published !== false);
-}
+};
 
-export function getMainProjects(siteId = 'main') {
+export const getMainProjects = (siteId = 'main') => {
   return getAllProjects(siteId).filter((project) => project.frontmatter.isMainProject);
-}
+};
 
-export function getFeaturedProjects(siteId = 'main') {
+export const getFeaturedProjects = (siteId = 'main') => {
   return getAllProjects(siteId).filter((project) => project.frontmatter.isFeatured);
-}
+};
 
-export function getProjectBySlug(slug, siteId = 'main') {
+export const getProjectBySlug = (slug, siteId = 'main') => {
   return getAllProjects(siteId).find((project) => project.slug === slug);
-}
+};

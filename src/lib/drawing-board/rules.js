@@ -1,8 +1,8 @@
-export function validateFeaturedArticles(featured, ids, siteId) {
+export const validateFeaturedArticles = (featured, ids, siteId) => {
   if (!Array.isArray(featured) || featured.some((id) => !ids.includes(id)) || new Set(featured).size !== featured.length) {
     throw new Error(`${siteId}: articles.json featured must contain unique, existing article filenames without .mdx.`);
   }
-}
+};
 
 /**
  * Homepage selection does not limit the shared article collection or change its copy.
@@ -11,7 +11,7 @@ export function validateFeaturedArticles(featured, ids, siteId) {
  * @param {string[]} featured
  * @param {string} siteId
  */
-export function featureApplicationArticles(modules, featured, siteId) {
+export const featureApplicationArticles = (modules, featured, siteId) => {
   validateFeaturedArticles(featured, modules.map(({ id }) => id), siteId);
   return modules.map((module) => ({
     ...module,
@@ -21,9 +21,9 @@ export function featureApplicationArticles(modules, featured, siteId) {
       sortOrder: featured.indexOf(module.id)
     }
   }));
-}
+};
 
-function createSlug(value) {
+const createSlug = (value) => {
   return value
     .normalize('NFKD')
     .replace(/\p{Mark}/gu, '')
@@ -31,9 +31,9 @@ function createSlug(value) {
     .replace(/['’]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
+};
 
-export function prepareDrawingBoardPosts(modules, { includePreviews = false } = {}) {
+export const prepareDrawingBoardPosts = (modules, { includePreviews = false } = {}) => {
   const slugs = new Set();
   const tagNames = new Map();
   const posts = [];
@@ -78,13 +78,13 @@ export function prepareDrawingBoardPosts(modules, { includePreviews = false } = 
   }
 
   return posts.sort((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date));
-}
+};
 
 /**
  * @template {{ tags: { name: string, slug: string, href: string }[] }} T
  * @param {T[]} posts
  */
-export function groupDrawingBoardTags(posts) {
+export const groupDrawingBoardTags = (posts) => {
   /** @type {Map<string, { name: string, slug: string, href: string, posts: T[] }>} */
   const tags = new Map();
   for (const post of posts) {
@@ -94,4 +94,4 @@ export function groupDrawingBoardTags(posts) {
     }
   }
   return [...tags.values()].sort((a, b) => a.name.localeCompare(b.name, 'en'));
-}
+};

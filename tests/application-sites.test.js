@@ -3,7 +3,7 @@ import test from 'node:test';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { applications, selectApplicationSites, validateRetiredApplicationSites } from '../src/lib/application-sites.js';
+import { applications, selectApplicationSites, validateRetiredApplicationSites } from '../src/lib/applications/registry.js';
 import { cleanApplicationOutput } from '../scripts/application-build.mjs';
 
 test('draft applications require an explicit preview while published sites remain included', () => {

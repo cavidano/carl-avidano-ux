@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { applicationSites } from '../src/lib/application-sites.js';
-import { getSiteId, siteHref } from '../src/lib/site-paths.js';
+import { applicationSites } from '../src/lib/applications/registry.js';
+import { getSiteId, siteHref } from '../src/lib/applications/paths.js';
 
 test('application scope respects URL path boundaries', () => {
   for (const site of applicationSites) {

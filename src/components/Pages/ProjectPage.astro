@@ -2,11 +2,11 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
-import { getSiteId } from '../../lib/site-paths.js';
+import { getSiteId } from '../../lib/applications/paths.js';
 import SiteLink from '../SiteLink.astro';
-import { getDrawingBoardPosts } from '../../lib/drawing-board.js';
-import PostList from '../DrawingBoard/PostList.astro';
-import CaseStudyOverview from '../CaseStudyOverview.astro';
+import { getDrawingBoardPosts } from '../../lib/drawing-board/loader.js';
+import PostCard from '../DrawingBoard/PostCard/index.astro';
+import CaseStudyOverview from '../CaseStudyOverview/CaseStudyOverview.astro';
 import Divider from '../Divider.astro';
 import FigureSideBySide from '../FigureSideBySide.astro';
 import FigureSingle from '../FigureSingle.astro';
@@ -118,7 +118,13 @@ const projectThemeStyles = `--primary: ${frontmatter.primaryColor}; --primary-te
         <header class="margin-bottom-4">
           <h2 class="margin-bottom-0">From the Drawing Board</h2>
         </header>
-        <PostList posts={relatedPosts} compact />
+        <ul class="grid grid--column-3--lg gap-3">
+          {relatedPosts.map((post) => (
+            <li>
+              <PostCard post={post} />
+            </li>
+          ))}
+        </ul>
       </section>
     )}
   </main>

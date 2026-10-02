@@ -5,12 +5,12 @@ import MainAboutPage from '../about.astro';
 import ProjectPage from '../../components/Pages/ProjectPage.astro';
 import PostPage from '../../components/Pages/PostPage.astro';
 import NotFoundPage from '../../components/Pages/NotFoundPage.astro';
-import ApplicationDrawingBoardPage from '../../components/Applications/ApplicationDrawingBoardPage.astro';
+import DrawingBoardPage from '../drawing-board/index.astro';
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
-import { getApplicationSites } from '../../lib/application-sites.js';
+import { getApplicationSites } from '../../lib/applications/registry.js';
 import { getAllProjects } from '../../lib/projects.js';
-import { hasApplicationAboutPage } from '../../lib/about.js';
-import { getDrawingBoardPosts, getDrawingBoardTags } from '../../lib/drawing-board.js';
+import { hasApplicationAboutPage } from '../../lib/applications/about.js';
+import { getDrawingBoardPosts, getDrawingBoardTags } from '../../lib/drawing-board/loader.js';
 
 export function getStaticPaths() {
   const sites = getApplicationSites({ includeDrafts: import.meta.env.DEV || process.env.APPLICATION_PREVIEW === 'true' });
@@ -41,5 +41,5 @@ const AboutPage = hasApplicationAboutPage(Astro.params.site) ? ApplicationAboutP
 {kind === 'about' && <AboutPage />}
 {kind === 'project' && project && <ProjectPage project={project} />}
 {kind === 'post' && post && <PostPage post={post} />}
-{kind === 'articles' && <ApplicationDrawingBoardPage posts={posts ?? []} currentTag={tag} />}
+{kind === 'articles' && <DrawingBoardPage posts={posts ?? []} currentTag={tag} />}
 {kind === 'notFound' && <NotFoundPage />}

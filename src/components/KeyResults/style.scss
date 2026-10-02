@@ -1,5 +1,6 @@
 // Shared case-study results: a prominent value, a short separator, and a description.
-.key-results--plain {
+.key-results {
+
   .key-results-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -42,4 +43,5 @@
       line-height: var(--body-line-height);
     }
   }
+
 }

@@ -1,0 +1,29 @@
+.case-study-overview__layout {
+  --grid-sidebar-width: min(35rem, 35%);
+}
+
+.case-study-metadata {
+  --link-color: currentColor;
+
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--spacer-2) calc(var(--spacer-3) + var(--spacer-1));
+  align-items: baseline;
+  
+  margin: 0;
+
+  dt {
+    margin: 0;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    white-space: nowrap;
+  }
+
+  dd {
+    margin: 0;
+    font-size: var(--font-size-md);
+    line-height: var(--body-line-height);
+    overflow-wrap: anywhere;
+  }
+
+}

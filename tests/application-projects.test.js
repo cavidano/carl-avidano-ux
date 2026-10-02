@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { selectApplicationProjects, validateFeaturedProjects } from '../src/lib/application-projects.js';
+import { selectApplicationProjects, validateFeaturedProjects } from '../src/lib/applications/project-selection.js';
 
 test('application curation reuses current case-study content and metadata while preserving its chosen order', () => {
   const projects = ['phoenix', 'natura11y', 'unicef'].map((slug) => ({

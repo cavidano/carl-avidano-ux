@@ -8,8 +8,8 @@ import TextBlock from '../TextBlock.astro';
 import FigureSingle from '../FigureSingle.astro';
 import FigureSideBySide from '../FigureSideBySide.astro';
 import PostTags from '../DrawingBoard/PostTags.astro';
-import { formatDrawingBoardDate, getDrawingBoardImageOptions } from '../../lib/drawing-board.js';
-import type { getDrawingBoardPosts } from '../../lib/drawing-board.js';
+import { formatDrawingBoardDate, getDrawingBoardImageOptions } from '../../lib/drawing-board/loader.js';
+import type { getDrawingBoardPosts } from '../../lib/drawing-board/loader.js';
 
 interface Props {
   post: ReturnType<typeof getDrawingBoardPosts>[number];

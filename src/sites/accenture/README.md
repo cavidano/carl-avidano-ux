@@ -51,4 +51,4 @@ Accenture is registered as `draft`. Use `npm run dev` or `npm run build:review` 
 
 See [the shared application-site guide](../../../context/application-sites.md) for setup, verification, and publication steps.
 
-To start another microsite, create a new branch first, copy the editable content folders and site settings, add its official SVG logos and résumé directory, and register its slug once in `src/lib/application-sites.js`. The shared route and content loaders discover its pages and `Hero.astro` automatically. Follow the root `AGENTS.md` and check current Confluence sources before tailoring copy.
+To start another microsite, create a new branch first, copy the editable content folders and site settings, add its official SVG logos and résumé directory, and register its slug once in `src/lib/applications/registry.js`. The shared route and content loaders discover its pages and `Hero.astro` automatically. Follow the root `AGENTS.md` and check current Confluence sources before tailoring copy.

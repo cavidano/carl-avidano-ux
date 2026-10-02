@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import { satteri } from '@astrojs/markdown-satteri';
 import figureImages from './scripts/figure-images.mjs';
 import sitemap from '@astrojs/sitemap';
-import { getSiteId } from './src/lib/site-paths.js';
+import { getSiteId } from './src/lib/applications/paths.js';
 import applicationBuild from './scripts/application-build.mjs';
 
 export default defineConfig({

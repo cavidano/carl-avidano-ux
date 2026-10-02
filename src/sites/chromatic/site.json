@@ -20,10 +20,5 @@
     "headline": "Explore my work",
     "introduction": "I’ve tailored the following case studies to highlight the work and outcomes most relevant to what you’re looking for in your next Senior Product Designer."
   },
-  "drawingBoard": {
-    "headline": "The Drawing Board",
-    "title": "The Drawing Board • Chromatic • Carl Avidano",
-    "introduction": "Quick reads on my creative process, collaborations, and what I’m learning as I build accessible interfaces and design systems. I also share the smaller details that don’t always fit into a case study."
-  },
   "backgroundImage": "images/chromatic-chart.png"
 }

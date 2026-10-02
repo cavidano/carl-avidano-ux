@@ -2,6 +2,10 @@
 // Application background and introduction
 //////////////////////////////////////////////
 
+.application-about h1 {
+  margin-block-end: var(--spacer-4);
+}
+
 body[data-application] {
   --body-min-width: 0;
   position: relative;

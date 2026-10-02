@@ -20,10 +20,5 @@
     "headline": "Explore my work",
     "introduction": "I’ve tailored the following case studies to highlight the work and outcomes most relevant to DRUIDS: maintaining a shared system, helping others use it, and bringing teams together around complex design decisions."
   },
-  "drawingBoard": {
-    "headline": "The Drawing Board",
-    "title": "The Drawing Board • Datadog • Carl Avidano",
-    "introduction": "Quick reads on my creative process, collaborations, and what I’m learning as I build accessible interfaces and design systems. I also share the smaller details that don’t always fit into a case study."
-  },
   "backgroundImage": "images/datadog-brand-pattern.png"
 }

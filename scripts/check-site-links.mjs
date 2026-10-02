@@ -2,8 +2,8 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { applicationSites, getApplicationSites, retiredApplicationSites } from '../src/lib/application-sites.js';
-import { getSiteId, siteHref } from '../src/lib/site-paths.js';
+import { applicationSites, getApplicationSites, retiredApplicationSites } from '../src/lib/applications/registry.js';
+import { getSiteId, siteHref } from '../src/lib/applications/paths.js';
 
 assert.ok(process.argv.slice(2).every((arg) => arg === '--review'), 'Usage: node scripts/check-site-links.mjs [--review]');
 const includeDrafts = process.argv.includes('--review');
@@ -109,6 +109,17 @@ for (const file of pages) {
       sharedCaseStudies++;
       assert.ok(/<div class="theme-primary overflow-hidden"[^>]*>\s*<div>\s*<div class="global-header-surface">/.test(html), `${path}: the case-study theme must include the global header`);
     }
+  }
+
+  if (site !== 'main' && (path === `${base}/drawing-board` || path.startsWith(`${base}/drawing-board/topics/`))) {
+    const mainPath = path.slice(base.length);
+    const shared = readFileSync(join(dist, mainPath, 'index.html'), 'utf8');
+    const expected = shared.match(/<main\b[\s\S]*?<\/main>/)?.[0];
+    assert.ok(expected, `${mainPath}: missing Drawing Board listing`);
+    const scoped = expected.replace(/href="([^"]*)"/g, (_, href) => `href="${siteHref(href, path)}"`);
+    assert.equal(html.match(/<main\b[\s\S]*?<\/main>/)?.[0], scoped, `${path}: Drawing Board listing must use the main page's copy and layout`);
+    assert.equal(html.match(/<title>[^<]*<\/title>/)?.[0], shared.match(/<title>[^<]*<\/title>/)?.[0], `${path}: shared Drawing Board title`);
+    assert.equal(tags.find((tag) => tag.name === 'description')?.content, attributes(shared.match(/<meta name="description"[^>]*>/)?.[0] ?? '').content, `${path}: shared Drawing Board description`);
   }
 
   if (site !== 'main' && path.startsWith(`${base}/drawing-board/`) && !path.startsWith(`${base}/drawing-board/topics/`)) {

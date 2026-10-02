@@ -1,6 +1,6 @@
 ---
 import DrawingBoardPage from '../index.astro';
-import { getDrawingBoardTags } from '../../../lib/drawing-board.js';
+import { getDrawingBoardTags } from '../../../lib/drawing-board/loader.js';
 
 export function getStaticPaths() {
   return getDrawingBoardTags().map((tag) => ({

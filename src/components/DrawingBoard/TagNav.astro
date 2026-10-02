@@ -1,7 +1,7 @@
 ---
 import SiteLink from '../SiteLink.astro';
-import { getDrawingBoardTags } from '../../lib/drawing-board.js';
-import { getSiteId } from '../../lib/site-paths.js';
+import { getDrawingBoardTags } from '../../lib/drawing-board/loader.js';
+import { getSiteId } from '../../lib/applications/paths.js';
 
 const { currentTag } = Astro.props;
 const items = [
@@ -11,6 +11,7 @@ const items = [
 ---
 
 <nav aria-label="Article tags" class="margin-bottom-3 margin-bottom-5--lg">
+  
   <ul class="list-unstyled flex-row gap-2 font-size-sm margin-bottom-0">
     {items.map(({ name, slug, href }) => (
       <li>
@@ -22,4 +23,5 @@ const items = [
       </li>
     ))}
   </ul>
+
 </nav>

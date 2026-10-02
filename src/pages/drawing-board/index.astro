@@ -1,9 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import GlobalHeader from '../../components/GlobalHeader/GlobalHeader.astro';
-import PostList from '../../components/DrawingBoard/PostList.astro';
+import PostCardRow from '../../components/DrawingBoard/PostCard/PostCardRow.astro';
 import TagNav from '../../components/DrawingBoard/TagNav.astro';
-import { getDrawingBoardPosts } from '../../lib/drawing-board.js';
+import { getDrawingBoardPosts } from '../../lib/drawing-board/loader.js';
 
 interface Props {
   posts?: ReturnType<typeof getDrawingBoardPosts>;
@@ -27,6 +27,12 @@ const description = currentTag ? `${currentTag.name} articles from The Drawing B
     </header>
 
     <TagNav currentTag={currentTag?.slug} />
-    <PostList posts={posts} />
+    <ul class="grid gap-3">
+      {posts.map((post, index) => (
+        <li>
+          <PostCardRow post={post} eager={index === 0} />
+        </li>
+      ))}
+    </ul>
   </main>
 </Layout>

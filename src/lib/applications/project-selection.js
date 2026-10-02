@@ -1,8 +1,8 @@
-export function validateFeaturedProjects(featured, slugs, siteId) {
+export const validateFeaturedProjects = (featured, slugs, siteId) => {
   if (!Array.isArray(featured) || featured.some((slug) => !slugs.includes(slug)) || new Set(featured).size !== featured.length) {
     throw new Error(`${siteId}: projects.json featured must contain unique, existing case-study slugs.`);
   }
-}
+};
 
 /**
  * Applications curate projects; their content always comes from the shared MDX.
@@ -11,8 +11,10 @@ export function validateFeaturedProjects(featured, slugs, siteId) {
  * @param {string[]} featured
  * @param {string} siteId
  */
-export function selectApplicationProjects(projects, featured, siteId) {
+
+export const selectApplicationProjects = (projects, featured, siteId) => {
   validateFeaturedProjects(featured, projects.map(({ slug }) => slug), siteId);
+  
   return projects
     .map((project) => ({
       ...project,
@@ -25,4 +27,4 @@ export function selectApplicationProjects(projects, featured, siteId) {
       const position = (slug) => featured.includes(slug) ? featured.indexOf(slug) : featured.length;
       return position(a.slug) - position(b.slug);
     });
-}
+};

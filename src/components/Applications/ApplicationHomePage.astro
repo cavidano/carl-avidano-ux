@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import Button from '../Button.astro';
 import ProjectListView from '../ProjectListView.astro';
-import PostList from '../DrawingBoard/PostList.astro';
+import PostCard from '../DrawingBoard/PostCard/index.astro';
 import { getFeaturedProjects } from '../../lib/projects.js';
-import { getDrawingBoardPosts } from '../../lib/drawing-board.js';
+import { getDrawingBoardPosts } from '../../lib/drawing-board/loader.js';
 
-import { getSiteId } from '../../lib/site-paths.js';
-import { getApplicationCopy } from '../../lib/sites.js';
+import { getSiteId } from '../../lib/applications/paths.js';
+import { getApplicationCopy } from '../../lib/applications/copy.js';
 
 const siteId = getSiteId(Astro.url.pathname);
 const { home: copy } = getApplicationCopy(siteId);
@@ -83,7 +83,13 @@ const { title, description } = copy;
         <h2 class="margin-bottom-0">From the Drawing Board</h2>
       </header>
 
-      <PostList posts={homepagePosts} compact />
+      <ul class="grid grid--column-3--lg gap-3">
+        {homepagePosts.map((post) => (
+          <li>
+            <PostCard post={post} />
+          </li>
+        ))}
+      </ul>
 
       <div class="margin-top-4">
         <Button href="/drawing-board" utilities="theme-primary" title={copy.storiesButton} />

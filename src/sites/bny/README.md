@@ -14,7 +14,7 @@ The local case-study drafts feature NYC OTI, UNICEF, Natura11y, and Phoenix, in 
 | --- | --- |
 | Homepage headline, introduction, related-project introduction, buttons, and SEO description | `site.json` → `home` (`projectsIntroduction` controls the sentence above the case studies) |
 | Curated homepage article introduction | `site.json` → `home.articlesIntroduction` |
-| Full Drawing Board introduction | `site.json` → `drawingBoard.introduction` |
+| Full Drawing Board introduction and layout, shared by every site | `../../pages/drawing-board/index.astro` |
 | About copy, skills, role title, contact information | `pages/about.mdx` |
 | Case studies and card descriptions | `portfolio/*.mdx` |
 | Articles and their card descriptions | `drawing-board/*.mdx` |

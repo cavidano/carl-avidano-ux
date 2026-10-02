@@ -30,7 +30,7 @@ The development server includes all registered applications. The current applica
 
 **Edit the main homepage in [src/pages/index.astro](src/pages/index.astro).** Its headline, About Me text, button labels, and page metadata are written directly in that file. Project-card names (`title`), headlines (`cardHeadline`), descriptions, and button labels come from each case study in `src/content/portfolio/`; article summaries come from `src/content/drawing-board/`.
 
-Edit the main [About page](src/pages/about.astro) and [Drawing Board listing](src/pages/drawing-board/index.astro) directly too. About's biography, skills, contact links, résumé link, metadata, and markup are together in its page. The Drawing Board index owns its heading, introduction, metadata, and layout; topic routes reuse it with filtered posts. Application versions retain their own content and templates in `src/components/Applications/`.
+Edit the main [About page](src/pages/about.astro) and [Drawing Board listing](src/pages/drawing-board/index.astro) directly too. About's biography, skills, contact links, résumé link, metadata, and markup are together in its page. The Drawing Board index owns its heading, introduction, metadata, and layout; main and application topic routes reuse it with filtered posts. Application homepages and optional custom About pages use the templates in `src/components/Applications/`.
 
 | Location | Responsibility |
 | --- | --- |
@@ -41,11 +41,11 @@ Edit the main [About page](src/pages/about.astro) and [Drawing Board listing](sr
 | `public/<application>/` | That application's résumé, employer SVG logos, and server rules |
 | `src/images/`, `public/media/` | Shared project illustrations, photographs, and videos |
 | `src/components/`, `src/layouts/` | Shared page composition, navigation, theme, and interactions |
-| `src/components/Applications/` | Application homepage, About, and Drawing Board templates; hero, background, and SCSS |
+| `src/components/Applications/` | Application homepage and optional custom About templates; hero, background, and SCSS |
 | `src/pages/[site]/[...path].astro` | Routes for every registered application |
 | `src/pages/[site]/background.css.ts` | Optimized decorative background assets for each application |
-| `src/lib/application-sites.js` | Application IDs and website publication status |
-| `src/lib/site-paths.js`, `SiteLink.astro` | Scope links to the current application |
+| `src/lib/applications/registry.js` | Application IDs and website publication status |
+| `src/lib/applications/paths.js`, `SiteLink.astro` | Scope links to the current application |
 | `scripts/application-build.mjs` | Validate application files and exclude draft public assets from production output |
 | `scripts/check-site-links.mjs` | Check matching case-study headers/bodies/figures, links, assets, metadata, and application isolation |
 
@@ -54,6 +54,8 @@ Case studies have one source: `src/content/portfolio/*.mdx`. Every main and appl
 The main Case Studies listing is at `/case-studies`, with individual pages at `/case-studies/<slug>`. Application case studies use `/<application>/case-studies/<slug>`; their overview is the application's homepage `#projects` section. The editable case-study MDX files live only in `src/content/portfolio/`. The main listing’s copy, metadata, and markup are directly editable in `src/pages/case-studies/index.astro`.
 
 ## Application workflow
+
+Every Drawing Board listing and topic route reuses `src/pages/drawing-board/index.astro`, including application sites. Edit its introduction, metadata, and layout there once. Application `articles.json` files control homepage features only. Application URLs, navigation, and `noindex` remain scoped by the shared link and layout components.
 
 Follow [the application-site guide](context/application-sites.md). Start a new `codex/<application>-microsite` branch and register each new site as `draft`. Review current Confluence sources before writing website copy, as required by [AGENTS.md](AGENTS.md).
 

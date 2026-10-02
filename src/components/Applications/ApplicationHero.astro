@@ -13,6 +13,7 @@ const { logo, headline, introduction, context } = Astro.props;
 ---
 
 <div class="application-hero">
+
   <div class="application-hero__header">
     <GlobalHeader />
   </div>
@@ -28,9 +29,15 @@ const { logo, headline, introduction, context } = Astro.props;
       />
     ))}
     {context && <p class="font-size-md margin-bottom-3">{context}</p>}
-    <h1 class="banner-headline width-80--xxl margin-bottom-3">{headline}</h1>
+    
+    <h1 class="banner-headline width-80--xxl margin-bottom-3">
+      {headline}
+    </h1>
+    
     <p class="narrow margin-bottom-0">
       {introduction}
     </p>
+  
   </div>
+
 </div>

@@ -1,6 +1,6 @@
 ---
 import PostPage from '../../components/Pages/PostPage.astro';
-import { getDrawingBoardPosts } from '../../lib/drawing-board.js';
+import { getDrawingBoardPosts } from '../../lib/drawing-board/loader.js';
 
 export function getStaticPaths() {
   return getDrawingBoardPosts().map((post) => ({
