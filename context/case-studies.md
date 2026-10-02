@@ -1,5 +1,9 @@
 # Case studies
 
+## October 2 — regular Button for the Natura11y documentation link
+
+At Carl's request, Natura11y's documentation link now uses `Button` directly, with its existing container, spacing, outline, external-link icon, label, URL, and new-tab behavior. `ProjectPage` exposes `Button` to MDX, and the single-use `ProjectLinkButton` component is removed. The review build passed 26 tests, Astro checks, and the 117-page audit. The generated button and container markup matches the previous version on main and all four application sites. Local on `codex/portfolio-next`; not published. No narrative or Confluence copy changed.
+
 ## Deferred — Visionlearning wireframe compositions
 
 On October 2, Carl requested flagging this for later: replace the two `CaseStudyScreens` groups in `visionlearning.mdx` with Figma compositions using the same six public-site and four administration wireframes. Each group should become a single exported graphic in the standard figure markup, consistent with the other case-study figures, without individual screen captions or enlargement controls. Preserve the shared captions and surrounding narrative. Export original Figma frames as production assets, following the existing image requirements. After replacing both uses, remove `src/components/CaseStudyScreens.astro` and its import. Carl explicitly deferred implementation; no Figma, website, or Confluence changes have been made for this item.
@@ -46,7 +50,7 @@ The completed audit compares official npm releases `@natura11y/core@5.2.6` and `
 
 ### Reproducible measurements
 
-Script: `output/natura11y-core-comparison/audit.py`. Results and per-file SHA-256 manifests: `output/natura11y-core-comparison/audit-results.json`. Integrity-verified release archives and source copies: `output/natura11y-core-comparison/audit-packages/`. These ignored output files are local evidence, not website assets. The earlier `measure.py` and `measurements.json` remain intact; fresh production hashes match them.
+Script: `output/natura11y-core-comparison/audit.py`. Results and per-file SHA-256 manifests: `output/natura11y-core-comparison/audit-results.json`. Integrity-verified release archives and source copies are preserved in `output/natura11y-core-comparison/audit-packages.tar.gz`. On October 2, Carl requested removing the extra npm projects from his editor; all 225 files were checked against the archive before deleting the two extracted package folders. Extract outside the website workspace when inspecting these copies, so their package manifests do not appear in NPM Scripts again. These ignored output files are local evidence, not website assets. The earlier `measure.py` and `measurements.json` remain intact; fresh production hashes match them.
 
 Source scope is Core `src/scss/**/*.scss`, `src/js/**/*.js`, and `src/index.js`; Bootstrap `scss/**/*.scss`, `js/src/**/*.js`, and its two JS entry points. Counted each file once. Excluded documentation, tests, examples, generated output, maps, React, icons, and npm dependency source. Bootstrap Sass includes vendored RFS. Comments and formatting remain in source-byte/line counts; these are not complexity or feature-normalized measurements. A kB is 1,000 bytes. Gzip level 9, deterministic timestamp, each production file compressed separately; production files are otherwise unmodified.
 

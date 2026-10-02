@@ -5,14 +5,17 @@ import './style.scss';
 ---
 
 <div class="global-header-surface">
+
   <div class="global-header-container container wide">
 
     <header class="global-header">
 
       <SiteLink class="global-header__logo" href="/" aria-label="Carl Avidano home">
+
         <div class="h5">
           <strong>Carl Avidano</strong>
         </div>
+      
       </SiteLink>
 
       <ul class="global-header__title">
@@ -47,7 +50,9 @@ import './style.scss';
   </div>
 
   <div class="flyout" id="mobile-navigation" aria-hidden="true">
+
     <div class="flyout__content" role="dialog" aria-modal="true" aria-label="Menu">
+      
       <div class="flyout__header">
         <button
           class="button button--icon-only font-size-md"
@@ -58,12 +63,15 @@ import './style.scss';
           <span class="icon icon-close" aria-hidden="true"></span>
         </button>
       </div>
+      
       <nav class="flyout__body" aria-label="Primary navigation">
         <ul class="nav nav--divider font-size-md">
           <NavigationLinks includeHome />
         </ul>
       </nav>
+    
     </div>
+  
   </div>
 
 </div>

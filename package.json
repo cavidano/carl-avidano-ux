@@ -12,7 +12,6 @@
   ],
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "check": "astro check",
     "check:site-links": "node scripts/check-site-links.mjs",
     "test": "node --test tests/*.test.js",
