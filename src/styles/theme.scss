@@ -106,9 +106,51 @@ figure img,
   width: 100%;
 }
 
+.lightbox-thumbnail {
+  --focus-outline-offset: var(--focus-outline-width);
+
+  &:focus-visible {
+    box-shadow: 0 0 0 var(--focus-outline-width) var(--background-color);
+  }
+}
+
+.lightbox:has(.lightbox__media > img) {
+  padding-block-start: calc(var(--button-target-size) + 2 * var(--lightbox-padding-y));
+}
+
+.lightbox__controls {
+  opacity: 0;
+  transition: opacity calc(var(--lightbox-animation-duration) * 0.5) ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.lightbox.shown .lightbox__controls {
+  opacity: 1;
+}
+
 .lightbox__container:has(.lightbox__media > img) {
+  // Slide the contents so the container's closing transition can always finish.
+  animation: none;
+  flex-shrink: 0;
   min-width: 0;
-  max-width: 100%;
+  max-width: min(100%, 1200px);
+
+  &[data-entering='next'] > * {
+    animation: lightbox-enter-next var(--lightbox-animation-duration) ease-out both;
+  }
+
+  &[data-entering='prev'] > * {
+    animation: lightbox-enter-prev var(--lightbox-animation-duration) ease-out both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    > * {
+      animation: none;
+    }
+  }
 }
 
 .lightbox__media > img {
@@ -116,7 +158,7 @@ figure img,
   min-width: 0;
   height: auto;
   max-width: 100%;
-  max-height: calc(100dvh - 8rem);
+  max-height: none;
 }
 
 //////////////////////////////////////////////

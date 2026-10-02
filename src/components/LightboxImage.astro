@@ -18,7 +18,7 @@ const fullImage = await getImage({ src, quality });
 
 <button
   type="button"
-  class:list={['lightbox-thumbnail', className]}
+  class:list={['lightbox-thumbnail theme-dark', className]}
   data-lightbox="image"
   data-lightbox-src={fullImage.src}
   data-lightbox-caption={caption}
@@ -31,4 +31,11 @@ const fullImage = await getImage({ src, quality });
 
 <script>
   import '@natura11y/core';
+
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement) || !target.matches('.lightbox.shown')) return;
+
+    target.querySelector<HTMLButtonElement>('[data-lightbox-close]')?.click();
+  });
 </script>
