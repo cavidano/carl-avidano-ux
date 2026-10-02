@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { applications, selectApplicationSites, validateRetiredApplicationSites } from '../src/lib/application-sites.js';
@@ -41,13 +41,14 @@ for (const includeDrafts of [false, true]) {
     writeFileSync(join(directory, '.DS_Store'), 'Finder metadata');
     for (const { id } of applications) {
       mkdirSync(join(directory, id));
-      for (const file of ['index.html', 'resume-carl-avidano.pdf', '.htaccess', '.DS_Store']) {
+      for (const file of ['index.html', 'resume-carl-avidano.pdf', '.DS_Store']) {
         writeFileSync(join(directory, id, file), file);
       }
     }
     cleanApplicationOutput(directory, { includeDrafts });
     assert.ok(existsSync(join(directory, 'index.html')));
     assert.ok(existsSync(join(directory, 'resume-carl-avidano.pdf')));
+    assert.ok(!existsSync(join(directory, '.htaccess')), 'Application indexing rules must not affect the main site.');
     assert.ok(!existsSync(join(directory, '.DS_Store')));
     for (const { id, status } of applications) {
       const included = includeDrafts || status === 'published';
@@ -55,6 +56,11 @@ for (const includeDrafts of [false, true]) {
         assert.equal(existsSync(join(directory, id, file)), included);
       }
       assert.ok(!existsSync(join(directory, id, '.DS_Store')));
+      if (included) {
+        const rules = readFileSync(join(directory, id, '.htaccess'), 'utf8');
+        assert.match(rules, /<FilesMatch "\(\?i\)\\\.pdf\$">/);
+        assert.match(rules, /Header always set X-Robots-Tag "noindex"/);
+      }
     }
   });
 }

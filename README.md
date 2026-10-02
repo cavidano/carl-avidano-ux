@@ -65,6 +65,8 @@ The Cloudways workflow is manually dispatched. It checks a review build, then pr
 
 Production builds exclude draft application routes and the corresponding `public/<application>/` directory, including PDFs and logos. Approved application pages remain `noindex, follow` and excluded from the sitemap. Indexing controls are not access controls.
 
+The build generates an application-scoped `.htaccess` rule for PDF `X-Robots-Tag: noindex` headers, including future résumé and cover-letter downloads. Do not copy this rule into individual application source folders. Cloudways currently serves PDFs directly through Nginx, bypassing Apache, so the live PDF header still needs a hosting adjustment. Carl deferred that adjustment as low priority on October 2; application HTML pages already carry `noindex`, and application preparation can proceed.
+
 After Carl confirms a rejection, remove the applicant site's dedicated source and assets and add its slug to `retiredApplicationSites` in the registry. Builds verify that retired sites are absent and produce a deployment removal list. The next authorized Cloudways deployment removes only those named server directories. A local deletion or commit does not itself change the live site.
 
 Dependencies are pinned to the currently verified versions and `package-lock.json` is committed. Upgrade deliberately and run both builds; ordinary application work does not need dependency upgrades. Natura11y uses the current `@natura11y/*` packages, with its canonical source in `/Users/carlavidano/Sites/natura11y`.
