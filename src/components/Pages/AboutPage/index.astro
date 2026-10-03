@@ -48,12 +48,17 @@ const mdxComponents = {
         <p>{profile.pronouns}</p>
       </div>
 
-      <div class="grid grid__colspan-3--xl gap-4">
+      <div class="grid grid__colspan-3--xl gap-5">
+
         <section class="grid grid--column-3--lg gap-3">
           <p class="font-size-md margin-bottom-0">Location:<br />{profile.location}</p>
 
           <div class="grid__colspan-2--lg">
             <AboutContent components={mdxComponents} />
+            <SiteLink class="button button--has-icon button--outline font-size-md" href="/resume-carl-avidano.pdf" download>
+              <span class="icon icon-file-download" aria-hidden="true"></span>
+              <span class="button__text">Download Resume (PDF)</span>
+            </SiteLink>
           </div>
         </section>
 
@@ -73,20 +78,16 @@ const mdxComponents = {
           <div class="grid__colspan-2--lg font-size-md">
             <ul class="nav gap-2 margin-bottom-4">
               <li>
+                <SiteLink href={phoneHref}>{profile.phone}</SiteLink>
+              </li>
+              <li>
                 <SiteLink href={`mailto:${profile.email}`}>{profile.email}</SiteLink>
               </li>
               <li>
                 <SiteLink href="https://www.linkedin.com/in/carlavidano/" target="_blank" rel="noreferrer">LinkedIn</SiteLink>
               </li>
-              <li>
-                <SiteLink href={phoneHref}>{profile.phone}</SiteLink>
-              </li>
             </ul>
 
-            <SiteLink class="button button--has-icon button--outline font-size-md" href="/resume-carl-avidano.pdf" download>
-              <span class="icon icon-file-download" aria-hidden="true"></span>
-              <span class="button__text">Download Resume (PDF)</span>
-            </SiteLink>
           </div>
         </section>
       </div>
