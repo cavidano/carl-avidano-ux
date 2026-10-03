@@ -8,9 +8,11 @@ Keep the main homepage's copy and markup directly editable in `src/pages/index.a
 
 Keep the main Case Studies index's copy, metadata, and page markup directly editable in `src/pages/case-studies/index.astro` too. Do not recreate a `CaseStudiesPage` wrapper or move this page's prose into `site.json`. Reuse the shared project-card renderer and individual case-study MDX sources.
 
-Keep main-page SEO wording in frontmatter variables named `seoTitle` and `seoDescription`, then pass those values to `Layout` through its `title` and `description` props. The page owns its metadata wording; the layout renders the tags. Preserve existing wording when making organization-only changes.
+Keep main-page SEO wording in frontmatter variables named `seoTitle` and `seoDescription`, then pass those values to `Layout` through its `title` and `description` props. About is the exception: its editable MDX frontmatter owns `title` and `description`, which the shared About page passes to `Layout`. Preserve existing wording when making organization-only changes.
 
-The main About page and Drawing Board listing follow the same rule: edit `src/pages/about.astro` and `src/pages/drawing-board/index.astro` directly. Every main and application Drawing Board listing and topic route reuses that index, passing filtered posts when needed. Do not recreate an application Drawing Board template or per-application listing copy. Keep the optional application About template in `src/components/Applications/`, with its heading spacing styled there rather than through a single-heading component. Do not restore the removed main About MDX or main `site.json` copy lookup.
+Edit the default About narrative in `src/content/pages/about.mdx`; its frontmatter owns metadata, profile information, and skills. Main and application About routes use `src/components/Pages/AboutPage/index.astro` with adjacent Sass. An optional `src/sites/<application>/pages/about.mdx` replaces the narrative and may override frontmatter fields; omitted fields use the defaults. Without that file, the application uses the default About content with scoped links. Carl approved this shared MDX structure on October 3 to simplify editing and application tailoring. Do not restore separate main/application About templates or a main `site.json` lookup.
+
+Edit the main Drawing Board listing directly in `src/pages/drawing-board/index.astro`. Every main and application Drawing Board listing and topic route reuses that index, passing filtered posts when needed. Do not recreate an application Drawing Board template or per-application listing copy.
 
 # Writing and editorial sources
 

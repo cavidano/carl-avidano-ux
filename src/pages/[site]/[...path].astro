@@ -1,7 +1,6 @@
 ---
 import ApplicationHomePage from '../../components/Applications/ApplicationHomePage.astro';
-import ApplicationAboutPage from '../../components/Applications/ApplicationAboutPage.astro';
-import MainAboutPage from '../about.astro';
+import AboutPage from '../../components/Pages/AboutPage/index.astro';
 import ProjectPage from '../../components/Pages/ProjectPage.astro';
 import PostPage from '../../components/Pages/PostPage.astro';
 import NotFoundPage from '../../components/Pages/NotFoundPage.astro';
@@ -9,7 +8,6 @@ import DrawingBoardPage from '../drawing-board/index.astro';
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import { getApplicationSites } from '../../lib/applications/registry.js';
 import { getAllProjects } from '../../lib/projects.js';
-import { hasApplicationAboutPage } from '../../lib/applications/about.js';
 import { getDrawingBoardPosts, getDrawingBoardTags } from '../../lib/drawing-board/loader.js';
 
 export function getStaticPaths() {
@@ -35,7 +33,6 @@ const heroes = import.meta.glob<AstroComponentFactory>('../../sites/*/Hero.astro
 const Hero = heroes[`../../sites/${Astro.params.site}/Hero.astro`];
 if (!Hero) throw new Error(`Application ${Astro.params.site}: missing Hero.astro.`);
 const { kind, project, post, posts, tag } = Astro.props;
-const AboutPage = hasApplicationAboutPage(Astro.params.site) ? ApplicationAboutPage : MainAboutPage;
 ---
 {kind === 'home' && <ApplicationHomePage><Hero slot="hero" /></ApplicationHomePage>}
 {kind === 'about' && <AboutPage />}
