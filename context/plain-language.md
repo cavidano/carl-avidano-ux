@@ -53,6 +53,8 @@ Use space and occasional emphasis to make important information visible. Avoid a
 
 ## Make links and downloads understandable
 
+For inline links to external websites, use the existing `LinkOpenNew` component. It supplies the new-window icon, opens the destination in a new tab, and includes the screen-reader announcement. Do this when adding the link; do not insert a plain Markdown link and leave the component conversion for later. Preserve the approved link text. Hemingway text exports remain plain text.
+
 Link text should identify the destination or action. Avoid vague labels such as “click here.” Keep essential context on the page instead of sending readers through repeated cross-references. Identify downloadable files by type and include useful, verified details such as size or version date. [Links](https://digital.gov/guides/plain-language/design/links).
 
 Explain the main content on the web page. A résumé PDF can provide a downloadable document, while the page still explains relevant experience. Add an FAQ only when real reader questions justify it; do not use one to patch an unclear main page or duplicate its content. [Special cases](https://digital.gov/guides/plain-language/writing/special-cases).
