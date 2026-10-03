@@ -44,17 +44,19 @@ import colorSystem from '../../images/natura11y/natura11y-figma-color-system.png
 
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
-## Challenge
+## Why Natura11y?
 
-Natura11y began as a series of small experiments I created while taking front-end programming tutorials. I wanted the work to remain useful after each exercise, so I started saving the pieces and exploring how they could fit together.
+The Natura11y Design Ecosystem is an open-source toolkit. It helps teams design, build, and maintain inclusive user interfaces. Natura11y began as a collection of artifacts from front-end development tutorials.
 
-At work, I often found other frameworks restrictive when building interfaces with specific design requirements. Front-end tools and development environments were also becoming more complex. I wanted a foundation I could understand, control, and simplify as my knowledge grew.
+At the time, I was working at NYC OTI and becoming more interested in front-end development and digital accessibility. I spent much of my time learning HTML, CSS, and vanilla JavaScript through online tutorials. Instead of following these tutorials exactly, I began applying lessons from these exercises to my own system.
 
-## Solution
+Eventually, I had a large enough library, and Natura11y was born.
 
-As that collection developed, I decided to build my own framework, with accessibility guiding its design. I began using early versions in client projects through Avidano Digital, refining the system as I learned more about UX and front-end development.
+I saw an opportunity to combine my interests in accessibility and front-end development. On top of that, I felt that I was creating something with lasting value.
 
-Natura11y expanded into an ecosystem connecting reusable components, Figma libraries, icons, and production code. I designed it to support different visual identities while sharing interface patterns and accessibility behavior. Documentation became an important part of the work, explaining how components should be used and making those decisions available alongside the code.
+I created Natura11y to explore my own approach to building and customizing inclusive interfaces.
+
+You can customize Natura11y in different ways depending on your skills and project needs. For example, you can use Natura11y to create a simple website theme or a complete AI-ready enterprise design system.
 
 ## Result
 
@@ -68,7 +70,7 @@ I designed and developed the original core before generative AI became part of m
 
 ## Ecosystem architecture
 
-As Natura11y expanded, I reorganized it into a monorepo that keeps its framework, React components, icons, documentation, and testing connected. I can now make a decision once and carry it across the entire ecosystem, reducing duplicated work and preventing its different parts from falling out of sync.
+As Natura11y grew, I set it up as a monorepo. This keeps its framework, React components, icons, documentation, and testing all linked. I can now make one decision and apply it throughout the entire ecosystem. This cuts down on duplicated work and keeps all parts in sync.
 
 </TextBlock>
 
@@ -82,11 +84,42 @@ As Natura11y expanded, I reorganized it into a monorepo that keeps its framework
 
 </FigureSingle>
 
+<div class="container wide margin-y-5">
+<div class="grid grid--column-2--lg gap-5">
+<div>
+
+### Out of the box
+
+- a one-of-a-kind dynamic color system that makes theming easy and reduces repetition
+- Intuitive, simple type scale that's adjustable at any breakpoint (with only two variables)
+- A customizable icon library designed in Figma and published as its own package
+- A comprehensive and well-designed form stack that has clear focus and validation states.
+- Modern CSS modules organized with CSS layers
+- Natural reading order via logical properties
+- Dynamic container and CSS grids for layout
+
+</div>
+<div>
+
+### Built-in components (vanilla and React)
+
+- Two Main Menu options
+- Mega menu
+- Fly-out menu
+- Backdrop
+- Lightbox
+- Track (multi-column carousel)
+- And more
+
+</div>
+</div>
+</div>
+
 <TextBlock>
 
 ### Codebase
 
-Natura11y’s codebase is designed to be minimal and easy to maintain. Core serves as the shared foundation for the ecosystem, with Sass organized by component, utility, and feature, and focused vanilla JavaScript classes handling interactive behavior. React uses the same styles and imports only the Core utilities it needs, rather than recreating them in a separate implementation.
+I aimed to keep the code base minimal and maintainable. I've seen the effects that technical debt can have on an organization's ability to progress. Have you ever watched the team struggle for 45 minutes to add an icon to an existing system? I have, and it's not fun.
 
 </TextBlock>
 
