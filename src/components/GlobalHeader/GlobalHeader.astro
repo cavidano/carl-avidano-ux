@@ -1,6 +1,7 @@
 ---
 import SiteLink from '../SiteLink.astro';
 import NavigationLinks from './NavigationLinks.astro';
+import UtilityButton from '../UtilityButton/index.astro';
 import './style.scss';
 ---
 
@@ -35,10 +36,7 @@ import './style.scss';
         <span class="button__text">Menu</span>
       </button>
 
-      <button class="global-header__theme button" type="button" data-theme-toggle>
-        <span class="icon icon-mode-light-dark" aria-hidden="true"></span>
-        <span class="button__text">Theme</span>
-      </button>
+      <UtilityButton class="global-header__theme" icon="mode-light-dark" label="Theme" data-theme-toggle />
 
       <nav class="global-header__nav display-none display-block--lg" id="primary-navigation" aria-label="Primary navigation">
         <ul class="nav nav--horizontal--lg font-size-md justify-content-end--lg flex-wrap--lg">

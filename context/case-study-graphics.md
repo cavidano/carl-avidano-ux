@@ -2,6 +2,66 @@
 
 Working review list · Updated October 2, 2026
 
+## October 4 — transparent mosaic export review
+
+**All three installed locally:** Carl approved the scientific-illustration preview and asked to replace the remaining mosaics and close Photoshop. Visionlearning's periodic-table figure now uses `visionlearning-periodic-table-lesson-adaptations.webp` (2000 × 1845, 292,054 bytes); Mr. Ellie Pooh's product-photo figure uses `mr-ellie-pooh-product-photography.webp` (2000 × 2331, 908,116 bytes). Both come from the verified transparent 2000 px exports, retain the existing figure markup, captions, and alt text, and render directly in `<figure>`. Browser checks confirmed the selected WebP URLs and full intrinsic dimensions. The periodic-table montage was visually checked at a 310 px rendered width; photography at 1120 px, with the dark green section showing through its gutters. Screenshots are `periodic-table-local-preview.png` and `product-photography-local-preview.png` in the export review folder. Photoshop was quit and its running state verified false. Original website JPEG/PNG files and PSD archives remain intact. These are local changes only; no publication, copy synchronization, or branch change was requested.
+
+**Local scientific-illustration trial:** Carl requested starting with this montage on the local website. `visionlearning.mdx` now references `src/images/visionlearning/visionlearning-scientific-illustrations.webp`, copied from the verified 2000 × 3007 transparent WebP (805,956 bytes). The original JPEG remains available during review. Browser verification confirmed the selected WebP is loaded at 2000 × 3007, renders at 1120 × 1683.91 in the current viewport, sits directly inside `<figure>`, and shows the section background through its gutters. The current Markdown image has no responsive `srcset`. Local preview: `output/figma-grid-export-review-2026-10-04/scientific-illustrations-local-preview.png`. Copy, captions, other figures, Confluence, and Hemingway are unchanged; no commit or publication.
+
+**Ongoing asset routine:** Carl wants to remove Photoshop from montage maintenance. Figma owns the separate images and their composition; export the original frame as a PNG master, then generate an optimized WebP for the site. Screenshots can use the site's existing figure/grid system. Keep PSDs as archival sources rather than a required export step.
+
+Carl confirmed **1800 px wide with 8 px gutters for all three compositions**: scientific illustrations (`1485:1189`), product photography (`1487:1189`), and periodic-table lesson adaptations (`1335:3121`). The earlier 1808 px request is superseded; the periodic-table frame is now 1800 × 1660.30 px. The current photography frame includes Carl’s intervening adjustments and is 1800 × 2097.87 px; the scientific frame remains 1800 × 2706.29 px.
+
+Native Figma 2× PNG exports, verified RGBA with transparent pixels and a 3600 px width, are saved in `output/figma-grid-export-review-2026-10-04/`. The scientific and photography exports used temporary transparent copies, removed after export; the scientific copy also clipped to the exact frame bounds to avoid extra empty export space. The original Figma frames and their image content remain intact. The connector download renders failed size/alpha verification and were overwritten by the native exports. Do not use connector previews as production graphics.
+
+Carl asked about a 2000 px total export width. Created 2000 px PNG and quality-90 WebP comparison copies from the native masters, preserving transparency. Measured decimal file sizes: product photography 11.75 MB PNG / 908 KB WebP; scientific illustrations 6.82 MB / 806 KB; periodic-table lessons 1.00 MB / 292 KB. The 3600 px PNG masters are 23.20 MB, 17.20 MB, and 1.53 MB respectively. Verified representative details at 100% in `quality-comparison-2000w.png`; full measurements are in `export-review.json`. These are review outputs only; website images have not been replaced or published.
+
+**Scope correction:** Carl means illustration/product-photo mosaics like these three, not browser galleries, phone mockups, research slides, or overlapping document/photo collages. An audit of the eight case-study MDX sources and current visuals found no additional matching mosaic. Do not broaden this request into reworking unrelated compositions.
+
+## October 4 — periodic-table composition spacing
+
+Carl requested [the existing periodic-table lesson adaptations frame `1335:3121`](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1335-3121) at **1808 px wide with 8 px gutters**. Updated that frame in place, preserving all seven images, their proportions, the existing arrangement, transparent gutters, and white mounts around the electron-structure examples. Top images are 900 px wide; all horizontal and vertical gaps, including the stacked electron examples, are 8 px. The complete frame is 1808 × 1667.65 px. Added auto-layout rows so spacing remains consistent. Verified the final Figma render in `output/visionlearning-illustrations-2026-10-04/periodic-table-1808-8px.png`. Website assets and publication are unchanged.
+
+## October 4 — individual Mr. Ellie Pooh photography exports
+
+**Current composition:** Carl requested the original arrangement at 1800 px wide with 8 px gutters, matching the Visionlearning treatment. [Frame `1487:1189`, `mr-ellie-pooh-product-photography`](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1487-1189) is 1800 × 2095.20 px: full-width holiday collection, two 896 px collection photos, then four 444 px square product photos. All gaps are 8 px, with the established green (`#004739`) background. Reused Carl’s three separately positioned collection photos and copied the four square images from the individual export board, which remains intact. Each photo is separately editable with its natural proportions and a 2× PNG export setting; the complete composition also has a 2× preset. Visually verified in `output/mep-photography-2026-10-04/composition-1800-8px.png`. No website replacement or deployment was requested.
+
+Carl requested the same individual 2× Photoshop export and Figma import workflow for the open Mr. Ellie Pooh product-photography artboard. Seven photos were exported from `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Mr. Ellie Pooh/masonry.psd`, artboard `mr-ellie-pooh-product-photography`, using a temporary 200% duplicate. The original PSD remains open and unchanged; the temporary copy was closed without saving.
+
+- Originals and source-layer manifest: `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Mr. Ellie Pooh/_for-figma/mr-ellie-pooh-product-photography-2x/`.
+- Names follow `mr-ellie-pooh-photography-<subject>.png`: `holiday-collection` (8000 × 4608), `notebooks-and-journals` and `note-boxes-and-pads` (3920 × 2618 each), plus `elephant-notebook`, `soap`, `paper-pulp-elephant`, and `plush-elephant` (1880 × 1880 each).
+- [Figma: Mr. Ellie Pooh — Individual product photography](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1479-1190), in a new Mr. Ellie Pooh section on the existing Case Studies page. Three collection photos are above the four square products. Each has a separate named frame and 2× PNG export setting; source crops and proportions are preserved.
+- Figma automatically reduced the holiday photo to 4096 × 2359 on import; its 8000 × 4608 original remains in the archive. The other six retain their exported pixel dimensions. The original files and Figma layout were verified. Preview: `output/mep-photography-2026-10-04/figma-product-photography.png`.
+
+This request did not change the website, Confluence, or Hemingway copy.
+
+## October 4 — individual Visionlearning illustration exports
+
+**Current composition:** At Carl’s request, arranged all nine images like the original composition in [frame `1485:1189`, `visionlearning-scientific-illustrations`](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1485-1189). The frame is exactly 1800 px wide and 2706.29 px tall, with two 896 px columns and 8 px gutters throughout, including the paired experiments. Animal cell, Miller–Urey, and RNA/DNA form the left column; plant cell, cell evolution, the two experiments, protein structure, and the periodic table form the right. All images remain separate named nodes with natural proportions and 2× PNG export settings. An additional 45.70 px of white space around the periodic table aligns the column bottoms without cropping or stretching. The background matches the original blue (`#42a6d7`). Visually verified in `output/visionlearning-illustrations-2026-10-04/composition-1800-8px.png`. This supersedes the earlier review arrangement and restoration dimensions below; the website is unchanged.
+
+**Later Figma restoration:** Carl ungrouped the illustration board and rearranged the individual images, then accidentally deleted the large Miller–Urey illustration. Restored it from the saved PNG as node `1481:1189` in Visionlearning section `1335:2622`, at 1100 × 1533.27 with 2× PNG export settings. The other images were not moved. [Restored illustration](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1481-1189). The earlier board link below is historical; its wrapper frames no longer exist.
+
+Carl requested nine separate 2× PNG exports from the open Photoshop source and an import into the existing Portfolio Figma file. This is asset preparation only; the website's illustration composition is unchanged.
+
+- Source: `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Visionlearning/masonry.psd`, artboard `visionlearning-scientific-illustrations`.
+- PNG originals and `manifest.json`: `/Volumes/CarlJohnnieHD/CarlHD/Design Portfolio/Visionlearning/_for-figma/visionlearning-scientific-illustrations-2x/`.
+- [Figma board: Visionlearning — Individual scientific illustrations](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1474-1189), within Case Studies → Visionlearning. The existing composite is preserved.
+- Nine independent image frames use the filename convention `visionlearning-illustration-<subject>`, natural proportions, and 2× PNG export settings. The three-row arrangement is for reviewing and selecting individual assets.
+
+| Subject / filename suffix | PNG pixels |
+| --- | --- |
+| animal-cell | 3920 × 2618 |
+| plant-cell | 3920 × 2618 |
+| miller-urey-experiment | 3920 × 5464 |
+| cell-evolution | 3916 × 1418 |
+| redi-experiment | 1878 × 986 |
+| broth-experiment | 1880 × 986 |
+| protein-structure | 3916 × 3916 |
+| rna-dna | 3920 × 3688 |
+| periodic-table | 3918 × 2522 |
+
+Exports were made from a temporary duplicate resized to 200% in Photoshop, retaining the embedded smart objects. The source PSD was not saved or overwritten. All nine file dimensions and imported images were verified, and the Figma arrangement was visually checked. Figma automatically reduced the tallest Miller–Urey image to 2939 × 4096 on import; its full-resolution 3920 × 5464 PNG remains in the export folder. Figma still has enough pixels for its current 1100 px-wide frame at 2×. Review image: `output/visionlearning-illustrations-2026-10-04/figma-illustrations.png`.
+
 ## Final refinements — lightbox previews
 
 **Released October 2:** Carl approved committing these refinements, merging into `main`, publishing, then returning to `codex/final-refinements`. Code commit `e39594a7447fc382885aa42d4582b108bb1cfa16` deployed successfully in [Cloudways run 37056250684](https://github.com/cavidano/carl-avidano-ux/actions/runs/37056250684). Review and production builds passed 27 tests, zero Astro errors/warnings, and the 117/54-page audits. All 41 live content pages match the downloaded production artifact; five scripts/stylesheets respond successfully, local code assets match the artifact byte-for-byte, and BNY's résumé matches its approved file. Live browser checks verified thumbnail focus, the 1200px image limit, scrolling, gallery animation, fading controls, dismissal during a slide, focus return, and BNY's shared viewer/backdrop behavior. Evidence is in ignored `output/final-refinements-release-2026-10-02/`. The local/unpublished statements below record implementation stages superseded by this release. Keep subsequent work on the existing `codex/final-refinements` branch.

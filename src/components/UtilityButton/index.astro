@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import './style.scss';
+
+interface Props extends HTMLAttributes<'button'> {
+  icon: string;
+  label: string;
+}
+
+const { icon, label, class: className, ...attributes } = Astro.props;
+---
+
+<button type="button" class:list={['button', 'utility-button', className]} {...attributes}>
+  <span class:list={['icon', `icon-${icon}`]} aria-hidden="true"></span>
+  <span class="button__text">{label}</span>
+</button>

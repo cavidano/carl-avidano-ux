@@ -32,17 +32,9 @@
   }
 
   &__theme {
-    --button-border-radius: var(--border-radius-pill);
-    --button-padding-x: 0.75em;
-    --button-padding-y: 0.375em;
-    --button-font-weight: var(--font-weight-normal);
-    --button-target-size: 2.25em;
-
     grid-area: theme;
     justify-self: end;
     align-self: start;
-    font-size: 1rem;
-    white-space: nowrap;
   }
 
   &__menu {
@@ -82,17 +74,17 @@
 
     &__menu,
     &__theme {
+      min-width: 0;
+      justify-self: stretch;
+    }
+
+    &__menu {
       --button-border-radius: var(--border-radius-1);
       --button-font-weight: var(--font-weight-bold);
       --button-target-size: 3rem;
       --button-padding-x: var(--spacer-2);
 
-      min-width: 0;
-      justify-self: stretch;
       font-size: var(--font-size-md);
-    }
-
-    &__menu {
       grid-area: menu;
       display: inline-flex;
     }

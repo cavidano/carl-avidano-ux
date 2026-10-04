@@ -1,0 +1,20 @@
+.utility-button {
+  --icon-size: 1em;
+  --button-border-radius: var(--border-radius-pill);
+  --button-padding-x: 0.75em;
+  --button-padding-y: 0.375em;
+  --button-font-weight: var(--font-weight-normal);
+  --button-target-size: 2.25em;
+
+  font-size: 1rem;
+  white-space: nowrap;
+
+  @media (max-width: 991px) {
+    --button-border-radius: var(--border-radius-1);
+    --button-font-weight: var(--font-weight-bold);
+    --button-target-size: 3rem;
+    --button-padding-x: var(--spacer-2);
+
+    font-size: var(--font-size-md);
+  }
+}
