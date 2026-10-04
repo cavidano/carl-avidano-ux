@@ -15,6 +15,12 @@ Researched September 26, 2026, at Carl's request. Use alongside the [Jared Spool
 
 The following is our synthesis and implementation, not a formula prescribed by any single source.
 
+### Positioning direction, October 4, 2026
+
+Carl wants to give greater prominence to management, mentoring, stakeholder alignment, strategic direction, and oversight of design quality. He also wants to retain evidence that he can execute the fine details. His technical and front-end experience should support his judgment, collaboration with developers, and ability to follow decisions through implementation; avoid repeatedly making front-end development the headline of his professional identity. He explicitly reaffirmed “working code” in the homepage blurb as an intentional part of this balance: it demonstrates execution, while the next sentence establishes management, mentoring, stakeholder alignment, and design-system experience. Do not remove that phrase merely to make the positioning sound more managerial.
+
+This is a change in emphasis, not a claim of new responsibilities. Keep management claims grounded in his verified experience with designers, and distinguish that from stakeholder leadership and independent design-system ownership. His interest in AI-assisted implementation motivates this direction; do not turn it into an unsupported claim that AI has replaced development work. Preserve approved copy until he requests a revision.
+
 ### Reuse the foundation and tailor the emphasis
 
 **Latest direction, September 28, 2026:** Tailor the application landing page and featured case-study selection. Reuse approved case-study narratives rather than revising them for every employer. This supersedes the earlier default of tailoring passages described below; retain that option only when Carl explicitly requests it. Publish the current main website first, then improve its case studies and update the application sites.
