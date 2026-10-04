@@ -1,5 +1,29 @@
 # The Drawing Board
 
+## October 4 — complete Hemingway revision synchronized for release
+
+Carl explicitly requested updating all copy everywhere, then making it live. Applied all remaining returned article revisions, including the approved presentation description (“How I worked with AJ Favors to introduce digital accessibility through practical examples.”), the intersection-of-identities correction, the monorepo's combined maintenance/AI motivation, and the expanded USWDS reference. Kept the reviewed contrast-theme accuracy corrections and ESR sound-description clarification. This supersedes all pending-application and local-only notes below.
+
+All seven shared MDX articles, their main Confluence pages **and saved editor copies**, and `output/hemingway/drawing-board/` exports now match. The listing summary export includes the new presentation description. Confluence versions: contrast themes **12**, social graphics **16**, presentation **5**, monorepo **11**, Gatsby-to-Astro **9**, navigation **6**, and ESR **11**. Preserved paragraphs, lists, headings, all 15 figures and captions, image descriptions, inline links, publication settings, and application selections. Both article drafts retain draft status; the logo draft remains excluded from Hemingway.
+
+Both builds passed 27 tests and zero Astro errors/warnings; generated-site audits covered 117 review pages and 54 production pages. An additional comparison matched every article's ordered paragraphs, headings, and list items to its Hemingway file in both builds. The seven main Confluence pages and seven saved editor copies match the planned HTML, allowing only platform-generated local IDs and list paragraph wrappers. Verification and pre-edit backups are in `output/article-copy-sync-2026-10-04/`. The authorized release also includes the previously synchronized UNICEF headline and the organized Hemingway exporter/workflow changes. GitHub deployment and live verification follow.
+
+## October 4 — ESR Hemingway revision and article review status
+
+Carl requested applying his returned “Creating inclusive captioning for ESR” article with the clarification that he added **descriptions** of polar bears roaring and heavy guitar music to the captions. The shared `src/content/drawing-board/creating-inclusive-captioning-for-esr.mdx`, main Confluence page **22052865 v11** and saved editor copy, and `output/hemingway/drawing-board/creating-inclusive-captioning-for-esr.md` now match. Verified all 13 ordered headline/heading/paragraph blocks on the local page. Both figures, captions, image descriptions, inline Plyr link, metadata, and publication setting are preserved. No commit or deployment. Local verification: `output/esr-hemingway-sync-2026-10-04/local-verified.json`.
+
+All seven published articles have now received Carl's returned Hemingway prose in this conversation. The final navigation-components revision was checked against main Confluence **23298049 v5**, current Core Flyout/overlay/nested-nav code, and public documentation. It preserves the supported keyboard, reduced-motion, hierarchy, and current-page behavior. Suggested only expanding USWDS to “U.S. Web Design System (USWDS)” on first use and splitting the inspiration/drill-down sentence; no article writes were requested or made. The Malar Stripe article remains a separate draft awaiting review. The CCF logo draft remains excluded from Hemingway by explicit request.
+
+Distinguish review from application: the contrast-theme revision is local and in Hemingway only (Confluence v11 still awaits sync); ESR is synchronized in all three working copies. Carl's returned social-graphics, accessibility-presentation, monorepo, Gatsby-to-Astro, and navigation-components revisions have been discussed and reviewed but have not been applied. Preserve those returned versions from the conversation for the next explicit copy-update request. The social-graphics correction explains intersecting identities, not the flag itself representing disability. Carl approved the accessibility presentation's card description: “How I worked with AJ Favors to introduce digital accessibility through practical examples.” Approval was part of a wording discussion; it has not been saved to the article metadata yet.
+
+## October 4 — contrast-theme article local review
+
+Carl supplied a complete Hemingway revision of “Preparing Natura11y for contrast themes (a.k.a. forced colors)” and explicitly requested applying it locally first. Updated its shared MDX and `output/hemingway/drawing-board/preparing-natura11y-for-contrast-themes-a-k-a-forced-colors.md`. Preserve his two opening paragraphs, separate focus-outline paragraph, and five-item testing list. All original figures, captions, inline links, metadata, and publication settings remain intact.
+
+Verified the focus-offset token and accordion inset, selected pill-tab system colors, transparent caret sides, disabled select colors, and Chromium/Firefox regression coverage against `/Users/carlavidano/Sites/natura11y`. The article retains the distinction between browser emulation and the checklist’s native Windows review. Three limited factual corrections accompany Carl’s wording: background colors are replaced with system colors while shadows are removed; “previously” marks Microsoft’s 4% installation statistic as historical; and the highlight colors apply to selected pill-shaped tabs. Sources: [MDN forced colors](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/forced-colors), [Microsoft contrast-theme settings](https://support.microsoft.com/en-us/accessibility/windows/change-color-contrast-in-windows), and [2019 CSSWG minutes](https://lists.w3.org/Archives/Public/www-style/2019Apr/0004.html).
+
+The local rendered article matches the Hemingway text in order, including paragraph breaks and all five list items. Main Confluence **21987329 v11** was read before editing and remains unchanged pending approval to synchronize. No GitHub commit or website deployment. Carl subsequently described the revision as a great improvement while discussing it; do not interpret that discussion alone as a new synchronization or release request.
+
 **Shared collection — October 1, 2026:** Main and every application load `src/content/drawing-board/*.mdx` directly. New published posts, edits, metadata, and topic membership carry through to all sites on the next deployment. Each application’s `articles.json` selects homepage features by source filename without `.mdx`; it does not filter the full listing. Separate application article copies are removed.
 
 Use this guide for writing conventions, implementation contracts, and article evidence. Read current Confluence and local copies before revising. Publication and synchronization checks recorded here are dated history, not fresh verification.
@@ -163,6 +187,21 @@ For paired figures, use `FigureSideBySide` with a `FigureSingle` for each image.
 
 </FigureSideBySide>
 ```
+
+## Hemingway review files
+
+Carl requested separate Hemingway folders for case studies and Drawing Board writing on October 4, 2026. Run `npm run export:hemingway` from the project root to refresh both collections.
+
+- `output/hemingway/case-studies/`: all eight case studies and `case-study-summaries.md`.
+- `output/hemingway/drawing-board/`: one Markdown file per article, using its source basename, plus `drawing-board-summaries.md` for the current listing introduction and published card descriptions in website order.
+
+Eight articles are exported: seven published posts and the draft “The Malar Stripe Project: building an accessible foundation for cheetah.org.” Including a draft for review does not publish or approve it. Carl clarified on October 4 that only the Hemingway export of “Refreshing the CCF logo” should be removed. Its local MDX draft remains unchanged, and the exporter excludes it from future Hemingway files. It has no main Confluence page.
+
+Exports preserve headlines, section headings, paragraphs, and lists. They omit figures, captions, image descriptions, dates, tags, useful-link panels, and implementation markup. Inline links retain their readable text. The listing descriptions stay in the summary file rather than being inserted into each article. The generated Markdown is local and Git-ignored; the tracked export command recreates it from the canonical website sources.
+
+When Carl explicitly requests a copy update, use `avidano-copy-sync` to update the source, matching main Confluence page, and Hemingway export together. Discussion does not trigger synchronization. Publishing remains a separate request.
+
+October 4 verification: all eight case-study narratives and seven published article exports match the rendered pages in order; all eight exported article bodies also match their MDX source, including the Malar Stripe draft. The nine existing case-study review files are byte-for-byte unchanged after moving. The listing export matches its seven published cards. Website sources and publication settings are unchanged. Verification records are in `output/hemingway-verification-2026-10-04/`.
 
 ## Editing in Confluence
 

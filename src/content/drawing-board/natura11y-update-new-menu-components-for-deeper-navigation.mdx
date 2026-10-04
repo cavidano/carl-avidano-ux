@@ -23,7 +23,12 @@ import nestedNavExample from '../../images/natura11y/natura11y-nested-navigation
 
 <TextBlock className="margin-x-auto">
 
-I added two navigation patterns to Natura11y for sites with multiple content levels: a flyout menu for moving between levels and nested navigation to group related pages. Both patterns draw inspiration from USWDS menu options, but I refined them—adding an out-of-the-box drill-down menu inside the flyout.
+I recently added two navigation patterns to Natura11y to support deeper navigation:
+
+- A flyout menu helps move between levels.
+- Nested navigation groups related pages.
+
+Both patterns were inspired by menu options in the U.S. Web Design System (USWDS). I added a ready-to-use drill-down menu inside the flyout.
 
 </TextBlock>
 
@@ -31,7 +36,7 @@ I added two navigation patterns to Natura11y for sites with multiple content lev
 
 ## Flyout menu
 
-The flyout opens a panel from the side of the screen. Choosing a section brings its links into view, with a back control to return to the previous level. Showing one level at a time gives a longer menu room to work on a small screen.
+The flyout opens a panel from the side of the screen. Selecting a section reveals its links, with a back control to return to the previous level. Displaying one level at a time allows a longer menu to fit on a small screen.
 
 </TextBlock>
 
@@ -46,9 +51,9 @@ The flyout opens a panel from the side of the screen. Choosing a section brings 
 
 <TextBlock className="margin-x-auto">
 
-I reused Natura11y’s shared overlay behavior to keep keyboard focus inside the open menu and return it to the opening control when the menu closes. Inactive panels stay out of the tab order, so someone using a keyboard moves through the choices currently on screen.
+I reused Natura11y’s shared overlay behavior to keep keyboard focus within the open menu and return it to the opening control when the menu closes. Natura11y excludes inactive panels from the tab order. Someone using a keyboard can navigate through the choices currently on screen.
 
-Escape closes the menu. The transitions also respect the person’s reduced-motion setting.
+Pressing Escape closes the menu. The transitions also respect the user’s reduced-motion setting.
 
 </TextBlock>
 
@@ -56,7 +61,7 @@ Escape closes the menu. The transitions also respect the person’s reduced-moti
 
 ## Nested navigation
 
-For someone already browsing a section, I added a sidebar that keeps its related pages visible. Indentation shows which pages sit beneath a parent, so the structure stays in view while someone chooses where to go next.
+For users already browsing a section, I added a sidebar that keeps related pages visible. Indentation shows which pages are under a parent, so the structure remains clear while users choose where to go next.
 
 </TextBlock>
 
@@ -71,8 +76,8 @@ For someone already browsing a section, I added a sidebar that keeps its related
 
 <TextBlock className="margin-x-auto">
 
-I used bold text and underlining to identify the current page, with a bar marking the active section. The markup also identifies the current page for assistive technology. Those cues connect a page to the section around it.
+I used bold text and underlining to highlight the current page, with a bar marking the active section. The markup also identifies the current page for assistive technology. These cues connect a page to the surrounding section.
 
-The component uses ordinary links in nested lists. People can Tab through the links and follow them with Enter, using the browser’s standard keyboard behavior.
+The component uses standard links in nested lists. Users can Tab through the links and follow them with Enter, using the browser’s standard keyboard behavior.
 
 </TextBlock>

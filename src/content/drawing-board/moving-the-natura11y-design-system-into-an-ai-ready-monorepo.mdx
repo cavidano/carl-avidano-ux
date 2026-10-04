@@ -24,9 +24,9 @@ import figmaContext from '../../images/natura11y/monorepo-figma-context.png';
 
 <TextBlock className="margin-x-auto">
 
-Natura11y had grown across separate repositories for its core framework, React components, icons, and documentation. Keeping them aligned took more effort, and an update was long overdue.
+Over the years, Natura11y had grown across separate GitHub repositories. Its core framework, React components, icons, and documentation each had their own. Keeping them aligned took more effort, and an update was long overdue.
 
-As I brought more <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/ai-and-design-systems/" LinkText="AI-assisted development" /> into my work, I wanted the tools to have reliable context. That meant making the code and guidance easier to find and trust.
+As I brought more <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/ai-and-design-systems/" LinkText="AI-assisted development" /> into my work, I saw an opportunity to address two needs at once. Bringing the code and guidance together would make Natura11y easier to maintain and give AI tools more reliable context.
 
 </TextBlock>
 
@@ -44,9 +44,9 @@ As I brought more <LinkOpenNew LinkUrl="https://bradfrost.com/blog/post/ai-and-d
 
 ## One workspace
 
-I moved Natura11y’s code and documentation into a <LinkOpenNew LinkUrl="https://github.com/Natura11y/root" LinkText="monorepo" />—one repository for related packages and applications. Now I could update a component, verify its examples, and revise its documentation in the same workspace.
+I moved Natura11y’s code and documentation into a <LinkOpenNew LinkUrl="https://github.com/Natura11y/root" LinkText="monorepo" />—one repository for related packages and applications. Now I can update a component, verify its examples, and revise its documentation all in the same workspace.
 
-I removed duplicate styles from the React setup so HTML and React components share Core’s styles. Storybook became the workbench for comparing their appearance and behavior.
+I removed duplicate styles from the React setup so that HTML and React components share Core’s styles. Storybook became the workbench for comparing their appearance and behavior.
 
 </TextBlock>
 
@@ -54,7 +54,7 @@ I removed duplicate styles from the React setup so HTML and React components sha
 
 ## Context for AI
 
-After the move, I continued adding context in Figma. Component descriptions explain intended use and accessibility behavior. Backdrop guidance, for example, explains overlay and stacked layouts and makes clear that Core controls the responsive breakpoint.
+After the move, I continued adding context in Figma. Component descriptions explain their intended use and accessibility behavior. Backdrop guidance shows overlay and stacked layouts. It also clarifies that Core controls the responsive breakpoint.
 
 </TextBlock>
 
@@ -69,7 +69,7 @@ After the move, I continued adding context in Figma. Component descriptions expl
 
 <TextBlock className="margin-x-auto">
 
-The Main Menu guidance separates Figma’s preview settings from the properties supported in React. That gives AI tools a clearer reference when translating a design into code.
+The Main Menu guidance separates Figma’s preview settings from the properties supported in React. This gives AI tools a clearer reference when translating a design into code.
 
 I also connected Figma variables to Core’s CSS names and documented which source to follow when design and code disagree. Production code is the authority for accessibility and behavior.
 
@@ -79,6 +79,6 @@ I also connected Figma variables to Core’s CSS names and documented which sour
 
 ## Result
 
-The code, examples, and design guidance now reinforce each other. I have clearer context to give AI tools and working components to check their output against. I’m still refining that guidance as I use it.
+The code, examples, and design guidance now reinforce each other. I have clearer context to give AI tools, along with working components to check their output against. I’m still refining that guidance as I use it.
 
 </TextBlock>

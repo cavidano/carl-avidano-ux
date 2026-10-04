@@ -21,7 +21,7 @@ import documentation from '../../images/natura11y/natura11y-docs-current.png';
 
 <TextBlock className="margin-x-auto">
 
-I moved Natura11y’s documentation from Gatsby to Astro to reduce unnecessary code and simplify maintenance. The site already paired guidance with working examples. I wanted a simpler setup behind those pages that would be easier to keep current as the design system grew.
+I moved Natura11y’s documentation from Gatsby to Astro to cut down on unnecessary code and make maintenance easier. The site already paired guidance with working examples. I wanted a simpler setup behind those pages that would be easier to keep up to date as the design system grew.
 
 </TextBlock>
 
@@ -39,11 +39,11 @@ I moved Natura11y’s documentation from Gatsby to Astro to reduce unnecessary c
 
 ## Removing Gatsby-specific code
 
-Gatsby had become a substantial dependency that was cumbersome to update. I was also maintaining custom components built for the Gatsby environment, which added another layer of code to look after.
+Gatsby had become a significant dependency that was hard to update. I was also maintaining custom components built for the Gatsby environment, which added another layer of code to manage.
 
-The migration let me remove that entire set of Gatsby-specific components and use lighter Astro components, with React where needed. Search, for example, runs as a React island: an interactive component within an Astro page.
+The migration let me get rid of all the Gatsby-specific components. Instead, I used lighter Astro components and added React where necessary. For example, search runs as a React island: an interactive component within an Astro page.
 
-I now use Natura11y’s own styles across the documentation interface and its examples. Removing the styles duplicated for Gatsby gives me fewer places to update and helps keep the documentation consistent with the system it describes.
+I now use Natura11y’s own styles across the documentation interface and its examples. By removing duplicate styles for Gatsby, I have fewer places to update. This also keeps the documentation consistent with the system it describes.
 
 </TextBlock>
 
@@ -53,6 +53,6 @@ I now use Natura11y’s own styles across the documentation interface and its ex
 
 The documentation now lives alongside Core, React, and Icons in Natura11y’s monorepo. It is part of the same shared ecosystem it describes. I can update a component and its guidance in one workspace, then check the rendered example as part of that work.
 
-That shared context also supports the AI-assisted workflow I’m developing: tools can work with the implementation and the guidance that explains it together. My goal is to make documentation updates a routine part of component changes.
+That shared context also supports the AI-assisted workflow I’m developing. Tools can work with the implementation alongside its guidance. My goal is to make documentation updates a routine part of component changes.
 
 </TextBlock>

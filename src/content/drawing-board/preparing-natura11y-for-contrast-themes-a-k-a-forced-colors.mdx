@@ -23,7 +23,9 @@ import polypaneContrastThemes from '../../images/natura11y/contrast-themes-polyp
 
 <TextBlock className="margin-x-auto">
 
-Natura11y needs to work when someone replaces its colors with a palette that makes their screen easier to read. Windows <LinkOpenNew LinkUrl="https://support.microsoft.com/en-us/accessibility/windows/change-color-contrast-in-windows" LinkText="contrast themes" /> let people make that choice, and browsers apply it through a mode called <LinkOpenNew LinkUrl="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/forced-colors" LinkText="forced colors" />. Microsoft previously reported that Windows High Contrast was enabled on 4% of Windows installations. I wanted to preserve the cues that help people use an interface—where a control begins, which tab is selected, and what an arrow means—while respecting their chosen colors.
+I recently updated Natura11y to support contrast themes. Contrast themes allow users to replace a website’s colors with their own custom palette. People usually do this to enhance readability, but they may also set it for personal preference.
+
+Windows <LinkOpenNew LinkUrl="https://support.microsoft.com/en-us/accessibility/windows/change-color-contrast-in-windows" LinkText="contrast themes" /> allow users to make this choice, and browsers implement it through a mode called <LinkOpenNew LinkUrl="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/forced-colors" LinkText="forced colors" />. Microsoft previously reported that Windows High Contrast was enabled on 4% of Windows installations.
 
 </TextBlock>
 
@@ -40,9 +42,9 @@ Natura11y needs to work when someone replaces its colors with a palette that mak
 
 ## Visible controls
 
-In forced colors mode, browsers remove effects such as box shadows. A button or panel that relies on a shadow or background fill can lose its visible boundary.
+In forced colors mode, browsers replace background colors with system colors and remove effects like box shadows. A button or panel that depends on a shadow or background fill can lose its visible boundary. Visible boundaries are important for usability. I added borders where those boundaries disappeared.
 
-I added borders where those boundaries disappeared, using the person’s system colors. Keyboard focus keeps its own outline, so it remains distinct from a component’s edge.
+The keyboard focus outline needed to stay separate from the new borders. Natura11y already had a token to control the outline’s position, which made this easy to adjust. I moved the outline inward where needed, leaving a clear gap between it and the component’s border.
 
 </TextBlock>
 
@@ -50,9 +52,9 @@ I added borders where those boundaries disappeared, using the person’s system 
 
 ## Clear states
 
-I adjusted tab dividers and selected styles so the active tab stays recognizable. Pill-shaped tabs use the system’s highlight and text colors.
+I modified tab dividers and selected-state styles to keep the active tab recognizable. Selected pill-shaped tabs use the system’s highlight and text colors.
 
-Dropdown and select arrows needed care because they are built with CSS borders. I kept the transparent sides transparent and used system colors for the visible part, including the disabled-text color for disabled selects.
+Dropdown and select arrows required careful attention because they are created with CSS borders. I left the side borders transparent. Then, I used system colors for the visible border. This included the disabled-text color for disabled selects.
 
 </TextBlock>
 
@@ -60,7 +62,7 @@ Dropdown and select arrows needed care because they are built with CSS borders. 
 
 ## Checking the work
 
-I use <LinkOpenNew LinkUrl="https://polypane.app/docs/emulation/" LinkText="Polypane" />, a browser for developing and testing websites, to emulate forced colors. It lets me check the same components in light and dark contrast themes side by side.
+I use <LinkOpenNew LinkUrl="https://polypane.app/docs/emulation/" LinkText="Polypane" />, a browser for developing and testing websites, to emulate forced colors. It allows me to check the same components in light and dark contrast themes side by side.
 
 </TextBlock>
 
@@ -75,9 +77,19 @@ I use <LinkOpenNew LinkUrl="https://polypane.app/docs/emulation/" LinkText="Poly
 
 <TextBlock className="margin-x-auto">
 
-I also added automated checks against the Storybook examples in Chromium and Firefox, covering boundaries, selected states, arrows, switches, and keyboard focus at different screen widths.
+I also added automated checks against the Storybook examples in Chromium and Firefox.
 
-Emulation helps catch problems during development. The <LinkOpenNew LinkUrl="https://github.com/Natura11y/root/blob/main/packages/core/FORCED-COLORS.md" LinkText="review checklist" /> also calls for checks with real Windows contrast themes in Edge and Firefox.
+These checks cover:
+
+- Boundaries
+- Selected states
+- Arrows
+- Switches
+- Keyboard focus
+
+They apply at different screen widths.
+
+Emulation helps identify problems during development. The <LinkOpenNew LinkUrl="https://github.com/Natura11y/root/blob/main/packages/core/FORCED-COLORS.md" LinkText="review checklist" /> also includes checks using real Windows contrast themes in Edge and Firefox.
 
 </TextBlock>
 
@@ -85,6 +97,6 @@ Emulation helps catch problems during development. The <LinkOpenNew LinkUrl="htt
 
 ## Result
 
-Core now holds these adjustments for both HTML and React components. The changes preserve useful visual cues while leaving the color palette to the person using the site.
+Core now includes these adjustments for both HTML and React components. The changes maintain useful visual cues while allowing the user to choose the color palette.
 
 </TextBlock>
