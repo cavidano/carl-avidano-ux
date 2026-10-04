@@ -127,12 +127,13 @@ const mainSiteCopy = [
   ...aboutData.workHistory.map(({ organization, role, period, highlights }) =>
     `#### ${organization} · ${role}\n\n${period}\n\n${highlights.map(highlight => `- ${highlight}`).join('\n')}`
   ),
-  resumeLabel,
+  `_${aboutData.earlierExperience}_`,
   `### ${softwareSkillsHeading}`,
   ...aboutData.softwareSkills.map(({ category, items }) =>
     `#### ${category}\n\n${items.map(item => `- ${item}`).join('\n')}`
   ),
-  `### ${contactHeading}\n\n- ${phone}\n- ${email}\n- ${linkedinLabel}`
+  `### ${contactHeading}\n\n- ${phone}\n- ${email}\n- ${linkedinLabel}`,
+  resumeLabel
 ];
 writeFileSync(join(output, 'main-site.md'), mainSiteCopy.join('\n\n') + '\n');
 console.log(`main-site.md: two homepage blurbs, full About narrative, ${aboutData.skills.length} expertise areas, ${aboutData.workHistory.length} work-history entries, and ${aboutData.softwareSkills.length} software-skills groups`);

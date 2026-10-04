@@ -17,6 +17,7 @@ const {
   portraitAlt = defaultAbout.frontmatter.portraitAlt,
   skills = defaultAbout.frontmatter.skills,
   workHistory = defaultAbout.frontmatter.workHistory,
+  earlierExperience = defaultAbout.frontmatter.earlierExperience,
   softwareSkills = defaultAbout.frontmatter.softwareSkills
 } = frontmatter;
 type WorkHistoryEntry = {
@@ -84,7 +85,7 @@ const mdxComponents = {
           <h2 class="h5 margin-bottom-0">Work history</h2>
 
           <div class="grid__colspan-2--lg font-size-md">
-            <div class="grid gap-4 margin-bottom-3">
+            <div class="grid gap-4">
               {workHistory.map(({ organization, role, period, highlights }: WorkHistoryEntry) => (
                 <div>
                   <h3 class="h6 margin-bottom-1">{organization} · {role}</h3>
@@ -95,10 +96,7 @@ const mdxComponents = {
                 </div>
               ))}
             </div>
-            <SiteLink class="button button--has-icon button--outline font-size-md" href="/resume-carl-avidano.pdf" download>
-              <span class="icon icon-file-download" aria-hidden="true"></span>
-              <span class="button__text">Full résumé (PDF)</span>
-            </SiteLink>
+            <p class="margin-top-3 margin-bottom-0"><em>{earlierExperience}</em></p>
           </div>
         </section>
 
@@ -120,8 +118,8 @@ const mdxComponents = {
         <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="get-in-touch">
           <h2 class="h5 margin-bottom-0">Get in touch</h2>
 
-          <div class="grid__colspan-2--lg font-size-md">
-            <ul class="nav gap-2 margin-bottom-4">
+          <div class="grid grid--column-2--md gap-4 grid__colspan-2--lg font-size-md">
+            <ul class="nav gap-2 margin-bottom-0">
               <li>
                 <SiteLink href={phoneHref}>{profile.phone}</SiteLink>
               </li>
@@ -133,6 +131,12 @@ const mdxComponents = {
               </li>
             </ul>
 
+            <div>
+              <SiteLink class="button button--has-icon button--outline font-size-md" href="/resume-carl-avidano.pdf" download>
+                <span class="icon icon-file-download" aria-hidden="true"></span>
+                <span class="button__text">Full résumé (PDF)</span>
+              </SiteLink>
+            </div>
           </div>
         </section>
       </div>
