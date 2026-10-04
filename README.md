@@ -23,6 +23,7 @@ The development server includes all registered applications. The current applica
 | `npm run build:review` | Validate and build all applications into `dist-review/`; audit the output |
 | `npm run preview:review` | Serve the separate review build locally |
 | `npm run check:site-links` | Recheck the existing production build |
+| `npm run export:hemingway` | Export main-site copy, case studies, and Drawing Board writing as plain Markdown for review |
 
 `build:review` includes application drafts, but retains the normal article publication rules. Article drafts marked `preview: true` appear only in the development server. Never deploy `dist-review/`.
 

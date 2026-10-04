@@ -83,3 +83,39 @@ const articleSummaries = [
 ];
 writeFileSync(join(drawingBoardOutput, 'drawing-board-summaries.md'), articleSummaries.join('\n\n') + '\n');
 console.log(`drawing-board-summaries.md: ${publishedArticles.length} cards in website order`);
+
+// Keep the main site's homepage blurbs and About copy together for writing review.
+const homepageSource = readFileSync(join(root, 'src/pages/index.astro'), 'utf8');
+const homepageBlurbs = [...homepageSource.matchAll(/<h3\b[^>]*>(Who I am|What I do)<\/h3>\s*<p\b[^>]*>([\s\S]*?)<\/p>/g)];
+assert.deepEqual(homepageBlurbs.map(([, title]) => title), ['Who I am', 'What I do'], 'Main homepage blurbs are missing or reordered.');
+
+const aboutSource = readFileSync(join(root, 'src/content/pages/about.mdx'), 'utf8');
+const aboutFrontmatter = aboutSource.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+assert(aboutFrontmatter, 'Main About frontmatter is missing.');
+const aboutData = parseYaml(aboutFrontmatter[1]);
+const aboutNarrative = cleanProse(aboutSource.slice(aboutFrontmatter[0].length), 'main-about');
+assert(!/^#{5,6} /m.test(aboutNarrative), 'About headings are too deeply nested for the combined export.');
+assert(Array.isArray(aboutData.skills) && aboutData.skills.every(skill => typeof skill === 'string'), 'Main About skills are missing.');
+const { name, pronouns, location, email, phone } = aboutData.profile;
+assert([name, pronouns, location, email, phone].every(value => typeof value === 'string'), 'Main About profile is incomplete.');
+
+const aboutPage = readFileSync(join(root, 'src/pages/about.astro'), 'utf8');
+const skillsHeading = aboutPage.match(/id="skills-and-expertise"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1];
+const contactHeading = aboutPage.match(/id="get-in-touch"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1];
+const resumeLabel = aboutPage.match(/<span class="button__text">([^<]+)<\/span>/)?.[1];
+const linkedinLabel = aboutPage.match(/<SiteLink\b[^>]*href="https:\/\/www\.linkedin\.com\/[^"]+"[^>]*>([^<]+)<\/SiteLink>/)?.[1];
+assert(skillsHeading && contactHeading && resumeLabel && linkedinLabel, 'Main About page labels are missing.');
+
+const mainSiteCopy = [
+  '# Main website copy',
+  '## Homepage',
+  ...homepageBlurbs.map(([, title, body]) => `### ${title}\n\n${cleanProse(body, 'main-homepage')}`),
+  '## About',
+  `${name}\n\n${pronouns}\n\nLocation: ${location}`,
+  aboutNarrative.replace(/^(#{1,4}) /gm, '##$1 '),
+  `### ${skillsHeading}\n\n${aboutData.skills.map(skill => `- ${skill}`).join('\n')}`,
+  resumeLabel,
+  `### ${contactHeading}\n\n- ${phone}\n- ${email}\n- ${linkedinLabel}`
+];
+writeFileSync(join(output, 'main-site.md'), mainSiteCopy.join('\n\n') + '\n');
+console.log(`main-site.md: two homepage blurbs, full About narrative, and ${aboutData.skills.length} skills`);
