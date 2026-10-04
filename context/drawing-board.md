@@ -1,10 +1,14 @@
 # The Drawing Board
 
+## October 4 — approved listing introduction
+
+Carl approved and explicitly requested synchronizing and publishing: “Quick reads on my creative process, collaborations, and what I’m working on. I also share small wins that don’t always fit into a neat case study.” This replaces only the introduction in `src/pages/drawing-board/index.astro`, which supplies all main/application listings and topic pages. Main Confluence **21954562 v8**, including its SEO description and saved editor copy, and `output/hemingway/drawing-board/drawing-board-summaries.md` match. Other Confluence content and its Children Display macro are preserved. Both builds passed 27 tests, zero Astro errors/warnings, and the 117/54-page audits; all 21 built listing/topic pages match the approved text. Evidence: `output/drawing-board-intro-release-2026-10-04/`. Carl requested the normal GitHub/main/deployment/refinements procedure; release verification follows.
+
 ## October 4 — complete Hemingway revision synchronized for release
 
 **Release verified:** **3270c7f518f4d8e6a9bb1d19d7872fe1dedf3f2d** is merged and pushed to `main` and `codex/final-refinements`, and live through [Cloudways run 37213578735](https://github.com/cavidano/carl-avidano-ux/actions/runs/37213578735). All 42 non-redirect index pages and 23 article images/résumé files checked match the exact GitHub production artifact. The workspace is back on `codex/final-refinements`. Local evidence: `output/article-copy-sync-2026-10-04/live-verified.json`. The release includes the approved UNICEF headline and organized Hemingway export workflow. All seven article revisions are complete; the Malar Stripe draft remains unpublished.
 
-Carl's next discussion is the Drawing Board listing introduction: he finds the opening “Quick reads on my creative process…” pretentious and unlike his voice. He explicitly clarified that the final sentence is fine: “I also share the smaller details that don’t always fit into a neat case study.” Preserve that sentence. He has requested a wording discussion, not another update or deployment. Keep the current introduction until a replacement is approved and its application requested.
+Carl subsequently clarified that the phrase he disliked was “as I build accessible interfaces and design systems.” He retained the rest of the opening, changed the subject to what he is working on, and replaced “the smaller details” with “small wins” in the final sentence. The approved version and release request are recorded above.
 
 Carl explicitly requested updating all copy everywhere, then making it live. Applied all remaining returned article revisions, including the approved presentation description (“How I worked with AJ Favors to introduce digital accessibility through practical examples.”), the intersection-of-identities correction, the monorepo's combined maintenance/AI motivation, and the expanded USWDS reference. Kept the reviewed contrast-theme accuracy corrections and ESR sound-description clarification. This supersedes all pending-application and local-only notes below.
 
