@@ -2,6 +2,8 @@
 
 ## October 4 — UNICEF headline update
 
+Published in **3270c7f** through [Cloudways run 37213578735](https://github.com/cavidano/carl-avidano-ux/actions/runs/37213578735), alongside the completed Drawing Board revisions. Both builds and live main/BNY pages were verified. The earlier local-only status below records the initial edit.
+
 Carl explicitly requested copy synchronization after changing the shared UNICEF `cardHeadline` to “Designing a collaborative fundraising platform used in over 80 countries.” Retained that exact source wording and synchronized the main UNICEF Confluence page **24444947 v25**, its saved editor copy, and both Hemingway files under `output/hemingway/case-studies/`: `unicef-case-study.md` and `case-study-summaries.md`. Only the headline changed. Verified the local UNICEF detail page and Case Studies listing, both Confluence headline occurrences, preservation of the remaining Confluence content and figures, and unchanged text in every other Hemingway export. Verification is in `output/unicef-headline-sync-2026-10-04/`. No commit or website deployment was requested for this change.
 
 ## October 4 — Mr. Ellie Pooh wireframe release and copy synchronization
