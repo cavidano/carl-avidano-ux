@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { posts = getDrawingBoardPosts(), currentTag } = Astro.props;
-const introduction = 'Quick reads on my creative process, collaborations, and what I’m working on. I also share small wins that don’t always fit into a neat case study.';
+const introduction = 'Quick reads on my creative process, collaborations, and what I’m currently working on. I also share small wins that don’t always fit into a neat case study.';
 const seoTitle = `${currentTag ? `${currentTag.name} • ` : ''}The Drawing Board • Carl Avidano`;
 const seoDescription = currentTag ? `${currentTag.name} articles from The Drawing Board.` : introduction;
 ---
