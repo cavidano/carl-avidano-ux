@@ -15,8 +15,20 @@ const {
   title = defaultAbout.frontmatter.title,
   description = defaultAbout.frontmatter.description,
   portraitAlt = defaultAbout.frontmatter.portraitAlt,
-  skills = defaultAbout.frontmatter.skills
+  skills = defaultAbout.frontmatter.skills,
+  workHistory = defaultAbout.frontmatter.workHistory,
+  softwareSkills = defaultAbout.frontmatter.softwareSkills
 } = frontmatter;
+type WorkHistoryEntry = {
+  organization: string;
+  role: string;
+  period: string;
+  highlights: string[];
+};
+type SoftwareSkillGroup = {
+  category: string;
+  items: string[];
+};
 const profile = { ...defaultAbout.frontmatter.profile, ...frontmatter.profile };
 const phoneHref = `tel:${profile.phone.replace(/[^\d+]/g, '')}`;
 const mdxComponents = {
@@ -57,18 +69,51 @@ const mdxComponents = {
         </section>
 
         <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-expertise">
-          <h2 class="h5 margin-bottom-0">Skills and experience</h2>
+          <h2 class="h5 margin-bottom-0">Expertise</h2>
 
           <div class="grid__colspan-2--lg">
-            <ul class="grid gap-2 font-size-md margin-bottom-3">
+            <ul class="grid gap-2 font-size-md margin-bottom-0">
               {skills.map((skill: string) => (
                 <li>{skill}</li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="work-history">
+          <h2 class="h5 margin-bottom-0">Work history</h2>
+
+          <div class="grid__colspan-2--lg font-size-md">
+            <div class="grid gap-4 margin-bottom-3">
+              {workHistory.map(({ organization, role, period, highlights }: WorkHistoryEntry) => (
+                <div>
+                  <h3 class="h6 margin-bottom-1">{organization} · {role}</h3>
+                  <p class="font-size-sm margin-bottom-2">{period}</p>
+                  <ul>
+                    {highlights.map((highlight) => <li>{highlight}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </div>
             <SiteLink class="button button--has-icon button--outline font-size-md" href="/resume-carl-avidano.pdf" download>
               <span class="icon icon-file-download" aria-hidden="true"></span>
-              <span class="button__text">Download Resume (PDF)</span>
+              <span class="button__text">Full résumé (PDF)</span>
             </SiteLink>
+          </div>
+        </section>
+
+        <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-software">
+          <h2 class="h5 margin-bottom-0">Skills and software</h2>
+
+          <div class="grid__colspan-2--lg grid grid--column-2--md gap-4 font-size-md">
+            {softwareSkills.map(({ category, items }: SoftwareSkillGroup) => (
+              <div>
+                <h3 class="h6 margin-bottom-2">{category}</h3>
+                <ul class="grid gap-1 margin-bottom-0">
+                  {items.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+            ))}
           </div>
         </section>
 
