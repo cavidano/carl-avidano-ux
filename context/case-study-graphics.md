@@ -347,6 +347,16 @@ The review build passed 26 tests, zero Astro errors/warnings, and the 117-page s
 
 ## Mr. Ellie Pooh
 
+**October 4 — reviewed Balsamiq wireframes:** Four native high-resolution PNG exports precede the hi-fi gallery. The Results divider is restored; “Exploring the layout,” its client-exploration paragraph, and the wireframe gallery sit outside green. “Website design and development,” its design-strategy paragraphs, and the hi-fi gallery sit inside green. Uses `CaseStudyScreens`, four columns, portrait `ratio="18 / 25"`, individual full-image lightboxes, and no visible labels. Latest exports preserve Carl’s final square-product layouts and native sticky notes. Source master: `output/mr-ellie-pooh-wireframes/Mr-Ellie-Pooh-Design-Explorations.bmpr`. Approved export folder: `output/mr-ellie-pooh-wireframes/exports/approved-20261004-093625/`. Source PNGs live in `src/images/mr-ellie-pooh/wireframes/`, with byte-identical archive copies under `Case Studies/Mr. Ellie Pooh/Final Used Images/`. See [native review and provenance](case-studies.md#october-4--mr-ellie-pooh-desktop-wireframe-review). Local review; not published or synchronized to Confluence yet.
+
+| Final filename | Dimensions |
+| --- | --- |
+| `mr-ellie-pooh-wireframe-homepage.png` | 2560 × 4310 |
+| `mr-ellie-pooh-wireframe-product-category.png` | 2800 × 6432 |
+| `mr-ellie-pooh-wireframe-product-detail.png` | 2800 × 4552 |
+| `mr-ellie-pooh-wireframe-why-sri-lanka.png` | 2800 × 4432 |
+
+
 **October 2 — individual storefront screens:** Carl requested trying the shared grid while considering whether to retain this case study. Keep it on the general portfolio for now; he expects it would rarely be selected for a custom application. No application selection or publication setting was changed. Its commerce, photography, artisan visit, and fair trade story remain under review, with no narrative rewrite authorized in this pass.
 
 Replaced only `mr-ellie-pooh-masonry-key-pages.jpg` with four individual screens: homepage, product category, product detail, and Papermakers and Artisans. Uses the existing `CaseStudyScreens` component, two columns, square desktop previews through `ratio="1 / 1"`, individual lightboxes, and no visible labels. Square previews accommodate the shorter product page without an empty band beneath it. Mobile shows the full images stacked. Original composition retained for comparison; mobile mockups, factory photos, carousel feature, product-photo composition, prose, and results remain unchanged. Current Confluence page 24576001 v15 was read before editing. Local only; Confluence figure synchronization remains pending review.

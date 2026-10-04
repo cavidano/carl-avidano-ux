@@ -32,8 +32,12 @@ import homepage from '../../images/mr-ellie-pooh/screens/mr-ellie-pooh-screen-ho
 import productCategory from '../../images/mr-ellie-pooh/screens/mr-ellie-pooh-screen-product-category.webp';
 import productDetail from '../../images/mr-ellie-pooh/screens/mr-ellie-pooh-screen-product-detail.webp';
 import papermakers from '../../images/mr-ellie-pooh/screens/mr-ellie-pooh-screen-papermakers-and-artisans.webp';
+import homepageWireframe from '../../images/mr-ellie-pooh/wireframes/mr-ellie-pooh-wireframe-homepage.png';
+import productCategoryWireframe from '../../images/mr-ellie-pooh/wireframes/mr-ellie-pooh-wireframe-product-category.png';
+import productDetailWireframe from '../../images/mr-ellie-pooh/wireframes/mr-ellie-pooh-wireframe-product-detail.png';
+import sriLankaWireframe from '../../images/mr-ellie-pooh/wireframes/mr-ellie-pooh-wireframe-why-sri-lanka.png';
 
-<CaseStudyOverview caseStudy={frontmatter.caseStudy} showDivider={false}>
+<CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
 ## Challenge
 
@@ -57,13 +61,37 @@ Mr. Ellie Pooh reported a **10x** increase in sales after launch. The redesigned
 
 <TextBlock>
 
-## Website design and development
+## Exploring the layout
 
-I used Balsamiq wireframes to plan how shopping and the company's story would share the homepage. Retail and wholesale customers had separate entry points. The early layouts also made room for elephant conservation, fair trade, and an explanation of how the paper was made.
+I used low-fidelity Balsamiq mockups to explore how shopping and the artisans' story could fit together. They helped me show the client how product pages could introduce the people behind the work. The layouts also explored ways to explain the papermaking process and its connection to elephant conservation.
 
 </TextBlock>
 
+<CaseStudyScreens
+  columns={4}
+  ratio="18 / 25"
+  lightbox={true}
+  showLabels={false}
+  caption="Wireframe layouts for the homepage, product category, product detail, and Why Sri Lanka page."
+  screens={[
+    { src: homepageWireframe, label: 'Homepage wireframe', alt: 'Homepage wireframe with retail and wholesale shopping links, elephant conservation content, and a diagram of the papermaking process.' },
+    { src: productCategoryWireframe, label: 'Product category wireframe', alt: 'Notebooks and Journals wireframe with category navigation and a three-column product grid.' },
+    { src: productDetailWireframe, label: 'Product detail wireframe', alt: 'Product detail wireframe with image placeholders, purchasing controls, and an introduction to the artisans.' },
+    { src: sriLankaWireframe, label: 'Why Sri Lanka wireframe', alt: 'Why Sri Lanka wireframe with an elephant photo placeholder, a founder quote, and space for the conservation story.' }
+  ]}
+/>
+
 <ThemeWrapper>
+<TextBlock>
+
+## Website design and development
+
+I gave the storefront a simple, industrial feel. A clear grid and straight-edged panels let the colorful handmade products stand out. I created a repeating background pattern from the texture of Mr. Ellie Pooh's own paper. It added warmth and connected the design to the products themselves.
+
+Retail and wholesale customers had separate entry points. Product categories organized the catalog, while homepage features introduced the artisans, fair trade, and elephant conservation.
+
+</TextBlock>
+
 <CaseStudyScreens
   columns={2}
   ratio="1 / 1"
