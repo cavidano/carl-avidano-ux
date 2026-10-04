@@ -65,6 +65,8 @@ When Carl supplies revised copy, check factual accuracy and grammar before savin
 
 During a wording discussion, return the requested text in chat. Approval of a passage alone is not a request to synchronize files or Confluence; wait for an explicit request to update or save. Carl clarified this on October 4 during the LADRC review, then explicitly authorized applying his complete revision. Respect his direct confirmation of delivered work rather than limiting an outcome to the artifacts available in the archive.
 
+Keep concise writing proportionate to the actual work. On October 4, Carl emphasized that his portfolio must stop underselling his contribution. Name the verified platform changes, authoring capabilities, organizational scope, and design responsibility; do not compress them into a generic website-redesign summary. For CCF, the central work includes WordPress Multisite, ACF Flexible Content modules reused across pages and templates, staff publishing tools, and the visitor experience for a global organization. Accuracy includes stating the full supported scope, with appropriate individual and team attribution.
+
 These are project-specific applications of the principles, alongside Jared Spool's guidance and Carl's existing editorial requirements:
 
 | Content | What the reader should understand |
