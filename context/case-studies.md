@@ -1,5 +1,13 @@
 # Case studies
 
+## October 4 — LADRC full Hemingway revision
+
+Carl supplied the complete revised narrative and explicitly asked for it to be updated. Main Confluence **24543233 v19**, shared MDX, and `output/hemingway/ladrc-case-study.md` now match. Current and saved-editor Confluence readbacks are verified. All headings, paragraph structure, research-method bullets, figures, captions, image descriptions, and the Optimal Workshop link are preserved.
+
+Carl explicitly confirmed that the website was updated. Preserve Results exactly as supplied: “The findings gave LADRC clear priorities for improving access to legal resources. We made search easier to find on mobile. We clarified navigation labels and improved usability of resource cards across the site.” The earlier restriction to “In the wireframes” was an incorrect limitation and is superseded. Do not reintroduce it or turn the result back into an activity list. No numerical performance claims were added.
+
+Limited cleanup: identify LADRC instead of the ambiguous “They”; remove the double space in Solution; fix the quotation-mark typo after the remote-testing label; use past tense in the wireframe paragraph; retain analytics as the source of the visitor finding; clarify that content within disaster pages was organized; keep “found useful” for the On This Page links; use “conducted research with users”; preserve the reflection's qualifications about opportunities that might have been missed and feedback that can be consistent. Results is unchanged from Carl's latest submission. Carl approved the local version and explicitly requested merging to main and publishing. Release verification is in progress. Refreshed `output/hemingway/cheetah-conservation-fund-case-study.md` from the current source before beginning the release; all headline, heading, and body text matches fresh CCF Confluence v22. The CCF narrative remains unchanged for his Hemingway review.
+
 ## October 4 — publish the current case studies and synchronize Confluence
 
 Carl explicitly authorized merging all current work into `main` and publishing the portfolio as it stands. No additional narrative rewrite is requested. Reviewed the current main Confluence pages and compared them with the generated website; corrected four stale Visionlearning paragraphs, retaining the separate logo-color paragraph and supplying its exact periodic-table image description beside the figure because Confluence drops that image's colon-bearing alt attribute. The image retains its equivalent hyphenated alt. All other case-study narratives already matched.

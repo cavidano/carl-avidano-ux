@@ -63,6 +63,8 @@ Explain the main content on the web page. A résumé PDF can provide a downloada
 
 When Carl supplies revised copy, check factual accuracy and grammar before saving it. Preserve his paragraph breaks as well as his short sentences and intended attribution. Correct ambiguous pronouns and inconsistent tense without inventing a cause, result, or actor. Carl explicitly reaffirmed these requirements during the UNICEF review on October 3, 2026.
 
+During a wording discussion, return the requested text in chat. Approval of a passage alone is not a request to synchronize files or Confluence; wait for an explicit request to update or save. Carl clarified this on October 4 during the LADRC review, then explicitly authorized applying his complete revision. Respect his direct confirmation of delivered work rather than limiting an outcome to the artifacts available in the archive.
+
 These are project-specific applications of the principles, alongside Jared Spool's guidance and Carl's existing editorial requirements:
 
 | Content | What the reader should understand |
