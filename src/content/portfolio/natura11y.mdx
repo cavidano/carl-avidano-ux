@@ -25,6 +25,7 @@ caseStudy:
       href: 'https://gonatura11y.com/'
 ---
 
+import { Image } from 'astro:assets';
 import LightboxImage from '../../components/LightboxImage.astro';
 import CaseStudyScreens from '../../components/CaseStudyScreens/index.astro';
 import backdropDocumentation from '../../images/natura11y/screens/natura11y-screen-documentation-backdrop.webp';
@@ -41,28 +42,31 @@ import verdantTrailsExample from '../../images/natura11y/screens/natura11y-scree
 import oceanicPulseExample from '../../images/natura11y/screens/natura11y-screen-example-oceanic-pulse.webp';
 import designSystemArchitecture from '../../images/natura11y/design-system-architecture.jpg';
 import colorSystem from '../../images/natura11y/natura11y-figma-color-system.png';
+import typeScaleVisualizer from '../../images/natura11y/natura11y-type-scale-visualizer.png';
+import inTheWild from '../../images/natura11y/natura11y-in-the-wild.png';
 
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
 ## Why Natura11y?
 
-The Natura11y Design Ecosystem is an open-source toolkit. It helps teams design, build, and maintain inclusive user interfaces. Natura11y began as a collection of artifacts from front-end development tutorials.
+The Natura11y Design Ecosystem is an open-source toolkit. It helps you design, build, and maintain inclusive user interfaces.
 
-At the time, I was working at NYC OTI and becoming more interested in front-end development and digital accessibility. I spent much of my time learning HTML, CSS, and vanilla JavaScript through online tutorials. Instead of following these tutorials exactly, I began applying lessons from these exercises to my own system.
+Natura11y began as a collection of artifacts from front-end development tutorials. At the time, I was working at NYC OTI and becoming more interested in front-end development and digital accessibility. I spent much of my time learning HTML, CSS, and JavaScript through online tutorials. I began applying lessons from these exercises to my own system.
 
 Eventually, I had a large enough library, and Natura11y was born.
 
+I created Natura11y to explore my own approach to building and customizing inclusive interfaces.
 I saw an opportunity to combine my interests in accessibility and front-end development. On top of that, I felt that I was creating something with lasting value.
 
-I created Natura11y to explore my own approach to building and customizing inclusive interfaces.
+## Design ecosystem
 
-You can customize Natura11y in different ways depending on your skills and project needs. For example, you can use Natura11y to create a simple website theme or a complete AI-ready enterprise design system.
+Natura11y brings together the tools I use to design, build, test, and document interfaces. Its design libraries, styles, icons, and interactive components connect design decisions to working code. I call it a design ecosystem because these parts support one another and stay connected as the system grows.
 
-## Result
+<FigureSingle isContained={false} margin='margin-top-4 margin-bottom-0'>
 
-Natura11y is now an open-source ecosystem that I maintain and use in client work, including Visionlearning’s latest redesign and the ongoing redesign of Cheetah Conservation Fund’s website. It gives me established patterns to build on while leaving room for each project’s requirements.
+![Figma, HTML5, Sass, webpack, JavaScript, React, and Storybook logos.](../../images/natura11y/natura11y-design-ecosystem-logos.png)
 
-I designed and developed the original core before generative AI became part of my workflow. Today, I use AI to help maintain and update the system, drawing on its working components, documentation, and the design decisions I’ve made along the way.
+</FigureSingle>
 
 </CaseStudyOverview>
 
@@ -84,44 +88,19 @@ As Natura11y grew, I set it up as a monorepo. This keeps its framework, React co
 
 </FigureSingle>
 
-<div class="container wide margin-y-5">
-<div class="grid grid--column-2--lg gap-5">
-<div>
-
-### Out of the box
-
-- a one-of-a-kind dynamic color system that makes theming easy and reduces repetition
-- Intuitive, simple type scale that's adjustable at any breakpoint (with only two variables)
-- A customizable icon library designed in Figma and published as its own package
-- A comprehensive and well-designed form stack that has clear focus and validation states.
-- Modern CSS modules organized with CSS layers
-- Natural reading order via logical properties
-- Dynamic container and CSS grids for layout
-
-</div>
-<div>
-
-### Built-in components (vanilla and React)
-
-- Two Main Menu options
-- Mega menu
-- Fly-out menu
-- Backdrop
-- Lightbox
-- Track (multi-column carousel)
-- And more
-
-</div>
-</div>
-</div>
-
 <TextBlock>
 
 ### Codebase
 
-I aimed to keep the code base minimal and maintainable. I've seen the effects that technical debt can have on an organization's ability to progress. Have you ever watched the team struggle for 45 minutes to add an icon to an existing system? I have, and it's not fun.
+I aimed to keep the codebase minimal and maintainable. I've seen the effects that technical debt can have on an organization's ability to progress. Have you ever watched a team struggle for 45 minutes to add an icon to an existing system? I have, and it's not fun.
 
 </TextBlock>
+
+<FigureSingle>
+
+![Natura11y code example in IDE](../../images/natura11y/natura11y-code-ide-example.png)
+
+</FigureSingle>
 
 <TextBlock>
 
@@ -171,7 +150,7 @@ Themes can be changed without changing a component’s structure. Themes can als
 
 <TextBlock>
 
-Those relationships also let the same interface adapt to light and dark mode. In the [Oceanic Pulse example](https://natura11y.github.io/root/packages/core/dist/html/examples/oceanic-pulse-newsroom/), backgrounds, text, borders, and links change together with the viewer’s system preference, while the layout stays the same.
+Those relationships also let the same interface adapt to light and dark mode. In the <LinkOpenNew LinkUrl="https://natura11y.github.io/root/packages/core/dist/html/examples/oceanic-pulse-newsroom/" LinkText="Oceanic Pulse example" />, backgrounds, text, borders, and links change together with the viewer’s system preference, while the layout stays the same.
 
 </TextBlock>
 
@@ -195,6 +174,28 @@ Those relationships also let the same interface adapt to light and dark mode. In
 
 <TextBlock>
 
+## A type scale with two variables
+
+I designed Natura11y’s type scale around two variables: the smallest font size and a multiplier that sets each step up. Changing these values adjusts headings and body text together. Both can change at any breakpoint, so the scale can adapt to the available space without setting each font size separately.
+
+The <LinkOpenNew LinkUrl="https://gonatura11y.com/type-scale/" LinkText="Type Scale Visualizer" /> lets you try different combinations and see the resulting sizes.
+
+</TextBlock>
+
+<FigureSingle width='medium' caption="The Type Scale Visualizer shows the heading and body sizes generated by two variables.">
+
+<Image
+  src={typeScaleVisualizer}
+  alt="Natura11y’s Type Scale Visualizer in a browser in dark mode, with base font size set to 16 pixels and type scale set to 1.2. Heading and body-text samples show the resulting sizes in pixels and rem."
+  quality={90}
+/>
+
+</FigureSingle>
+
+<Divider />
+
+<TextBlock>
+
 ## Icon library
 
 Natura11y includes its own icon library. The icon package is versioned alongside the source repository and contains the original vectors, also included in the Figma libraries. This allows designers and developers to easily add, modify, or update icons while ensuring design consistency across projects.
@@ -205,6 +206,24 @@ Natura11y includes its own icon library. The icon package is versioned alongside
 
 ![Depiction of the Natura11y icon detail page](../../images/natura11y/project-tour-icons.png)
     
+</FigureSingle>
+
+<Divider />
+
+<TextBlock>
+
+## Forms with clear focus and feedback
+
+I designed Natura11y’s form controls around consistent labels, help text, and visible keyboard focus. Required fields are marked before someone starts filling out a form. When information is missing, validation adds a warning icon and a specific message beside the field. Focus moves to the first field that needs attention, helping people find where to begin.
+
+The <LinkOpenNew LinkUrl="https://gonatura11y.com/docs/form/" LinkText="form documentation" /> includes working examples of text fields, selection controls, file uploads, and validation.
+
+</TextBlock>
+
+<FigureSingle width='narrow' caption="Required-field feedback alongside a visible focus indicator on the Name field.">
+
+![Close-up of Natura11y’s Name, Email, and Phone fields in light mode, showing required indicators, warning icons, field-specific error messages, and a blue focus outline around Name.](../../images/natura11y/natura11y-form-validation.png)
+
 </FigureSingle>
 
 <Divider />
@@ -243,16 +262,6 @@ The hi-fi kit’s foundation variables correspond to Natura11y’s CSS variables
 
 <Divider />
 
-<TextBlock>
-
-## A foundation for custom design systems
-
-Natura11y can become a project’s own design system. Colors, typography, spacing, and component details can be customized through CSS variables, while the hi-fi Figma library provides a corresponding design foundation.
-
-A project stylesheet loads after Core and defines its own visual identity. The shared components and interaction patterns remain available, giving each project a starting point that can be extended around its needs.
-
-</TextBlock>
-
 <ThemeWrapper>
 <TextBlock>
 
@@ -280,7 +289,7 @@ Nature photography, selected from Unsplash with photographer credits, gives the 
 
 ## Templates and examples
 
-Templates offer unbranded, full-page layouts for common page types, providing accessible structure and best practices out of the box. Examples, in contrast, are small, branded comps designed to inspire; they show how Natura11y can be styled for different brands or aesthetics. Together, templates serve as blueprints while examples illustrate how styling works within Natura11y.
+Templates offer unbranded, full-page layouts for common page types, providing accessible structure and best practices out of the box. Examples are small, branded designs that show how Natura11y can be styled for different visual identities.
 
 </TextBlock>
 
@@ -338,13 +347,13 @@ I describe this work in more detail in [Moving the Natura11y design system into 
 
 ## In the wild
 
-Natura11y is not just a personal framework or design exercise. I use it on real client projects to move from early design ideas to accessible, production-ready interfaces with a shared foundation for design and code.
+Natura11y has been part of my work for several years, across projects of different sizes. I used it for Visionlearning and, more recently, Endangered Species Revenge, and I’m using it as the starting point for Cheetah Conservation Fund’s new design system. It also supports The Narrative Authority, Avidano Digital, and this portfolio.
 
 </TextBlock>
 
 <FigureSingle>
 
-![Real-world projects built with Natura11y](../../images/natura11y/a11y-in-the-wild.png)
+<Image src={inTheWild} quality={90} alt="Six browser windows showing Cheetah Conservation Fund’s design preview, Visionlearning, Endangered Species Revenge, The Narrative Authority, Avidano Digital, and this portfolio." />
     
 </FigureSingle>
 
@@ -352,7 +361,7 @@ Natura11y is not just a personal framework or design exercise. I use it on real 
 
 ## Reflection
 
-Natura11y did not begin as a complete design ecosystem. It grew through years of client work, experimentation, and iteration. As accessibility and design systems became part of my daily practice, Natura11y gave me a way to deepen those skills while building a reusable foundation shaped by the needs of real projects.
+Building Natura11y has deepened my understanding of accessibility and the relationship between design and code. Maintaining it means working through the details behind each component, then keeping its implementation, Figma library, and documentation aligned. That work continues alongside the projects that use it.
 
 </TextBlock>
 
