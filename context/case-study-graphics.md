@@ -1,6 +1,88 @@
 # Case-study graphics
 
-Working review list · Updated October 2, 2026
+Working review list · Updated October 4, 2026
+
+## October 4 — Portfolio Figma case-study organization
+
+Carl requested a cleanup of the existing Portfolio file, including the marquees and interwoven presentation compositions. The [Case Studies page](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1335-1973) now contains all **54 current standalone static figures and marquees** in eight correctly named project sections. Following Carl's refinement, every section is **9600 × 19200 px**, arranged in one horizontal row with 800 px gaps in the website's sort order: Phoenix.gov, Visionlearning, Natura11y, Cheetah.org, NYC OTI, LADRC, Mr. Ellie Pooh, UNICEF. Each project has **01 — In use on the website** at the top, in narrative order, and **02 — Drafts, sources and unused artwork** aligned 160 px above the section's bottom. Retained source material includes duplicate marquees. Leave the intentional empty space; do not shrink sections to content. The second section formerly labeled UNICEF is now Natura11y. Cheetah.org, NYC OTI, and LADRC sections were created.
+
+Existing artwork was moved from Marquee, Interwoven Presentations, Brand, Device Figures, Mobile Showcase, Project Tour, and the UNICEF source catalog. The shared monorepo/Figma guidance frame now lives in Natura11y; it is also used by a Drawing Board article. Original editable compositions and IDs were retained. The three 1800 px montage frames and their internal gutters were not redesigned. Current individual CaseStudyScreens galleries and animation files were excluded. Other source catalogs, gallery source images, and unrelated design-system components remain on their existing pages.
+
+Six website source assets were added where a matching current standalone figure was missing from the working sections: LADRC resource cards; Natura11y architecture, color system, and light/dark Oceanic Pulse examples; UNICEF implementation review. These are image-filled frames containing the actual website files, with full aspect ratios and FIT fills, not newly editable vector reconstructions. Preserve that distinction. The imported originals are not Figma preview screenshots.
+
+At Carl's request, ESR, DevSmart Group, and Reingold artwork now lives on the new [Archive page](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1502-2143), not Case Studies. Existing sections retain IDs `1500:2033` (ESR), `1500:2035` (DevSmart Group), and `1500:2037` (Reingold). They contain eight compositions: four ESR marquees/device/mobile compositions, two DevSmart marquees, and two Reingold marquees, including the one previously on Scratchpad. Drawing Board articles and their current artwork remain active. The now-empty Marquee page was removed. No artwork was deleted. Existing generic source image names were retained where identity was uncertain; current figure names were made descriptive where needed.
+
+Validation: all 54 planned figures have the expected project ancestor, no loose nodes remain on Case Studies, no project sections overlap, original composition sizes were preserved, and final Natura11y, Mr. Ellie Pooh, and Cheetah boards were visually checked. The uniform-layout follow-up verified eight identical section sizes, website ordering, a common top alignment, the bottom-aligned draft areas, and all 54 current figures retained. Visionlearning's complete section was visually checked. Record and source manifest: `output/figma-organization-2026-10-04/`. This was a Figma organization task; no website asset replacement, copy synchronization, build, commit, or deployment occurred.
+
+| Project | Section ID | Current figures |
+| --- | --- | ---: |
+| Phoenix.gov | 1335:2619 | 5 |
+| Visionlearning | 1335:2622 | 8 |
+| Natura11y | 1450:1092 | 16 |
+| Cheetah.org | 1498:1189 | 6 |
+| NYC OTI | 1498:1190 | 1 |
+| LADRC | 1498:1191 | 4 |
+| Mr. Ellie Pooh | 1479:1189 | 5 |
+| UNICEF | 1380:1054 | 9 |
+
+### Current standalone figure map
+
+| Project | Figma artwork name | Node ID |
+| --- | --- | --- |
+| phoenix | `marquee-phoenix` | `1335:2001` |
+| phoenix | `phoenix-research-overview` | `1309:1332` |
+| phoenix | `phoenix-department-user-stories` | `1328:1333` |
+| phoenix | `phx-sitemap` | `409:1363` |
+| phoenix | `PHX-tree-testing-ppt` | `360:162` |
+| visionlearning | `marquee-visionlearning` | `1335:1974` |
+| visionlearning | `visionlearning-logo-old` | `1359:3446` |
+| visionlearning | `visionlearning-logo-new` | `1359:3495` |
+| visionlearning | `visionlearning-brand-guidelines` | `1360:3560` |
+| visionlearning | `visionlearning-content-map` | `1301:435` |
+| visionlearning | `visionlearning-mobile-spanish` | `1335:2897` |
+| visionlearning | `visionlearning-scientific-illustrations` | `1485:1189` |
+| visionlearning | `visionlearning-periodic-table-lesson-adaptations` | `1335:3121` |
+| natura11y | `marquee-natura11y` | `1335:1977` |
+| natura11y | `natura11y-design-ecosystem-logos` | `1450:1056` |
+| natura11y | `design-system-architecture` | `1499:2909` |
+| natura11y | `natura11y-code-ide-example` | `213:196` |
+| natura11y | `storybook-flyout` | `1185:295` |
+| natura11y | `storybook-form` | `1186:380` |
+| natura11y | `natura11y-figma-color-system` | `1499:2907` |
+| natura11y | `natura11y-oceanic-pulse-light` | `1499:2905` |
+| natura11y | `natura11y-oceanic-pulse-dark` | `1499:2908` |
+| natura11y | `natura11y-type-scale-visualizer` | `1457:999` |
+| natura11y | `project-tour-icons` | `163:606` |
+| natura11y | `natura11y-form-validation` | `1463:1027` |
+| natura11y | `Natura11y Figma Lo-fi Kit` | `1160:521` |
+| natura11y | `Natura11y Figma Hi-fi Kit` | `1161:734` |
+| natura11y | `monorepo-figma-context` | `1239:25` |
+| natura11y | `natura11y-in-the-wild` | `1468:1027` |
+| cheetah-conservation-fund | `marquee-cheetah-conservation-fund` | `1335:2004` |
+| cheetah-conservation-fund | `ccf-logo-legacy` | `261:33` |
+| cheetah-conservation-fund | `ccf-logo-redesign` | `261:34` |
+| cheetah-conservation-fund | `grid-mobile-cheetah-conservation-fund` | `257:735` |
+| cheetah-conservation-fund | `logo-ccf-kids` | `258:232` |
+| cheetah-conservation-fund | `cheetah-tracks-font-example` | `260:17` |
+| nyc-oti | `marquee-nyc-oti` | `1335:1987` |
+| ladrc | `marquee-ladrc` | `1335:1985` |
+| ladrc | `ladrc-tree-testing` | `180:687` |
+| ladrc | `LADRC-recommendations-ppt` | `178:6` |
+| ladrc | `ladrc-wireframe-resource-cards` | `1499:2906` |
+| mr-ellie-pooh | `marquee-mr-ellie-pooh` | `1335:2007` |
+| mr-ellie-pooh | `mr-ellie-pooh-mobile` | `244:781` |
+| mr-ellie-pooh | `mep-sri-lanka-photoshoot` | `1159:320` |
+| mr-ellie-pooh | `project-tour-mr-ellie-papermaker-carousel` | `248:785` |
+| mr-ellie-pooh | `mr-ellie-pooh-product-photography` | `1487:1189` |
+| unicef | `marquee-unicef` | `1335:1991` |
+| unicef | `unicef-toolkit-wireframes` | `1417:1026` |
+| unicef | `dublin-workshop` | `1380:1516` |
+| unicef | `unicef-wireframe-flows` | `1415:1017` |
+| unicef | `unicef-review-flow-13` | `1397:148` |
+| unicef | `unicef-review-flow-18` | `1397:149` |
+| unicef | `unicef-review-flow-21` | `1397:150` |
+| unicef | `unicef-review-flow-22` | `1397:151` |
+| unicef | `unicef-implementation-review` | `1499:2904` |
 
 ## October 4 — transparent mosaic export review
 

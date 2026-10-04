@@ -1,0 +1,16 @@
+.back-to-top {
+  flex-shrink: 0;
+
+  &__button {
+    position: static;
+    bottom: var(--spacer-3);
+
+    &.is-floating {
+      position: fixed;
+      left: var(--back-to-top-left);
+      z-index: 100;
+      background-color: var(--background-color);
+      background-image: linear-gradient(var(--subtle-fill-1), var(--subtle-fill-1));
+    }
+  }
+}

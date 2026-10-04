@@ -146,6 +146,11 @@ for (const file of pages) {
     );
   }
 
+  // Astro serializes an empty decorative alternative as a bare alt attribute.
+  for (const [image] of html.matchAll(/<img\b[^>]*>/g)) {
+    assert.ok(/\salt(?:=|\s|\/?>)/.test(image), `${path}: image is missing an alt attribute: ${attributes(image).src}`);
+  }
+
   for (const tag of tags) {
     const values = tag.element === 'a' ? [tag.href] : [
       tag.src, tag.poster, tag.rel === 'stylesheet' ? tag.href : undefined,

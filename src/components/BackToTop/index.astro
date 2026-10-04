@@ -1,0 +1,58 @@
+---
+import UtilityButton from '../UtilityButton/index.astro';
+import './style.scss';
+---
+
+<div class="back-to-top" data-back-to-top-position>
+  <UtilityButton class="back-to-top__button" icon="arrow-up" label="Back to Top" data-back-to-top />
+</div>
+
+<script>
+  const position = document.querySelector<HTMLElement>('[data-back-to-top-position]');
+  const button = position?.querySelector<HTMLButtonElement>('[data-back-to-top]');
+
+  if (position && button) {
+    let scheduledFrame = 0;
+
+    const updatePosition = () => {
+      scheduledFrame = 0;
+
+      // Reserve the button's natural footprint so floating never moves the footer.
+      const buttonBounds = button.getBoundingClientRect();
+      position.style.width = `${buttonBounds.width}px`;
+      position.style.height = `${buttonBounds.height}px`;
+
+      const bounds = position.getBoundingClientRect();
+      const bottomInset = Number.parseFloat(getComputedStyle(button).bottom) || 0;
+      const isLongPage = document.documentElement.scrollHeight > window.innerHeight * 4;
+      const shouldFloat = isLongPage && window.scrollY > window.innerHeight &&
+        bounds.bottom > window.innerHeight - bottomInset + 1;
+
+      button.style.setProperty('--back-to-top-left', `${bounds.left}px`);
+      button.classList.toggle('is-floating', shouldFloat);
+    };
+
+    const scheduleUpdate = () => {
+      if (!scheduledFrame) scheduledFrame = requestAnimationFrame(updatePosition);
+    };
+
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+    window.addEventListener('pageshow', scheduleUpdate);
+
+    const resizeObserver = new ResizeObserver(scheduleUpdate);
+    resizeObserver.observe(document.body);
+    resizeObserver.observe(button);
+
+    button.addEventListener('click', () => {
+      // Keep keyboard users at the top when the floating button returns to the footer.
+      document.querySelector<HTMLElement>('.global-header__logo')?.focus({ preventScroll: true });
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+      });
+    });
+
+    updatePosition();
+  }
+</script>

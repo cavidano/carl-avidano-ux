@@ -1,5 +1,7 @@
 # BNY copy review
 
+**October 4 — default About and homepage blurbs (Confluence v8):** Carl requested the latest main-site About narrative and Who I am / What I do for BNY. Removed the optional BNY About override so it inherits `src/content/pages/about.mdx`; future main About edits now carry through automatically. Copied the current approved blurbs from `src/pages/index.astro` into BNY’s `site.json`. The employer introduction, featured projects, scoped links, and application résumé are preserved. Main and saved editor Confluence copies match. `npm run export:hemingway` now also writes `output/hemingway/applications/bny.md`, containing the BNY introduction, blurbs, and full About copy. Both local builds pass, and rendered main/BNY About text matches exactly. Publication verification follows in the project context. This supersedes the older tailored-About and local-only notes below.
+
 **October 4 — curated collection link (Confluence v7):** Changed the project introduction from “tailored” to “selected” and added “View all case studies on my main website,” linking to `https://carlavidano.com/case-studies`. Main and saved editor copies were updated. Existing project selection, About, and other employer copy are preserved. Mr. Ellie Pooh is not featured; shared case-study routes remain available. The shared update is included in release `c8e5631`. BNY is live and verified; the other application sites retain their draft publication status.
 
 
@@ -46,7 +48,7 @@ Both review and production builds passed the existing 23 tests, Astro checks, an
 ## Local sources
 
 - `site.json`: introduction, curated-work introduction, metadata, and navigation labels.
-- `pages/about.mdx`: background, skills, and contact details.
+- About currently inherits `src/content/pages/about.mdx`; there is no BNY override. Reintroduce `pages/about.mdx` only when Carl requests application-specific tailoring.
 - `projects.json` and `articles.json`: ordered homepage selections. The canonical `src/content/` collections hold all case-study and article copy.
 - `job-evidence-map.md`: requirement mapping and known limitations.
 

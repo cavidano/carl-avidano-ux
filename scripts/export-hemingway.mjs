@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
@@ -115,25 +115,55 @@ assert(Array.isArray(aboutData.softwareSkills) && aboutData.softwareSkills.every
   typeof category === 'string' && Array.isArray(items) && items.every(item => typeof item === 'string')
 ), 'Main About software skills are incomplete.');
 
+const aboutCopy = (data, narrative) => [
+  '## About',
+  `${data.profile.name}\n\n${data.profile.pronouns}\n\nLocation: ${data.profile.location}`,
+  narrative.replace(/^(#{1,4}) /gm, '##$1 '),
+  `### ${skillsHeading}\n\n${data.skills.map(skill => `- ${skill}`).join('\n')}`,
+  `### ${workHistoryHeading}`,
+  ...data.workHistory.map(({ organization, role, period, highlights }) =>
+    `#### ${organization} · ${role}\n\n${period}\n\n${highlights.map(highlight => `- ${highlight}`).join('\n')}`
+  ),
+  `_${data.earlierExperience}_`,
+  `### ${softwareSkillsHeading}`,
+  ...data.softwareSkills.map(({ category, items }) =>
+    `#### ${category}\n\n${items.map(item => `- ${item}`).join('\n')}`
+  ),
+  `### ${contactHeading}\n\n- ${data.profile.phone}\n- ${data.profile.email}\n- ${linkedinLabel}`,
+  resumeLabel
+];
 const mainSiteCopy = [
   '# Main website copy',
   '## Homepage',
   ...homepageBlurbs.map(([, title, body]) => `### ${title}\n\n${cleanProse(body, 'main-homepage')}`),
-  '## About',
-  `${name}\n\n${pronouns}\n\nLocation: ${location}`,
-  aboutNarrative.replace(/^(#{1,4}) /gm, '##$1 '),
-  `### ${skillsHeading}\n\n${aboutData.skills.map(skill => `- ${skill}`).join('\n')}`,
-  `### ${workHistoryHeading}`,
-  ...aboutData.workHistory.map(({ organization, role, period, highlights }) =>
-    `#### ${organization} · ${role}\n\n${period}\n\n${highlights.map(highlight => `- ${highlight}`).join('\n')}`
-  ),
-  `_${aboutData.earlierExperience}_`,
-  `### ${softwareSkillsHeading}`,
-  ...aboutData.softwareSkills.map(({ category, items }) =>
-    `#### ${category}\n\n${items.map(item => `- ${item}`).join('\n')}`
-  ),
-  `### ${contactHeading}\n\n- ${phone}\n- ${email}\n- ${linkedinLabel}`,
-  resumeLabel
+  ...aboutCopy(aboutData, aboutNarrative)
 ];
 writeFileSync(join(output, 'main-site.md'), mainSiteCopy.join('\n\n') + '\n');
 console.log(`main-site.md: two homepage blurbs, full About narrative, ${aboutData.skills.length} expertise areas, ${aboutData.workHistory.length} work-history entries, and ${aboutData.softwareSkills.length} software-skills groups`);
+
+// BNY keeps its application introduction while reusing the approved About copy.
+// Honor an optional About override if Carl chooses to tailor it again later.
+const bny = JSON.parse(readFileSync(join(root, 'src/sites/bny/site.json'), 'utf8')).home;
+const bnyAboutPath = join(root, 'src/sites/bny/pages/about.mdx');
+let bnyAboutData = aboutData;
+let bnyAboutNarrative = aboutNarrative;
+if (existsSync(bnyAboutPath)) {
+  const source = readFileSync(bnyAboutPath, 'utf8');
+  const frontmatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  assert(frontmatter, 'BNY About frontmatter is missing.');
+  const overrides = parseYaml(frontmatter[1]);
+  bnyAboutData = { ...aboutData, ...overrides, profile: { ...aboutData.profile, ...overrides.profile } };
+  bnyAboutNarrative = cleanProse(source.slice(frontmatter[0].length), 'bny-about');
+}
+const applicationOutput = join(output, 'applications');
+mkdirSync(applicationOutput, { recursive: true });
+writeFileSync(join(applicationOutput, 'bny.md'), [
+  '# BNY website copy',
+  '## Homepage',
+  `### ${bny.headline}\n\n${bny.introduction}`,
+  bny.projectsIntroduction,
+  `### ${bny.whoHeading}\n\n${bny.who}`,
+  `### ${bny.whatHeading}\n\n${bny.what}`,
+  ...aboutCopy(bnyAboutData, bnyAboutNarrative)
+].join('\n\n') + '\n');
+console.log('applications/bny.md: application introduction, two homepage blurbs, and full About copy');
