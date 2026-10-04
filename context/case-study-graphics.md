@@ -1,5 +1,12 @@
 # Case-study graphics
 
+## October 4 — Natura11y figure quality follow-up
+
+- Color uses the clean original Figma node `1495:2334`, exported at 3840 × 2160. Carl chose to retain the medium inline preview and widen only this lightbox to a maximum of 1800 px, constrained to the viewport. Local browser checks confirmed 1800 px at a 2200 px viewport and 1248 px at a 1280 px viewport. `LightboxImage` now reserves the full thumbnail width before lazy loading.
+- Form validation uses the saved native Chrome PNG (`output/gonatura11y.com_docs_form_.png`, 1408 × 3106) as its source in Figma frame `1463:1027`. The frame retains its 704 × 528 crop; two background-colored rectangles hide LastPass badges inside Name and Email. Native 2× export is `src/images/natura11y/natura11y-form-validation.png` (1408 × 1056). Render as PNG to avoid introducing lossy artifacts. The saved capture has no focus outline; caption and alt describe validation feedback without claiming an outline. Do not add a simulated focus state to a screenshot.
+- Natura11y was the only case study still headed “Reflection.” Changed it to the approved “Looking back”; the other seven already match. Regenerated all Hemingway exports.
+- Carl explicitly objected to repeated native-browser capture attempts and foreground interruptions. Do not resume Chrome/Finder control for this task. Prefer background connectors and saved files; never ask him to pause repeatedly for routine image cleanup.
+
 Working review list · Updated October 4, 2026
 
 ## October 4 — Portfolio Figma case-study organization

@@ -10,7 +10,8 @@ const {
   width,
   widths,
   sizes,
-  quality
+  quality,
+  lightboxWidth
 } = Astro.props;
 
 const fullImage = await getImage({ src, quality });
@@ -18,7 +19,7 @@ const fullImage = await getImage({ src, quality });
 
 <button
   type="button"
-  class:list={['lightbox-thumbnail theme-dark', className]}
+  class:list={['lightbox-thumbnail theme-dark width-100', className]}
   data-lightbox="image"
   data-lightbox-src={fullImage.src}
   data-lightbox-caption={caption}
@@ -28,6 +29,10 @@ const fullImage = await getImage({ src, quality });
   <Image class="display-block width-100" src={src} alt={alt} width={width} widths={widths} sizes={sizes} quality={quality} />
   <MediaControl as="span" icon="zoom-in" aria-hidden="true" />
 </button>
+
+{lightboxWidth && (
+  <style is:inline set:html={`.lightbox__container:has(.lightbox__media > img[src="${fullImage.src}"]) { max-width: min(100%, ${Number(lightboxWidth)}px); }`} />
+)}
 
 <script>
   import '@natura11y/core';

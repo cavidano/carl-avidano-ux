@@ -42,6 +42,7 @@ import verdantTrailsExample from '../../images/natura11y/screens/natura11y-scree
 import oceanicPulseExample from '../../images/natura11y/screens/natura11y-screen-example-oceanic-pulse.webp';
 import designSystemArchitecture from '../../images/natura11y/design-system-architecture.jpg';
 import colorSystem from '../../images/natura11y/natura11y-figma-color-system.png';
+import formValidation from '../../images/natura11y/natura11y-form-validation.png';
 import typeScaleVisualizer from '../../images/natura11y/natura11y-type-scale-visualizer.png';
 import inTheWild from '../../images/natura11y/natura11y-in-the-wild.png';
 
@@ -142,6 +143,7 @@ Themes can be changed without changing a component’s structure. Themes can als
 
 <LightboxImage
   src={colorSystem}
+  lightboxWidth={1800}
   alt="Natura11y Color overview in Figma, showing the five principal theme colors and their related text, border, link, confirmation, and warning colors."
   caption="Natura11y’s principal palette and correlated colors in the Figma library."
 />
@@ -220,9 +222,9 @@ The <LinkOpenNew LinkUrl="https://gonatura11y.com/docs/form/" LinkText="form doc
 
 </TextBlock>
 
-<FigureSingle width='narrow' caption="Required-field feedback alongside a visible focus indicator on the Name field.">
+<FigureSingle width='narrow' caption="Required-field feedback with warning icons and field-specific error messages.">
 
-![Close-up of Natura11y’s Name, Email, and Phone fields in light mode, showing required indicators, warning icons, field-specific error messages, and a blue focus outline around Name.](../../images/natura11y/natura11y-form-validation.png)
+<Image src={formValidation} format="png" alt="Close-up of Natura11y’s Name, Email, and Phone fields in light mode, showing required indicators, warning icons, and field-specific error messages." />
 
 </FigureSingle>
 
@@ -359,7 +361,7 @@ Natura11y has been part of my work for several years, across projects of differe
 
 <TextBlock>
 
-## Reflection
+## Looking back
 
 Building Natura11y has deepened my understanding of accessibility and the relationship between design and code. Maintaining it means working through the details behind each component, then keeping its implementation, Figma library, and documentation aligned. That work continues alongside the projects that use it.
 
