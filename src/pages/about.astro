@@ -105,7 +105,7 @@ const mdxComponents = {
         <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-software">
           <h2 class="h5 margin-bottom-0">Skills and software</h2>
 
-          <div class="grid__colspan-2--lg grid grid--column-2--md gap-4 font-size-md">
+          <div class="software-skills grid__colspan-2--lg font-size-md">
             {softwareSkills.map(({ category, items }: SoftwareSkillGroup) => (
               <div>
                 <h3 class="h6 margin-bottom-2">{category}</h3>
@@ -141,3 +141,23 @@ const mdxComponents = {
   </main>
 
 </Layout>
+
+<style lang="scss">
+  @use '@natura11y/core/src/scss/breakpoint';
+
+  .software-skills {
+    column-gap: var(--spacer-4);
+
+    @include breakpoint.breakpoint-up(md) {
+      column-count: 2;
+    }
+
+    > div {
+      break-inside: avoid;
+
+      &:not(:last-child) {
+        margin-block-end: var(--spacer-4);
+      }
+    }
+  }
+</style>
