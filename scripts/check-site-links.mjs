@@ -78,6 +78,11 @@ for (const file of pages) {
     element: tag.match(/^<(\w+)/)[1], ...attributes(tag)
   }));
   if (site !== 'main') {
+    if (path === base) {
+      const allCaseStudiesLinks = tags.filter((tag) => tag.element === 'a' && tag.href === `${origin}/case-studies`);
+      assert.equal(allCaseStudiesLinks.length, 1, `${site}: curated work needs one link to the full main-site collection`);
+      assert.equal(allCaseStudiesLinks[0].target, '_blank', `${site}: full collection opens in a new tab`);
+    }
     assert.equal(tags.some((tag) => tag.rel === 'stylesheet' && tag.href === `${base}/background.css`), path === base, `${path}: application artwork appears only on the landing page`);
     assert.ok(tags.some((tag) => tag.name === 'robots' && tag.content === 'noindex, follow'), `${path}: noindex`);
     assert.ok(tags.some((tag) => tag.rel === 'canonical' && tag.href === origin + path), `${path}: canonical`);
@@ -153,7 +158,8 @@ for (const file of pages) {
       assert.ok(!/^\/(?:[^/]+\/)?portfolio(?:\/|$)/.test(url.pathname), `${path}: old portfolio URL remains: ${value}`);
       if (tag.element === 'a' && site !== 'main') {
         const targetSite = getSiteId(url.pathname);
-        assert.ok(targetSite === site || (targetSite === 'main' && !/^\/(?:case-studies|drawing-board|about|404)(?:\/|$)/.test(url.pathname) && url.pathname !== '/' && url.pathname !== '/resume-carl-avidano.pdf'), `${path}: link leaves ${site}: ${value}`);
+        const fullCollectionLink = path === base && value === `${origin}/case-studies`;
+        assert.ok(fullCollectionLink || targetSite === site || (targetSite === 'main' && !/^\/(?:case-studies|drawing-board|about|404)(?:\/|$)/.test(url.pathname) && url.pathname !== '/' && url.pathname !== '/resume-carl-avidano.pdf'), `${path}: link leaves ${site}: ${value}`);
       }
       if (tag.element === 'a' && site === 'main') {
         assert.equal(getSiteId(url.pathname), 'main', `${path}: main site links into an application: ${value}`);

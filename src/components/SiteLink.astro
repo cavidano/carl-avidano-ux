@@ -2,9 +2,11 @@
 import type { HTMLAttributes } from 'astro/types';
 import { siteHref } from '../lib/applications/paths.js';
 
-interface Props extends HTMLAttributes<'a'> {}
-const { href, ...attributes } = Astro.props;
+interface Props extends HTMLAttributes<'a'> {
+  scopeToSite?: boolean;
+}
+const { href, scopeToSite = true, ...attributes } = Astro.props;
 ---
-<a {...attributes} href={siteHref(href, Astro.url.pathname)}>
+<a {...attributes} href={scopeToSite ? siteHref(href, Astro.url.pathname) : href}>
     <slot />
 </a>

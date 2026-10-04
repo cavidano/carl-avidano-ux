@@ -3,13 +3,14 @@ import SiteLink from './SiteLink.astro';
 const {
   LinkText = 'Link',
   LinkUrl = '#1',
-  utilities = null
+  utilities = null,
+  scopeToSite = true
 } = Astro.props;
 
 const classes = ['open-new', utilities].filter(Boolean).join(' ');
 ---
 
-<SiteLink class={classes} href={LinkUrl} target="_blank" rel="noreferrer">
+<SiteLink class={classes} href={LinkUrl} scopeToSite={scopeToSite} target="_blank" rel="noreferrer">
   <span class="text">{LinkText}</span>
   <span class="screen-reader-only"> (opens in a new tab or window)</span>
   <span class="icon icon-open-new font-size-sm" aria-hidden="true"></span>

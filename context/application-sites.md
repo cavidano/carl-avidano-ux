@@ -49,6 +49,8 @@ When Carl requests publication, change only that application's registry status t
 
 Commit and publish through the existing Cloudways process only with the requested publication scope. Verify the live pages and résumé after deployment, then record the result. Submitting the job application is a separate action.
 
+**October 4 — curated work and full collection:** Carl requested retaining tailored project selections while linking to all case studies on the main website. Application homepages use “I’ve selected” in their project introductions and show “View all case studies on my main website” after the selected cards. This is an intentional exception to site scoping, using `LinkOpenNew` with `scopeToSite={false}`; all ordinary links remain scoped. Mr. Ellie Pooh remains absent from the featured selections, while the shared detail routes still render every published case study. Main collection links are permitted only from the application homepage by the generated-site audit. All four employer Confluence pages are v7 with matching saved editor changes; their remaining copy is untouched.
+
 ## Maintenance boundaries
 
 The framework configuration uses one shared route for every application. It has no dependency on BNY's component type or a fixed employer count. New IDs are checked for reserved routes and duplicates.

@@ -1,5 +1,8 @@
 # Accenture / Work & Co copy review
 
+**October 4 — curated collection link (Confluence v7):** Changed the project introduction from “tailored” to “selected” and added “View all case studies on my main website,” linking to `https://carlavidano.com/case-studies`. Main and saved editor copies were updated. Existing project selection, About, and other employer copy are preserved. Mr. Ellie Pooh is not featured; shared case-study routes remain available. Website publication is pending the Mr. Ellie Pooh release.
+
+
 **Current architecture — October 1, 2026 (Confluence v6 verified):** Case studies now render directly from the shared `src/content/portfolio/*.mdx` sources. Edit them once for every site. `projects.json` contains only featured project IDs and their order. `articles.json` does the same for homepage articles; every site’s full Drawing Board reads the shared main collection. Complete cards, headers, case studies, and articles use the same sources/templates everywhere. Landing/About copy, artwork, selections, and résumé stay application-specific. The historical independent-copy instructions below are superseded. Current case-study writing belongs on the main Confluence pages linked in `context/case-studies.md`.
 
 Updated September 27, 2026. Branch: `codex/application-copy-review`.
