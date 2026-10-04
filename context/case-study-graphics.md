@@ -4,6 +4,10 @@ Working review list · Updated October 4, 2026
 
 ## October 4 — Portfolio Figma case-study organization
 
+**Latest refinement:** Carl requested the actual figures loose in each case-study section. Removed the 16 nested usage/draft sections and their row/stack frames. All **96 current and retained-source compositions** now sit directly in their eight project sections. Plain text labels retain the distinction between current artwork at the top and drafts/sources at the bottom. All figure dimensions and absolute positions were verified unchanged (zero drift); section dimensions and ordering are preserved. The internal structure of each figure remains intact. This supersedes the nested-section arrangement described below. Verification: `output/figma-organization-2026-10-04/loose-figures.json`.
+
+**Color-figure correction:** Carl replaced the imported image with [clean figure `1495:2334`](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1495-2334); the previous `1499:2907` was removed by the time the sections were ungrouped. The old website PNG had a pale green rounded edge baked into it. The replacement is a 1920 × 1080 image-filled rectangle with a 3840 × 2160 original source. Exported that exact node at 2× to replace `src/images/natura11y/natura11y-figma-color-system.png`, preserving the clean white composition and the existing medium-size figure, lightbox, caption, and alt text. It is a full-resolution export, not a Figma inspection screenshot.
+
 Carl requested a cleanup of the existing Portfolio file, including the marquees and interwoven presentation compositions. The [Case Studies page](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1335-1973) now contains all **54 current standalone static figures and marquees** in eight correctly named project sections. Following Carl's refinement, every section is **9600 × 19200 px**, arranged in one horizontal row with 800 px gaps in the website's sort order: Phoenix.gov, Visionlearning, Natura11y, Cheetah.org, NYC OTI, LADRC, Mr. Ellie Pooh, UNICEF. Each project has **01 — In use on the website** at the top, in narrative order, and **02 — Drafts, sources and unused artwork** aligned 160 px above the section's bottom. Retained source material includes duplicate marquees. Leave the intentional empty space; do not shrink sections to content. The second section formerly labeled UNICEF is now Natura11y. Cheetah.org, NYC OTI, and LADRC sections were created.
 
 Existing artwork was moved from Marquee, Interwoven Presentations, Brand, Device Figures, Mobile Showcase, Project Tour, and the UNICEF source catalog. The shared monorepo/Figma guidance frame now lives in Natura11y; it is also used by a Drawing Board article. Original editable compositions and IDs were retained. The three 1800 px montage frames and their internal gutters were not redesigned. Current individual CaseStudyScreens galleries and animation files were excluded. Other source catalogs, gallery source images, and unrelated design-system components remain on their existing pages.
@@ -48,7 +52,7 @@ Validation: all 54 planned figures have the expected project ancestor, no loose 
 | natura11y | `natura11y-code-ide-example` | `213:196` |
 | natura11y | `storybook-flyout` | `1185:295` |
 | natura11y | `storybook-form` | `1186:380` |
-| natura11y | `natura11y-figma-color-system` | `1499:2907` |
+| natura11y | `natura11y-figma-color-system` | `1495:2334` |
 | natura11y | `natura11y-oceanic-pulse-light` | `1499:2905` |
 | natura11y | `natura11y-oceanic-pulse-dark` | `1499:2908` |
 | natura11y | `natura11y-type-scale-visualizer` | `1457:999` |

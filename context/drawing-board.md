@@ -208,6 +208,7 @@ The command also writes `output/hemingway/main-site.md` at the parent folder lev
 
 - `output/hemingway/case-studies/`: all eight case studies and `case-study-summaries.md`.
 - `output/hemingway/drawing-board/`: one Markdown file per article, using its source basename, plus `drawing-board-summaries.md` for the current listing introduction and published card descriptions in website order.
+- `output/hemingway/applications/bny.md`: BNY’s application introduction, Who I am / What I do, and full About copy. Added October 4 when Carl requested the main-site defaults for BNY. The export reads the shared About source unless an application override is restored later. This supersedes the earlier deferral of application exports above.
 
 Eight articles are exported: seven published posts and the draft “The Malar Stripe Project: building an accessible foundation for cheetah.org.” Including a draft for review does not publish or approve it. Carl clarified on October 4 that only the Hemingway export of “Refreshing the CCF logo” should be removed. Its local MDX draft remains unchanged, and the exporter excludes it from future Hemingway files. It has no main Confluence page.
 
