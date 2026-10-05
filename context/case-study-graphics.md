@@ -1,5 +1,13 @@
 # Case-study graphics
 
+## October 5 — Natura11y project montage
+
+Carl requested naming and exporting [Portfolio frame `1531:2287`](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1531-2287) to replace the old six-browser “in the wild” graphic. The frame and website asset are now named `natura11y-project-examples`. Preserve his current 2000 × 919.449 px composition: Visionlearning glossary highlighting, ESR's captioned video player, and the CCF Global page. The CCF browser uses the existing CCF favicon, `cheetah.org`, and the Cheetah Conservation Fund tab title.
+
+The transparent native 2× PNG is `src/images/natura11y/natura11y-project-examples.png` (4000 × 1839, 2,950,856 bytes). Exported a temporary copy outside the gray section, then removed it; the named original remains directly in the Natura11y section. Verified alpha 0 in exterior gaps. Astro's selected quality-90 WebP is 446,786 bytes with transparency intact. The existing wide figure remains immediately above Looking ahead; updated its alt text to describe the three actual screenshots. The old source image remains available but is no longer imported.
+
+Local desktop and mobile checks confirmed the selected full-resolution asset, direct FIGURE parent, no overflow or browser errors, and the intended placement. Astro check reports zero errors, warnings, or hints. Evidence: `output/natura11y-project-examples-2026-10-05/`. Local only; no publication or Confluence change. Narrative and caption-free Hemingway text are unchanged.
+
 ## October 5 — Figma icon workflow
 
 Added two existing documentation screenshots below the Natura11y icon-library figure. Sources are `apps/docs/src/components/examples/figma/images/adding-icons-02.jpg` and `adding-icons-04.jpg` in the canonical `/Users/carlavidano/Sites/natura11y` monorepo. Copies are `src/images/natura11y/natura11y-figma-icon-component.jpg` and `natura11y-figma-icon-svg-export.jpg`. Both retain their original 1200 × 675 dimensions; Astro emits PNG to avoid another lossy pass. The first shows original artwork and the export frame within a component; the second shows the SVG Export plugin. They use native figures and shared captions inside FigureSideBySide, stacking on mobile. Background browser verification confirmed both selected images at 1200 × 675, rendered 572 CSS pixels wide at 2× DPR, with direct FIGURE parents. Proof: `output/typography-image-review/local-icon-workflow.png`. Local review only.
