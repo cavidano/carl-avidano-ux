@@ -5,7 +5,10 @@ export default {
     filter: ['p'],
     visit(node, context) {
       const parent = context.parent(node);
-      if (parent?.type !== 'mdxJsxFlowElement' || parent.name !== 'FigureSingle') return;
+      const isFigure = parent?.type === 'mdxJsxFlowElement'
+        ? ['FigureSingle', 'figure'].includes(parent.name)
+        : parent?.type === 'element' && parent.tagName === 'figure';
+      if (!isFigure) return;
 
       const [child] = node.children;
       if (node.children.length !== 1 || child.type !== 'element') return;

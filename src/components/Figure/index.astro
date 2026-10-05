@@ -1,0 +1,30 @@
+---
+import FigureCaption from './FigureCaption.astro';
+
+const {
+  caption = null,
+  className = '',
+  isContained = true,
+  width = 'wide'
+} = Astro.props;
+
+const figureClasses = [
+  isContained && width,
+  !isContained && 'margin-y-5',
+  className
+].filter(Boolean).join(' ');
+---
+
+{isContained ? (
+  <div class="container wide margin-y-5">
+    <figure class={figureClasses}>
+      <slot />
+      {caption && <FigureCaption caption={caption} />}
+    </figure>
+  </div>
+) : (
+  <figure class={figureClasses}>
+    <slot />
+    {caption && <FigureCaption caption={caption} />}
+  </figure>
+)}

@@ -1,0 +1,11 @@
+---
+const { width = 'wide' } = Astro.props;
+
+const groupWidth = width === 'medium' ? 'medium' : 'wide';
+---
+
+<div class="container wide margin-y-5">
+  <div class={`${groupWidth} grid grid--column-1 grid--column-2--md gap-3`}>
+    <slot />
+  </div>
+</div>
