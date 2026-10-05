@@ -2,6 +2,8 @@
 
 ## October 5 — Natura11y project montage
 
+**Published:** Release `86934e0` is live through [Cloudways run 37350501751](https://github.com/cavidano/carl-avidano-ux/actions/runs/37350501751). The main and BNY pages and montage bytes match the GitHub artifact. Confluence's current page **v47** and saved editor **d1:3097** contain the new image; its description is retained in the source-details expand because Confluence drops this external image's alt attribute. The website alt attribute is verified. Both builds passed, all 20 Hemingway exports are current, and Carl considers the case study finished. The local-only notes below describe the initial installation.
+
 Carl requested naming and exporting [Portfolio frame `1531:2287`](https://www.figma.com/design/RELqPD0MlE9xfVLxRMGJTR/Portfolio?node-id=1531-2287) to replace the old six-browser “in the wild” graphic. The frame and website asset are now named `natura11y-project-examples`. Preserve his current 2000 × 919.449 px composition: Visionlearning glossary highlighting, ESR's captioned video player, and the CCF Global page. The CCF browser uses the existing CCF favicon, `cheetah.org`, and the Cheetah Conservation Fund tab title.
 
 The transparent native 2× PNG is `src/images/natura11y/natura11y-project-examples.png` (4000 × 1839, 2,950,856 bytes). Exported a temporary copy outside the gray section, then removed it; the named original remains directly in the Natura11y section. Verified alpha 0 in exterior gaps. Astro's selected quality-90 WebP is 446,786 bytes with transparency intact. The existing wide figure remains immediately above Looking ahead; updated its alt text to describe the three actual screenshots. The old source image remains available but is no longer imported.

@@ -1,5 +1,13 @@
 # Case studies
 
+## October 5 — Natura11y final montage published
+
+Carl approved the final montage and called for the usual publication and synchronization. Release **86934e0606f774a021a2402c07b7c5afb5539142** is merged into main and live through [Cloudways run 37350501751](https://github.com/cavidano/carl-avidano-ux/actions/runs/37350501751). The native Figma export `natura11y-project-examples` replaces the former six-browser montage above Looking ahead. Its CCF favicon, tab title, and URL are corrected; the exported exterior is transparent. The main and BNY Natura11y pages and their new 446,786-byte WebP match the exact GitHub artifact. The approved prose is unchanged.
+
+Natura11y's main Confluence page **23855116 v47** and saved editor **d1:3097** contain the new graphic; all 29 figures and the approved text are preserved. Confluence drops this new external image's alt attribute, so its exact description is also retained in the existing source-details expand, following the earlier SVG-export figure treatment. The actual website has the correct alt attribute. All 20 Hemingway exports were regenerated without captions or image descriptions. Both local builds passed all 27 tests, zero Astro errors/warnings/hints, and 117/54-page audits; GitHub's build and deployment passed too. Evidence: `output/natura11y-montage-release-2026-10-05/`.
+
+Carl considers the writing and design finished for now. Both branches are synchronized and pushed; return to `codex/final-refinements` with a clean working tree. Do not start another editorial pass without a new request.
+
 ## October 5 — Natura11y approved revision published
 
 Carl approved the latest pasted Hemingway revision and the four discussed adjustments: distinguish Natura11y's use from the Plyr player and YouTube Studio captioning, keep the Oceanic Pulse mode change in one sentence, describe CCF's 2027 launch as planned, and split the closing before the project examples. Applied all supplied prose while preserving the existing headings, links, figures, and paragraph structure elsewhere. His personal AI/architecture narrative remains unchanged. Retain “Looking ahead,” the 21 alphabetical component links, the short Backdrop caption, and that figure's placement above the component-description paragraph. Further image refinements remain for the next pass.
