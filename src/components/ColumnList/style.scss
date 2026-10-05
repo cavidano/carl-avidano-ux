@@ -1,0 +1,23 @@
+.column-list {
+  > ul {
+    column-count: 1;
+    column-gap: var(--spacer-4);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: 576px) {
+      column-count: 2;
+    }
+
+    @media (min-width: 992px) {
+      column-count: 3;
+    }
+  }
+
+  li {
+    break-inside: avoid;
+    margin: 0;
+    padding-block: var(--spacer-1);
+  }
+}

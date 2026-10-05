@@ -15,6 +15,7 @@ for (const directory of [caseStudyOutput, drawingBoardOutput]) mkdirSync(directo
 const cleanProse = (value, slug) => {
   const cleaned = value
     .replace(/<FigureSingle\b[\s\S]*?<\/FigureSingle>/g, '')
+    .replace(/<\/?ColumnList\b[^>]*>/g, '')
     .replace(/<LinkOpenNew\b[^>]*\bLinkText=(['"])(.*?)\1[^>]*\/>/g, '$2')
     .replace(/(?<!!)\[([^\]]+)\]\([^\n)]+\)/g, '$1')
     .replace(/\n[ \t]+/g, '\n')

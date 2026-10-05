@@ -28,6 +28,7 @@ caseStudy:
 import { Image } from 'astro:assets';
 import LightboxImage from '../../components/LightboxImage.astro';
 import CaseStudyScreens from '../../components/CaseStudyScreens/index.astro';
+import ColumnList from '../../components/ColumnList/index.astro';
 import backdropDocumentation from '../../images/natura11y/screens/natura11y-screen-documentation-backdrop.webp';
 import colorDocumentation from '../../images/natura11y/screens/natura11y-screen-documentation-color.webp';
 import landingTemplate from '../../images/natura11y/screens/natura11y-screen-template-landing.webp';
@@ -42,26 +43,35 @@ import verdantTrailsExample from '../../images/natura11y/screens/natura11y-scree
 import oceanicPulseExample from '../../images/natura11y/screens/natura11y-screen-example-oceanic-pulse.webp';
 import designSystemArchitecture from '../../images/natura11y/design-system-architecture.jpg';
 import colorSystem from '../../images/natura11y/natura11y-figma-color-system.png';
-import formValidation from '../../images/natura11y/natura11y-form-validation.png';
-import typeScaleVisualizer from '../../images/natura11y/natura11y-type-scale-visualizer.png';
+import typography from '../../images/natura11y/natura11y-typography.png';
+import figmaIconComponent from '../../images/natura11y/natura11y-figma-icon-component.jpg';
+import figmaIconExport from '../../images/natura11y/natura11y-figma-icon-svg-export.jpg';
 import inTheWild from '../../images/natura11y/natura11y-in-the-wild.png';
 
 <CaseStudyOverview caseStudy={frontmatter.caseStudy}>
 
-## Why Natura11y?
+## How it began
 
-The Natura11y Design Ecosystem is an open-source toolkit. It helps you design, build, and maintain inclusive user interfaces.
+Natura11y is an open-source design ecosystem. It helps you design, build, and maintain inclusive user interfaces.
 
-Natura11y began as a collection of artifacts from front-end development tutorials. At the time, I was working at NYC OTI and becoming more interested in front-end development and digital accessibility. I spent much of my time learning HTML, CSS, and JavaScript through online tutorials. I began applying lessons from these exercises to my own system.
+Natura11y began as a collection of artifacts from front-end development tutorials I was taking at the time. Designing for public services at NYC OTI motivated me to sharpen my front-end and digital accessibility skills.
+
+Alongside my day job, I spent nights and weekends learning HTML, CSS, and JavaScript through online tutorials. I began applying lessons from these exercises to my own system.
 
 Eventually, I had a large enough library, and Natura11y was born.
 
-I created Natura11y to explore my own approach to building and customizing inclusive interfaces.
-I saw an opportunity to combine my interests in accessibility and front-end development. On top of that, I felt that I was creating something with lasting value.
+Natura11y allowed me to explore my own approach to building and customizing user interfaces. I saw a chance to create something of lasting value while continuing to learn and improve.
 
 ## Design ecosystem
 
-Natura11y brings together the tools I use to design, build, test, and document interfaces. Its design libraries, styles, icons, and interactive components connect design decisions to working code. I call it a design ecosystem because these parts support one another and stay connected as the system grows.
+Natura11y offers a modern design-to-code workflow. I call it a design ecosystem. Each part of the system supports the other parts and remains connected throughout the product design lifecycle.
+
+The ecosystem includes:
+
+- Figma (both a lo-fi and a hi-fi library)
+- HTML, CSS (Sass), JavaScript, and React
+- Icon library
+- Webpack and Storybook
 
 <FigureSingle isContained={false}>
 
@@ -75,7 +85,9 @@ Natura11y brings together the tools I use to design, build, test, and document i
 
 ## Ecosystem architecture
 
-As Natura11y grew, I set it up as a monorepo. This keeps its framework, React components, icons, documentation, and testing all linked. I can now make one decision and apply it throughout the entire ecosystem. This cuts down on duplicated work and keeps all parts in sync.
+I set up Natura11y as a monorepo. This brings its framework, React components, icons, documentation, and testing into one repository. I can now make a change and update the related parts in the same workspace. This helps me cut down on duplicate work and keep the parts in sync. Keeping the code and documentation together also gives AI tools clearer context.
+
+I describe this work in more detail in [Moving the Natura11y design system into an AI-ready monorepo](/drawing-board/moving-the-natura11y-design-system-into-an-ai-ready-monorepo).
 
 </TextBlock>
 
@@ -95,6 +107,8 @@ As Natura11y grew, I set it up as a monorepo. This keeps its framework, React co
 
 I aimed to keep the codebase minimal and maintainable. I've seen the effects that technical debt can have on an organization's ability to progress. Have you ever watched a team struggle for 45 minutes to add an icon to an existing system? I have, and it's not fun.
 
+Kidding aside, technical debt is a serious matter, especially in the AI era. In my experience, Claude and Codex are indispensable support tools, but they cannot architect entire systems the same way a human can. I use AI every day, but stay in control of the architecture decisions. I carefully ensure everything stays grounded in best practices. This is important for maintenance and makes the process much more efficient in the long run.
+
 </TextBlock>
 
 <FigureSingle>
@@ -107,7 +121,7 @@ I aimed to keep the codebase minimal and maintainable. I've seen the effects tha
 
 ### Components (vanilla and React)
 
-I designed HTML and React components around the same Core styles and accessibility patterns. React manages its own state and interactions while reusing Core utilities. Storybook brings both implementations together for development and testing.
+I designed the HTML and React components to share Core’s stylesheet. Developers can use the same styles in vanilla JavaScript and React applications. This reduces duplication in a big way and makes maintenance easier. Both follow the same accessibility patterns, while React manages its own state and interactions. I use Storybook to develop and test both versions.
 
 </TextBlock>
 
@@ -135,11 +149,11 @@ I designed HTML and React components around the same Core styles and accessibili
 
 <TextBlock>
 
-## A color system built around relationships
+## Theme-based color system
 
-I designed Natura11y’s color system around five themes: Primary, Secondary, Dark, Light, and Canvas. Each theme pairs its background with related text, border, link, confirmation, and warning colors. Applying a theme to a page, section, or component keeps those relationships together.
+I designed Natura11y’s color system around five themes: Primary, Secondary, Dark, Light, and Canvas. Themes can be customized, added to, or removed.
 
-Themes can be changed without changing a component’s structure. Themes can also be nested, so a light card can sit within a dark section and retain its own color relationships. Custom palettes still need contrast checks; the system provides a consistent way to define and apply them.
+Each theme pairs its background with related text, border, link, confirmation, and warning colors. Applying a theme to a page, section, or component keeps those relationships together.
 
 </TextBlock>
 
@@ -156,7 +170,15 @@ Themes can be changed without changing a component’s structure. Themes can als
 
 <TextBlock>
 
-Those relationships also let the same interface adapt to light and dark mode. In the <LinkOpenNew LinkUrl="https://natura11y.github.io/root/packages/core/dist/html/examples/oceanic-pulse-newsroom/" LinkText="Oceanic Pulse example" />, backgrounds, text, borders, and links change together with the viewer’s system preference, while the layout stays the same.
+With Natura11y, you apply themes to entire pages or individual components. This is powerful because it removes the duplication usually needed to define themed components. For example, you can use the same button styles with primary, secondary, light, or dark themes.
+
+Themes can be changed without changing a component’s structure. Themes can also be nested, so a light card can sit within a dark section and keep its own color relationships. Themes can be applied at specific breakpoints. This creates an intuitive way to apply color across different devices and screen sizes. Custom palettes still need contrast checks; the system provides a consistent way to define and apply them.
+
+### Theme modes
+
+I designed Natura11y to respect the viewer’s display preferences. It supports light and dark modes, can follow the system setting, and works with [forced colors mode](/drawing-board/preparing-natura11y-for-contrast-themes-a-k-a-forced-colors).
+
+In the <LinkOpenNew LinkUrl="https://natura11y.github.io/root/packages/core/dist/html/examples/oceanic-pulse-newsroom/" LinkText="Oceanic Pulse example" />, backgrounds, text, borders, and links change together when the interface switches between light and dark mode.
 
 </TextBlock>
 
@@ -184,20 +206,22 @@ Those relationships also let the same interface adapt to light and dark mode. In
 
 <TextBlock>
 
-## A type scale with two variables
+## Typography
 
-I designed Natura11y’s type scale around two variables: the smallest font size and a multiplier that sets each step up. Changing these values adjusts headings and body text together. Both can change at any breakpoint, so the scale can adapt to the available space without setting each font size separately.
+I kept Natura11y’s typography simple to make it easy to use and customize. Shared settings control font families, weights, line heights, and spacing. Headings and body text follow a consistent scale.
+
+Two variables control that scale: the smallest font size and a multiplier for each step up. Changing them adjusts headings and body text together. Both variables can change at any breakpoint. This makes it easy to adjust typography for different screen sizes without tweaking each size separately.
 
 The <LinkOpenNew LinkUrl="https://gonatura11y.com/type-scale/" LinkText="Type Scale Visualizer" /> lets you try different combinations and see the resulting sizes.
 
 </TextBlock>
 
-<FigureSingle width='medium' caption="The Type Scale Visualizer shows the heading and body sizes generated by two variables.">
+<FigureSingle caption="Natura11y’s typography in code, rendered examples, and Figma variables.">
 
 <Image
-  src={typeScaleVisualizer}
-  alt="Natura11y’s Type Scale Visualizer in a browser in dark mode, with base font size set to 16 pixels and type scale set to 1.2. Heading and body-text samples show the resulting sizes in pixels and rem."
-  quality={90}
+  src={typography}
+  alt="Natura11y typography showing CSS variables for a 1rem base and 1.2 type scale, rendered heading and body sizes, and a Figma variables table."
+  format="png"
 />
 
 </FigureSingle>
@@ -208,7 +232,7 @@ The <LinkOpenNew LinkUrl="https://gonatura11y.com/type-scale/" LinkText="Type Sc
 
 ## Icon library
 
-Natura11y includes its own icon library. The icon package is versioned alongside the source repository and contains the original vectors, also included in the Figma libraries. This allows designers and developers to easily add, modify, or update icons while ensuring design consistency across projects.
+Natura11y includes its own icon library. The icon package is versioned independently. It includes the original vectors, which are also in the Figma libraries. Designers and developers can edit existing icons or create their own.
 
 </TextBlock>
 
@@ -218,23 +242,69 @@ Natura11y includes its own icon library. The icon package is versioned alongside
     
 </FigureSingle>
 
+<TextBlock>
+
+I organized the icons as reusable Figma components. Each keeps the original vector artwork for editing and a named frame for SVG export. The icon package turns those SVGs into a font for the front end. This keeps the artwork consistent between design and code.
+
+The <LinkOpenNew LinkUrl="https://gonatura11y.com/docs/icon/#managing-icons-with-figma" LinkText="Managing icons with Figma" /> guide explains the process.
+
+</TextBlock>
+
+<FigureSideBySide>
+
+<figure>
+
+<Image src={figmaIconComponent} format="png" alt="Figma layers for the accessibility icon component, showing its named export frame and a hidden Artwork group containing the original vector shapes." />
+
+<FigureCaption caption="Original artwork and the SVG export frame in one Figma component." />
+
+</figure>
+
+<figure>
+
+<Image src={figmaIconExport} format="png" alt="Figma’s SVG Export plugin showing the accessibility icon, its SVG code, the filename accessibility.svg, and the Export SVG button." />
+
+<FigureCaption caption="Previewing and exporting the SVG used to generate the icon font." />
+
+</figure>
+
+</FigureSideBySide>
+
 <Divider />
 
 <TextBlock>
 
-## Forms with clear focus and feedback
+## Component library
 
-I designed Natura11y’s form controls around consistent labels, help text, and visible keyboard focus. Required fields are marked before someone starts filling out a form. When information is missing, validation adds a warning icon and a specific message beside the field. Focus moves to the first field that needs attention, helping people find where to begin.
+I built a broad set of components so projects could stay within Natura11y. Alongside buttons and forms, the library includes lightboxes, flyout menus, and carousels. They share the same themes, styles, and accessibility patterns, reducing the need for separate plugins.
 
-The <LinkOpenNew LinkUrl="https://gonatura11y.com/docs/form/" LinkText="form documentation" /> includes working examples of text fields, selection controls, file uploads, and validation.
+<ColumnList>
+
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/accordion/" LinkText="Accordion" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/alert/" LinkText="Alert" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/backdrop/" LinkText="Backdrop" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/badge/" LinkText="Badge" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/breadcrumb/" LinkText="Breadcrumb" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/button/" LinkText="Button" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/card/" LinkText="Card" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/collapse/" LinkText="Collapse" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/dropdown/" LinkText="Dropdown" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/flyout/" LinkText="Flyout" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/form/" LinkText="Form" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/icon/" LinkText="Icon" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/lightbox/" LinkText="Lightbox" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/main-menu/" LinkText="Main menu" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/modal/" LinkText="Modal" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/navigation/" LinkText="Navigation" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/nested-nav/" LinkText="Nested nav" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/pagination/" LinkText="Pagination" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/tab/" LinkText="Tab" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/table/" LinkText="Table" />
+- <LinkOpenNew utilities="link" LinkUrl="https://gonatura11y.com/docs/track/" LinkText="Track" />
+
+</ColumnList>
 
 </TextBlock>
-
-<FigureSingle width='narrow' caption="Required-field feedback with warning icons and field-specific error messages.">
-
-<Image src={formValidation} format="png" alt="Close-up of Natura11y’s Name, Email, and Phone fields in light mode, showing required indicators, warning icons, and field-specific error messages." />
-
-</FigureSingle>
 
 <Divider />
 
@@ -270,7 +340,19 @@ I created separate lo-fi and hi-fi Figma libraries that support different stages
 
 Keeping the lo-fi kit separate lets me reuse it across projects and update it independently of their visual identities. It remains a shared tool for early design work, while each project’s hi-fi system develops around its specific needs.
 
-The hi-fi kit’s foundation variables correspond to Natura11y’s CSS variables. Theme modes represent the color system without requiring duplicate component variants, giving designers and developers a shared set of values to work from.
+The hi-fi kit connects shared design settings to Natura11y’s CSS variables. Theme modes match the color system. They don't need extra component variants, so designers and developers have a common reference.
+
+</TextBlock>
+
+<FigureSingle width='narrow' caption="Backdrop component guidance in Figma.">
+
+![Figma Backdrop component guidance explaining Overlay and Stack variants and the responsive breakpoint controlled by Core.](../../images/natura11y/monorepo-figma-context.png)
+
+</FigureSingle>
+
+<TextBlock>
+
+I added Figma component descriptions to explain intended use, accessibility, and responsive behavior. I also documented which source to follow when design and code differ. This gives AI tools context for translating a design into code.
 
 </TextBlock>
 
@@ -281,9 +363,9 @@ The hi-fi kit’s foundation variables correspond to Natura11y’s CSS variables
 
 ## Public documentation
 
-I built the documentation with Astro and MDX, pairing working examples with implementation and accessibility guidance.
+I created the documentation using Astro and MDX. It includes working examples along with guidance on implementation and accessibility. Those examples also give me a reference for reviewing AI-generated code.
 
-Nature photography, selected from Unsplash with photographer credits, gives the documentation a warm, welcoming feel. Choosing those images was one of the most enjoyable parts of the project.
+Nature photography from Unsplash, with credits to the photographers, adds a warm and welcoming touch. Choosing those images was one of the most enjoyable parts of the project.
 
 </TextBlock>
 
@@ -303,7 +385,7 @@ Nature photography, selected from Unsplash with photographer credits, gives the 
 
 ## Templates and examples
 
-Templates offer unbranded, full-page layouts for common page types, providing accessible structure and best practices out of the box. Examples are small, branded designs that show how Natura11y can be styled for different visual identities.
+Templates provide unbranded, full-page designs for common page types. They offer a simple structure and best practices right away. Examples are small, branded designs that show how Natura11y can be styled for different visual identities.
 
 </TextBlock>
 
@@ -337,34 +419,6 @@ Templates offer unbranded, full-page layouts for common page types, providing ac
 />
 </ThemeWrapper>
 
-<TextBlock>
-
-## Preparing for an agentic future
-
-I’ve been preparing Natura11y for AI-assisted work by making its design decisions explicit. Figma component descriptions explain intended use, accessibility, and responsive behavior. Variables point to Core’s CSS names, and documented rules establish which source to follow when design and code differ. Alongside working examples, this gives AI tools context to build with the system and gives me a reference for reviewing their output.
-
-</TextBlock>
-
-<FigureSingle width='narrow' caption="Figma component guidance distinguishes visual layout variants from responsive behavior in Core.">
-
-![Figma Backdrop component guidance explaining Overlay and Stack variants and the responsive breakpoint controlled by Core.](../../images/natura11y/monorepo-figma-context.png)
-
-</FigureSingle>
-
-<TextBlock>
-
-I describe this work in more detail in [Moving the Natura11y design system into an AI-ready monorepo](/drawing-board/moving-the-natura11y-design-system-into-an-ai-ready-monorepo).
-
-</TextBlock>
-
-<TextBlock>
-
-## In the wild
-
-Natura11y has been part of my work for several years, across projects of different sizes. I used it for Visionlearning and, more recently, Endangered Species Revenge, and I’m using it as the starting point for Cheetah Conservation Fund’s new design system. It also supports The Narrative Authority, Avidano Digital, and this portfolio.
-
-</TextBlock>
-
 <FigureSingle>
 
 <Image src={inTheWild} quality={90} alt="Six browser windows showing Cheetah Conservation Fund’s design preview, Visionlearning, Endangered Species Revenge, The Narrative Authority, Avidano Digital, and this portfolio." />
@@ -373,9 +427,11 @@ Natura11y has been part of my work for several years, across projects of differe
 
 <TextBlock>
 
-## Looking back
+## Looking ahead
 
-Building Natura11y has deepened my understanding of accessibility and the relationship between design and code. Maintaining it means working through the details behind each component, then keeping its implementation, Figma library, and documentation aligned. That work continues alongside the projects that use it.
+AI has changed how we work. Natura11y continues to evolve with these new ways of working and the projects that use it. This includes all personal and Avidano Digital projects over the past few years.
+
+Natura11y helped us modernize Visionlearning. For Endangered Species Revenge, I combined Natura11y with a custom Plyr player and captions created in YouTube Studio. Natura11y is the foundation for the Cheetah Conservation Fund's new design system, planned for launch in 2027.
 
 </TextBlock>
 

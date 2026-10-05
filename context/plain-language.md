@@ -81,6 +81,8 @@ These are project-specific applications of the principles, alongside Jared Spool
 
 Keep Carl's warm, direct voice. Preserve approved facts, names, chronology, and meaningful limitations. Shortening a sentence must not turn a possibility into an outcome, hide an evidence gap, or imply testing that did not occur.
 
+**Caption preference, October 5:** Keep figure captions short and focused on identifying what the image shows. Leave the narrative and design rationale in the surrounding paragraphs; do not repeat that explanation in the caption.
+
 ## Review and test understanding
 
 Review every draft against these questions:
