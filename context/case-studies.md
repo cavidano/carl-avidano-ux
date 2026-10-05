@@ -1,5 +1,15 @@
 # Case studies
 
+## October 5 — Natura11y approved revision published
+
+Carl approved the latest pasted Hemingway revision and the four discussed adjustments: distinguish Natura11y's use from the Plyr player and YouTube Studio captioning, keep the Oceanic Pulse mode change in one sentence, describe CCF's 2027 launch as planned, and split the closing before the project examples. Applied all supplied prose while preserving the existing headings, links, figures, and paragraph structure elsewhere. His personal AI/architecture narrative remains unchanged. Retain “Looking ahead,” the 21 alphabetical component links, the short Backdrop caption, and that figure's placement above the component-description paragraph. Further image refinements remain for the next pass.
+
+Release **d6d206c962b5a28f08b2a2d900ac6ed54bd64e3e** is merged into main and live after [Cloudways run 37345919447](https://github.com/cavidano/carl-avidano-ux/actions/runs/37345919447). This release includes the preceding approved Figure-component/LADRC checkpoint `5e713fe`. Local review and production builds each passed all 27 tests with zero Astro errors, warnings, or hints and their 117/54-page audits. GitHub repeated both builds successfully. Verified **53 live pages and 64 image/code assets** byte-for-byte against its production artifact; the BNY résumé is unchanged.
+
+Updated the existing main Natura11y Confluence page **23855116 v45** and saved editor **d1:3037**, preserving rich figures and the light/dark layout. Verified 78 narrative/caption blocks, all 14 headings, 29 links, and figure order against the website. Confluence drops the external SVG-export screenshot's alt attribute even after a repair attempt; its exact description is retained in the existing collapsed source-details area. The website retains the proper alt text. The other 27 descriptive image alternatives match. Do not claim that missing Confluence attribute itself was verified.
+
+Also synchronized LADRC **24543233 v22** and saved editor **d1:1352** with the corrected tree-testing image and homepage figure; its approved narrative remains unchanged. All 32 narrative/caption blocks and 11 image descriptions match. All **20 Hemingway exports** were regenerated, retaining headings, paragraph breaks, and lists while excluding captions and image descriptions. Main and refinements are pushed; continue on `codex/final-refinements`. Evidence is in `output/natura11y-release-2026-10-05/`.
+
 ## October 5 — Natura11y closing, local review
 
 Carl approved removing the “In the wild” section's heading and narrative while keeping the current montage immediately above the closing section. He will finish the montage himself; do not alter or export replacement artwork until requested. The closing now focuses on Natura11y's ongoing development, aligned code/design/documentation, and its use as the starting point for CCF's new system. Carl intends to cover that work in a Drawing Board article; no article was created or published during this edit.
@@ -15,6 +25,8 @@ Carl requested replacing the Forms section with an overview of the full componen
 Read main Confluence v42 and existing approved copy before drafting. Verified all 21 links match current component metadata and return HTTP 200. Astro check passed with zero diagnostics; browser checks at 1280, 768, and 390 px confirmed three/two/one columns, all items present, no horizontal overflow, and visible keyboard focus in alphabetical order. Screenshot: `output/natura11y-component-library/local-desktop.png`. Local review only; no Confluence write, commit, push, or deployment.
 
 ## October 5 — Natura11y opening, local review
+
+**Published:** This local review is superseded by the approved release described above.
 
 **Caption and Hemingway follow-up:** Shortened the Backdrop figure caption to “Backdrop component guidance in Figma.” Carl wants captions to identify the image without repeating the adjacent narrative. Regenerated the complete `output/hemingway/case-studies/natura11y-case-study.md` from the current local source for his next Hemingway pass. This remains a local review; Confluence and publication are pending.
 
