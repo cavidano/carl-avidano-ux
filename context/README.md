@@ -1,6 +1,6 @@
 # Project context
 
-**October 6 — Datadog headline and greeting published:** Release `575d9c2` is live after [Cloudways run 37526985465](https://github.com/cavidano/carl-avidano-ux/actions/runs/37526985465). Carl’s exact strengths headline and “Hey, I'm Carl.” greeting are verified; UNICEF remains fifth. Confluence v30/editor d1:8305 and Hemingway match. Builds, desktop/mobile fit, and live artifact comparisons pass. [Application record](../src/sites/datadog/copy-review.md).
+**October 6 — Datadog core-strengths headline published:** Release `d3bbbd7` is live after [Cloudways run 37527592826](https://github.com/cavidano/carl-avidano-ux/actions/runs/37527592826). Carl’s exact latest headline uses “core strengths: leading designers, applying research, and crafting design systems.” The “Hey, I'm Carl.” greeting and UNICEF selection remain. Confluence v32/editor d1:8350 and Hemingway match; builds and live artifact comparisons pass. [Application record](../src/sites/datadog/copy-review.md).
 
 **October 6 — UNICEF published on Datadog:** Release `806f84e` is live after [Cloudways run 37526227449](https://github.com/cavidano/carl-avidano-ux/actions/runs/37526227449). UNICEF is fifth, after NYC OTI. Both GitHub builds passed; live homepage, About, UNICEF, and résumé match the production artifact. Continue on `codex/final-refinements`. [Application record](../src/sites/datadog/copy-review.md).
 
