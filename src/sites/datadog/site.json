@@ -2,21 +2,21 @@
   "home": {
     "title": "Datadog • Senior Design Manager, Design Systems • Carl Avidano",
     "description": "Carl Avidano’s selected work for Datadog: accessible design-system ownership, adoption, UX leadership, and collaboration with developers.",
-    "panelHeading": "The Senior Design Manager role combines three of my passions: leading designers, leveraging research to guide decisions, and creating inclusive design systems.",
-    "headline": "I'm a UX manager with a background in research, design systems, and digital accessibility.",
+    "headline": "Datadog’s Senior Design Manager role brings together three of my passions: leading and mentoring designers, leveraging research, and crafting design systems.",
     "role": "Senior Design Manager: Design Systems",
     "experience": "20+ years of experience",
     "location": "Based in New York",
+    "profileGreeting": "👋 Hi, I'm Carl.",
     "workButton": "Explore My Work",
     "aboutButton": "About Me",
     "storiesButton": "All articles",
-    "introduction": "I welcome the chance to help shape DRUIDS by understanding where teams need support and using research to guide our priorities. I’ve managed designers and developed design systems both independently and with collaborative teams. As DRUIDS evolves for AI-assisted work, I will keep accessibility, usability, and craft at the center of what gets shipped.",
-    "projectsHeading": "Relevant experience",
+    "projectsHeading": "Relevant case studies",
     "aboutHeading": "About Me",
     "whoHeading": "Who I am",
     "who": "I'm a UX manager, researcher, and design systems engineer. I've collaborated with government agencies, international nonprofits, educational organizations, and intergovernmental organizations.",
     "whatHeading": "What I do",
-    "what": "I connect UX research with inclusive design and working code. I’ve managed and mentored designers, aligned stakeholders around a shared strategy, and built inclusive design systems."
+    "what": "I connect UX research with inclusive design and working code. I’ve managed and mentored designers, aligned stakeholders around a shared strategy, and built inclusive design systems.",
+    "introduction": "At Reingold, I managed designers and led UX research and strategy for large-scale public-sector programs, including Phoenix.gov. I expanded a small design-system exploration to support a statewide implementation for the State of Nebraska. Independently, I created and maintain the Natura11y Design Ecosystem, with responsibility for its architecture, components, accessibility, and documentation."
   },
   "caseStudies": {
     "title": "Selected Work • Datadog • Carl Avidano",

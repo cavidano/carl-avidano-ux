@@ -20,7 +20,7 @@ export function validateApplicationFiles(root) {
   const folders = readdirSync(sitesRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory()).map(({ name }) => name);
   assert.deepEqual(folders.sort(), [...applicationSites].sort(), 'Every src/sites directory must be registered in src/lib/applications/registry.js.');
   const requiredCopy = {
-    home: ['title', 'description', 'headline', 'role', 'experience', 'location', 'panelHeading', 'introduction', 'projectsHeading', 'workButton', 'aboutHeading', 'whoHeading', 'who', 'whatHeading', 'what', 'aboutButton', 'storiesButton'],
+    home: ['title', 'description', 'headline', 'role', 'experience', 'location', 'projectsHeading', 'workButton', 'aboutHeading', 'whoHeading', 'who', 'whatHeading', 'what', 'aboutButton', 'storiesButton'],
     caseStudies: ['title', 'description', 'headline', 'introduction']
   };
 
@@ -32,7 +32,7 @@ export function validateApplicationFiles(root) {
 
   for (const site of applicationSites) {
     const directory = join(sitesRoot, site);
-    for (const file of ['site.json', 'Hero.astro', 'projects.json', 'articles.json', 'README.md', 'application-brief.md']) {
+    for (const file of ['site.json', 'projects.json', 'articles.json', 'README.md', 'application-brief.md']) {
       assert.ok(existsSync(join(directory, file)), `${site}: missing src/sites/${site}/${file}`);
     }
     assert.ok(existsSync(join(root, 'public', site, 'resume-carl-avidano.pdf')), `${site}: missing its independent résumé asset.`);
@@ -49,8 +49,17 @@ export function validateApplicationFiles(root) {
     validateFeaturedArticles(articles.featured, articleIds, site);
 
     const copy = JSON.parse(readFileSync(join(directory, 'site.json'), 'utf8'));
-    for (const theme of ['light', 'dark']) {
-      assert.ok(existsSync(join(root, 'public', site, `${site}-logo-${theme}.svg`)), `${site}: missing official ${theme}-mode logo.`);
+    for (const field of ['introduction', 'panelHeading', 'profileGreeting']) {
+      if (copy.home?.[field] !== undefined) {
+        assert.ok(typeof copy.home[field] === 'string' && copy.home[field].trim(), `${site}: optional home.${field} must contain text when provided.`);
+      }
+    }
+    const hasIntroPanel = Boolean(copy.home?.panelHeading);
+    assert.equal(existsSync(join(directory, 'Hero.astro')), hasIntroPanel, `${site}: Hero.astro and home.panelHeading must be provided together for a branded introduction.`);
+    if (hasIntroPanel) {
+      for (const theme of ['light', 'dark']) {
+        assert.ok(existsSync(join(root, 'public', site, `${site}-logo-${theme}.svg`)), `${site}: missing official ${theme}-mode logo.`);
+      }
     }
     for (const [section, fields] of Object.entries(requiredCopy)) {
       for (const field of fields) {

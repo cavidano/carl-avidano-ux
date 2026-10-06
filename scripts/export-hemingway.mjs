@@ -168,9 +168,13 @@ for (const siteId of applicationSites) {
   writeFileSync(join(applicationOutput, `${siteId}.md`), [
     `# ${applicationName} website copy`,
     '## Homepage',
+    ...(!home.panelHeading ? [[home.profileGreeting ?? aboutData.profile.name, home.experience, home.location].join(' · ')] : []),
     `### ${home.headline}`,
-    [home.role, home.experience, home.location].join(' · '),
-    `### ${home.panelHeading}\n\n${home.introduction}`,
+    ...(home.panelHeading ? [
+      [home.role, home.experience, home.location].join(' · '),
+      `### ${home.panelHeading}`
+    ] : []),
+    ...(home.introduction ? [home.introduction] : []),
     `### ${home.projectsHeading}`,
     `### ${home.whoHeading}\n\n${home.who}`,
     `### ${home.whatHeading}\n\n${home.what}`,

@@ -1,0 +1,15 @@
+---
+interface Props {
+  greeting: string;
+  experience: string;
+  location: string;
+}
+
+const { greeting, experience, location } = Astro.props;
+---
+
+<ul class="list-unstyled flex-row flex-wrap gap-3 margin-top-0 margin-bottom-0">
+  {[greeting, experience, location].map((label) => (
+    <li><span class="badge font-weight-normal font-size-rg">{label}</span></li>
+  ))}
+</ul>

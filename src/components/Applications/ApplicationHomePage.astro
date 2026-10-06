@@ -4,6 +4,8 @@ import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
 import Button from '../Button.astro';
 import ProjectListView from '../ProjectListView.astro';
 import PostCard from '../DrawingBoard/PostCard/index.astro';
+import ProfileBar from './ProfileBar/index.astro';
+import { frontmatter as defaultAbout } from '../../content/pages/about.mdx';
 import { getFeaturedProjects } from '../../lib/projects.js';
 import { getDrawingBoardPosts } from '../../lib/drawing-board/loader.js';
 
@@ -17,6 +19,7 @@ const homepagePosts = getDrawingBoardPosts(siteId)
   .filter((post) => post.frontmatter.isFeatured === true)
   .sort((a, b) => (a.frontmatter.sortOrder ?? Infinity) - (b.frontmatter.sortOrder ?? Infinity));
 const { title, description } = copy;
+const hasIntroPanel = Boolean(copy.panelHeading);
 ---
 
 <Layout title={title} description={description} applicationBackground={false}>
@@ -28,23 +31,26 @@ const { title, description } = copy;
     <section class="margin-y-6">
 
       <header class="container wide">
-        <div class="width-90">
+        {!hasIntroPanel && <ProfileBar greeting={copy.profileGreeting ?? defaultAbout.profile.name} experience={copy.experience} location={copy.location} />}
+        <div class:list={['width-90', !hasIntroPanel && 'margin-top-4']}>
           <h1 class="banner-headline">{copy.headline}</h1>
         </div>
-        <ul class="list-unstyled flex-row flex-wrap gap-3 margin-y-4">
+        {hasIntroPanel ? <ul class="list-unstyled flex-row flex-wrap gap-3 margin-y-4">
           {[copy.role, copy.experience, copy.location].map((label) => (
             <li><span class="badge font-weight-normal font-size-rg">{label}</span></li>
           ))}
-        </ul>
+        </ul> : <div class="medium margin-top-4">
+          {copy.introduction && <p class="margin-bottom-0">{copy.introduction}</p>}
+        </div>}
       </header>
       <slot name="hero" />
 
       <div id="projects" class="margin-top-5">
 
-        <header class="container wide">
+        {hasIntroPanel ? <header class="container wide">
           <hr class="margin-bottom-4 margin-bottom-5--lg" />
           <h2 class="margin-bottom-0">{copy.projectsHeading}</h2>
-        </header>
+        </header> : <h2 class="screen-reader-only">{copy.projectsHeading}</h2>}
 
         <div class="container--md wide--md margin-y-5">
           <ProjectListView

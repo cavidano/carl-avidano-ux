@@ -32,10 +32,9 @@ export function getStaticPaths() {
 
 const heroes = import.meta.glob<AstroComponentFactory>('../../sites/*/Hero.astro', { eager: true, import: 'default' });
 const Hero = heroes[`../../sites/${Astro.params.site}/Hero.astro`];
-if (!Hero) throw new Error(`Application ${Astro.params.site}: missing Hero.astro.`);
 const { kind, project, post, posts, tag } = Astro.props;
 ---
-{kind === 'home' && <ApplicationHomePage><Hero slot="hero" /></ApplicationHomePage>}
+{kind === 'home' && <ApplicationHomePage>{Hero && <Hero slot="hero" />}</ApplicationHomePage>}
 {kind === 'about' && <About page={getApplicationAboutPage(Astro.params.site)} />}
 {kind === 'project' && project && <ProjectPage project={project} />}
 {kind === 'post' && post && <PostPage post={post} />}
