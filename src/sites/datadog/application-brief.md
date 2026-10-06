@@ -29,7 +29,7 @@ The role leads DRUIDS designers and design engineers, covering system direction,
 | Maintain accessible component behavior | Contrast-theme and navigation articles | Distinguish emulation and automated checks from native Windows testing. |
 | Support design in code and AI-assisted development | Monorepo article: shared code, Figma guidance, and production behavior as the authority | AI tool use is not evidence of shipping an AI-powered product. |
 
-Featured case studies in the retained draft: **Natura11y → Phoenix → Visionlearning → NYC OTI**. Visionlearning adds a specific example of adoption by another developer; selection is based on distinct evidence, not a fixed project count. Featured articles: **monorepo → contrast themes → navigation**. The CCF design-system article remains a draft and is not featured while Carl prepares its work-in-progress update.
+Featured case studies: **Natura11y → Phoenix → Visionlearning → NYC OTI → UNICEF**. Carl requested adding UNICEF on October 6; that selection change is local and awaits publication. Visionlearning adds a specific example of adoption by another developer; selection is based on distinct evidence, not a fixed project count. Featured articles: **monorepo → contrast themes → navigation**. The CCF design-system article remains a draft and is not featured while Carl prepares its work-in-progress update.
 
 ## Editorial sources
 
