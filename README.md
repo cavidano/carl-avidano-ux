@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-The development server includes all registered applications. The current application draft is at `/accenture`; BNY is at `/bny`. Restart the server after registering a new application or changing publication settings.
+The development server includes all registered applications: `/accenture`, `/datadog`, and `/chromatic`. BNY and ACLU are retired. Restart the server after registering a new application or changing publication settings.
 
 | Command | Purpose |
 | --- | --- |

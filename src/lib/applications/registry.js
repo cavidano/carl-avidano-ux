@@ -2,15 +2,14 @@
 // New sites start as draft. Change to published only when Carl requests a launch.
 
 export const applications = [
-  { id: 'bny', status: 'published' },
   { id: 'accenture', status: 'draft' },
   { id: 'datadog', status: 'published' },
   { id: 'chromatic', status: 'draft' }
 ];
 
-// ACLU rejection confirmed by Carl on September 26, 2026.
+// Rejections confirmed by Carl: ACLU September 26, BNY Director October 6, 2026.
 // Keep retired URLs here to remove stale server directories and prevent accidental reuse.
-export const retiredApplicationSites = ['aclu'];
+export const retiredApplicationSites = ['aclu', 'bny'];
 
 const reservedIds = new Set(['main', 'about', 'portfolio', 'case-studies', 'drawing-board', 'on-my-desk', '404', 'media']);
 

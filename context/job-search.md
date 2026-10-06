@@ -4,7 +4,9 @@
 
 Keep the table on [Custom Applications](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28442625/Custom+Applications) current after each application submission and whenever Carl reports an interview, rejection, or acceptance. There is one row per role, including separate roles at one employer. Columns: Application, Role, Sent checkbox, Date sent, Outcome. Use verified submission dates; do not confuse document export/upload dates with submission dates. Keep unknown dates explicit. Put closed/rejected applications at the bottom. Existing application-specific records remain the detailed evidence. Do not create duplicate tracker pages.
 
-Current record established October 6, 2026 (Confluence v2): BNY Director, Product Design sent September 23; BNY Product Design Lead sent on an unrecorded earlier date; Datadog submit action October 6 with receipt not verified; Accenture and Chromatic remain drafts; ACLU rejected, original submission date unrecorded.
+Current record updated October 6, 2026 (Confluence v3): BNY Director, Product Design (82305) sent September 23 and rejected, as confirmed by Carl on October 6; BNY Product Design Lead contract remains awaiting response, sent on an unrecorded earlier date; Datadog submit action October 6 with receipt not verified; Accenture and Chromatic remain drafts; ACLU rejected, original submission date unrecorded.
+
+The retired Director microsite’s records are preserved in `/Users/carlavidano/Projects/Job Applications/CVs/BNY/_Working/portfolio-records-2026-10-06/`. The active contract application record is `/Users/carlavidano/Projects/Job Applications/CVs/BNY-Product-Design-Lead/_Working/application-documents-2026-10-06.md`; its résumé links to the main portfolio. The original InDesign/PDF archives remain intact. October 6 is the date Carl confirmed the rejection, not a verified date of the rejection notice.
 
 ## Personal email boundary
 

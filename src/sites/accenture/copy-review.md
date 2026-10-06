@@ -1,5 +1,9 @@
 # Accenture / Work & Co copy review
 
+**Original job posting:** [Accenture / Work & Co — Senior Design Lead (R00334614)](https://www.accenture.com/us-en/careers/jobdetails?id=R00334614_en&title=Senior+Design+Lead)
+
+**October 6 — job link added:** The original posting is now linked near the top of this record and the matching Confluence page and saved editor (v9 / editor d1:6273). Website prose is unchanged.
+
 **October 5 — shared copy baseline (Confluence v8, local review):** Carl requested resetting Who I am, What I do, and About across all four application sites to the latest main-site copy. The two homepage blurbs match `src/pages/index.astro` exactly. All applications inherit the full default About page from `src/content/pages/about.mdx`; removed the Accenture, Datadog, and Chromatic overrides. Removed the full-collection link from every application homepage. Employer introductions, branding, curated selections, résumé files, and publication status are preserved. Current and saved editor Confluence copies match the requested changes. Hemingway now exports all four applications to `output/hemingway/applications/`. Review build passed 27 tests, zero Astro diagnostics, and the 117-page audit; full rendered About text and scoped résumé links match across all four sites. Not committed or deployed. This supersedes the older tailored-About and collection-link directions below.
 
 **October 4 — curated collection link (Confluence v7):** Changed the project introduction from “tailored” to “selected” and added “View all case studies on my main website,” linking to `https://carlavidano.com/case-studies`. Main and saved editor copies were updated. Existing project selection, About, and other employer copy are preserved. Mr. Ellie Pooh is not featured; shared case-study routes remain available. The shared update is included in release `c8e5631`. BNY is live and verified; the other application sites retain their draft publication status.

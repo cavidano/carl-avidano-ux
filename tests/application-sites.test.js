@@ -3,7 +3,7 @@ import test from 'node:test';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { applications, selectApplicationSites, validateRetiredApplicationSites } from '../src/lib/applications/registry.js';
+import { applications, retiredApplicationSites, selectApplicationSites, validateRetiredApplicationSites } from '../src/lib/applications/registry.js';
 import { cleanApplicationOutput } from '../scripts/application-build.mjs';
 
 test('draft applications require an explicit preview while published sites remain included', () => {
@@ -24,12 +24,14 @@ test('application registration rejects colliding routes, unsafe slugs, and unkno
 });
 
 test('retirement cannot target live applications, shared directories, or paths outside the site', () => {
-  for (const id of ['bny', 'accenture', 'main', 'portfolio', 'case-studies', 'drawing-board', 'media', '../other', '.', '', 'my/site']) {
+  for (const id of [...applications.map(({ id }) => id), 'main', 'portfolio', 'case-studies', 'drawing-board', 'media', '../other', '.', '', 'my/site']) {
     assert.throws(() => validateRetiredApplicationSites([id]), /Invalid retired application URL/);
   }
   assert.throws(() => validateRetiredApplicationSites(['old-employer', 'old-employer']), /Invalid retired application URL/);
   assert.deepEqual(validateRetiredApplicationSites(['old-employer']), ['old-employer']);
-  assert.throws(() => selectApplicationSites([{ id: 'aclu', status: 'published' }]), /URL slug/);
+  for (const id of retiredApplicationSites) {
+    assert.throws(() => selectApplicationSites([{ id, status: 'published' }]), /URL slug/);
+  }
 });
 
 for (const includeDrafts of [false, true]) {

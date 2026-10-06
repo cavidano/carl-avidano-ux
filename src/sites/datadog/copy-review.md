@@ -1,5 +1,11 @@
 # Datadog copy review
 
+**Original job posting:** [Datadog — Senior Design Manager, Design Systems (R21400 / 8223855)](https://careers.datadoghq.com/detail/8223855/)
+
+**October 6 — job link added:** The original posting is now linked near the top of this record and the matching Confluence page and saved editor (v12 / editor d1:7676). Website prose is unchanged.
+
+**October 6 — small headline correction:** Applied Carl’s exact sentence: “The Senior Design Manager role combines three of my passions: leading designers, leveraging research to guide decisions, and creating inclusive design systems.” Website source, Confluence **28213264 v11**, saved editor **d1:7666**, and the Hemingway application export match. This latest punctuation/capitalization edit is local and synchronized to Confluence, but not yet committed or deployed.
+
 **October 6 — publication verified:** Website release `cb5b906` deployed successfully in run 37465428550. Final résumé release `fee96ec` deployed successfully in run 37468026749. The live landing page contains Carl’s exact “I welcome the chance to help shape DRUIDS” paragraph and scoped links. The live résumé matches the final uploaded PDF (`baf6d051b8fb1f73a5c0821ef4d0e41b53d7247b84d37c36e05be723fa625111`). Both workflow builds and deployment passed. The main Confluence working copy and editor already hold the approved introduction; no additional website prose changed during the final résumé update.
 
 **October 6 — final opening approved for submission:** Carl approved the shorter “I welcome the chance…” paragraph, including accessibility, usability, and craft. It is saved verbatim in the website, Confluence **28213264 v10**, saved editor **d1:7655**, and `output/hemingway/applications/datadog.md`. The headline and default About remain unchanged. Carl requested publication and submission; the registry now includes Datadog in production. Both builds pass: 27 tests, zero Astro diagnostics, and 117/75-page audits. Deployment and submission verification will be recorded in the application brief.
