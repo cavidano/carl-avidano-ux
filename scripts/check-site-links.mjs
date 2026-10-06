@@ -8,6 +8,9 @@ import { getSiteId, siteHref } from '../src/lib/applications/paths.js';
 assert.ok(process.argv.slice(2).every((arg) => arg === '--review'), 'Usage: node scripts/check-site-links.mjs [--review]');
 const includeDrafts = process.argv.includes('--review');
 const includedSites = getApplicationSites({ includeDrafts });
+const applicationSettings = Object.fromEntries(applicationSites.map((site) => [
+  site, JSON.parse(readFileSync(new URL(`../src/sites/${site}/site.json`, import.meta.url), 'utf8'))
+]));
 const dist = fileURLToPath(new URL(includeDrafts ? '../dist-review/' : '../dist/', import.meta.url));
 const origin = 'https://carlavidano.com';
 const walk = (directory) => readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -34,12 +37,16 @@ for (const site of applicationSites) {
       assert.ok(present(`/${site}${page}`), `${site}: missing required page ${page || '/'}`);
     }
     assert.ok(present(`/${site}/resume-carl-avidano.pdf`), `${site}: missing résumé download`);
-    assert.ok(present(`/${site}/background.css`), `${site}: missing background stylesheet`);
-    const background = readFileSync(join(dist, site, 'background.css'), 'utf8');
-    const images = [...background.matchAll(/url\("([^"]+)"\)/g)];
-    assert.ok(images.length > 0, `${site}: background stylesheet has no image assets`);
-    for (const [, image] of images) {
-      assert.ok(present(decodeURIComponent(image)), `${site}: missing optimized background ${image}`);
+    if (applicationSettings[site].backgroundImage) {
+      assert.ok(present(`/${site}/background.css`), `${site}: missing background stylesheet`);
+      const background = readFileSync(join(dist, site, 'background.css'), 'utf8');
+      const images = [...background.matchAll(/url\("([^"]+)"\)/g)];
+      assert.ok(images.length > 0, `${site}: background stylesheet has no image assets`);
+      for (const [, image] of images) {
+        assert.ok(present(decodeURIComponent(image)), `${site}: missing optimized background ${image}`);
+      }
+    } else {
+      assert.ok(!present(`/${site}/background.css`), `${site}: unnecessary background stylesheet`);
     }
   } else {
     assert.ok(!existsSync(join(dist, site)), `${site}: draft application pages or assets leaked into the production build`);
@@ -80,10 +87,9 @@ for (const file of pages) {
   if (site !== 'main') {
     if (path === base) {
       const allCaseStudiesLinks = tags.filter((tag) => tag.element === 'a' && tag.href === `${origin}/case-studies`);
-      assert.equal(allCaseStudiesLinks.length, 1, `${site}: curated work needs one link to the full main-site collection`);
-      assert.equal(allCaseStudiesLinks[0].target, '_blank', `${site}: full collection opens in a new tab`);
+      assert.equal(allCaseStudiesLinks.length, 0, `${site}: full main-site collection link was removed`);
     }
-    assert.equal(tags.some((tag) => tag.rel === 'stylesheet' && tag.href === `${base}/background.css`), path === base, `${path}: application artwork appears only on the landing page`);
+    assert.equal(tags.some((tag) => tag.rel === 'stylesheet' && tag.href === `${base}/background.css`), path === base && Boolean(applicationSettings[site].backgroundImage), `${path}: full-page artwork is limited to landing pages that request it`);
     assert.ok(tags.some((tag) => tag.name === 'robots' && tag.content === 'noindex, follow'), `${path}: noindex`);
     assert.ok(tags.some((tag) => tag.rel === 'canonical' && tag.href === origin + path), `${path}: canonical`);
     assert.ok(tags.some((tag) => tag['aria-label'] === 'Carl Avidano home' && tag.href === base), `${path}: home link`);

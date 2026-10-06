@@ -2,11 +2,12 @@ import type { APIRoute, ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';
 import { getApplicationSites } from '../../lib/applications/registry.js';
 
-const settings = import.meta.glob<{ backgroundImage: string }>('../../sites/*/site.json', { eager: true, import: 'default' });
+const settings = import.meta.glob<{ backgroundImage?: string }>('../../sites/*/site.json', { eager: true, import: 'default' });
 const images = import.meta.glob<ImageMetadata>('../../sites/*/images/*.{png,jpg,jpeg,webp,avif}', { import: 'default' });
 
 export function getStaticPaths() {
   return getApplicationSites({ includeDrafts: import.meta.env.DEV || process.env.APPLICATION_PREVIEW === 'true' })
+    .filter((site) => settings[`../../sites/${site}/site.json`].backgroundImage)
     .map((site) => ({ params: { site } }));
 }
 

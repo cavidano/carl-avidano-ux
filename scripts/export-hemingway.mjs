@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { prepareDrawingBoardPosts } from '../src/lib/drawing-board/rules.js';
+import { applicationSites } from '../src/lib/applications/registry.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const output = join(root, 'output/hemingway');
@@ -85,8 +86,11 @@ const articleSummaries = [
 writeFileSync(join(drawingBoardOutput, 'drawing-board-summaries.md'), articleSummaries.join('\n\n') + '\n');
 console.log(`drawing-board-summaries.md: ${publishedArticles.length} cards in website order`);
 
-// Keep the main site's homepage blurbs and About copy together for writing review.
+// Keep the main site's homepage introduction, blurbs, and About copy together for writing review.
 const homepageSource = readFileSync(join(root, 'src/pages/index.astro'), 'utf8');
+const homepageHeadline = homepageSource.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1].trim();
+const homepageBadges = [...homepageSource.matchAll(/<span class="badge\b[^"]*">([^<]+)<\/span>/g)].map(([, text]) => text);
+assert(homepageHeadline && homepageBadges.length, 'Main homepage headline or badges are missing.');
 const homepageBlurbs = [...homepageSource.matchAll(/<h3\b[^>]*>(Who I am|What I do)<\/h3>\s*<p\b[^>]*>([\s\S]*?)<\/p>/g)];
 assert.deepEqual(homepageBlurbs.map(([, title]) => title), ['Who I am', 'What I do'], 'Main homepage blurbs are missing or reordered.');
 
@@ -136,35 +140,41 @@ const aboutCopy = (data, narrative) => [
 const mainSiteCopy = [
   '# Main website copy',
   '## Homepage',
+  `### ${homepageHeadline}`,
+  homepageBadges.map(text => `- ${text}`).join('\n'),
   ...homepageBlurbs.map(([, title, body]) => `### ${title}\n\n${cleanProse(body, 'main-homepage')}`),
   ...aboutCopy(aboutData, aboutNarrative)
 ];
 writeFileSync(join(output, 'main-site.md'), mainSiteCopy.join('\n\n') + '\n');
-console.log(`main-site.md: two homepage blurbs, full About narrative, ${aboutData.skills.length} expertise areas, ${aboutData.workHistory.length} work-history entries, and ${aboutData.softwareSkills.length} software-skills groups`);
+console.log(`main-site.md: homepage introduction and blurbs, full About narrative, ${aboutData.skills.length} expertise areas, ${aboutData.workHistory.length} work-history entries, and ${aboutData.softwareSkills.length} software-skills groups`);
 
-// BNY keeps its application introduction while reusing the approved About copy.
-// Honor an optional About override if Carl chooses to tailor it again later.
-const bny = JSON.parse(readFileSync(join(root, 'src/sites/bny/site.json'), 'utf8')).home;
-const bnyAboutPath = join(root, 'src/sites/bny/pages/about.mdx');
-let bnyAboutData = aboutData;
-let bnyAboutNarrative = aboutNarrative;
-if (existsSync(bnyAboutPath)) {
-  const source = readFileSync(bnyAboutPath, 'utf8');
-  const frontmatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  assert(frontmatter, 'BNY About frontmatter is missing.');
-  const overrides = parseYaml(frontmatter[1]);
-  bnyAboutData = { ...aboutData, ...overrides, profile: { ...aboutData.profile, ...overrides.profile } };
-  bnyAboutNarrative = cleanProse(source.slice(frontmatter[0].length), 'bny-about');
-}
+// Include every application, preserving its introduction and any future About override.
 const applicationOutput = join(output, 'applications');
 mkdirSync(applicationOutput, { recursive: true });
-writeFileSync(join(applicationOutput, 'bny.md'), [
-  '# BNY website copy',
-  '## Homepage',
-  `### ${bny.headline}\n\n${bny.introduction}`,
-  bny.projectsIntroduction,
-  `### ${bny.whoHeading}\n\n${bny.who}`,
-  `### ${bny.whatHeading}\n\n${bny.what}`,
-  ...aboutCopy(bnyAboutData, bnyAboutNarrative)
-].join('\n\n') + '\n');
-console.log('applications/bny.md: application introduction, two homepage blurbs, and full About copy');
+for (const siteId of applicationSites) {
+  const { home } = JSON.parse(readFileSync(join(root, `src/sites/${siteId}/site.json`), 'utf8'));
+  const applicationName = home.title.split(' • ')[0];
+  const overridePath = join(root, `src/sites/${siteId}/pages/about.mdx`);
+  let applicationAboutData = aboutData;
+  let applicationAboutNarrative = aboutNarrative;
+  if (existsSync(overridePath)) {
+    const source = readFileSync(overridePath, 'utf8');
+    const frontmatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    assert(frontmatter, `${siteId} About frontmatter is missing.`);
+    const overrides = parseYaml(frontmatter[1]);
+    applicationAboutData = { ...aboutData, ...overrides, profile: { ...aboutData.profile, ...overrides.profile } };
+    applicationAboutNarrative = cleanProse(source.slice(frontmatter[0].length), `${siteId}-about`);
+  }
+  writeFileSync(join(applicationOutput, `${siteId}.md`), [
+    `# ${applicationName} website copy`,
+    '## Homepage',
+    `### ${home.headline}`,
+    [home.role, home.experience, home.location].join(' · '),
+    `### ${home.panelHeading}\n\n${home.introduction}`,
+    `### ${home.projectsHeading}`,
+    `### ${home.whoHeading}\n\n${home.who}`,
+    `### ${home.whatHeading}\n\n${home.what}`,
+    ...aboutCopy(applicationAboutData, applicationAboutNarrative)
+  ].join('\n\n') + '\n');
+  console.log(`applications/${siteId}.md: application introduction, two homepage blurbs, and full About copy`);
+}

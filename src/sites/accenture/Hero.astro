@@ -1,19 +1,16 @@
 ---
-import ApplicationHero from '../../components/Applications/ApplicationHero.astro';
+import IntroPanel from '../../components/Applications/IntroPanel/index.astro';
+import artwork from './images/purple-abstract-backdrop.png';
 import copy from './site.json';
-
-// Maximum logo width in pixels. Height follows the official SVG proportions.
-const logoMaxWidth = 560;
 ---
 
-<ApplicationHero
+<IntroPanel
+  image={artwork}
   logo={{
-    light: '/accenture/accenture-logo-light.svg',
-    dark: '/accenture/accenture-logo-dark.svg',
     alt: 'Accenture',
-    width: logoMaxWidth,
-    height: Math.round(logoMaxWidth * 40 / 153)
+    light: { src: '/accenture/accenture-logo-light.svg', width: 153, height: 40 },
+    dark: { src: '/accenture/accenture-logo-dark.svg', width: 153, height: 40 }
   }}
-  headline={copy.home.headline}
+  headline={copy.home.panelHeading}
   introduction={copy.home.introduction}
 />

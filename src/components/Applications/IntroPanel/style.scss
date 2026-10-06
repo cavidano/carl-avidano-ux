@@ -1,0 +1,32 @@
+.application-intro-panel {
+  --backdrop-fixed-height: 0;
+
+  .backdrop__media {
+    opacity: 0.25;
+  }
+
+  &__logo {
+    display: block;
+    width: 20rem;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .theme-dark & &__logo--light,
+  .theme-canvas & &__logo--dark {
+    display: none;
+  }
+
+  @media (forced-colors: active) {
+    border: 1px solid CanvasText;
+
+    .backdrop__media {
+      display: none;
+    }
+
+    &__logo {
+      forced-color-adjust: none;
+      background-color: var(--background-color);
+    }
+  }
+}

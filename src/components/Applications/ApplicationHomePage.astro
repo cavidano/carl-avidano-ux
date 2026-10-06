@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
 import Button from '../Button.astro';
-import LinkOpenNew from '../LinkOpenNew.astro';
 import ProjectListView from '../ProjectListView.astro';
 import PostCard from '../DrawingBoard/PostCard/index.astro';
 import { getFeaturedProjects } from '../../lib/projects.js';
@@ -19,36 +19,43 @@ const homepagePosts = getDrawingBoardPosts(siteId)
 const { title, description } = copy;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} applicationBackground={false}>
 
-  <slot name="hero" />
+  <GlobalHeader />
 
   <main id="skip-header-target">
 
-    <section id="projects" class="margin-bottom-5">
+    <section class="margin-y-6">
 
       <header class="container wide">
-        <hr class="margin-bottom-4 margin-bottom-5--lg" />
-        <h2 class="margin-bottom-3">Curated case studies</h2>
-        <p class="medium margin-bottom-0">{copy.projectsIntroduction}</p>
+        <div class="width-90">
+          <h1 class="banner-headline">{copy.headline}</h1>
+        </div>
+        <ul class="list-unstyled flex-row flex-wrap gap-3 margin-y-4">
+          {[copy.role, copy.experience, copy.location].map((label) => (
+            <li><span class="badge font-weight-normal font-size-rg">{label}</span></li>
+          ))}
+        </ul>
       </header>
+      <slot name="hero" />
 
-      <div class="container--md wide--md">
-        <ProjectListView
-          projects={projects}
-          headingLevel={3}
-          headingClass="h2"
-          margin="margin-top-4 margin-top-5--lg margin-bottom-5"
-        />
+      <div id="projects" class="margin-top-5">
+
+        <header class="container wide">
+          <hr class="margin-bottom-4 margin-bottom-5--lg" />
+          <h2 class="margin-bottom-0">{copy.projectsHeading}</h2>
+        </header>
+
+        <div class="container--md wide--md margin-y-5">
+          <ProjectListView
+            projects={projects}
+            headingLevel={3}
+            headingClass="h2"
+            margin="margin-y-5"
+          />
+        </div>
+
       </div>
-
-      <p class="container wide">
-        <LinkOpenNew
-          LinkUrl="https://carlavidano.com/case-studies"
-          LinkText="View all case studies on my main website"
-          scopeToSite={false}
-        />
-      </p>
 
     </section>
 

@@ -1,17 +1,16 @@
 ---
-import ApplicationHero from '../../components/Applications/ApplicationHero.astro';
+import IntroPanel from '../../components/Applications/IntroPanel/index.astro';
+import artwork from './images/chromatic-chart.png';
 import copy from './site.json';
 ---
 
-<ApplicationHero
+<IntroPanel
+  image={artwork}
   logo={{
-    light: '/chromatic/chromatic-logo-light.svg',
-    dark: '/chromatic/chromatic-logo-dark.svg',
     alt: 'Chromatic',
-    width: 360,
-    height: 72
+    light: { src: '/chromatic/chromatic-logo-light.svg', width: 120, height: 24 },
+    dark: { src: '/chromatic/chromatic-logo-dark.svg', width: 120, height: 24 }
   }}
-  context="Senior Product Designer"
-  headline={copy.home.headline}
+  headline={copy.home.panelHeading}
   introduction={copy.home.introduction}
 />

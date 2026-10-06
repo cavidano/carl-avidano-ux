@@ -1,20 +1,18 @@
 ---
-import ApplicationHero from '../../components/Applications/ApplicationHero.astro';
+import IntroPanel from '../../components/Applications/IntroPanel/index.astro';
+import artwork from './images/datadog-brand-pattern.png';
 import copy from './site.json';
-
-// Official horizontal wordmarks; the source SVGs retain their original geometry.
-const logoMaxWidth = 400;
 ---
 
-<ApplicationHero
+{import.meta.env.DEV && <script is:inline src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>}
+
+<IntroPanel
+  image={artwork}
   logo={{
-    light: '/datadog/datadog-logo-light.svg',
-    dark: '/datadog/datadog-logo-dark.svg',
     alt: 'Datadog',
-    width: logoMaxWidth,
-    height: Math.round(logoMaxWidth * 203.19 / 800.5)
+    light: { src: '/datadog/datadog-logo-light.svg', width: 800.5, height: 203.19 },
+    dark: { src: '/datadog/datadog-logo-dark.svg', width: 800.5, height: 196.2 }
   }}
-  context="Senior Design Manager · Design Systems"
-  headline={copy.home.headline}
+  headline={copy.home.panelHeading}
   introduction={copy.home.introduction}
 />

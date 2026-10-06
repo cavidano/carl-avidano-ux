@@ -1,19 +1,16 @@
 ---
-import ApplicationHero from '../../components/Applications/ApplicationHero.astro';
+import IntroPanel from '../../components/Applications/IntroPanel/index.astro';
+import artwork from './images/new-york-city-at-night.png';
 import copy from './site.json';
-
-// Maximum logo width in pixels. Height follows the SVG's 84:18 proportions.
-const logoMaxWidth = 840;
 ---
 
-<ApplicationHero
+<IntroPanel
+  image={artwork}
   logo={{
-    light: '/bny/bny-logo-light.svg',
-    dark: '/bny/bny-logo-dark.svg',
     alt: 'BNY',
-    width: logoMaxWidth,
-    height: Math.round(logoMaxWidth * 18 / 84)
+    light: { src: '/bny/bny-logo-light.svg', width: 84, height: 18 },
+    dark: { src: '/bny/bny-logo-dark.svg', width: 84, height: 18 }
   }}
-  headline={copy.home.headline}
+  headline={copy.home.panelHeading}
   introduction={copy.home.introduction}
 />

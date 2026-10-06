@@ -1,0 +1,50 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import './style.scss';
+
+interface Props {
+  image: ImageMetadata;
+  logo: {
+    alt: string;
+    light: { src: string; width: number; height: number };
+    dark: { src: string; width: number; height: number };
+  };
+  headline: string;
+  introduction: string;
+}
+
+const { image, logo, headline, introduction } = Astro.props;
+---
+
+<div class="container wide margin-y-5">
+  <div class="application-intro-panel backdrop backdrop--fixed">
+    <div class="backdrop__media">
+      <Image
+        src={image}
+        alt=""
+        width={1920}
+        height={1080}
+        widths={[640, 1280, 1920, 2400]}
+        sizes="(min-width: 1440px) 1280px, 100vw"
+        fit="cover"
+        format="webp"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="backdrop__cover">
+      <div class="padding-x-3 padding-x-5--lg margin-y-6">
+        {(['light', 'dark'] as const).map((theme) => (
+          <img
+            class={`application-intro-panel__logo application-intro-panel__logo--${theme} margin-bottom-4`}
+            alt={logo.alt}
+            {...logo[theme]}
+          />
+        ))}
+        <h2 class="h1 medium margin-bottom-3">{headline}</h2>
+        <p class="narrow">{introduction}</p>
+      </div>
+    </div>
+  </div>
+</div>

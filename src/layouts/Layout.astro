@@ -21,6 +21,7 @@ interface Props {
     tags: string[];
   };
   noindex?: boolean;
+  applicationBackground?: boolean;
 }
 
 const {
@@ -33,13 +34,14 @@ const {
   imageType,
   socialTitle = title,
   article,
-  noindex = false
+  noindex = false,
+  applicationBackground = true
 } = Astro.props;
 
 const siteUrl = Astro.site ?? Astro.url;
 const applicationBase = getSiteBase(Astro.url.pathname);
 const applicationSite = Boolean(applicationBase);
-const showApplicationBackground = applicationSite && Astro.url.pathname.replace(/\/$/, '') === applicationBase;
+const showApplicationBackground = applicationBackground && applicationSite && Astro.url.pathname.replace(/\/$/, '') === applicationBase;
 const canonicalUrl = Astro.url.pathname === '/'
   ? siteUrl.origin
   : new URL(Astro.url.pathname, siteUrl).href;

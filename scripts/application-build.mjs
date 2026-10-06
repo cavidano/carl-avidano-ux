@@ -20,7 +20,7 @@ export function validateApplicationFiles(root) {
   const folders = readdirSync(sitesRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory()).map(({ name }) => name);
   assert.deepEqual(folders.sort(), [...applicationSites].sort(), 'Every src/sites directory must be registered in src/lib/applications/registry.js.');
   const requiredCopy = {
-    home: ['title', 'description', 'headline', 'introduction', 'projectsIntroduction', 'workButton', 'aboutHeading', 'whoHeading', 'who', 'whatHeading', 'what', 'aboutButton', 'storiesButton'],
+    home: ['title', 'description', 'headline', 'role', 'experience', 'location', 'panelHeading', 'introduction', 'projectsHeading', 'workButton', 'aboutHeading', 'whoHeading', 'who', 'whatHeading', 'what', 'aboutButton', 'storiesButton'],
     caseStudies: ['title', 'description', 'headline', 'introduction']
   };
 
@@ -49,8 +49,9 @@ export function validateApplicationFiles(root) {
     validateFeaturedArticles(articles.featured, articleIds, site);
 
     const copy = JSON.parse(readFileSync(join(directory, 'site.json'), 'utf8'));
-    assert.ok(/^images\/[\w-]+\.(png|jpe?g|webp|avif)$/.test(copy.backgroundImage ?? ''), `${site}: backgroundImage must name an image in this application's images directory.`);
-    assert.ok(existsSync(join(directory, copy.backgroundImage)), `${site}: missing background image ${copy.backgroundImage}`);
+    for (const theme of ['light', 'dark']) {
+      assert.ok(existsSync(join(root, 'public', site, `${site}-logo-${theme}.svg`)), `${site}: missing official ${theme}-mode logo.`);
+    }
     for (const [section, fields] of Object.entries(requiredCopy)) {
       for (const field of fields) {
         assert.ok(typeof copy[section]?.[field] === 'string' && copy[section][field].trim(), `${site}: missing text at site.json → ${section}.${field}`);

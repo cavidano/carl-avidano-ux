@@ -4,7 +4,7 @@
 export const applications = [
   { id: 'bny', status: 'published' },
   { id: 'accenture', status: 'draft' },
-  { id: 'datadog', status: 'draft' },
+  { id: 'datadog', status: 'published' },
   { id: 'chromatic', status: 'draft' }
 ];
 

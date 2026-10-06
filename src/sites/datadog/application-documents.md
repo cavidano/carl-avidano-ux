@@ -1,11 +1,17 @@
 # Datadog application documents
 
-September 26, 2026. Accessibility-led positioning is under review in [positioning-draft.md](positioning-draft.md). The [requirements audit](job-evidence-map.md) now includes the employer's flexibility and Carl's clarified management history. Tailored document production has not started.
+**October 6 — approved for application submission:** Carl requested submitting the Datadog application after the final portfolio copy update. The website résumé and original two-page export still match the verified SHA-256 below. Use that export for the application; the copied BNY cover-letter page is excluded. No further résumé or About rewrite is requested. Submission confirmation will be recorded after the form succeeds.
 
-- General source PDF: `/Users/carlavidano/Sites/carl-avidano-ux/public/resume-carl-avidano.pdf`.
-- Independent preview download: `/Users/carlavidano/Sites/carl-avidano-ux/public/datadog/resume-carl-avidano.pdf`, copied unchanged from that general source.
-- No Datadog InDesign source, tailored résumé, cover letter, or PDF export has been created or submitted.
-- When document work begins, use the Avidano job application documents skill and create the separate application folder under `/Users/carlavidano/Projects/Job Applications/CVs/`. Record the exact created paths here.
-- Replace the preview PDF only after the tailored export has been reviewed and verified, including the intended `/datadog/` portfolio URL and embedded hyperlinks.
+October 6, 2026. A tailored résumé draft for **Senior Design Manager – Design Systems (R21400)** is saved and exported for Carl's review. The official job description and current Datadog, Natura11y, and Phoenix Confluence pages were reviewed before tailoring. The website is the next stage; no application has been submitted.
 
-The evidence audit includes illustrative résumé wording only. It is not approved copy or a replacement PDF. The general PDF was text-extracted for the audit; it was not re-exported.
+- Editable source: `/Users/carlavidano/Projects/Job Applications/CVs/Datadog-Senior-Design-Manager/Carl-Avidano-CV-Datadog.indd`.
+- Verified résumé export: `/Users/carlavidano/Projects/Job Applications/CVs/Datadog-Senior-Design-Manager/_PDF/carl-avidano-resume-datadog.pdf`.
+- Layout baseline: `/Users/carlavidano/Projects/Job Applications/CVs/BNY-Product-Design-Lead/Carl-Avidano-CV-BNY-Product-Design-Lead.indd`; the original BNY file was preserved.
+- The Datadog source still contains the copied BNY cover-letter page 3. It is **not tailored or approved for Datadog** and is excluded from the résumé export. Export pages **1–2** only.
+- Summary emphasizes management, research, and design-system ownership. Core skills lead with design systems and management; tools include Storybook and Git / GitHub. The Natura11y bullet covers Figma, tokens, HTML/React components, the monorepo, shared styles, Storybook, and AI guidance. Other employment bullets, dates, results, and education are unchanged from the baseline.
+- Carl explicitly requested the custom portfolio URL. Both the visible address and the PDF hyperlink use `https://carlavidano.com/datadog/`.
+- Verification: two US Letter pages, 96,518 bytes, selectable/extractable text, document tags and `en-US` language present, correct portfolio URI, both pages rendered and visually inspected, and InDesign preflight reported no errors. A text comparison confirmed only the intended URL, summary, skills/tools, and Natura11y changes. This is not a claim of a full PDF accessibility audit.
+- Independent website preview download: `/Users/carlavidano/Sites/carl-avidano-ux/public/datadog/resume-carl-avidano.pdf`. Carl proceeded to the custom site after receiving the export, and the local download now contains that tailored PDF. Source, public asset, and review-build asset match SHA-256 `6a9359f38b048d96fdf4284f1485fd39f60f15d5c18ee7fb04b7da9a201cd5a8`. The About page links to this application-specific download. The site remains a local draft and must be published before submission.
+- No résumé upload, website publication, or Datadog submission occurred in this document-production step.
+
+The [positioning draft](positioning-draft.md) and [requirements audit](job-evidence-map.md) remain supporting references. Do not claim management of a dedicated design-systems team, hiring, or performance-plan responsibilities without Carl confirming that experience.
