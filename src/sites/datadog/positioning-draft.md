@@ -1,5 +1,7 @@
 # Current Datadog positioning
 
+**October 6 — approved comparable-experience summary:** The opening paragraph leads with managing designers and UX research/strategy for public-sector programs at Reingold, including Phoenix.gov. Carl clarified that he expanded a small Nebraska design-system exploration to support a statewide implementation. It closes with his independent creation and maintenance of Natura11y, including architecture, components, accessibility, and documentation. Do not restore the DRUIDS pitch or CCF sentence. The plain headline and summary replace the employer banner; compact text-only greeting pills sit above the headline. The approved wording is in `site.json`, Confluence v26 and its saved editor, and Hemingway. Published in release `624c1a6` and verified after Cloudways run `37496209866`.
+
 September 26, 2026. The earlier opening draft is superseded by the copy in [site.json](site.json), [About](pages/about.mdx), and the [current Confluence page](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28213264). See [copy-review.md](copy-review.md) for synchronization and status.
 
 The opening connects Carl's system ownership with five to seven years of managing and mentoring designers. The featured work supports that connection through component architecture, documentation, adoption by another developer, shared patterns, and operational interfaces. About contains one disability-informed accessibility statement, tied to practical design behavior.
