@@ -1,5 +1,11 @@
 # Job search preferences and shortlist
 
+## Application tracker
+
+Keep the table on [Custom Applications](https://avidanodigital-team.atlassian.net/wiki/spaces/CAU/pages/28442625/Custom+Applications) current after each application submission and whenever Carl reports an interview, rejection, or acceptance. There is one row per role, including separate roles at one employer. Columns: Application, Role, Sent checkbox, Date sent, Outcome. Use verified submission dates; do not confuse document export/upload dates with submission dates. Keep unknown dates explicit. Put closed/rejected applications at the bottom. Existing application-specific records remain the detailed evidence. Do not create duplicate tracker pages.
+
+Current record established October 6, 2026 (Confluence v2): BNY Director, Product Design sent September 23; BNY Product Design Lead sent on an unrecorded earlier date; Datadog submit action October 6 with receipt not verified; Accenture and Chromatic remain drafts; ACLU rejected, original submission date unrecorded.
+
 ## Personal email boundary
 
 Carl explicitly prohibits connecting to, searching, or reading his personal email. Do not use Gmail or another email connector to check application receipts. Verify through the application website or ask Carl to provide the confirmation if needed. This applies even when an application submission itself is authorized.
