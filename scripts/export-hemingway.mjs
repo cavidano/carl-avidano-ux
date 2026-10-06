@@ -174,7 +174,7 @@ for (const siteId of applicationSites) {
       [home.role, home.experience, home.location].join(' · '),
       `### ${home.panelHeading}`
     ] : []),
-    ...(home.introduction ? [home.introduction] : []),
+    ...(home.introduction ? [cleanProse(home.introduction, `${siteId}-introduction`)] : []),
     `### ${home.projectsHeading}`,
     `### ${home.whoHeading}\n\n${home.who}`,
     `### ${home.whatHeading}\n\n${home.what}`,

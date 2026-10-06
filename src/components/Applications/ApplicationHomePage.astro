@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import GlobalHeader from '../GlobalHeader/GlobalHeader.astro';
 import Button from '../Button.astro';
+import LinkOpenNew from '../LinkOpenNew.astro';
 import ProjectListView from '../ProjectListView.astro';
 import PostCard from '../DrawingBoard/PostCard/index.astro';
 import ProfileBar from './ProfileBar/index.astro';
@@ -20,6 +21,10 @@ const homepagePosts = getDrawingBoardPosts(siteId)
   .sort((a, b) => (a.frontmatter.sortOrder ?? Infinity) - (b.frontmatter.sortOrder ?? Infinity));
 const { title, description } = copy;
 const hasIntroPanel = Boolean(copy.panelHeading);
+const introductionParts = (copy.introduction ?? '').split(/(\[[^\]]+\]\(https?:\/\/[^\s)]+\))/).map((text) => {
+  const link = text.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/);
+  return { text: link ? link[1] : text, href: link?.[2] };
+});
 ---
 
 <Layout title={title} description={description} applicationBackground={false}>
@@ -40,7 +45,9 @@ const hasIntroPanel = Boolean(copy.panelHeading);
             <li><span class="badge font-weight-normal font-size-rg">{label}</span></li>
           ))}
         </ul> : <div class="medium margin-top-4">
-          {copy.introduction && <p class="margin-bottom-0">{copy.introduction}</p>}
+          {copy.introduction && <p class="margin-bottom-0">{introductionParts.map(({ text, href }) => (
+            href ? <LinkOpenNew LinkText={text} LinkUrl={href} /> : text
+          ))}</p>}
         </div>}
       </header>
       <slot name="hero" />
