@@ -1,5 +1,9 @@
 # Job search preferences and shortlist
 
+## Personal email boundary
+
+Carl explicitly prohibits connecting to, searching, or reading his personal email. Do not use Gmail or another email connector to check application receipts. Verify through the application website or ask Carl to provide the confirmation if needed. This applies even when an application submission itself is authorized.
+
 Planning snapshot from September 26, 2026. Recheck role availability, compensation, and application records before using it. Carl's latest instructions determine the next task. Private planning notes; inclusion is not a record of application submission or approval to build or publish an employer site.
 
 ## Application discussion — September 26, 2026

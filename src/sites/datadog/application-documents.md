@@ -1,5 +1,9 @@
 # Datadog application documents
 
+**October 6 — final résumé uploaded:** Carl saved the final PDF himself and explicitly requested upload and submission. The summary matches his supplied final wording exactly, including “I’ve managed and mentored designers.” The two-page export is 96,699 bytes, SHA-256 `baf6d051b8fb1f73a5c0821ef4d0e41b53d7247b84d37c36e05be723fa625111`. Both pages were rendered and inspected; text extraction, document tags, `en-US`, and the `https://carlavidano.com/datadog/` hyperlink were checked. The verified file replaced the prior Greenhouse attachment. The website asset now matches and awaits the follow-up deployment. Carl cancelled the cover-letter request because this form has no cover-letter field; the old page 3 remains excluded.
+
+**Submission observation:** The Submit application control was clicked once after Carl explicitly requested sending it. The form redirected to `https://careers.datadoghq.com/`; no confirmation message or application number was retained. Do not submit a duplicate. Personal email must not be accessed to verify receipt.
+
 **October 6 — approved for application submission:** Carl requested submitting the Datadog application after the final portfolio copy update. The website résumé and original two-page export still match the verified SHA-256 below. Use that export for the application; the copied BNY cover-letter page is excluded. No further résumé or About rewrite is requested. Submission confirmation will be recorded after the form succeeds.
 
 October 6, 2026. A tailored résumé draft for **Senior Design Manager – Design Systems (R21400)** is saved and exported for Carl's review. The official job description and current Datadog, Natura11y, and Phoenix Confluence pages were reviewed before tailoring. The website is the next stage; no application has been submitted.
