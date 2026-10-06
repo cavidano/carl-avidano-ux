@@ -1,5 +1,7 @@
 # Accenture / Work & Co copy review
 
+**October 6 — Relevant experience:** Renamed the application landing-page project heading to Carl’s exact “Relevant experience.” Website source, Hemingway export, and Confluence 28344323 v10 / editor d1:6288 are synchronized and verified. The selected projects, other copy, and publication status are preserved. Carl authorized publishing Datadog with this shared heading convention; the release result is recorded in the context index.
+
 **Original job posting:** [Accenture / Work & Co — Senior Design Lead (R00334614)](https://www.accenture.com/us-en/careers/jobdetails?id=R00334614_en&title=Senior+Design+Lead)
 
 **October 6 — job link added:** The original posting is now linked near the top of this record and the matching Confluence page and saved editor (v9 / editor d1:6273). Website prose is unchanged.

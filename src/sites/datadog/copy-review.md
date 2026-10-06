@@ -1,5 +1,7 @@
 # Datadog copy review
 
+**October 6 — Relevant experience:** Renamed the application landing-page project heading to Carl’s exact “Relevant experience.” Website source, Hemingway export, and Confluence 28213264 v13 / editor d1:7691 are synchronized and verified. The selected projects, other copy, and publication status are preserved. Carl authorized publishing Datadog with this shared heading convention; the release result is recorded in the context index.
+
 **Original job posting:** [Datadog — Senior Design Manager, Design Systems (R21400 / 8223855)](https://careers.datadoghq.com/detail/8223855/)
 
 **October 6 — job link added:** The original posting is now linked near the top of this record and the matching Confluence page and saved editor (v12 / editor d1:7676). Website prose is unchanged.
