@@ -1,6 +1,6 @@
 # Project context
 
-**October 7 — main résumé replacement:** Carl requested using his saved general résumé for every website download. All four independent PDF assets now match the verified two-page InDesign export; employer document archives and draft-site status are preserved. [Source, export, checks, and publication status](general-resume.md).
+**October 7 — main résumé published:** Release `a401686` is live after [Cloudways run 37633783961](https://github.com/cavidano/carl-avidano-ux/actions/runs/37633783961). Main and Datadog downloads match Carl’s saved two-page general résumé; Accenture and Chromatic copies are updated while their sites remain drafts. Both builds and live artifact comparisons passed. Employer document archives and unrelated local edits are preserved. [Source, export, and verification](general-resume.md).
 
 **October 6 — Datadog reviewed introduction published:** Release `e193bf5` is live after [Cloudways run 37530533119](https://github.com/cavidano/carl-avidano-ux/actions/runs/37530533119). Carl’s latest paragraph, “managing and mentoring designers” headline, restored 👋 greeting, and Phoenix.gov link are verified. Confluence v36/editor d1:8520 and Hemingway match. Both builds and live artifact comparisons pass. Continue on `codex/final-refinements`. [Application record](../src/sites/datadog/copy-review.md).
 
