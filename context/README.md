@@ -1,5 +1,7 @@
 # Project context
 
+**October 7 — main résumé replacement:** Carl requested using his saved general résumé for every website download. All four independent PDF assets now match the verified two-page InDesign export; employer document archives and draft-site status are preserved. [Source, export, checks, and publication status](general-resume.md).
+
 **October 6 — Datadog reviewed introduction published:** Release `e193bf5` is live after [Cloudways run 37530533119](https://github.com/cavidano/carl-avidano-ux/actions/runs/37530533119). Carl’s latest paragraph, “managing and mentoring designers” headline, restored 👋 greeting, and Phoenix.gov link are verified. Confluence v36/editor d1:8520 and Hemingway match. Both builds and live artifact comparisons pass. Continue on `codex/final-refinements`. [Application record](../src/sites/datadog/copy-review.md).
 
 **October 6 — Datadog core-strengths headline published:** Release `d3bbbd7` is live after [Cloudways run 37527592826](https://github.com/cavidano/carl-avidano-ux/actions/runs/37527592826). Carl’s exact latest headline uses “core strengths: leading designers, applying research, and crafting design systems.” The “Hey, I'm Carl.” greeting and UNICEF selection remain. Confluence v32/editor d1:8350 and Hemingway match; builds and live artifact comparisons pass. [Application record](../src/sites/datadog/copy-review.md).

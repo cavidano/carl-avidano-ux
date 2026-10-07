@@ -1,5 +1,7 @@
 # Chromatic application documents
 
+**October 7 — general résumé for website downloads:** At Carl’s request, `public/chromatic/resume-carl-avidano.pdf` now contains the saved general résumé, replacing the previous website PDF. The export is two pages, 98,107 bytes, SHA-256 `5fc496affe4f005863397e20e8f5a14f5a6ae097d467ae90930c874c9ee2c424`. Its visible and embedded portfolio address is the main website, `https://carlavidano.com`. This supersedes earlier instructions below about which PDF the website should serve; separate employer sources, exports, drafts, and submitted attachments remain unchanged. Publication verification and exact general source/export paths are recorded in [the general résumé record](../../../context/general-resume.md). Chromatic remains a draft.
+
 September 26, 2026. Website draft only. Tailored document production has not started.
 
 - General source: `/Users/carlavidano/Sites/carl-avidano-ux/public/resume-carl-avidano.pdf`.

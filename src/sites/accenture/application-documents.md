@@ -1,5 +1,7 @@
 # Accenture application documents
 
+**October 7 — general résumé for website downloads:** At Carl’s request, `public/accenture/resume-carl-avidano.pdf` now contains the saved general résumé, replacing the previous website PDF. The export is two pages, 98,107 bytes, SHA-256 `5fc496affe4f005863397e20e8f5a14f5a6ae097d467ae90930c874c9ee2c424`. Its visible and embedded portfolio address is the main website, `https://carlavidano.com`. This supersedes earlier instructions below about which PDF the website should serve; separate employer sources, exports, drafts, and submitted attachments remain unchanged. Publication verification and exact general source/export paths are recorded in [the general résumé record](../../../context/general-resume.md). Accenture remains a draft.
+
 Last checked September 23, 2026. Carl explicitly selected **Senior Design Lead, R00334614**. This supersedes the initial Design Lead target, R00337068.
 
 ## Current status
