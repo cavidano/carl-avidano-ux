@@ -118,10 +118,10 @@ assert(Array.isArray(aboutData.workHistory) && aboutData.workHistory.every(({ or
 ), 'Main About work history is incomplete.');
 assert(Array.isArray(aboutData.tools) && aboutData.tools.every(tool => typeof tool === 'string'), 'Main About tools are incomplete.');
 
-const aboutCopy = (data, narrative, applicationRole = data.profile.role) => [
+const aboutCopy = (data, narrative) => [
   '## About',
   `${data.profile.name}\n\n${data.profile.pronouns}`,
-  [applicationRole, data.profile.experience, `Based in ${data.profile.location}`].map(label => `- ${label}`).join('\n'),
+  [data.profile.experience, `Based in ${data.profile.location}`].map(label => `- ${label}`).join('\n'),
   narrative.replace(/^(#{1,4}) /gm, '##$1 '),
   `### ${skillsHeading}\n\n${data.skills.map(skill => `- ${skill}`).join('\n')}`,
   `### ${toolsHeading}\n\n${data.tools.map(tool => `- ${tool}`).join('\n')}`,
@@ -173,7 +173,7 @@ for (const siteId of applicationSites) {
     `### ${home.projectsHeading}`,
     `### ${home.whoHeading}\n\n${home.who}`,
     `### ${home.whatHeading}\n\n${home.what}`,
-    ...aboutCopy(applicationAboutData, applicationAboutNarrative, home.role)
+    ...aboutCopy(applicationAboutData, applicationAboutNarrative)
   ].join('\n\n') + '\n');
   console.log(`applications/${siteId}.md: application introduction, two homepage blurbs, and full About copy`);
 }

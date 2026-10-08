@@ -8,7 +8,7 @@ import SiteLink from '../components/SiteLink.astro';
 import portrait from '../images/carl-avidano-16x9.jpg';
 import * as defaultAbout from '../content/pages/about.mdx';
 
-const { page = defaultAbout, role: applicationRole } = Astro.props;
+const { page = defaultAbout } = Astro.props;
 const { default: AboutContent, frontmatter } = page;
 
 const {
@@ -64,7 +64,6 @@ const mdxComponents = {
 
           <div>
             <ul class="nav flex-column font-size-md">
-              <li>{applicationRole ?? profile.role}</li>
               <li>{profile.experience}</li>
               <li>Based in {profile.location}</li>
             </ul>
