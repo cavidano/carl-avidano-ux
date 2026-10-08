@@ -1,14 +1,16 @@
 # General résumé
 
-## October 8 latest general PDF — approved website replacement
+## October 8 latest general PDF — published
 
 Carl explicitly selected the latest completed general PDF for all website downloads. Copy the exact finished PDF; do not re-export it or revise the website’s short résumé.
 
 - Source: `/Users/carlavidano/Projects/Job Applications/CVs/__General/__PDF/resume-carl-avidano.pdf`.
 - Two US Letter pages, 98,135 bytes; SHA-256 `7f62770ec16060dbe881626ca0eae9036f781636f4f9da36c67e65299bf555d7`.
-- Both pages were rendered and visually reviewed during the preceding assessment. The source hash was rechecked before copying; all five public assets match exactly. Publication verification is pending.
+- Both pages were rendered and visually reviewed during the preceding assessment. The source hash was rechecked before copying; all five public assets match exactly.
 - The short website résumé remains a concise reference to experience and skills. Hold proposed achiever-pattern edits there. The next enhancement is to identify the lessons in each case study, with supported connections to later work; see [case-study guidance](case-studies.md#october-8--next-enhancement-lessons-from-each-case-study).
 - Preserve the existing InDesign source and all employer-specific document archives and submitted attachments.
+
+Release `fa587135f730d295568c4b17eb06212aad0fed9d` is live after [successful Cloudways deployment 37778077954](https://github.com/cavidano/carl-avidano-ux/actions/runs/37778077954). Both builds passed 27 tests with zero Astro diagnostics and the 117-page review/75-page production audits. The main, BNY, and Datadog PDF URLs return HTTP 200 as `application/pdf` and match the source and production artifact byte-for-byte. Their homepages and About pages are byte-for-byte unchanged from the preceding release, including the short résumé. Accenture and Chromatic remain drafts. Confluence release records and saved editors are verified at main v62, BNY v21, Datadog v44, Accenture v20, and Chromatic v20. Main and refinements include the release; continue on `codex/final-refinements`. Verification: `/Users/carlavidano/Documents/Codex/2026-10-08/i-m-starting/work/latest-resume-live-verification.json`.
 
 ## October 8 achiever-pattern review — version distinction
 
