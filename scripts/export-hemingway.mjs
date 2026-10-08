@@ -105,10 +105,10 @@ const { name, pronouns, location, email, phone } = aboutData.profile;
 assert([name, pronouns, location, email, phone].every(value => typeof value === 'string'), 'Main About profile is incomplete.');
 
 const aboutPage = readFileSync(join(root, 'src/pages/about.astro'), 'utf8');
-const skillsHeading = aboutPage.match(/id="skills-and-expertise"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1];
-const workHistoryHeading = aboutPage.match(/id="work-history"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1];
-const toolsHeading = aboutPage.match(/id="skills-and-software"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1];
-const contactHeading = aboutPage.match(/id="get-in-touch"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1];
+const skillsHeading = aboutPage.match(/id="skills-and-expertise"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1].trim();
+const workHistoryHeading = aboutPage.match(/id="work-history"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1].trim();
+const toolsHeading = aboutPage.match(/id="skills-and-software"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1].trim();
+const contactHeading = aboutPage.match(/id="get-in-touch"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1].trim();
 const resumeLabel = aboutPage.match(/<span class="button__text">([^<]+)<\/span>/)?.[1];
 const linkedinLabel = aboutPage.match(/<SiteLink\b[^>]*href="https:\/\/www\.linkedin\.com\/[^"]+"[^>]*>([^<]+)<\/SiteLink>/)?.[1];
 assert(skillsHeading && workHistoryHeading && toolsHeading && contactHeading && resumeLabel && linkedinLabel, 'Main About page labels are missing.');

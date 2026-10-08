@@ -3,13 +3,15 @@
 
 export const applications = [
   { id: 'accenture', status: 'draft' },
+  { id: 'bny', status: 'published' },
   { id: 'datadog', status: 'published' },
   { id: 'chromatic', status: 'draft' }
 ];
 
-// Rejections confirmed by Carl: ACLU September 26, BNY Director October 6, 2026.
-// Keep retired URLs here to remove stale server directories and prevent accidental reuse.
-export const retiredApplicationSites = ['aclu', 'bny'];
+// ACLU rejection confirmed September 26, 2026.
+// BNY remains published for the active Product Design Lead contract application.
+// Retire an employer URL only after checking every application using that site.
+export const retiredApplicationSites = ['aclu'];
 
 const reservedIds = new Set(['main', 'about', 'portfolio', 'case-studies', 'drawing-board', 'on-my-desk', '404', 'media']);
 

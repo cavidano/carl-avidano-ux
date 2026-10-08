@@ -2,6 +2,8 @@
 
 ## Current direction
 
+**October 8 — BNY restoration:** Carl confirmed that the Product Design Lead contract application remains open after finding `/bny` unavailable. The October 6 Director rejection had incorrectly retired the shared employer URL. Restore BNY as published, remove it from the retirement list, reuse current shared content and the newer general résumé, and retain the separate submitted document archives. Future retirement decisions must check every active role at the employer. Verification and deployment are pending.
+
 **October 6 — Datadog plain introduction, local:** Three compact profile pills (greeting, experience, and location), matching the main homepage’s standard badges, precede the page-opening headline about the role, followed by the comparable-experience paragraph and cards. It has no employer logo, backdrop, or visible case-study heading. Edit `home.profileGreeting`, `home.headline`, and `home.introduction`. Omitting `home.panelHeading` and `Hero.astro` selects this plain introduction; branded drafts retain both together. The shared template and exporter support each without duplicating prose. The main site and other applications are unchanged. Confluence v24/editor d1:7927 and Hemingway match. Local only; not committed or published.
 
 **October 6 — Relevant experience published:** All registered application landing pages use Carl’s approved heading **Relevant experience**. It is live on Datadog in release `c55843b`, verified after successful Cloudways run 37482072340. Accenture and Chromatic retain draft status. Current Confluence pages, saved editors, and Hemingway exports match this heading; use it for future applications. This release also completes the BNY retirement described below: both `/bny/` and its résumé URL return 404. Both local and GitHub builds passed; main and Datadog remain available.
@@ -43,7 +45,7 @@ The build validates the registry, required files, homepage fields, and independe
 
 ## Shared content and application-specific copy
 
-- Use **Relevant case studies** as `home.projectsHeading` across applications. The banner explains why the role interests Carl and summarizes his comparable experience in `home.introduction`. Carl removed the extra Comparable Experience subheading; the paragraph follows the lead directly. Do not duplicate the paragraph below the cards heading. This October 6 revision supersedes the lead-only banner and separate Comparable Experience section. Keep main-portfolio headings, application selections, and unrelated employer copy unchanged.
+- Use **Relevant experience** as `home.projectsHeading` across applications, following Carl’s October 6 approval. The banner explains why the role interests Carl and summarizes his comparable experience in `home.introduction`. Carl removed the extra Comparable Experience subheading; the paragraph follows the lead directly. Do not duplicate the paragraph below the cards heading. This October 6 revision supersedes the lead-only banner and separate Comparable Experience section. Keep main-portfolio headings, application selections, and unrelated employer copy unchanged.
 
 - Keep an **Original job posting** link near the top of every employer’s Confluence application website copy page and local `copy-review.md`, naming the exact role and requisition when available. Preserve the link when an application is closed. Carl requested this on October 6 so postings are easy to find without browser bookmarks. These are editorial reference links, not public landing-page copy or Hemingway narrative.
 
@@ -78,7 +80,7 @@ The production and review builds use the same source and locked dependencies. Th
 
 ## Rejected applications
 
-When Carl confirms a rejection, remove that applicant site from the project. Delete its `src/sites/<application>/` and `public/<application>/` directories, any older standalone page route, and unused employer-specific images and site working notes. Preserve shared case studies, shared components/media, and the separate InDesign/PDF application archive. Git history retains the removed website work.
+When Carl confirms a rejection, first check every role at that employer in the tracker and application records. A rejection closes that role only. Keep the shared employer URL while another active application needs it or Carl requests retention. Remove the applicant site only when no active application needs it. Delete its `src/sites/<application>/` and `public/<application>/` directories, any older standalone page route, and unused employer-specific images and site working notes. Preserve shared case studies, shared components/media, and the separate InDesign/PDF application archive. Git history retains the removed website work.
 
 Remove its entry from `applications` and add its slug to `retiredApplicationSites` in `src/lib/applications/registry.js`. The build rejects retired source directories and routes, verifies that they are absent from the output, and writes `.retired-applications.json` into the deployment artifact. The Cloudways workflow excludes that manifest from public uploads and removes only its validated, explicitly listed application directories after deployment. Active build directories and shared routes cannot be removal targets. Keep the retired slug in the list to prevent accidental reuse.
 
