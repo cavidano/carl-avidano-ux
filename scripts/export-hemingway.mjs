@@ -101,8 +101,8 @@ const aboutData = parseYaml(aboutFrontmatter[1]);
 const aboutNarrative = cleanProse(aboutSource.slice(aboutFrontmatter[0].length), 'main-about');
 assert(!/^#{5,6} /m.test(aboutNarrative), 'About headings are too deeply nested for the combined export.');
 assert(Array.isArray(aboutData.skills) && aboutData.skills.every(skill => typeof skill === 'string'), 'Main About skills are missing.');
-const { name, pronouns, location, email, phone } = aboutData.profile;
-assert([name, pronouns, location, email, phone].every(value => typeof value === 'string'), 'Main About profile is incomplete.');
+const { name, pronouns, role, experience, location, email, phone } = aboutData.profile;
+assert([name, pronouns, role, experience, location, email, phone].every(value => typeof value === 'string'), 'Main About profile is incomplete.');
 
 const aboutPage = readFileSync(join(root, 'src/pages/about.astro'), 'utf8');
 const skillsHeading = aboutPage.match(/id="skills-and-expertise"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1].trim();
@@ -118,9 +118,10 @@ assert(Array.isArray(aboutData.workHistory) && aboutData.workHistory.every(({ or
 ), 'Main About work history is incomplete.');
 assert(Array.isArray(aboutData.tools) && aboutData.tools.every(tool => typeof tool === 'string'), 'Main About tools are incomplete.');
 
-const aboutCopy = (data, narrative) => [
+const aboutCopy = (data, narrative, applicationRole = data.profile.role) => [
   '## About',
-  `${data.profile.name}\n\n${data.profile.pronouns}\n\nLocation: ${data.profile.location}`,
+  `${data.profile.name}\n\n${data.profile.pronouns}`,
+  [applicationRole, data.profile.experience, `Based in ${data.profile.location}`].map(label => `- ${label}`).join('\n'),
   narrative.replace(/^(#{1,4}) /gm, '##$1 '),
   `### ${skillsHeading}\n\n${data.skills.map(skill => `- ${skill}`).join('\n')}`,
   `### ${toolsHeading}\n\n${data.tools.map(tool => `- ${tool}`).join('\n')}`,
@@ -172,7 +173,7 @@ for (const siteId of applicationSites) {
     `### ${home.projectsHeading}`,
     `### ${home.whoHeading}\n\n${home.who}`,
     `### ${home.whatHeading}\n\n${home.what}`,
-    ...aboutCopy(applicationAboutData, applicationAboutNarrative)
+    ...aboutCopy(applicationAboutData, applicationAboutNarrative, home.role)
   ].join('\n\n') + '\n');
   console.log(`applications/${siteId}.md: application introduction, two homepage blurbs, and full About copy`);
 }

@@ -8,7 +8,7 @@ import SiteLink from '../components/SiteLink.astro';
 import portrait from '../images/carl-avidano-16x9.jpg';
 import * as defaultAbout from '../content/pages/about.mdx';
 
-const { page = defaultAbout } = Astro.props;
+const { page = defaultAbout, role: applicationRole } = Astro.props;
 const { default: AboutContent, frontmatter } = page;
 
 const {
@@ -53,7 +53,7 @@ const mdxComponents = {
         <p class="h6">
           {profile.name}
         </p>
-        <p class="font-size-sm">
+        <p class="font-size-md">
           {profile.pronouns}
         </p>
       </div>
@@ -61,17 +61,23 @@ const mdxComponents = {
       <div class="grid grid__colspan-3--xl gap-5">
 
         <section class="grid grid--column-3--lg gap-3">
-          <p class="font-size-md margin-bottom-0">
-            Location:<br />{profile.location}
-          </p>
+
+          <div>
+            <ul class="nav flex-column font-size-md">
+              <li>{applicationRole ?? profile.role}</li>
+              <li>{profile.experience}</li>
+              <li>Based in {profile.location}</li>
+            </ul>
+          </div>
 
           <div class="grid__colspan-2--lg">
             <AboutContent components={mdxComponents} />
           </div>
+
         </section>
 
         <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-expertise">
-          <h2 class="h5 margin-bottom-0">
+          <h2 class="h5">
             Skills
           </h2>
 
@@ -120,7 +126,10 @@ const mdxComponents = {
         </section>
 
         <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="get-in-touch">
-          <h2 class="h5 margin-bottom-0">Get in touch</h2>
+
+          <h2 class="h5">
+            Contact
+          </h2>
 
           <div class="grid grid--column-2--md gap-4 grid__colspan-2--lg font-size-md">
             <ul class="nav gap-2 margin-bottom-0">

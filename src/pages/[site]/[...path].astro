@@ -8,6 +8,7 @@ import DrawingBoardPage from '../drawing-board/index.astro';
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import { getApplicationSites } from '../../lib/applications/registry.js';
 import { getApplicationAboutPage } from '../../lib/applications/about.js';
+import { getApplicationCopy } from '../../lib/applications/copy.js';
 import { getAllProjects } from '../../lib/projects.js';
 import { getDrawingBoardPosts, getDrawingBoardTags } from '../../lib/drawing-board/loader.js';
 
@@ -35,7 +36,7 @@ const Hero = heroes[`../../sites/${Astro.params.site}/Hero.astro`];
 const { kind, project, post, posts, tag } = Astro.props;
 ---
 {kind === 'home' && <ApplicationHomePage>{Hero && <Hero slot="hero" />}</ApplicationHomePage>}
-{kind === 'about' && <About page={getApplicationAboutPage(Astro.params.site)} />}
+{kind === 'about' && <About page={getApplicationAboutPage(Astro.params.site)} role={getApplicationCopy(Astro.params.site).home.role} />}
 {kind === 'project' && project && <ProjectPage project={project} />}
 {kind === 'post' && post && <PostPage post={post} />}
 {kind === 'articles' && <DrawingBoardPage posts={posts ?? []} currentTag={tag} />}
