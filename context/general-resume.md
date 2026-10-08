@@ -1,6 +1,25 @@
 # General résumé
 
-## October 8 revision — published
+## October 8 latest general PDF — approved website replacement
+
+Carl explicitly selected the latest completed general PDF for all website downloads. Copy the exact finished PDF; do not re-export it or revise the website’s short résumé.
+
+- Source: `/Users/carlavidano/Projects/Job Applications/CVs/__General/__PDF/resume-carl-avidano.pdf`.
+- Two US Letter pages, 98,135 bytes; SHA-256 `7f62770ec16060dbe881626ca0eae9036f781636f4f9da36c67e65299bf555d7`.
+- Both pages were rendered and visually reviewed during the preceding assessment. The source hash was rechecked before copying; all five public assets match exactly. Publication verification is pending.
+- The short website résumé remains a concise reference to experience and skills. Hold proposed achiever-pattern edits there. The next enhancement is to identify the lessons in each case study, with supported connections to later work; see [case-study guidance](case-studies.md#october-8--next-enhancement-lessons-from-each-case-study).
+- Preserve the existing InDesign source and all employer-specific document archives and submitted attachments.
+
+## October 8 achiever-pattern review — version distinction
+
+Historical review before the latest replacement above: the saved general export and live website asset differed. The review compared both; it did not replace either document or publish a PDF.
+
+- Saved general export: `/Users/carlavidano/Projects/Job Applications/CVs/__General/__PDF/resume-carl-avidano.pdf`; 98,135 bytes; SHA-256 `7f62770ec16060dbe881626ca0eae9036f781636f4f9da36c67e65299bf555d7`. Its summary begins “UX leader, researcher, and design systems engineer with over 20 years…”, Skills includes Stakeholder Alignment, and Avidano Digital includes February 2011.
+- Previously published website asset: `public/resume-carl-avidano.pdf`; 98,269 bytes; SHA-256 `674d47fc081022d82ab2d4918dc393941767e95101f81782e1b5997c813cd6ae`. Its summary begins “UX leader, researcher, and design systems engineer. 20+ years…”, Skills includes Stakeholder Research, and the Avidano Digital date is 2011 without a month.
+- Other differences include Phoenix leadership wording and the Natura11y/UNICEF/CCF descriptions. The central career-progression evidence is present in both. Carl subsequently explicitly selected the saved general export for the replacement recorded above.
+- The saved export’s two pages were rendered and inspected for this review. The website’s concise Experience section was read from the current shared About frontmatter.
+
+## Earlier October 8 revision — superseded
 
 - Carl supplied `/Users/carlavidano/Projects/Job Applications/CVs/__General/__PDF/resume-carl-avidano.pdf` as his newer general résumé. Use this exact supplied export for the next approved replacement, rather than the older `__Templates` path.
 - The same folder contains `/Users/carlavidano/Projects/Job Applications/CVs/__General/Carl-Avidano-CV.indd`; it was not opened or modified during this review.
@@ -24,14 +43,15 @@ Carl asked to save the current general résumé and replace every website résum
 
 ## Website copies
 
-All four independent PDF assets now contain the verified October 8 export:
+All five independent PDF assets contain the latest approved 98,135-byte October 8 export:
 
 - `public/resume-carl-avidano.pdf`
+- `public/bny/resume-carl-avidano.pdf`
 - `public/datadog/resume-carl-avidano.pdf`
 - `public/accenture/resume-carl-avidano.pdf`
 - `public/chromatic/resume-carl-avidano.pdf`
 
-Keep existing scoped download URLs. Main and Datadog are published; Accenture and Chromatic remain drafts. Retired sites remain retired. Do not replace employer document archives or resubmit any application.
+Keep existing scoped download URLs. Main, BNY, and Datadog are published; Accenture and Chromatic remain drafts. ACLU remains retired. Do not replace employer document archives or resubmit any application.
 
 ## October 7 publication (superseded by October 8)
 

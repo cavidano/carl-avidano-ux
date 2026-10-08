@@ -25,6 +25,20 @@ Carl supplied [What’s Your Comparable Experience?](Whats_Your_Comparable_Exper
 
 The handout supports the concept of comparable experience; it does not prescribe that exact phrase as a section heading. Carl introduced it after discussing “Comparable experience” versus the approved “Relevant experience” application heading. Do not dismiss “comparable” as inherently defensive or assume it requires the same industry. No public copy change was requested by the request to read this source.
 
+## October 8 source: application packet and achiever pattern
+
+Carl added [Section 2: Creating Your Application Packet — Part 1](Section_2_Creating_Your_Application_Packet_-_Part_1.pdf), a nine-page handout from Jared Spool’s UX job-search course. All nine pages were read on October 8; the relevant pages 6–7 were also rendered and visually reviewed. The original PDF remains local and outside the website release.
+
+- Pages 2–5 treat the application packet (résumé, portfolio, LinkedIn, and interactions) as a way to communicate an authentic, coherent account of the candidate’s relevant experience.
+- Page 6 distinguishes experience and the judgment learned through work from a list of skills or a description of a generic process. Show what the candidate learned, including what did not work, and how that informs future work.
+- Pages 6–7 define the achiever pattern as growth over a career: increasingly advanced work, responsibility, reach, influence, challenges, and accomplishments. Years served and changing job titles alone do not establish it.
+- Page 7 asks how lessons from earlier projects informed later ones and what value the work created: who benefited and what would have been missing without the candidate’s contribution. Quantified outcomes can help, but scope, judgment, initiative, and the value of completed work are also relevant evidence.
+- Page 8 recommends selecting the experience that matters for the target role and avoiding personal details that distract from that connection. Carl’s disability statement is directly connected to inclusive design; do not treat it as an unrelated hobby or automatically remove it.
+
+For future résumé and portfolio reviews, assess both the progression visible across roles and the concrete evidence within each role. Keep the distinction between showing broad experience and showing growth in responsibility and judgment. Avoid inventing promotions, continuous year-by-year advancement, team sizes, metrics, causal claims, or lessons not supplied by Carl.
+
+October 8 review: the two-page general résumé shows a defensible progression from agency design and production into service/platform work, system ownership, research strategy, and directing and mentoring designers. Reingold’s Phoenix and Nebraska pilot examples provide concrete scope and initiative; Avidano Digital supplies system ownership and international platform work. The short website résumé preserves the job-title progression but its general responsibility bullets omit much of that supporting evidence. Carl subsequently decided to keep the short website résumé as a concise reference and hold those revisions. The next enhancement is to identify lessons from each case study and, where supported by his account, how those lessons informed later work. This is future editorial work; do not rewrite case studies or the short résumé now. The latest completed general PDF is separately approved for website publication.
+
 ## Guidance from the workshop
 
 | Principle | What it means for a portfolio | PDF pages |

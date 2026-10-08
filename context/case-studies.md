@@ -1,5 +1,11 @@
 # Case studies
 
+## October 8 — next enhancement: lessons from each case study
+
+Carl wants the next editorial enhancement to identify what he learned in each case study. Where his account supports it, show how an earlier lesson informed a later decision or project. Use specific experience and judgment; do not invent lessons, causal connections, or outcomes. Review existing reflections first, then discuss any missing evidence with Carl before drafting.
+
+This is future work, not authorization to rewrite the case studies now. The short résumé on the website should remain a concise reference to roles, experience, and skills; hold the proposed achiever-pattern revisions there. The immediate approved task is publishing the latest completed general résumé PDF. See [Jared’s application-packet guidance](jared-spool-ux-portfolio-2026.md#october-8-source-application-packet-and-achiever-pattern).
+
 ## October 5 — Natura11y final montage published
 
 Carl approved the final montage and called for the usual publication and synchronization. Release **86934e0606f774a021a2402c07b7c5afb5539142** is merged into main and live through [Cloudways run 37350501751](https://github.com/cavidano/carl-avidano-ux/actions/runs/37350501751). The native Figma export `natura11y-project-examples` replaces the former six-browser montage above Looking ahead. Its CCF favicon, tab title, and URL are corrected; the exported exterior is transparent. The main and BNY Natura11y pages and their new 446,786-byte WebP match the exact GitHub artifact. The approved prose is unchanged.

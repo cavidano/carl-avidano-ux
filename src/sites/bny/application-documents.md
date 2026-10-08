@@ -6,7 +6,9 @@ The restored `/bny/resume-carl-avidano.pdf` uses the current general résumé, c
 
 - Source: `/Users/carlavidano/Projects/Job Applications/CVs/__General/__PDF/resume-carl-avidano.pdf`
 - Website asset: `public/bny/resume-carl-avidano.pdf`
-- SHA-256: `674d47fc081022d82ab2d4918dc393941767e95101f81782e1b5997c813cd6ae`
+- SHA-256: `7f62770ec16060dbe881626ca0eae9036f781636f4f9da36c67e65299bf555d7`
+
+The latest completed two-page export is 98,135 bytes. See [the general résumé record](../../../context/general-resume.md) for publication verification. The short website résumé is unchanged.
 
 ## Submitted contract documents — preserved
 
