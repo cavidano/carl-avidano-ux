@@ -8,4 +8,4 @@ The separate Director, Product Design role (82305) was rejected on October 6. Th
 
 Restore the existing BNY identity and selected work, use the Product Design Lead role label, and remove the rejected Director role and Fund & Investor Solutions motivation from current website copy. Reuse the current shared About page and case studies. This is a site restoration, not new job-requirement research or a new tailored document pass.
 
-Website publication: registered as published for the authorized repair; deployment verification is recorded in copy-review.md.
+Website publication: published and verified in release `a757371` on October 8, 2026; deployment verification is recorded in copy-review.md.
