@@ -14,6 +14,17 @@ Carl asked to retain this workshop as a guide for future portfolio work. This is
 
 Build the portfolio around evidence that you can do the work required by a particular position. A reader should be able to recognize relevant experience without needing you there to explain the connection. The landing page establishes the fit, and the case studies substantiate it. (Pages 9-11, 14.)
 
+## Additional source read October 6: comparable experience
+
+Carl supplied [What’s Your Comparable Experience?](Whats_Your_Comparable_Experience.pdf), a four-page Jared Spool / Center Centre handout from *The Essentials of Finding Your Next UX Job*, episode 1. All four pages were read and visually reviewed. Use it alongside the workshop below.
+
+- Pages 2–3 define comparable experience through the specific work an employer needs done, rather than a generic job title. Make the connection between that work and verified past experience easy to recognize.
+- Page 3 treats finding that evidence as a usability problem: the hiring manager should not have to work to uncover the match. Coordinate the portfolio, résumé, and any cover letter around the actual posting.
+- For leadership roles, page 3 specifically asks what the candidate’s past teams accomplished that compares with what the hiring manager needs to accomplish. Show supported team results and Carl’s contribution to them, alongside individual craft.
+- Page 4 supports using multiple tailored résumés or portfolios when that makes the connection clearer.
+
+The handout supports the concept of comparable experience; it does not prescribe that exact phrase as a section heading. Carl introduced it after discussing “Comparable experience” versus the approved “Relevant experience” application heading. Do not dismiss “comparable” as inherently defensive or assume it requires the same industry. No public copy change was requested by the request to read this source.
+
 ## Guidance from the workshop
 
 | Principle | What it means for a portfolio | PDF pages |

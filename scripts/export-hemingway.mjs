@@ -107,34 +107,28 @@ assert([name, pronouns, location, email, phone].every(value => typeof value === 
 const aboutPage = readFileSync(join(root, 'src/pages/about.astro'), 'utf8');
 const skillsHeading = aboutPage.match(/id="skills-and-expertise"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1];
 const workHistoryHeading = aboutPage.match(/id="work-history"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1];
-const softwareSkillsHeading = aboutPage.match(/id="skills-and-software"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1];
+const toolsHeading = aboutPage.match(/id="skills-and-software"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1];
 const contactHeading = aboutPage.match(/id="get-in-touch"[\s\S]*?<h2\b[^>]*>([^<]+)<\/h2>/)?.[1];
 const resumeLabel = aboutPage.match(/<span class="button__text">([^<]+)<\/span>/)?.[1];
 const linkedinLabel = aboutPage.match(/<SiteLink\b[^>]*href="https:\/\/www\.linkedin\.com\/[^"]+"[^>]*>([^<]+)<\/SiteLink>/)?.[1];
-assert(skillsHeading && workHistoryHeading && softwareSkillsHeading && contactHeading && resumeLabel && linkedinLabel, 'Main About page labels are missing.');
+assert(skillsHeading && workHistoryHeading && toolsHeading && contactHeading && resumeLabel && linkedinLabel, 'Main About page labels are missing.');
 assert(Array.isArray(aboutData.workHistory) && aboutData.workHistory.every(({ organization, role, period, highlights }) =>
   [organization, role, period].every(value => typeof value === 'string') &&
   Array.isArray(highlights) && highlights.every(value => typeof value === 'string')
 ), 'Main About work history is incomplete.');
-assert(Array.isArray(aboutData.softwareSkills) && aboutData.softwareSkills.every(({ category, items }) =>
-  typeof category === 'string' && Array.isArray(items) && items.every(item => typeof item === 'string')
-), 'Main About software skills are incomplete.');
+assert(Array.isArray(aboutData.tools) && aboutData.tools.every(tool => typeof tool === 'string'), 'Main About tools are incomplete.');
 
 const aboutCopy = (data, narrative) => [
   '## About',
   `${data.profile.name}\n\n${data.profile.pronouns}\n\nLocation: ${data.profile.location}`,
   narrative.replace(/^(#{1,4}) /gm, '##$1 '),
   `### ${skillsHeading}\n\n${data.skills.map(skill => `- ${skill}`).join('\n')}`,
+  `### ${toolsHeading}\n\n${data.tools.map(tool => `- ${tool}`).join('\n')}`,
   `### ${workHistoryHeading}`,
   ...data.workHistory.map(({ organization, role, period, highlights }) =>
-    `#### ${organization} · ${role}\n\n${period}\n\n${highlights.map(highlight => `- ${highlight}`).join('\n')}`
+    `#### ${role} | ${organization}\n\n${period}\n\n${highlights.map(highlight => `- ${highlight}`).join('\n')}`
   ),
-  `_${data.earlierExperience}_`,
-  `### ${softwareSkillsHeading}`,
-  ...data.softwareSkills.map(({ category, items }) =>
-    `#### ${category}\n\n${items.map(item => `- ${item}`).join('\n')}`
-  ),
-  `### ${contactHeading}\n\n- ${data.profile.phone}\n- ${data.profile.email}\n- ${linkedinLabel}`,
+  `### ${contactHeading}\n\n- ${data.profile.email}\n- ${linkedinLabel}\n- ${data.profile.phone}`,
   resumeLabel
 ];
 const mainSiteCopy = [
@@ -146,7 +140,7 @@ const mainSiteCopy = [
   ...aboutCopy(aboutData, aboutNarrative)
 ];
 writeFileSync(join(output, 'main-site.md'), mainSiteCopy.join('\n\n') + '\n');
-console.log(`main-site.md: homepage introduction and blurbs, full About narrative, ${aboutData.skills.length} expertise areas, ${aboutData.workHistory.length} work-history entries, and ${aboutData.softwareSkills.length} software-skills groups`);
+console.log(`main-site.md: homepage introduction and blurbs, full About narrative, ${aboutData.skills.length} skills, ${aboutData.tools.length} tools, and ${aboutData.workHistory.length} experience entries`);
 
 // Include every application, preserving its introduction and any future About override.
 const applicationOutput = join(output, 'applications');

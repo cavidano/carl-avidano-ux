@@ -17,18 +17,13 @@ const {
   portraitAlt = defaultAbout.frontmatter.portraitAlt,
   skills = defaultAbout.frontmatter.skills,
   workHistory = defaultAbout.frontmatter.workHistory,
-  earlierExperience = defaultAbout.frontmatter.earlierExperience,
-  softwareSkills = defaultAbout.frontmatter.softwareSkills
+  tools = defaultAbout.frontmatter.tools
 } = frontmatter;
 type WorkHistoryEntry = {
   organization: string;
   role: string;
   period: string;
   highlights: string[];
-};
-type SoftwareSkillGroup = {
-  category: string;
-  items: string[];
 };
 const profile = { ...defaultAbout.frontmatter.profile, ...frontmatter.profile };
 const phoneHref = `tel:${profile.phone.replace(/[^\d+]/g, '')}`;
@@ -56,7 +51,7 @@ const mdxComponents = {
 
       <div>
         <p class="h6">{profile.name}</p>
-        <p>{profile.pronouns}</p>
+        <p class="font-size-sm">{profile.pronouns}</p>
       </div>
 
       <div class="grid grid__colspan-3--xl gap-5">
@@ -70,7 +65,7 @@ const mdxComponents = {
         </section>
 
         <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-expertise">
-          <h2 class="h5 margin-bottom-0">Expertise</h2>
+          <h2 class="h5 margin-bottom-0">Skills</h2>
 
           <div class="grid__colspan-2--lg">
             <ul class="grid gap-2 font-size-md margin-bottom-0">
@@ -81,14 +76,26 @@ const mdxComponents = {
           </div>
         </section>
 
+        <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-software">
+          <h2 class="h5 margin-bottom-0">Tools</h2>
+
+          <div class="grid__colspan-2--lg">
+            <ul class="grid gap-2 font-size-md margin-bottom-0">
+              {tools.map((tool: string) => (
+                <li>{tool}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="work-history">
-          <h2 class="h5 margin-bottom-0">Work history</h2>
+          <h2 class="h5 margin-bottom-0">Experience</h2>
 
           <div class="grid__colspan-2--lg font-size-md">
             <div class="grid gap-4">
               {workHistory.map(({ organization, role, period, highlights }: WorkHistoryEntry) => (
                 <div>
-                  <h3 class="h6 margin-bottom-1">{organization} · {role}</h3>
+                  <h3 class="h6 margin-bottom-1">{role} | {organization}</h3>
                   <p class="font-size-sm margin-bottom-2">{period}</p>
                   <ul>
                     {highlights.map((highlight) => <li>{highlight}</li>)}
@@ -96,22 +103,6 @@ const mdxComponents = {
                 </div>
               ))}
             </div>
-            <p class="margin-top-3 margin-bottom-0"><em>{earlierExperience}</em></p>
-          </div>
-        </section>
-
-        <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-software">
-          <h2 class="h5 margin-bottom-0">Skills and software</h2>
-
-          <div class="software-skills grid__colspan-2--lg font-size-md">
-            {softwareSkills.map(({ category, items }: SoftwareSkillGroup) => (
-              <div>
-                <h3 class="h6 margin-bottom-2">{category}</h3>
-                <ul class="grid gap-1 margin-bottom-0">
-                  {items.map((item) => <li>{item}</li>)}
-                </ul>
-              </div>
-            ))}
           </div>
         </section>
 
@@ -121,13 +112,13 @@ const mdxComponents = {
           <div class="grid grid--column-2--md gap-4 grid__colspan-2--lg font-size-md">
             <ul class="nav gap-2 margin-bottom-0">
               <li>
-                <SiteLink href={phoneHref}>{profile.phone}</SiteLink>
-              </li>
-              <li>
                 <SiteLink href={`mailto:${profile.email}`}>{profile.email}</SiteLink>
               </li>
               <li>
                 <SiteLink href="https://www.linkedin.com/in/carlavidano/" target="_blank" rel="noreferrer">LinkedIn</SiteLink>
+              </li>
+              <li>
+                <SiteLink href={phoneHref}>{profile.phone}</SiteLink>
               </li>
             </ul>
 
@@ -145,23 +136,3 @@ const mdxComponents = {
   </main>
 
 </Layout>
-
-<style lang="scss">
-  @use '@natura11y/core/src/scss/breakpoint';
-
-  .software-skills {
-    column-gap: var(--spacer-4);
-
-    @include breakpoint.breakpoint-up(md) {
-      column-count: 2;
-    }
-
-    > div {
-      break-inside: avoid;
-
-      &:not(:last-child) {
-        margin-block-end: var(--spacer-4);
-      }
-    }
-  }
-</style>

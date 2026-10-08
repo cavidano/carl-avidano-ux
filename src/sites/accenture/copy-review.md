@@ -1,5 +1,9 @@
 # Accenture / Work & Co copy review
 
+**October 6 — Relevant case studies restored, local:** Restored the shared cards heading as part of the Datadog banner refinement. Employer narrative and selected projects are unchanged. Website, Confluence v12/editor d1:6314, and Hemingway match. Draft remains unpublished.
+
+**October 6 — Comparable Experience, local review:** Updated the heading to Carl’s exact “Comparable Experience.” Employer-specific narrative remains unchanged. Website source, Confluence 28344323 v11 / editor d1:6300, and Hemingway are verified. Review build passed 25 tests, zero diagnostics, and a 96-page audit. Work is on `codex/comparable-experience`; not committed or deployed.
+
 **October 6 — Relevant experience:** Renamed the application landing-page project heading to Carl’s exact “Relevant experience.” Website source, Hemingway export, and Confluence 28344323 v10 / editor d1:6288 are synchronized and verified. The selected projects, other copy, and publication status are preserved. Carl authorized publishing Datadog with this shared heading convention; the release result is recorded in the context index.
 
 **Original job posting:** [Accenture / Work & Co — Senior Design Lead (R00334614)](https://www.accenture.com/us-en/careers/jobdetails?id=R00334614_en&title=Senior+Design+Lead)
