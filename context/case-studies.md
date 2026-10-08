@@ -1,5 +1,11 @@
 # Case studies
 
+## October 8 — listing introduction synchronized, local
+
+Carl approved and explicitly requested this exact sentence: “I have led and contributed to impactful digital projects, both independently and as part of collaborative teams.” Preserve “I have” and “collaborative teams”; he prefers the latter for its emphasis on how he works with others.
+
+Replaced only the introduction in `src/pages/case-studies/index.astro` and the Introduction paragraph on main Confluence Case Studies page `24444930` (v18). The current page and saved editor `d1:1042` both contain the exact sentence; existing editor macro configuration is preserved. Regenerated `output/hemingway/case-studies/case-study-summaries.md` with the normal full Hemingway export. Exact text verified in the export and local rendered `/case-studies` page (HTTP 200). Project cards, case narratives, SEO, and application copy are unchanged. Application overviews remain on their employer homepages; they do not reuse this main listing introduction. This is a local copy update, not a commit or deployment. The unrelated About pronoun-size edit remains uncommitted.
+
 ## October 8 — next enhancement: lessons from each case study
 
 Carl wants the next editorial enhancement to identify what he learned in each case study. Where his account supports it, show how an earlier lesson informed a later decision or project. Use specific experience and judgment; do not invent lessons, causal connections, or outcomes. Review existing reflections first, then discuss any missing evidence with Carl before drafting.
