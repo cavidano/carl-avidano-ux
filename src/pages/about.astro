@@ -50,14 +50,20 @@ const mdxComponents = {
     <article class="about-page grid grid--column-4--xl gap-3 border-top padding-y-4">
 
       <div>
-        <p class="h6">{profile.name}</p>
-        <p class="font-size-sm">{profile.pronouns}</p>
+        <p class="h6">
+          {profile.name}
+        </p>
+        <p class="font-size-sm">
+          {profile.pronouns}
+        </p>
       </div>
 
       <div class="grid grid__colspan-3--xl gap-5">
 
         <section class="grid grid--column-3--lg gap-3">
-          <p class="font-size-md margin-bottom-0">Location:<br />{profile.location}</p>
+          <p class="font-size-md margin-bottom-0">
+            Location:<br />{profile.location}
+          </p>
 
           <div class="grid__colspan-2--lg">
             <AboutContent components={mdxComponents} />
@@ -65,7 +71,9 @@ const mdxComponents = {
         </section>
 
         <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-expertise">
-          <h2 class="h5 margin-bottom-0">Skills</h2>
+          <h2 class="h5 margin-bottom-0">
+            Skills
+          </h2>
 
           <div class="grid__colspan-2--lg">
             <ul class="grid gap-2 font-size-md margin-bottom-0">
@@ -74,9 +82,11 @@ const mdxComponents = {
               ))}
             </ul>
           </div>
+
         </section>
 
         <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="skills-and-software">
+
           <h2 class="h5 margin-bottom-0">Tools</h2>
 
           <div class="grid__colspan-2--lg">
@@ -86,9 +96,11 @@ const mdxComponents = {
               ))}
             </ul>
           </div>
+
         </section>
 
         <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="work-history">
+
           <h2 class="h5 margin-bottom-0">Experience</h2>
 
           <div class="grid__colspan-2--lg font-size-md">
@@ -104,6 +116,7 @@ const mdxComponents = {
               ))}
             </div>
           </div>
+
         </section>
 
         <section class="grid grid--column-3--lg gap-3 border-top padding-top-4" id="get-in-touch">
